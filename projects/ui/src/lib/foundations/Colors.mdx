@@ -1,0 +1,69 @@
+import { Heading, Meta } from '@storybook/blocks';
+import { colorPrimitives } from '../styles';
+
+<Meta title="foundations/Colors" />
+
+# Colors
+
+Foundational colors to be used by different [themes](/docs/foundations-theme--docs).
+These colors are not context-specific, and should not be used directly in components.
+
+All variables are sourced from [Untitled UI](https://www.untitledui.com/components/color-styles).
+
+<div>
+  {Object.values(colorPrimitives).map((item) => (
+    <div key={item.id} style={{ marginBlock: 40 }}>
+      <Heading>{item.name}</Heading>
+      <div class="docs-colorSwatch sb-unstyled theme-light">
+        {Object.entries(item.values).map(([weight, hex]) => {
+          const variable = `${item.id}-${weight}`;
+          return (
+            <div class="docs-colorItem" key={variable}>
+              <div class="color" style={{ backgroundColor: hex }} />
+              <div class="info">
+                <div class="variable">{variable}</div>
+                <div class="hex">{hex}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  {`
+    .docs-colorSwatch {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      row-gap: 12px;
+    }
+
+    .docs-colorItem {
+      background-color: var(--bg-primary);
+      font: var(--type-text-xs);
+      overflow: hidden;
+    }
+
+    .docs-colorItem .color {
+      height: 40px;
+    }
+
+    .docs-colorItem .info {
+      padding-block: 4px;
+      padding-inline: 8px;
+    }
+
+    .docs-colorItem .variable {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .docs-colorItem .hex {
+      color: var(--text-tertiary);
+      font-size: 11px;
+      font-weight: 400;
+    }
+  `}
+</style>

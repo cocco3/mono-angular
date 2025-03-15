@@ -9,6 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:demo-app": "node dist/demo-app/server/server.mjs",
+    "assets:build": "ts-node ./projects/ui/src/build/runBuild.ts",
     "sb:dev": "ng run ui:storybook",
     "sb:build": "ng run ui:build-storybook"
   },
@@ -45,10 +46,12 @@
     "@storybook/test": "^8.6.6",
     "@storybook/theming": "^8.6.6",
     "@types/express": "^4.17.17",
+    "@types/fs-extra": "^11.0.4",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
     "angular-eslint": "^19.2.1",
     "eslint": "^9.22.0",
+    "fs-extra": "^11.3.0",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -60,6 +63,8 @@
     "prettier": "^3.5.3",
     "simple-git-hooks": "^2.11.1",
     "storybook": "^8.6.6",
+    "svgo": "^3.3.2",
+    "ts-node": "^10.9.2",
     "typescript": "~5.7.2"
   },
   "simple-git-hooks": {

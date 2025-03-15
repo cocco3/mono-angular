@@ -1,0 +1,12 @@
+:host {
+  align-items: center;
+  aspect-ratio: 1;
+  display: inline-flex;
+  justify-content: center;
+}
+
+:host ::ng-deep svg {
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}

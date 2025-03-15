@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks';
+import { svgIconStore } from '../icons';
+
+<Meta title="foundations/Icons" />
+
+# Icons
+
+Icons sourced from [Untitled UI](https://www.untitledui.com/free-icons).
+
+<div class="sb-iconGrid theme-light">
+  {Object.entries(svgIconStore).map(([key, value]) => (
+    <div class="item">
+      <div class="icon" dangerouslySetInnerHTML={{ __html: value }} />
+      {key}
+    </div>
+  ))}
+</div>
+
+<style>
+  {`
+    .sb-iconGrid {
+      columns: 3;
+    }
+
+    .sb-iconGrid .item {
+      align-items: center;
+      color: var(--text-primary);
+      display: flex;
+      gap: 8px;
+      padding-block: 12px;
+      padding-inline: 12px;
+    }
+
+    .sb-iconGrid .icon {
+      display: flex;
+      height: 24px;
+    }
+  `}
+</style>

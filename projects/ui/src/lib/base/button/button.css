@@ -1,0 +1,111 @@
+:host {
+  align-items: center;
+  background-color: var(--button-background-color);
+  border: none;
+  border-color: var(--button-border-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--button-text-color);
+  display: inline-flex;
+  gap: 8px;
+  margin: 0;
+  justify-content: center;
+  padding-block: 8px;
+  padding-inline: 16px;
+  text-decoration: none;
+  transition-property: background-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  white-space: nowrap;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+@media (hover: hover) {
+  :host:enabled:hover,
+  :host:any-link:hover {
+    cursor: pointer;
+  }
+}
+
+:host:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+:host.kind-primary {
+  --button-background-color: var(--button-primary-default-bg);
+  --button-border-color: var(--button-primary-default-border);
+  --button-text-color: var(--button-primary-default-text);
+
+  &:enabled:hover,
+  &:any-link:hover {
+    --button-background-color: var(--button-primary-hover-bg);
+  }
+}
+
+:host.kind-secondary {
+  --button-background-color: var(--button-secondary-default-bg);
+  --button-border-color: var(--button-secondary-default-border);
+  --button-text-color: var(--button-secondary-default-text);
+
+  &:enabled:hover,
+  &:any-link:hover {
+    --button-background-color: var(--button-secondary-hover-bg);
+  }
+}
+
+:host.kind-tertiary {
+  --button-background-color: var(--button-tertiary-default-bg);
+  --button-border-color: var(--button-tertiary-default-border);
+  --button-text-color: var(--button-tertiary-default-text);
+
+  &:enabled:hover,
+  &:any-link:hover {
+    --button-background-color: var(--button-tertiary-hover-bg);
+  }
+}
+
+:host.kind-destructive {
+  --button-background-color: var(--button-destructive-default-bg);
+  --button-border-color: var(--button-destructive-default-border);
+  --button-text-color: var(--button-destructive-default-text);
+
+  &:enabled:hover,
+  &:any-link:hover {
+    --button-background-color: var(--button-destructive-hover-bg);
+  }
+}
+
+:host.size-small {
+  font: 600 var(--type-text-sm);
+  min-height: 36px;
+  padding-block: 4px;
+  padding-inline: 12px;
+}
+
+:host.size-medium {
+  font: 600 var(--type-text-sm);
+  min-height: 40px;
+  padding-block: 8px;
+  padding-inline: 14px;
+}
+
+:host.size-large {
+  font: 600 var(--type-text-md);
+  min-height: 44px;
+  padding-block: 8px;
+  padding-inline: 16px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+}

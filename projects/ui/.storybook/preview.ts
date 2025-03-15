@@ -34,6 +34,19 @@ const preview: Preview = {
 
     docs: {
       canvas: { sourceState: 'shown' },
+      codePanel: true,
+    },
+
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'intro',
+          'foundations',
+          ['Colors', 'Theme', 'Typography', 'Icons', '*'],
+          'base',
+        ],
+      },
     },
   },
 };

@@ -8,4 +8,4 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Libraries
 
-- ui
+- ui - Component library documented with Storybook

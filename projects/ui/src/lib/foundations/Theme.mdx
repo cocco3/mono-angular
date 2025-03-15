@@ -1,0 +1,132 @@
+import { Heading, Meta, Title } from '@storybook/blocks';
+import { lightTheme, darkTheme, colorNameLookup } from '../styles';
+
+<Meta title="foundations/Theme" />
+
+# Theme
+
+Color variables that are defined based on their intended use or meaning. They
+provide context and convey information, such as status, state, or action.
+
+All variables are sourced from [Untitled UI](https://www.untitledui.com/components/color-styles).
+
+The light theme is the **default theme**. Variables are applied on the `:root` pseudo-class
+so no action needs to be taken to apply the light theme.
+
+You can also apply a theme to an element and all of its children by adding one of the theme classes:
+
+- `theme-light`
+- `theme-dark`
+
+<div>
+  {Object.entries(lightTheme).map(([key, item]) => (
+    <div key={key} style={{ marginBlock: 40 }}>
+      <Heading>{item.name}</Heading>
+      <div class="list sb-unstyled theme-light">
+        {Object.entries(item.values).map(([weight, hex]) => {
+          const variable = `${item.id}-${weight}`
+          const lightThemeHex = hex
+          const darkThemeHex = darkTheme[key].values[weight]
+
+          return (
+            <div class="row">
+              <div class="variableName theme-light">
+                {variable}
+              </div>
+
+              <div class="colorChip theme-light">
+                <div class="color"
+                  style={{ backgroundColor: lightThemeHex}} />
+                <div>
+                  <div class="variable">{colorNameLookup(lightThemeHex)}</div>
+                  <div class="hex">{lightThemeHex}</div>
+                </div>
+              </div>
+
+              <div class="colorChip theme-dark">
+                <div class="color"
+                  style={{ backgroundColor: darkThemeHex}} />
+                <div>
+                  <div class="variable">{colorNameLookup(darkThemeHex)}</div>
+                  <div class="hex">{darkThemeHex}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+))}
+
+</div>
+
+## Usage
+
+```css
+.someClass {
+  --component-text-color: var(--text-primary);
+
+  background-color: var(--bg-primary);
+  color: var(--component-text-color);
+}
+
+.someClass.error {
+  --component-text-color: var(--text-error);
+}
+```
+
+<style>
+  {`
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      align-items: center;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .variableName {
+      color: var(--text-primary);
+      font: 500 var(--type-text-md);
+    }
+
+    .colorChip {
+      align-items: center;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-secondary);
+      border-radius: 12px;
+      color: var(--text-primary);
+      display: flex;
+      font: var(--type-text-xs);
+      gap: 6px;
+      padding-block: 4px;
+      padding-inline: 4px 12px;
+    }
+
+    .colorChip .color {
+      aspect-ratio: 1 / 1;
+      background-clip: content-box;
+      border: 1px solid var(--border-secondary);
+      border-radius: 8px;
+      flex-shrink: 0;
+      padding-block: 4px;
+      padding-inline: 4px;
+      width: 28px;
+    }
+
+    .colorChip .variable {
+      color: var(--text-primary);
+      font: 500 var(--type-text-sm);
+    }
+
+    .colorChip .hex {
+      color: var(--text-tertiary);
+      font: 400 var(--type-text-xs);
+    }
+  `}
+</style>

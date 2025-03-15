@@ -1,0 +1,21 @@
+/**
+ * Auto-generated on Sat Mar 15 2025. Do not modify.
+ * @see {@link https://github.com/Quantified-Communications/sim-storybook/blob/dev/CONTRIBUTING.md | Contributing Guidelines}
+ */
+:root {
+  --font-family-display: Inter, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-family-body: Inter, -apple-system, 'Helvetica Neue', sans-serif;
+
+  --type-display-2xl: 72px/1.25 var(--font-family-display);
+  --type-display-xl: 60px/1.2 var(--font-family-display);
+  --type-display-lg: 48px/1.25 var(--font-family-display);
+  --type-display-md: 36px/1.22 var(--font-family-display);
+  --type-display-sm: 30px/1.27 var(--font-family-display);
+  --type-display-xs: 24px/1.33 var(--font-family-display);
+
+  --type-text-xl: 20px/1.5 var(--font-family-body);
+  --type-text-lg: 18px/1.56 var(--font-family-body);
+  --type-text-md: 16px/1.5 var(--font-family-body);
+  --type-text-sm: 14px/1.43 var(--font-family-body);
+  --type-text-xs: 12px/1.5 var(--font-family-body);
+}

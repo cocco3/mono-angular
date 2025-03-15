@@ -1,0 +1,17 @@
+<img
+  *ngIf="!!photoUrl() && !imageHasError"
+  src="{{ photoUrl() }}"
+  class="photo"
+  alt="{{ alt() }}"
+  (error)="handleImageError()"
+/>
+
+<span *ngIf="(!photoUrl() || imageHasError) && fallback() === 'initials'">
+  {{ initials() }}
+</span>
+
+<ui-icon
+  class="icon-placeholder"
+  *ngIf="(!photoUrl() || imageHasError) && fallback() === 'icon'"
+  kind="user"
+/>
