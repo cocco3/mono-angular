@@ -34,6 +34,7 @@
     "@angular/compiler-cli": "^19.2.0",
     "@chromatic-com/storybook": "^3.2.6",
     "@compodoc/compodoc": "^1.1.26",
+    "@storybook/addon-designs": "^8.2.1",
     "@storybook/addon-docs": "^8.6.6",
     "@storybook/addon-essentials": "^8.6.6",
     "@storybook/addon-interactions": "^8.6.6",
