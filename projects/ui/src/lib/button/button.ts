@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'button[ui-button]',
+  selector: 'ui-button',
   imports: [CommonModule],
   template: `<ng-content />`,
-  styles: ['./button.css'],
+  styleUrls: ['./button.css'],
 })
 export class UiButtonComponent {}

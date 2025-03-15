@@ -7,4 +7,4 @@ import { UiButtonComponent } from 'ui';
   standalone: true,
   template: `<button ui-button>Hello</button>`,
 })
-export class AppHeader {}
+export class AppHeaderComponent {}
