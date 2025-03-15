@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  background-color: darkgray;
+  box-sizing: border-box;
+  color: white;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
