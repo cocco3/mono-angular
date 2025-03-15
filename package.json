@@ -2,6 +2,7 @@
   "name": "mono-angular",
   "version": "0.0.0",
   "scripts": {
+    "postinstall": "simple-git-hooks",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -51,8 +52,19 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "nano-staged": "^0.8.0",
     "ng-packagr": "^19.2.0",
+    "prettier": "^3.5.3",
+    "simple-git-hooks": "^2.11.1",
     "storybook": "^8.6.6",
     "typescript": "~5.7.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "./node_modules/.bin/nano-staged"
+  },
+  "nano-staged": {
+    "*.{js,ts,json,css,md,mdx,html}": [
+      "prettier --write"
+    ]
   }
 }
