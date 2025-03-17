@@ -1,0 +1,65 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="layout/slot" docsOnly />
+
+# UiSlotDirective
+
+Use this directive with optional [content placeholders](https://angular.dev/guide/components/content-projection#multiple-content-placeholders).
+
+## Example
+
+### app-child-component.ts
+
+In this example, the child component template has 2 optional content placeholders called `start` and `end` that should be wrapped in a div only if the content has been provided.
+
+In the child component, get all the `UiSlotDirective` content children, and check if they are available with the `useSlots` function.
+
+```ts
+import { CommonModule } from '@angular/common';
+import { Component, contentChildren, input } from '@angular/core';
+import { UiSlotDirective, useSlots } from './slot.directive';
+
+@Component({
+  imports: [CommonModule],
+  selector: 'app-child-component',
+  standalone: true,
+  template: `
+    <div class="icon" *ngIf="hasSlots().start">
+      <ng-content select="[uiSlot='start']" />
+    </div>
+
+    <div *ngIf="!!label()">
+      {{ label() }}
+    </div>
+
+    <div class="icon" *ngIf="hasSlots().end">
+      <ng-content select="[uiSlot='end']" />
+    </div>
+  `,
+})
+export class AppChildComponent {
+  label = input<string>();
+
+  private slots = contentChildren(UiSlotDirective);
+  protected hasSlots = useSlots(this.slots, ['start', 'end']);
+}
+```
+
+### app-parent-component.ts
+
+In the parent component, add the `uiSlot` attribute on the appropriate elements.
+
+```ts
+@Component({
+  imports: [UiSlotDirective, AppChildComponent],
+  selector: 'app-parent-component',
+  standalone: true,
+  template: `
+    <app-child-component label="My label">
+      <span uiSlot="start">Leading slot</span>
+      <span uiSlot="end">Trailing slot</span>
+    </app-child-component>
+  `,
+})
+export class ParentComponent {}
+```
