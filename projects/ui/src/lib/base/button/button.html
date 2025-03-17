@@ -1,0 +1,7 @@
+<span class="icon" *ngIf="hasStartSlot()">
+  <ng-content select="[uiSlot='start']" />
+</span>
+<ng-content />
+<span class="icon" *ngIf="hasEndSlot()">
+  <ng-content select="[uiSlot='end']" />
+</span>

@@ -1,0 +1,53 @@
+:host {
+  align-items: center;
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-primary);
+  border-style: solid;
+  border-width: 0.75px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  color: var(--text-placeholder);
+  display: inline-flex;
+  height: var(--avatar-size);
+  justify-content: center;
+  overflow: hidden;
+  width: var(--avatar-size);
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+.icon-placeholder {
+  height: var(--placeholder-size);
+  width: var(--placeholder-size);
+}
+
+:host.size-small {
+  font: 600 var(--type-text-sm);
+  --avatar-size: 32px;
+  --placeholder-size: 20px;
+}
+
+:host.size-medium {
+  font: 600 var(--type-text-md);
+  --avatar-size: 40px;
+  --placeholder-size: 24px;
+}
+
+:host.size-large {
+  font: 600 var(--type-text-lg);
+  --avatar-size: 48px;
+  --placeholder-size: 28px;
+}
+
+:host .photo {
+  border-radius: inherit;
+  display: block;
+  flex: 1;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}

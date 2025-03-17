@@ -1,0 +1,72 @@
+import { Heading, Meta, Subheading } from '@storybook/blocks';
+import { typography } from '../styles';
+
+<Meta title="foundations/Typography" />
+
+# Typography
+
+Font is [Inter](https://fonts.google.com/specimen/Inter) and variables sourced from [Untitled UI](https://www.untitledui.com/components/typography-styles).
+
+<div>
+  {Object.values(typography).map((group) => (
+    <div key={group.id} style={{ marginBlock: 40 }}>
+      <Heading>{group.name}</Heading>
+      <div class="list sb-unstyled theme-light">
+        {Object.entries(group.values).map(([variantKey, variant]) => {
+          const variable = `type-${group.id}-${variantKey}`
+
+          return (
+            <div class="row" key={variable}>
+              <div class="variableName">
+                {variable}
+              </div>
+
+              <div>
+                {`${variant.size} / ${variant.lineHeight}`}
+              </div>
+
+              <div style={{ font: `var(--${variable})` }}>
+                {`Hello world`}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+
+))}
+
+</div>
+
+<style>
+  {`
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      align-items: center;
+      color: var(--text-primary);
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr 2fr;
+    }
+
+    .variableName {
+      font: 500 var(--type-text-md);
+    }
+  `}
+</style>
+
+## Usage
+
+Use the CSS `font` property and combine the weight with the variable:
+
+```css
+/* bold and large */
+font: 700 var(--text-display-lg);
+
+/* regular and small */
+font: 400 var(--text-type-sm);
+```
