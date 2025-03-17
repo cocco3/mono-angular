@@ -26,10 +26,10 @@ export class UiAvatarComponent {
   /** Full name used for alt text and fallback initials */
   fullName = input.required<string>();
 
-  /** If there is an error loading the photo, fallback will be shown instead. */
+  /** If there is an error loading the photo, fallback will be shown instead */
   photoUrl = input<string>();
 
-  /** Whether to fallback to an icon or initials */
+  /** What do display if image fails to load */
   fallback = input<UiAvatarFallback>('initials');
 
   protected alt = computed(() => `Profile picture for ${this.fullName()}`);

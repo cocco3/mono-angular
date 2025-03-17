@@ -1,0 +1,48 @@
+:host {
+  background-color: var(--bg-primary);
+  border-color: var(--border-primary);
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  display: inline-block;
+  font: 400 var(--type-text-md);
+  min-height: 70px;
+  padding-block: 8px;
+  padding-inline: 12px;
+  resize: none;
+  width: 100%;
+}
+
+@supports (field-sizing: content) {
+  :host.autosize {
+    field-sizing: content;
+  }
+}
+
+:host::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+:host::placeholder {
+  color: var(--text-placeholder);
+}
+
+:host:read-only {
+  background-color: var(--bg-disabled);
+  border-color: var(--border-disabled);
+  color: var(--text-disabled);
+}
+
+:host:disabled {
+  background-color: var(--bg-disabled);
+  border-color: var(--border-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+:host.error {
+  border-color: var(--border-error);
+}

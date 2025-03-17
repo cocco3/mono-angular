@@ -50,10 +50,9 @@ module.exports = tseslint.config(
     ],
     rules: {
       '@angular-eslint/template/prefer-self-closing-tags': ['error'],
-      '@angular-eslint/template/no-call-expression': [
-        'warn',
-        { allowSignals: true },
-      ],
+
+      // disable this until it works better with signals
+      // '@angular-eslint/template/no-call-expression': ['warn'],
     },
   },
   {
