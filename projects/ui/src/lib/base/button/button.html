@@ -1,7 +1,7 @@
-<span class="icon" *ngIf="hasStartSlot()">
+<span class="icon" *ngIf="hasSlots().start">
   <ng-content select="[uiSlot='start']" />
 </span>
 <ng-content />
-<span class="icon" *ngIf="hasEndSlot()">
+<span class="icon" *ngIf="hasSlots().end">
   <ng-content select="[uiSlot='end']" />
 </span>

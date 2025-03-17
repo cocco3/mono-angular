@@ -45,6 +45,7 @@ const preview: Preview = {
           'foundations',
           ['Colors', 'Theme', 'Typography', 'Icons', '*'],
           'base',
+          'layout',
         ],
       },
     },
