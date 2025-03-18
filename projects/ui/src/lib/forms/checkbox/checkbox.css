@@ -1,0 +1,53 @@
+:host {
+  appearance: none;
+  background-color: var(--bg-primary);
+  border-color: var(--border-primary);
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 20px;
+  margin: 0;
+  transition-property: background-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  width: 20px;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+:host:checked {
+  background-color: var(--fg-brand-primary);
+  border-color: transparent;
+}
+
+:host:checked::after {
+  border-block-end: 2px solid var(--bg-primary);
+  border-inline-end: 2px solid var(--bg-primary);
+  content: '';
+  display: block;
+  height: 10px;
+  margin-block-start: 1.5px;
+  margin-inline: auto;
+  transform: rotate(45deg);
+  width: 4px;
+}
+
+:host:disabled {
+  background-color: var(--bg-disabled);
+  border-color: var(--border-disabled);
+  cursor: not-allowed;
+}
+
+:host:disabled:checked::after {
+  border-color: var(--border-disabled);
+}
+
+:host.error {
+  border-color: var(--border-error);
+}

@@ -1,0 +1,50 @@
+:host {
+  background-color: var(--bg-primary);
+  border-color: var(--border-primary);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  display: inline-block;
+  font: 400 var(--type-text-md);
+  height: 40px;
+  padding-block: 8px;
+  padding-inline: 12px;
+  width: 100%;
+}
+
+:host::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+:host::placeholder {
+  color: var(--text-placeholder);
+}
+
+:host:read-only {
+  background-color: var(--bg-disabled);
+  border-color: var(--border-disabled);
+  color: var(--text-disabled);
+}
+
+:host:disabled {
+  background-color: var(--bg-disabled);
+  border-color: var(--border-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+:host.error {
+  border-color: var(--border-error);
+}
+
+/*
+  Webkit browsers use a background image for the calendar icon. Since a color
+  can't be applied directly to a background image, use the filter property
+  to invert it when within a dark theme.
+ */
+:host-context(.theme-dark) :host::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}
