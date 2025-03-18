@@ -9,6 +9,9 @@ type CheckboxStory = UiCheckboxComponent & {
   value?: string;
 };
 
+/**
+ * Use with [form-field](/story/forms-form-field--checkbox) component
+ */
 const meta: Meta<CheckboxStory> = {
   component: UiCheckboxComponent,
   tags: ['autodocs'],

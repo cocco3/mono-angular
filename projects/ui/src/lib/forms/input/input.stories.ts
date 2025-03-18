@@ -15,6 +15,9 @@ type InputStory = UiInputComponent & {
   maxlength?: string;
 };
 
+/**
+ * Use with [form-field](/story/forms-form-field--input) component
+ */
 const meta: Meta<InputStory> = {
   component: UiInputComponent,
   tags: ['autodocs'],

@@ -8,6 +8,9 @@ type TextareaStory = UiTextareaComponent & {
   value?: string;
 };
 
+/**
+ * Use with [form-field](/story/forms-form-field--textarea) component
+ */
 const meta: Meta<TextareaStory> = {
   component: UiTextareaComponent,
   tags: ['autodocs'],
