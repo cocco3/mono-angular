@@ -8,6 +8,9 @@ type SelectStory = UiSelectComponent & {
   value?: string;
 };
 
+/**
+ * Use with [form-field](/story/forms-form-field--select) component
+ */
 const meta: Meta<SelectStory> = {
   component: UiSelectComponent,
   tags: ['autodocs'],

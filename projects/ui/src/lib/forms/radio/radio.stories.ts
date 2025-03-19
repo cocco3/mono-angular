@@ -9,6 +9,9 @@ type RadioStory = UiRadioComponent & {
   value?: string;
 };
 
+/**
+ * Use with [form-field](/story/forms-form-field--radio) component
+ */
 const meta: Meta<RadioStory> = {
   component: UiRadioComponent,
   tags: ['autodocs'],
