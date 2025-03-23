@@ -1,0 +1,7 @@
+:host {
+  box-sizing: border-box;
+  display: block;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 24px);
+  width: clamp(0px, 100%, var(--inner-wrap, 1200px));
+}

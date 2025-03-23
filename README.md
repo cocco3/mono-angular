@@ -4,7 +4,7 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Apps
 
-- demo-app
+- angular-invoice
 
 ## Libraries
 

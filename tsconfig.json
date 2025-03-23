@@ -19,7 +19,8 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "ui": ["./dist/ui"]
+      "@cocco3/angular-ui": ["./projects/ui/src/public-api.ts"],
+      "@cocco3/utils": ["./projects/utils/src/public-api.ts"]
     }
   },
   "angularCompilerOptions": {

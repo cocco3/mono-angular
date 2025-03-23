@@ -1,7 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
+import { getInitials } from '@cocco3/utils';
 import { UiIconComponent } from '../icon/icon.component';
-import { getInitials } from '../../utils/utils';
 
 export const UiAvatarSizes = ['small', 'medium', 'large'] as const;
 export type UiAvatarSize = (typeof UiAvatarSizes)[number];
@@ -13,7 +12,7 @@ export type UiAvatarFallback = (typeof UiAvatarFallbacks)[number];
   host: {
     '[class]': 'cssClass()',
   },
-  imports: [CommonModule, UiIconComponent],
+  imports: [UiIconComponent],
   selector: 'ui-avatar',
   standalone: true,
   styleUrls: ['./avatar.css'],
@@ -34,11 +33,18 @@ export class UiAvatarComponent {
 
   protected alt = computed(() => `Profile picture for ${this.fullName()}`);
   protected initials = computed(() => getInitials(this.fullName()));
+  protected imageHasError = signal(false);
 
-  protected imageHasError = false;
+  protected viewMode = computed(() => {
+    if (!!this.photoUrl() && !this.imageHasError()) {
+      return 'photo';
+    } else {
+      return this.fallback();
+    }
+  });
 
   protected handleImageError() {
-    this.imageHasError = true;
+    this.imageHasError.set(true);
   }
 
   protected cssClass = computed(() => ({
