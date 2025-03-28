@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { UiAvatarComponent, UiWrapperComponent } from '@cocco3/angular-ui';
+import { UiWrapperComponent } from '@cocco3/angular-ui';
 
 @Component({
   selector: 'app-header',
-  imports: [UiAvatarComponent, UiWrapperComponent],
+  imports: [UiWrapperComponent],
   styleUrl: './app-header.css',
   templateUrl: './app-header.html',
 })

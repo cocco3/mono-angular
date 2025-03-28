@@ -15,15 +15,20 @@
     />
   </ui-form-field>
 
-  <ui-form-field [label]="'To'">
-    <input ui-input type="text" formControlName="to" (input)="handleSubmit()" />
+  <ui-form-field [label]="'Client Name'">
+    <input
+      ui-input
+      type="text"
+      formControlName="clientName"
+      (input)="handleSubmit()"
+    />
   </ui-form-field>
 
   <ui-form-field [label]="'Client Address'">
     <textarea
       ui-textarea
       autosize
-      formControlName="address"
+      formControlName="clientAddress"
       (input)="handleSubmit()"
     ></textarea>
   </ui-form-field>
@@ -32,7 +37,7 @@
     <input
       ui-input
       type="tel"
-      formControlName="phone"
+      formControlName="clientPhone"
       (input)="handleSubmit()"
     />
   </ui-form-field>
