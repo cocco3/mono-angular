@@ -2,7 +2,7 @@ import { Component, computed, input, signal } from '@angular/core';
 import { getInitials } from '@cocco3/utils';
 import { UiIconComponent } from '../icon/icon.component';
 
-export const UiAvatarSizes = ['small', 'medium', 'large'] as const;
+export const UiAvatarSizes = ['xsmall', 'small', 'medium', 'large'] as const;
 export type UiAvatarSize = (typeof UiAvatarSizes)[number];
 
 export const UiAvatarFallbacks = ['icon', 'initials'] as const;

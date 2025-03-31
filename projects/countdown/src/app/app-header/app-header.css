@@ -1,0 +1,12 @@
+.logo {
+  align-items: center;
+  display: flex;
+  font: 500 24px/1.43 var(--font-family-mono);
+  gap: 8px;
+}
+
+@media (width <= 480px) {
+  .user_name {
+    display: none;
+  }
+}

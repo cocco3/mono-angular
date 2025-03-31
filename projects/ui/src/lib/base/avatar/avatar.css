@@ -25,6 +25,12 @@
   width: var(--placeholder-size);
 }
 
+:host.size-xsmall {
+  font: 600 var(--type-text-xs);
+  --avatar-size: 24px;
+  --placeholder-size: 18px;
+}
+
 :host.size-small {
   font: 600 var(--type-text-sm);
   --avatar-size: 32px;
