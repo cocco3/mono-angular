@@ -1,3 +1,5 @@
+export * from './lib/app/app-header/app-header.component';
+
 export * from './lib/base/avatar/avatar.component';
 export * from './lib/base/button/button.component';
 export * from './lib/base/icon/icon.component';

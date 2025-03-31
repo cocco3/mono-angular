@@ -4,11 +4,12 @@ import { UiAppHeaderComponent } from '@cocco3/angular-ui';
 import { AppMainComponent } from './app-main/app-main.component';
 
 @Component({
+  host: { class: 'theme-dark' },
   selector: 'app-root',
   imports: [RouterOutlet, UiAppHeaderComponent, AppMainComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'angular-invoice';
+  title = 'countdown';
 }

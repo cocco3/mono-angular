@@ -1,0 +1,13 @@
+@if (!items()?.length) {
+  <div>
+    Looks like you don't have any countdowns! Go to
+    <a href="https://calendar.google.com">Google Calendar</a> and update the
+    description for any event with "<code>#countdown</code>".
+  </div>
+} @else {
+  <div class="container">
+    @for (item of items(); track item.id) {
+      <app-countdown [date]="item.date" [name]="item.name" format="days" />
+    }
+  </div>
+}

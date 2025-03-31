@@ -2,10 +2,10 @@ import { DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { UiWrapperComponent } from '@cocco3/angular-ui';
 import { AppFormComponent } from '../app-form/app-form.component';
-import { AppIframeComponent } from '../app-pdf/app-iframe.component';
-import type { FormProps } from '../../types';
-import { PdfMakeService } from '../../pdf/PdfMake.service';
-import { JsPdfService } from '../../pdf/JsPdf.service';
+import { AppIframeComponent } from '../app-iframe/app-iframe.component';
+import type { FormProps } from '../types';
+import { PdfMakeService } from '../pdf/PdfMake.service';
+import { JsPdfService } from '../pdf/JsPdf.service';
 // import { PdfKitService } from '../../pdf/PdfKit.service';
 
 @Component({

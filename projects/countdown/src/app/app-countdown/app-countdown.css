@@ -1,0 +1,8 @@
+.name {
+  color: var(--text-secondary);
+  font: var(--type-text-md);
+}
+
+.time {
+  font: var(--type-text-lg);
+}
