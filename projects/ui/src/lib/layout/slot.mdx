@@ -28,7 +28,7 @@ import { UiSlotDirective, useSlots } from './slot.directive';
       <ng-content select="[uiSlot='start']" />
     </div>
 
-    <div *ngIf="!!label()">
+    <div class="label" *ngIf="!!label()">
       {{ label() }}
     </div>
 

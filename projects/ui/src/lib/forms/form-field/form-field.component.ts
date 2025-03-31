@@ -5,8 +5,8 @@ import {
   computed,
   contentChild,
 } from '@angular/core';
+import { uniqueId } from '@cocco3/utils';
 import { UiFormFieldDirective } from './form-field.directive';
-import { uniqueId } from '../../utils/utils';
 
 @Component({
   host: {

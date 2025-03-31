@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, computed, contentChildren, input } from '@angular/core';
 import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
 
@@ -19,16 +18,17 @@ export type UiButtonSize = (typeof UiButtonSizes)[number];
 @Component({
   host: {
     '[class]': 'cssClass()',
-    '[type]': `type || 'button'`,
+    '[attr.type]': 'type',
   },
-  imports: [CommonModule],
   selector: 'button[ui-button]',
-  templateUrl: './button.html',
+  standalone: true,
   styleUrls: ['./button.css'],
+  templateUrl: './button.html',
 })
 export class UiButtonComponent {
   kind = input.required<UiButtonKind>();
   size = input.required<UiButtonSize>();
+  type = input<'button' | 'submit' | 'reset'>('button');
 
   private slots = contentChildren(UiSlotDirective);
   protected hasSlots = useSlots(this.slots, ['start', 'end']);

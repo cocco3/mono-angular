@@ -4,8 +4,9 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Apps
 
-- demo-app
+- [angular-invoice](./projects/angular-invoice)
 
 ## Libraries
 
-- ui - Component library documented with Storybook
+- [ui](./projects/ui) - Component library documented with Storybook
+- [utils](./projects/utils) - Handful of utilities

@@ -1,11 +1,17 @@
-<label [attr.for]="resolvedInputId()" class="label"> {{ label() }} </label>
+<label [attr.for]="resolvedInputId()" class="label">
+  {{ label() }}
+</label>
 
 <div class="input">
   <ng-content />
 </div>
 
 @if (showDescription()) {
-<div id="{{ descriptionId() }}" class="description">{{ description() }}</div>
+  <div id="{{ descriptionId() }}" class="description">
+    {{ description() }}
+  </div>
 } @else if (showError()) {
-<div id="{{ descriptionId() }}" class="error">{{ error() }}</div>
+  <div id="{{ descriptionId() }}" class="error">
+    {{ error() }}
+  </div>
 }

@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, input, computed, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { svgIconStore } from '../../icons';
@@ -17,7 +16,6 @@ export type UiIconKind = keyof typeof svgIconStore;
     '[style.width]': 'size()',
     '[style.color]': 'color()',
   },
-  imports: [CommonModule],
   selector: 'ui-icon',
   standalone: true,
   styleUrls: ['./icon.css'],

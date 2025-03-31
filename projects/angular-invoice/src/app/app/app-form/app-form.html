@@ -1,0 +1,77 @@
+<form class="container" [formGroup]="pdfForm" (ngSubmit)="handleSubmit()">
+  <ui-form-field [label]="'Form'">
+    <select ui-select formControlName="docType" (change)="handleSubmit()">
+      <option value="invoice">Invoice</option>
+      <option value="proposal">Proposal</option>
+    </select>
+  </ui-form-field>
+
+  <ui-form-field [label]="'Date'">
+    <input
+      ui-input
+      type="date"
+      formControlName="date"
+      (input)="handleSubmit()"
+    />
+  </ui-form-field>
+
+  <ui-form-field [label]="'Client Name'">
+    <input
+      ui-input
+      type="text"
+      formControlName="clientName"
+      (input)="handleSubmit()"
+    />
+  </ui-form-field>
+
+  <ui-form-field [label]="'Client Address'">
+    <textarea
+      ui-textarea
+      autosize
+      formControlName="clientAddress"
+      (input)="handleSubmit()"
+    ></textarea>
+  </ui-form-field>
+
+  <ui-form-field [label]="'Client Phone'">
+    <input
+      ui-input
+      type="tel"
+      formControlName="clientPhone"
+      (input)="handleSubmit()"
+    />
+  </ui-form-field>
+
+  <ui-form-field [label]="'Job Location'">
+    <input
+      ui-input
+      type="text"
+      formControlName="location"
+      (input)="handleSubmit()"
+    />
+  </ui-form-field>
+
+  <ui-form-field [label]="'Amount'">
+    <input
+      ui-input
+      type="text"
+      formControlName="amount"
+      (input)="handleSubmit()"
+    />
+  </ui-form-field>
+
+  <ui-form-field [label]="'Body'">
+    <textarea
+      ui-textarea
+      autosize
+      formControlName="body"
+      (input)="handleSubmit()"
+    ></textarea>
+  </ui-form-field>
+
+  <div class="footer">
+    <button ui-button kind="primary" size="medium" type="submit">
+      Prepare PDF
+    </button>
+  </div>
+</form>

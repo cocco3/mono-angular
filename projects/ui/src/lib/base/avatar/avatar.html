@@ -1,17 +1,14 @@
-<img
-  *ngIf="!!photoUrl() && !imageHasError"
-  src="{{ photoUrl() }}"
-  class="photo"
-  alt="{{ alt() }}"
-  (error)="handleImageError()"
-/>
-
-<span *ngIf="(!photoUrl() || imageHasError) && fallback() === 'initials'">
-  {{ initials() }}
-</span>
-
-<ui-icon
-  class="icon-placeholder"
-  *ngIf="(!photoUrl() || imageHasError) && fallback() === 'icon'"
-  kind="user"
-/>
+@if (viewMode() === 'photo') {
+  <img
+    src="{{ photoUrl() }}"
+    class="photo"
+    alt="{{ alt() }}"
+    (error)="handleImageError()"
+  />
+} @else if (viewMode() === 'initials') {
+  <span>
+    {{ initials() }}
+  </span>
+} @else {
+  <ui-icon class="icon-placeholder" kind="user" />
+}
