@@ -43,3 +43,4 @@ Thumbs.db
 
 *storybook.log
 documentation.json
+environment.local.ts

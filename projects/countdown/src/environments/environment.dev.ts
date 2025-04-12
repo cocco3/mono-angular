@@ -2,5 +2,5 @@ import { type EnvConfig } from './types';
 
 export const environment: EnvConfig = {
   env: 'dev',
-  googleClientId: '',
+  googleClientId: '{{ GOOGLE_CLIENT_ID }}',
 };
