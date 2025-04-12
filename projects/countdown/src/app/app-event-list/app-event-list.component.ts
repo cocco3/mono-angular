@@ -5,6 +5,7 @@ import {
   type OnInit,
   signal,
 } from '@angular/core';
+import { compareAsc } from 'date-fns';
 import {
   UiEmptyComponent,
   UiIconComponent,
@@ -64,7 +65,8 @@ export class AppEventListComponent implements OnInit {
             id: x.id,
             date: x.start?.dateTime || x.start?.date || '',
             name: x.summary || 'Event',
-          }));
+          }))
+          .sort((a, b) => compareAsc(a.date, b.date));
         this.items.set(transformedEvents);
       },
       error: (error) => {
