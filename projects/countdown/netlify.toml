@@ -1,4 +1,11 @@
 [build]
-  base = "projects/countdown"
+  base = "/"
+  package = "projects/countdown"
   publish = "dist/countdown/browser"
   command = "npm run build countdown"
+
+[redirects]
+  [[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
