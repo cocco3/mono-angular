@@ -1,0 +1,4 @@
+[build]
+  base = "projects/countdown"
+  publish = "dist/countdown/browser"
+  command = "npm run build countdown"
