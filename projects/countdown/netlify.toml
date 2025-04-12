@@ -1,7 +1,7 @@
 [build]
   base = "/"
   publish = "dist/countdown/browser"
-  command = "npm run build countdown"
+  command = "npm run init:env-ci && npm run build countdown"
 
 [[redirects]]
   from = "/*"
