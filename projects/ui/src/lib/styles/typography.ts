@@ -1,6 +1,7 @@
 export const Fonts = {
   display: `Inter, -apple-system, 'Helvetica Neue', sans-serif`,
   body: `Inter, -apple-system, 'Helvetica Neue', sans-serif`,
+  mono: `source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace`,
 } as const;
 export type Font = keyof typeof Fonts;
 

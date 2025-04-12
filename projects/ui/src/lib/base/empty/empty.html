@@ -1,0 +1,23 @@
+@if (hasSlots().image) {
+  <div class="image">
+    <ng-content select="[uiSlot='image']" />
+  </div>
+}
+
+@if (!!title()) {
+  <h2 class="title">
+    {{ title() }}
+  </h2>
+}
+
+@if (!!description()) {
+  <div class="description">
+    {{ description() }}
+  </div>
+}
+
+@if (hasSlots().content) {
+  <div class="content">
+    <ng-content select="[uiSlot='content']" />
+  </div>
+}

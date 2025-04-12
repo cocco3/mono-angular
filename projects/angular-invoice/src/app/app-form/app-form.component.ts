@@ -7,7 +7,7 @@ import {
   UiSelectComponent,
   UiTextareaComponent,
 } from '@cocco3/angular-ui';
-import type { DocType, FormProps } from '../../types';
+import type { DocType, FormProps } from '../types';
 
 @Component({
   imports: [

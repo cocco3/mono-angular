@@ -1,0 +1,35 @@
+:host {
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+.header {
+  display: block;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  padding-block: 12px;
+}
+
+.end {
+  align-items: center;
+  display: flex;
+  margin-inline-start: auto;
+}
+
+.title {
+  font: 500 var(--type-display-xs);
+}
+
+:host [uiSlot='logo'] {
+  margin-inline-start: -8px;
+}

@@ -1,10 +1,11 @@
 /**
- * Auto-generated on Sat Mar 15 2025. Do not modify.
- * @see {@link https://github.com/Quantified-Communications/sim-storybook/blob/dev/CONTRIBUTING.md | Contributing Guidelines}
+ * Auto-generated on Fri Apr 11 2025. Do not modify.
  */
 :root {
   --font-family-display: Inter, -apple-system, 'Helvetica Neue', sans-serif;
   --font-family-body: Inter, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-family-mono:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 
   --type-display-2xl: 72px/1.25 var(--font-family-display);
   --type-display-xl: 60px/1.2 var(--font-family-display);

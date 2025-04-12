@@ -1,0 +1,33 @@
+:host {
+  box-sizing: border-box;
+  display: block;
+  margin-inline: auto;
+  padding-block: 24px;
+  padding-inline: 24px;
+  text-align: center;
+  width: clamp(100px, 100%, 600px);
+}
+
+.image {
+  margin-block-end: 20px;
+}
+
+.title {
+  color: var(--text-brand);
+  font: 700 var(--type-display-xs);
+  margin-block: 4px;
+  text-wrap: balance;
+}
+
+.description {
+  color: var(--text-secondary);
+  font: 400 var(--type-text-lg);
+  margin-block: 4px;
+  text-wrap: pretty;
+}
+
+.content {
+  color: var(--text-secondary);
+  font: 400 var(--type-text-lg);
+  margin-block-start: 20px;
+}
