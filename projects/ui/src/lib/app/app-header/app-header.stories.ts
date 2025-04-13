@@ -33,11 +33,11 @@ const meta: Meta<AppHeaderStory> = {
     template: `
       <ui-app-header ${storybookArgsToTemplate(args)}>
         <a ui-app-header-button href="/" target="_blank" uiSlot="logo">
-          <ui-icon kind="countdown" uiSlot="start" />
+          <ui-icon kind="countdown" size="20px" uiSlot="start" />
           CountdownApp
         </a>
         <a ui-app-header-button href="/" target="_blank" uiSlot="user">
-          <ui-icon kind="user" uiSlot="start" />
+          <ui-icon kind="user" size="20px" uiSlot="start" />
           Jane Smith
         </a>
       </ui-app-header>

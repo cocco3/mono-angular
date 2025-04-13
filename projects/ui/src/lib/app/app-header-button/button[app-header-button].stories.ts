@@ -41,9 +41,9 @@ const meta: Meta<AppHeaderButtonStory> = {
     },
     template: `
       <button ui-app-header-button ${storybookArgsToTemplate(args)} (click)="click($event)">
-        ${start ? `<ui-icon kind="${start}" uiSlot='start' />` : ''}
+        ${start ? `<ui-icon kind="${start}" size="20px" uiSlot='start' />` : ''}
         ${content}
-        ${end ? `<ui-icon kind="${end}" uiSlot='end' />` : ''}
+        ${end ? `<ui-icon kind="${end}" size="20px" uiSlot='end' />` : ''}
       </button>
     `,
   }),
