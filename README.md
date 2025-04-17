@@ -14,11 +14,10 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Setup
 
-1. Install packages `npm install`
-
-   - Also runs `init:hooks` which sets up a pre-commit git hook for linting and formatting
-
-1. Create local environment files `npm run init:env-local`
+1. Run `npm install` to install dependencies
+1. Run `npm run init` which does the following:
+   - `npm run init:git-hooks`: Sets up a pre-commit hook for linting/formatting
+   - `npm run init:env-local`: Creates local environment files that are ignored by git
 
 ## Contributing
 

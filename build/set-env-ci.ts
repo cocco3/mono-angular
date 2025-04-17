@@ -1,17 +1,22 @@
 /**
- * Only use for CI. Be sure to run this before building the application.
+ * Only use for CI. Calling this file will replace all placeholders
+ * in each `environment.prod.ts` with an environment variable
+ * defined on the build server.
  */
 
-const fs = require('fs');
-const path = require('path');
+import * as fs from 'fs';
+import * as path from 'path';
 
+/**
+ * Replace all instances of `{{ KEY }}` with `process.env[KEY]`
+ */
 function transform(content) {
   return content.replace(/\{\{\s*([A-Za-z0-9_]+)\s*\}\}/g, (_, variable) => {
     return `${process.env[variable]}`;
   });
 }
 
-function processEnvironmentFiles(paths) {
+function processEnvironmentFiles(paths: string[]) {
   paths.forEach((filePath) => {
     const fullPath = path.resolve(filePath);
 
