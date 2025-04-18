@@ -1,0 +1,47 @@
+<div class="panel">
+  <div class="panel_header">
+    <h2 class="panel_title">Settings</h2>
+  </div>
+  <div class="panel_body">
+    <div class="form">
+      <div>
+        <ui-form-field [label]="'Query'">
+          <input ui-input type="text" readonly [value]="settings().query" />
+        </ui-form-field>
+      </div>
+
+      <div>
+        <ui-form-field [label]="'Calendar'">
+          <input
+            ui-input
+            type="text"
+            readonly
+            [value]="settings().defaultCalendarId"
+          />
+        </ui-form-field>
+      </div>
+
+      <div>
+        <ui-form-field [label]="'Format'">
+          <input
+            ui-input
+            type="text"
+            readonly
+            [value]="settings().defaultFormat"
+          />
+        </ui-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel_header">
+    <h2 class="panel_title">Session</h2>
+  </div>
+  <div class="panel_body">
+    <button ui-button kind="primary" size="large" (click)="logOut()">
+      Sign Out
+    </button>
+  </div>
+</div>

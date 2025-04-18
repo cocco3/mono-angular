@@ -1,7 +1,7 @@
 import { Component, computed, input, output } from '@angular/core';
 import { formatDays, formatComplex } from '@cocco3/utils';
 
-export type CountdownFormat = 'days' | 'details';
+export type CountdownFormat = 'days' | 'detailed';
 
 @Component({
   selector: 'app-countdown',
@@ -19,7 +19,11 @@ export class AppCountdownComponent {
     this.clicked.emit();
   }
 
-  protected formattedDate = computed(() => {
+  protected displayName = computed(() => {
+    return this.name() || 'Event';
+  });
+
+  protected displayDate = computed(() => {
     return this.format() === 'days'
       ? formatDays(this.date())
       : formatComplex(this.date());

@@ -1,7 +1,8 @@
 /// <reference types="google.accounts" />
 
-import { inject, Injectable, signal } from '@angular/core';
-import { UserService } from './user.service';
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from './UserService';
 import { GoogleUserInfoService } from './GoogleUserInfoService';
 
 type AuthConfig = {
@@ -15,6 +16,7 @@ type AuthConfig = {
 export class GoogleAuthService {
   private user = inject(UserService);
   private userInfoService = inject(GoogleUserInfoService);
+  private router = inject(Router);
 
   private tokenClient: google.accounts.oauth2.TokenClient | null = null;
   private accessToken$ = signal<string | null>(null);
@@ -24,6 +26,8 @@ export class GoogleAuthService {
     return this.accessToken$.asReadonly();
   }
 
+  public isAuthenticated = computed(() => !!this.accessToken());
+
   public async initialize({ clientId, scopes }: AuthConfig) {
     const storedToken = this.getTokenFromStorage();
 
@@ -31,6 +35,7 @@ export class GoogleAuthService {
       // just use stored token if it's available
       this.accessToken$.set(storedToken);
       this.setLoggedInUser(storedToken);
+      this.router.navigate(['/']);
       return;
     }
 
@@ -64,6 +69,7 @@ export class GoogleAuthService {
           this.accessToken$.set(response.access_token);
           this.setLoggedInUser(response.access_token);
           this.saveTokenToStorage(response.access_token, +response.expires_in);
+          this.router.navigate(['/']);
         } else {
           console.error('Failed to obtain access token.');
         }

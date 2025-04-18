@@ -1,10 +1,10 @@
 <ui-app-header title="CountdownApp">
-  <div class="logo" uiSlot="logo">
+  <a ui-app-header-button uiSlot="logo" class="logo" routerLink="/">
     <ui-icon kind="countdown" size="28px" />
     CountdownApp
-  </div>
+  </a>
 
-  <button ui-app-header-button uiSlot="user" (click)="logOut()">
+  <a ui-app-header-button uiSlot="user" routerLink="/settings">
     <ui-avatar
       uiSlot="start"
       size="small"
@@ -14,5 +14,5 @@
     <span class="user_name">
       {{ user().name }}
     </span>
-  </button>
+  </a>
 </ui-app-header>

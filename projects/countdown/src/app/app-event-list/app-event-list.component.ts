@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  inject,
   Inject,
   type OnInit,
   signal,
@@ -16,11 +17,12 @@ import {
   type CountdownFormat,
 } from '../app-countdown/app-countdown.component';
 import { GoogleCalendarService } from './GoogleCalendarService';
+import { UserSettingsService } from '../services/UserSettingsService';
 
 type EventItem = {
   id: string;
-  date: string;
   name: string;
+  date: string;
 };
 
 @Component({
@@ -35,7 +37,8 @@ type EventItem = {
   templateUrl: './app-event-list.html',
 })
 export class AppEventListComponent implements OnInit {
-  protected format: CountdownFormat = 'days';
+  private settings = inject(UserSettingsService);
+  protected format: CountdownFormat = 'detailed';
 
   protected items = signal<EventItem[] | null>(null);
   protected hasItems = computed(() => {
@@ -45,7 +48,7 @@ export class AppEventListComponent implements OnInit {
 
   protected handleCountdownClick() {
     if (this.format === 'days') {
-      this.format = 'details';
+      this.format = 'detailed';
     } else {
       this.format = 'days';
     }
@@ -57,21 +60,21 @@ export class AppEventListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.calendarService.getCountdownEvents().subscribe({
-      next: (events) => {
-        const transformedEvents = events
-          .filter((x) => !!x.start?.dateTime || !!x.start?.date)
-          .map((x) => ({
-            id: x.id,
-            date: x.start?.dateTime || x.start?.date || '',
-            name: x.summary || 'Event',
-          }))
-          .sort((a, b) => compareAsc(a.date, b.date));
-        this.items.set(transformedEvents);
-      },
-      error: (error) => {
-        console.error('Error loading countdown events:', error);
-      },
-    });
+    this.calendarService
+      .getCountdownEvents({
+        calendarId: this.settings.defaultCalendarId,
+        query: this.settings.query,
+      })
+      .subscribe({
+        next: (events) => {
+          const transformedEvents = events.sort((a, b) =>
+            compareAsc(a.date, b.date)
+          );
+          this.items.set(transformedEvents);
+        },
+        error: (error) => {
+          console.error('Error loading countdown events:', error);
+        },
+      });
   }
 }

@@ -5,7 +5,7 @@ import {
   UiIconComponent,
 } from '@cocco3/angular-ui';
 import { GoogleAuthService } from '../services/GoogleAuthService';
-import { EnvironmentService } from '../services/env.service';
+import { EnvironmentService } from '../services/EnvironmentService';
 
 @Component({
   imports: [UiButtonComponent, UiWrapperComponent, UiIconComponent],
