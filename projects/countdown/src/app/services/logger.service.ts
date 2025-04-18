@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { Logger } from '@cocco3/utils';
-import { EnvironmentService } from './env.service';
+import { EnvironmentService } from './EnvironmentService';
 
 @Injectable({
   providedIn: 'root',

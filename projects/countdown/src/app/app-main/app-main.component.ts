@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { UiWrapperComponent } from '@cocco3/angular-ui';
-import { AppEventListComponent } from '../app-event-list/app-event-list.component';
+import { GoogleAuthService } from '../services/GoogleAuthService';
+import { AppHeaderComponent } from '../app-header/app-header';
 
 @Component({
-  imports: [UiWrapperComponent, AppEventListComponent],
+  imports: [RouterOutlet, AppHeaderComponent, UiWrapperComponent],
   selector: 'app-main',
   styleUrl: './app-main.css',
   templateUrl: './app-main.html',
 })
-export class AppMainComponent {}
+export class AppMainComponent {
+  private auth = inject(GoogleAuthService);
+
+  protected logOut() {
+    this.auth.clearAccessToken();
+  }
+}

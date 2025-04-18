@@ -20,13 +20,10 @@ type ApiResponse = {
   }[];
 };
 
-type EventsData = {
+export type EventsData = {
   id: string;
-  summary?: string;
-  start?: {
-    dateTime?: string;
-    date?: string;
-  };
+  name: string;
+  date: string;
 };
 
 /**
@@ -36,13 +33,18 @@ type EventsData = {
   providedIn: 'root',
 })
 export class GoogleCalendarService {
-  private readonly apiUrl =
-    'https://www.googleapis.com/calendar/v3/calendars/primary/events';
+  private readonly apiUrl = 'https://www.googleapis.com/calendar/v3/calendars';
 
   private http = inject(HttpClient);
   private auth = inject(GoogleAuthService);
 
-  getCountdownEvents(): Observable<EventsData[]> {
+  getCountdownEvents({
+    calendarId,
+    query,
+  }: {
+    calendarId: string;
+    query: string;
+  }): Observable<EventsData[]> {
     const accessToken = this.auth.accessToken();
 
     const headers = new HttpHeaders({
@@ -50,14 +52,27 @@ export class GoogleCalendarService {
     });
 
     const now = new Date().toISOString();
-    const params = new HttpParams().set('timeMin', now).set('q', '#countdown');
+    const params = new HttpParams().set('timeMin', now).set('q', query);
 
-    return this.http.get<ApiResponse>(this.apiUrl, { headers, params }).pipe(
-      map((response) => response.items),
-      catchError((error) => {
-        console.error('Error fetching events:', error);
-        throw error;
+    return this.http
+      .get<ApiResponse>(`${this.apiUrl}/${calendarId}/events`, {
+        headers,
+        params,
       })
-    );
+      .pipe(
+        map((response) =>
+          response.items
+            .filter((x) => !!x.start?.dateTime || !!x.start?.date)
+            .map((item) => ({
+              id: item.id,
+              name: item.summary || '',
+              date: item.start?.dateTime || item.start?.date || '',
+            }))
+        ),
+        catchError((error) => {
+          console.error('Error fetching events:', error);
+          throw error;
+        })
+      );
   }
 }

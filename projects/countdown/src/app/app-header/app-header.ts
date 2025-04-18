@@ -1,20 +1,22 @@
 import { Component, computed, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   UiAppHeaderComponent,
   UiAvatarComponent,
   UiSlotDirective,
-  UiAppHeaderButtonComponent,
+  UiAppHeaderAnchorComponent,
   UiIconComponent,
 } from '@cocco3/angular-ui';
-import { UserService } from '../services/user.service';
+import { UserService } from '../services/UserService';
 import { GoogleAuthService } from '../services/GoogleAuthService';
 
 @Component({
   imports: [
+    RouterLink,
     UiAppHeaderComponent,
     UiSlotDirective,
     UiAvatarComponent,
-    UiAppHeaderButtonComponent,
+    UiAppHeaderAnchorComponent,
     UiIconComponent,
   ],
   selector: 'app-header',
