@@ -3,6 +3,7 @@ export * from './lib/app/app-header-button/app-header-button.component';
 
 export * from './lib/base/avatar/avatar.component';
 export * from './lib/base/button/button.component';
+export * from './lib/base/dialog/dialog.component';
 export * from './lib/base/empty/empty.component';
 export * from './lib/base/icon/icon.component';
 

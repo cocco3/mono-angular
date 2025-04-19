@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { type Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { parseDateTime } from '@cocco3/utils';
 import { GoogleAuthService } from '../services/GoogleAuthService';
 
 type ApiResponse = {
@@ -38,7 +39,54 @@ export class GoogleCalendarService {
   private http = inject(HttpClient);
   private auth = inject(GoogleAuthService);
 
-  getCountdownEvents({
+  createEvent({
+    calendarId,
+    query,
+    summary,
+    startDate,
+    startTime,
+    endDate,
+    endTime,
+  }: {
+    calendarId: string;
+    query: string;
+    summary: string;
+    startDate: string;
+    startTime?: string;
+    endDate: string;
+    endTime?: string;
+  }) {
+    const accessToken = this.auth.accessToken();
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    });
+
+    const startDateTime = parseDateTime(startDate, startTime);
+    const endDateTime = parseDateTime(endDate, endTime);
+
+    const params = {
+      summary,
+      description: query,
+      start: {
+        dateTime: startDateTime,
+        timeZone: 'America/Los_Angeles',
+      },
+      end: {
+        dateTime: endDateTime,
+        timeZone: 'America/Los_Angeles',
+      },
+    };
+
+    return this.http.post<unknown>(
+      `${this.apiUrl}/${calendarId}/events`,
+      params,
+      { headers }
+    );
+  }
+
+  getEvents({
     calendarId,
     query,
   }: {

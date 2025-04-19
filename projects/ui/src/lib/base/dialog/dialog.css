@@ -1,0 +1,119 @@
+:host {
+  animation: dialog-out 200ms ease-out;
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-tertiary);
+  box-shadow:
+    0px 8px 8px -4px rgb(from var(--bg-secondary) r g b / 3%),
+    0px 20px 24px -4px rgb(from var(--bg-secondary) r g b / 8%);
+  box-sizing: border-box;
+  color: var(--text-primary);
+  container-type: inline-size;
+  font: 400 var(--type-text-md);
+  inset: 0;
+  margin-block: auto;
+  margin-inline: auto;
+  max-width: min(90vw, 60ch);
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+@container (width <= 344px) {
+  :host .inner {
+    padding-block: 16px;
+    padding-inline: 16px;
+  }
+}
+
+@container (344px < width) {
+  :host .inner {
+    padding-block: 24px;
+    padding-inline: 24px;
+  }
+}
+
+:host[open] {
+  animation: dialog-in 250ms ease-out;
+}
+
+:host[open]::backdrop {
+  animation: backdrop-in 250ms ease-out forwards;
+  backdrop-filter: blur(16px);
+}
+
+:host .header {
+  margin-block-end: 20px;
+}
+
+:host .heading {
+  font: 600 var(--type-text-xl);
+  margin-block: 0 4px;
+}
+
+:host .description {
+  color: var(--text-tertiary);
+  font: 400 var(--type-text-sm);
+}
+
+:host .close {
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  height: 36px;
+  justify-content: center;
+  outline-offset: -4px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 36px;
+}
+
+/* animations */
+
+@keyframes dialog-in {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes dialog-out {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes backdrop-in {
+  0% {
+    background-color: rgb(from var(--fg-tertiary) r g b / 0%);
+  }
+
+  100% {
+    background-color: rgb(from var(--fg-tertiary) r g b / 60%);
+  }
+}
+
+.buttons {
+  box-sizing: border-box;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-block-start: 20px;
+}

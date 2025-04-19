@@ -1,0 +1,16 @@
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.dateTime {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px 12px;
+
+  > * {
+    flex: 1;
+    min-width: fit-content;
+  }
+}

@@ -1,4 +1,6 @@
-@if (hasSlots().start) {
+@if (loading()) {
+  <div class="spinner" aria-hidden="true"></div>
+} @else if (hasSlots().start) {
   <span class="icon">
     <ng-content select="[uiSlot='start']" />
   </span>

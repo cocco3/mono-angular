@@ -33,12 +33,19 @@ export class UiFormFieldDirective<T extends HTMLElement> {
     }
   }
 
-  setAreaDescribedById(id: string) {
-    this.renderer.setAttribute(
-      this.elementRef.nativeElement,
-      'aria-describedby',
-      id
-    );
+  setAreaDescribedById(id: string | undefined) {
+    if (id) {
+      this.renderer.setAttribute(
+        this.elementRef.nativeElement,
+        'aria-describedby',
+        id
+      );
+    } else {
+      this.renderer.removeAttribute(
+        this.elementRef.nativeElement,
+        'aria-describedby'
+      );
+    }
   }
 
   setHasError(value: boolean) {

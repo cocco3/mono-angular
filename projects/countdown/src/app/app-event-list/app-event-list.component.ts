@@ -2,12 +2,12 @@ import {
   Component,
   computed,
   inject,
-  Inject,
   type OnInit,
   signal,
 } from '@angular/core';
 import { compareAsc } from 'date-fns';
 import {
+  UiButtonComponent,
   UiEmptyComponent,
   UiIconComponent,
   UiSlotDirective,
@@ -18,6 +18,7 @@ import {
 } from '../app-countdown/app-countdown.component';
 import { GoogleCalendarService } from './GoogleCalendarService';
 import { UserSettingsService } from '../services/UserSettingsService';
+import { AppCreateEventDialogComponent } from '../app-create-event-dialog/app-create-event-dialog.component';
 
 type EventItem = {
   id: string;
@@ -28,6 +29,8 @@ type EventItem = {
 @Component({
   imports: [
     AppCountdownComponent,
+    AppCreateEventDialogComponent,
+    UiButtonComponent,
     UiEmptyComponent,
     UiSlotDirective,
     UiIconComponent,
@@ -37,6 +40,7 @@ type EventItem = {
   templateUrl: './app-event-list.html',
 })
 export class AppEventListComponent implements OnInit {
+  private calendarService = inject(GoogleCalendarService);
   private settings = inject(UserSettingsService);
   protected format: CountdownFormat = 'detailed';
 
@@ -54,14 +58,9 @@ export class AppEventListComponent implements OnInit {
     }
   }
 
-  constructor(
-    @Inject(GoogleCalendarService)
-    private calendarService: GoogleCalendarService
-  ) {}
-
-  ngOnInit() {
+  protected fetchItems() {
     this.calendarService
-      .getCountdownEvents({
+      .getEvents({
         calendarId: this.settings.defaultCalendarId,
         query: this.settings.query,
       })
@@ -76,5 +75,9 @@ export class AppEventListComponent implements OnInit {
           console.error('Error loading countdown events:', error);
         },
       });
+  }
+
+  ngOnInit() {
+    this.fetchItems();
   }
 }
