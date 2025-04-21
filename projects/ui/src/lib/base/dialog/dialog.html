@@ -1,0 +1,19 @@
+<div class="inner">
+  <button class="close" type="button" aria-label="Close" (click)="close()">
+    <ui-icon kind="x-close" size="20px" />
+  </button>
+  <div class="header">
+    @if (!!heading()) {
+      <h1 class="heading">{{ heading() }}</h1>
+    }
+    @if (!!description()) {
+      <div class="description">{{ description() }}</div>
+    }
+  </div>
+  <ng-content />
+
+  <div class="buttons">
+    <ng-content select="[uiSlot='cancel']" />
+    <ng-content select="[uiSlot='submit']" />
+  </div>
+</div>

@@ -102,3 +102,7 @@ export const Icons: Story = {
     end: 'link-external',
   },
 };
+
+export const Loading: Story = {
+  args: { kind: 'primary', size: 'medium', content: 'Saving', loading: true },
+};

@@ -11,6 +11,17 @@
       />
     }
   </div>
+  <div>
+    <button
+      ui-button
+      kind="primary"
+      size="large"
+      (click)="createEventDialog.showDialog()"
+    >
+      Add Event
+    </button>
+    <app-create-event-dialog #createEventDialog (success)="fetchItems()" />
+  </div>
 } @else {
   <ui-empty title="Looks like you don't have any countdowns!">
     <ui-icon uiSlot="image" kind="calendar" size="80px" />

@@ -1,6 +1,7 @@
 import {
   type AfterContentInit,
   Component,
+  effect,
   input,
   computed,
   contentChild,
@@ -47,16 +48,23 @@ export class UiFormFieldComponent implements AfterContentInit {
 
   private formFieldChild = contentChild(UiFormFieldDirective);
 
+  private setErrorProperties() {
+    const formField = this.formFieldChild();
+    formField?.setHasError(this.showError());
+    formField?.setAreaDescribedById(this.descriptionId());
+  }
+
+  constructor() {
+    effect(() => {
+      this.setErrorProperties();
+    });
+  }
+
   ngAfterContentInit() {
     const formField = this.formFieldChild();
     if (formField) {
       this.inline = formField.inline;
       formField.setId(this.resolvedInputId());
-      formField.setHasError(this.showError());
-
-      if (this.descriptionId()) {
-        formField.setAreaDescribedById(this.descriptionId()!);
-      }
     }
   }
 

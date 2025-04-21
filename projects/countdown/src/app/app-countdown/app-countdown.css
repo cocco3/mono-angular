@@ -1,6 +1,7 @@
 .name {
   color: var(--text-secondary);
-  font: var(--type-display-sm);
+  font-size: clamp(1rem, 1vw + 1rem, 2.25rem);
+  line-height: 1.5;
 }
 
 .time {
@@ -8,7 +9,8 @@
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  font: var(--type-display-md);
+  font-size: clamp(1rem, 1vw + 1.3rem, 2.25rem);
+  line-height: 1.25;
   margin: 0;
   padding: 0;
   text-align: start;
