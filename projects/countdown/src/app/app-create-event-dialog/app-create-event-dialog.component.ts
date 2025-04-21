@@ -41,28 +41,45 @@ export class AppCreateEventDialogComponent {
 
   readonly success = output();
 
-  private formSchema = z.object({
-    name: z
-      .string()
-      .trim()
-      .refine((value) => value.trim().length > 0, {
-        message: 'Event name is required',
-      }),
-    startDate: z
-      .string()
-      .trim()
-      .refine((value) => value.trim().length > 0, {
-        message: 'Start date is required',
-      }),
-    startTime: z.string().optional(),
-    endDate: z
-      .string()
-      .trim()
-      .refine((value) => value.trim().length > 0, {
-        message: 'End date is required',
-      }),
-    endTime: z.string().optional(),
-  });
+  private formSchema = z
+    .object({
+      name: z
+        .string()
+        .trim()
+        .refine((value) => value.trim().length > 0, {
+          message: 'Event name is required',
+        }),
+      startDate: z
+        .string()
+        .trim()
+        .refine((value) => value.trim().length > 0, {
+          message: 'Start date is required',
+        }),
+      startTime: z.string().optional(),
+      endDate: z
+        .string()
+        .trim()
+        .refine((value) => value.trim().length > 0, {
+          message: 'End date is required',
+        }),
+      endTime: z.string().optional(),
+    })
+    .superRefine((data, ctx) => {
+      const start = new Date(data.startDate);
+      const end = new Date(data.endDate);
+
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+        return;
+      }
+
+      if (end < start) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'End date must be on or after start date',
+          path: ['endDate'],
+        });
+      }
+    });
 
   private get defaultDate() {
     return new Date().toISOString().split('T')[0];

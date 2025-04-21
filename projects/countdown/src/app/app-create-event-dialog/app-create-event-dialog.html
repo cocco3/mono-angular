@@ -6,7 +6,7 @@
     (submit)="handleSubmit()"
   >
     <ui-form-field [label]="'Name'" [error]="formErrors.name">
-      <input ui-input type="text" formControlName="name" />
+      <input ui-input type="text" formControlName="name" autocomplete="off" />
     </ui-form-field>
     <div class="dateTime">
       <ui-form-field [label]="'Start Date'" [error]="formErrors.startDate">
