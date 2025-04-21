@@ -1,5 +1,5 @@
 .container {
   display: grid;
   gap: 24px;
-  margin-block-end: 48px;
+  margin-block-end: 36px;
 }

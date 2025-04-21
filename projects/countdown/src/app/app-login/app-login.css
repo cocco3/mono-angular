@@ -12,4 +12,5 @@
   display: flex;
   font: 500 36px/1.43 var(--font-family-mono);
   gap: 16px;
+  justify-content: center;
 }
