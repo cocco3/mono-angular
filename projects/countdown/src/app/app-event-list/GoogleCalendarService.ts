@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { type Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { parseDateTime } from '@cocco3/utils';
+import { createDateTimeZoned } from '@cocco3/utils';
 import { GoogleAuthService } from '../services/GoogleAuthService';
 
 type ApiResponse = {
@@ -47,6 +47,7 @@ export class GoogleCalendarService {
     startTime,
     endDate,
     endTime,
+    timeZone,
   }: {
     calendarId: string;
     query: string;
@@ -55,6 +56,7 @@ export class GoogleCalendarService {
     startTime?: string;
     endDate: string;
     endTime?: string;
+    timeZone: string;
   }) {
     const accessToken = this.auth.accessToken();
 
@@ -63,20 +65,14 @@ export class GoogleCalendarService {
       'Content-Type': 'application/json',
     });
 
-    const startDateTime = parseDateTime(startDate, startTime);
-    const endDateTime = parseDateTime(endDate, endTime);
+    const start = prepDates({ date: startDate, time: startTime, timeZone });
+    const end = prepDates({ date: endDate, time: endTime, timeZone });
 
     const params = {
       summary,
       description: query,
-      start: {
-        dateTime: startDateTime,
-        timeZone: 'America/Los_Angeles',
-      },
-      end: {
-        dateTime: endDateTime,
-        timeZone: 'America/Los_Angeles',
-      },
+      start,
+      end,
     };
 
     return this.http.post<unknown>(
@@ -124,3 +120,19 @@ export class GoogleCalendarService {
       );
   }
 }
+
+const prepDates = ({
+  date,
+  time,
+  timeZone,
+}: {
+  date: string;
+  time?: string;
+  timeZone: string;
+}) => {
+  if (time) {
+    return { dateTime: createDateTimeZoned(date, time, timeZone) };
+  } else {
+    return { date };
+  }
+};

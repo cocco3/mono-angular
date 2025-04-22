@@ -11,6 +11,12 @@
       </div>
 
       <div>
+        <ui-form-field [label]="'Timezone'">
+          <input ui-input type="text" readonly [value]="settings().timeZone" />
+        </ui-form-field>
+      </div>
+
+      <div>
         <ui-form-field [label]="'Calendar'">
           <input
             ui-input

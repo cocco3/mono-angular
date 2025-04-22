@@ -91,12 +91,16 @@ export class GoogleAuthService {
       return null;
     }
 
-    if (Date.now() >= parseInt(tokenExpiry)) {
+    if (this.isTokenExpired(tokenExpiry)) {
       this.clearTokenFromStorage();
       return null;
     }
 
     return accessToken;
+  }
+
+  private isTokenExpired(tokenExpiry: string) {
+    return Date.now() >= parseInt(tokenExpiry);
   }
 
   private clearTokenFromStorage() {

@@ -1,4 +1,10 @@
-<dialog #dialog ui-dialog heading="Add Event" (afterClose)="resetForm()">
+<dialog
+  #dialog
+  ui-dialog
+  heading="Add Event"
+  description="Leave both times empty for an all day event."
+  (afterClose)="resetForm()"
+>
   <form
     id="createEventForm"
     class="form"
@@ -13,7 +19,7 @@
         <input ui-input type="date" formControlName="startDate" #startDate />
       </ui-form-field>
       <ui-form-field [label]="'Start Time'" [error]="formErrors.startTime">
-        <input ui-input type="time" formControlName="startTime" />
+        <input ui-input type="time" step="900" formControlName="startTime" />
       </ui-form-field>
     </div>
     <div class="dateTime">
@@ -26,7 +32,7 @@
         />
       </ui-form-field>
       <ui-form-field [label]="'End Time'" [error]="formErrors.endTime">
-        <input ui-input type="time" formControlName="endTime" />
+        <input ui-input type="time" step="900" formControlName="endTime" />
       </ui-form-field>
     </div>
   </form>

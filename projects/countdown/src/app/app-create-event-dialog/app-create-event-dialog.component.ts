@@ -1,5 +1,9 @@
 import { Component, inject, output, viewChild } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {
+  type FormGroup,
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { z } from 'zod';
 import {
   UiButtonComponent,
@@ -7,6 +11,7 @@ import {
   UiFormFieldComponent,
   UiInputComponent,
 } from '@cocco3/angular-ui';
+import { createDateTimeZoned, getToday } from '@cocco3/utils';
 import { GoogleCalendarService } from '../app-event-list/GoogleCalendarService';
 import { UserSettingsService } from '../services/UserSettingsService';
 
@@ -35,11 +40,12 @@ export class AppCreateEventDialogComponent {
   private calendarService = inject(GoogleCalendarService);
   private settings = inject(UserSettingsService);
   private dialog = viewChild<UiDialogComponent>('dialog');
-  protected isSaving = false;
-
-  protected formErrors: Partial<FormFields> = {};
 
   readonly success = output();
+
+  protected isSaving = false;
+  protected createEventForm: FormGroup;
+  protected formErrors: Partial<FormFields> = {};
 
   private formSchema = z
     .object({
@@ -65,6 +71,47 @@ export class AppCreateEventDialogComponent {
       endTime: z.string().optional(),
     })
     .superRefine((data, ctx) => {
+      // validate times
+      if (data.startTime && !data.endTime) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Provide an endTime with startTime',
+          path: ['endTime'],
+        });
+      } else if (!data.startTime && data.endTime) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Provide a startTime with endTime',
+          path: ['startTime'],
+        });
+      } else if (
+        data.startDate &&
+        data.startTime &&
+        data.endDate &&
+        data.endTime
+      ) {
+        const start = createDateTimeZoned(
+          data.startDate,
+          data.startTime,
+          this.settings.timeZone
+        );
+        const end = createDateTimeZoned(
+          data.endDate,
+          data.endTime,
+          this.settings.timeZone
+        );
+
+        if (end < start) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'End time must be on or after start',
+            path: ['endTime'],
+          });
+        }
+      }
+    })
+    .superRefine((data, ctx) => {
+      // validate dates
       const start = new Date(data.startDate);
       const end = new Date(data.endDate);
 
@@ -81,17 +128,33 @@ export class AppCreateEventDialogComponent {
       }
     });
 
-  private get defaultDate() {
-    return new Date().toISOString().split('T')[0];
-  }
+  constructor() {
+    const defaultDate = getToday();
 
-  protected createEventForm = this.formBuilder.group({
-    name: '',
-    startDate: this.defaultDate,
-    startTime: '',
-    endDate: this.defaultDate,
-    endTime: '',
-  });
+    this.createEventForm = this.formBuilder.group({
+      name: '',
+      startDate: defaultDate,
+      startTime: '',
+      endDate: defaultDate,
+      endTime: '',
+    });
+
+    // update endDate to be on or after startDate
+    this.createEventForm
+      .get('startDate')
+      ?.valueChanges.subscribe((startDate) => {
+        const endDateControl = this.createEventForm.get('endDate');
+        if (endDateControl) {
+          const endDate = endDateControl.value;
+
+          if (endDate && new Date(endDate) < new Date(startDate)) {
+            endDateControl.setValue(startDate);
+          }
+
+          endDateControl.updateValueAndValidity();
+        }
+      });
+  }
 
   public showDialog() {
     this.dialog()?.showModal();
@@ -107,7 +170,11 @@ export class AppCreateEventDialogComponent {
     const validationResult = this.formSchema.safeParse(formData);
 
     if (validationResult.success) {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+      this.formErrors = {};
       this.isSaving = true;
+
       this.calendarService
         .createEvent({
           calendarId: this.settings.defaultCalendarId,
@@ -117,6 +184,7 @@ export class AppCreateEventDialogComponent {
           startTime: validationResult.data.startTime,
           endDate: validationResult.data.endDate,
           endTime: validationResult.data.endTime,
+          timeZone,
         })
         .subscribe({
           next: (_response) => {
