@@ -10,6 +10,11 @@ import {
 } from '@angular/core';
 import { UiIconComponent } from '../icon/icon.component';
 
+/**
+ * TODO: use `transition-behavior: allow-discrete`
+ * https://www.youtube.com/watch?v=vmDEHAzj2XE
+ */
+
 @Component({
   imports: [UiIconComponent],
   selector: 'dialog[ui-dialog]',

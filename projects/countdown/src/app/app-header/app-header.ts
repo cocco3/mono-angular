@@ -8,7 +8,6 @@ import {
   UiIconComponent,
 } from '@cocco3/angular-ui';
 import { UserService } from '../services/UserService';
-import { GoogleAuthService } from '../services/GoogleAuthService';
 
 @Component({
   imports: [
@@ -24,11 +23,6 @@ import { GoogleAuthService } from '../services/GoogleAuthService';
   templateUrl: './app-header.html',
 })
 export class AppHeaderComponent {
-  private auth = inject(GoogleAuthService);
   private _user = inject(UserService);
   protected user = computed(() => this._user);
-
-  protected logOut() {
-    this.auth.clearAccessToken();
-  }
 }
