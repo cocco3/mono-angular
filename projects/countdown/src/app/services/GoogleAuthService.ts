@@ -2,8 +2,6 @@
 
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from './UserService';
-import { GoogleUserInfoService } from './GoogleUserInfoService';
 
 type AuthConfig = {
   clientId: string;
@@ -14,33 +12,36 @@ type AuthConfig = {
   providedIn: 'root',
 })
 export class GoogleAuthService {
-  private user = inject(UserService);
-  private userInfoService = inject(GoogleUserInfoService);
   private router = inject(Router);
 
   private tokenClient: google.accounts.oauth2.TokenClient | null = null;
   private accessToken$ = signal<string | null>(null);
+  public isAuthenticated = computed(() => !!this.accessToken());
+
+  public loginError = signal<string | null>(null);
 
   public get accessToken() {
     // expose a read-only version of the signal
     return this.accessToken$.asReadonly();
   }
 
-  public isAuthenticated = computed(() => !!this.accessToken());
+  constructor() {
+    const storedToken = this.getTokenFromStorage();
+    this.accessToken$.set(storedToken);
+  }
 
   public async initialize({ clientId, scopes }: AuthConfig) {
+    if (!('google' in window)) {
+      await this.loadGsiScript();
+    }
+
     const storedToken = this.getTokenFromStorage();
 
     if (storedToken) {
       // just use stored token if it's available
       this.accessToken$.set(storedToken);
-      this.setLoggedInUser(storedToken);
       this.router.navigate(['/']);
       return;
-    }
-
-    if (!('google' in window)) {
-      await this.loadGsiScript();
     }
 
     // Initialize the token client after the script is loaded
@@ -67,14 +68,36 @@ export class GoogleAuthService {
       callback: (response) => {
         if (response.access_token) {
           this.accessToken$.set(response.access_token);
-          this.setLoggedInUser(response.access_token);
           this.saveTokenToStorage(response.access_token, +response.expires_in);
           this.router.navigate(['/']);
         } else {
+          this.loginError.set(
+            'There was an error logging in. Please try again.'
+          );
           console.error('Failed to obtain access token.');
         }
       },
     });
+  }
+
+  public async revokeConsent() {
+    return new Promise<{ successful: boolean }>((resolve, reject) => {
+      const accessToken = this.accessToken();
+
+      if (!accessToken) {
+        reject(new Error('Access token not found'));
+        return;
+      }
+
+      google.accounts.oauth2.revoke(accessToken, () => {
+        resolve({ successful: true });
+      });
+    });
+  }
+
+  /** access token */
+  private isTokenExpired(tokenExpiry: string) {
+    return Date.now() >= parseInt(tokenExpiry);
   }
 
   private saveTokenToStorage(accessToken: string, expiresIn: number) {
@@ -99,16 +122,14 @@ export class GoogleAuthService {
     return accessToken;
   }
 
-  private isTokenExpired(tokenExpiry: string) {
-    return Date.now() >= parseInt(tokenExpiry);
-  }
-
   private clearTokenFromStorage() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('tokenExpiry');
   }
 
-  public authorize() {
+  public requestAccessToken() {
+    this.loginError.set(null);
+
     if (!this.tokenClient) {
       console.error('Token client is not initialized.');
       return;
@@ -121,15 +142,5 @@ export class GoogleAuthService {
     this.accessToken$.set(null);
     this.clearTokenFromStorage();
   }
-
-  private setLoggedInUser(token: string) {
-    this.userInfoService.getUserInfo(token).subscribe({
-      next: (data) => {
-        this.user.setUser(data);
-      },
-      error: (error) => {
-        console.error('Error fetching user:', error);
-      },
-    });
-  }
+  /** access token */
 }

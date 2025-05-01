@@ -43,6 +43,29 @@
 
 <div class="panel">
   <div class="panel_header">
+    <h2 class="panel_title">Linked accounts</h2>
+  </div>
+  <div class="panel_body">
+    <div class="row">
+      <div class="app">
+        <ui-icon kind="google" size="32px" />
+        Google
+      </div>
+      <button
+        ui-button
+        kind="tertiary"
+        size="medium"
+        (click)="unlinkGoogleDialog.showDialog()"
+      >
+        Unlink
+      </button>
+    </div>
+  </div>
+  <app-unlink-google-dialog #unlinkGoogleDialog />
+</div>
+
+<div class="panel">
+  <div class="panel_header">
     <h2 class="panel_title">Session</h2>
   </div>
   <div class="panel_body">

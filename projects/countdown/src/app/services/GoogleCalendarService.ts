@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { type Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { createDateTimeZoned } from '@cocco3/utils';
-import { GoogleAuthService } from '../services/GoogleAuthService';
+import { GoogleAuthService } from './GoogleAuthService';
 
 type ApiResponse = {
   items: {

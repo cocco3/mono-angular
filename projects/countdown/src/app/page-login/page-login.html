@@ -14,4 +14,7 @@
       Sign In with Google
     </button>
   </p>
+  @if (error()) {
+    <ui-alert kind="error" class="alert">{{ error() }}</ui-alert>
+  }
 </ui-wrapper>

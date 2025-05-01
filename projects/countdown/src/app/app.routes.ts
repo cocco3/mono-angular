@@ -1,19 +1,19 @@
 import { type Routes } from '@angular/router';
 import { AuthGuardService } from './services/AuthGuardService';
-import { AppLoginComponent } from './app-login/app-login.component';
+import { PageLoginComponent } from './page-login/page-login.component';
 import { AppMainComponent } from './app-main/app-main.component';
-import { AppEventListComponent } from './app-event-list/app-event-list.component';
-import { AppSettingsComponent } from './app-settings/app-settings.component';
+import { PageEventsComponent } from './events/page-events/page-events.component';
+import { PageSettingsComponent } from './settings/page-settings/page-settings.component';
 
 export const routes: Routes = [
-  { path: 'login', component: AppLoginComponent },
+  { path: 'login', component: PageLoginComponent },
   {
     path: '',
     component: AppMainComponent,
     canActivate: [AuthGuardService],
     children: [
-      { path: 'events', component: AppEventListComponent },
-      { path: 'settings', component: AppSettingsComponent },
+      { path: 'events', component: PageEventsComponent },
+      { path: 'settings', component: PageSettingsComponent },
       { path: '', redirectTo: 'events', pathMatch: 'full' },
     ],
   },

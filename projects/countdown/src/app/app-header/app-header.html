@@ -4,15 +4,17 @@
     CountdownApp
   </a>
 
-  <a ui-app-header-button uiSlot="user" routerLink="/settings">
-    <ui-avatar
-      uiSlot="start"
-      size="small"
-      [fullName]="user().name"
-      [photoUrl]="user().photo"
-    />
-    <span class="user_name">
-      {{ user().name }}
-    </span>
-  </a>
+  @if (!!user()) {
+    <a ui-app-header-button uiSlot="user" routerLink="/settings">
+      <ui-avatar
+        uiSlot="start"
+        size="small"
+        [fullName]="user()?.name || ''"
+        [photoUrl]="user()?.photo"
+      />
+      <span class="user_name">
+        {{ user()?.name }}
+      </span>
+    </a>
+  }
 </ui-app-header>

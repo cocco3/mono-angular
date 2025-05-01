@@ -5,6 +5,7 @@ import {
   type OnInit,
   signal,
 } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { compareAsc } from 'date-fns';
 import {
   UiButtonComponent,
@@ -12,13 +13,13 @@ import {
   UiIconComponent,
   UiSlotDirective,
 } from '@cocco3/angular-ui';
+import { GoogleCalendarService } from '../../services/GoogleCalendarService';
+import { UserSettingsService } from '../../services/UserSettingsService';
 import {
-  AppCountdownComponent,
+  CountdownComponent,
   type CountdownFormat,
-} from '../app-countdown/app-countdown.component';
-import { GoogleCalendarService } from './GoogleCalendarService';
-import { UserSettingsService } from '../services/UserSettingsService';
-import { AppCreateEventDialogComponent } from '../app-create-event-dialog/app-create-event-dialog.component';
+} from '../countdown/countdown.component';
+import { CreateEventDialogComponent } from '../create-event-dialog/create-event-dialog.component';
 
 type EventItem = {
   id: string;
@@ -28,20 +29,21 @@ type EventItem = {
 
 @Component({
   imports: [
-    AppCountdownComponent,
-    AppCreateEventDialogComponent,
+    CountdownComponent,
+    CreateEventDialogComponent,
     UiButtonComponent,
     UiEmptyComponent,
     UiSlotDirective,
     UiIconComponent,
   ],
-  selector: 'app-event-list',
-  styleUrl: './app-event-list.css',
-  templateUrl: './app-event-list.html',
+  selector: 'app-page-events',
+  styleUrl: './page-events.css',
+  templateUrl: './page-events.html',
 })
-export class AppEventListComponent implements OnInit {
+export class PageEventsComponent implements OnInit {
   private calendarService = inject(GoogleCalendarService);
   private settings = inject(UserSettingsService);
+  private title = inject(Title);
   protected format: CountdownFormat = 'detailed';
 
   protected items = signal<EventItem[] | null>(null);
@@ -79,5 +81,9 @@ export class AppEventListComponent implements OnInit {
 
   ngOnInit() {
     this.fetchItems();
+  }
+
+  constructor() {
+    this.title.setTitle('Events - CountdownApp');
   }
 }

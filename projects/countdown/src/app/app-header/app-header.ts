@@ -7,7 +7,7 @@ import {
   UiAppHeaderAnchorComponent,
   UiIconComponent,
 } from '@cocco3/angular-ui';
-import { UserService } from '../services/UserService';
+import { GoogleUserInfoService } from '../services/GoogleUserInfoService';
 
 @Component({
   imports: [
@@ -23,6 +23,6 @@ import { UserService } from '../services/UserService';
   templateUrl: './app-header.html',
 })
 export class AppHeaderComponent {
-  private _user = inject(UserService);
-  protected user = computed(() => this._user);
+  private userService = inject(GoogleUserInfoService);
+  protected user = computed(() => this.userService.data());
 }

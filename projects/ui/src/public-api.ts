@@ -1,6 +1,7 @@
 export * from './lib/app/app-header/app-header.component';
 export * from './lib/app/app-header-button/app-header-button.component';
 
+export * from './lib/base/alert/alert.component';
 export * from './lib/base/avatar/avatar.component';
 export * from './lib/base/button/button.component';
 export * from './lib/base/dialog/dialog.component';

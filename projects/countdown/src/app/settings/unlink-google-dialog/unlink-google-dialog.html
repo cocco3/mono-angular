@@ -1,0 +1,32 @@
+<dialog #dialog ui-dialog heading="Unlink Google" (afterClose)="resetForm()">
+  <p>
+    Are you sure you want to unlink your Google account? This will also log you
+    out of your current session.
+  </p>
+
+  @if (error) {
+    <ui-alert kind="error">{{ error }}</ui-alert>
+  }
+
+  <button
+    ui-button
+    uiSlot="cancel"
+    kind="secondary"
+    size="medium"
+    (click)="dialog.close()"
+  >
+    Cancel
+  </button>
+  <button
+    ui-button
+    uiSlot="submit"
+    kind="destructive"
+    size="medium"
+    type="button"
+    (click)="revokeGoogleConsent()"
+    [disabled]="isSaving"
+    [loading]="isSaving"
+  >
+    Unlink
+  </button>
+</dialog>

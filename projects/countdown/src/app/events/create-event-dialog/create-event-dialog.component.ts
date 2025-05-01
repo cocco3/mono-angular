@@ -6,14 +6,16 @@ import {
 } from '@angular/forms';
 import { z } from 'zod';
 import {
+  UiAlertComponent,
   UiButtonComponent,
   UiDialogComponent,
   UiFormFieldComponent,
   UiInputComponent,
 } from '@cocco3/angular-ui';
 import { createDateTimeZoned, getToday } from '@cocco3/utils';
-import { GoogleCalendarService } from '../app-event-list/GoogleCalendarService';
-import { UserSettingsService } from '../services/UserSettingsService';
+import { GoogleCalendarService } from '../../services/GoogleCalendarService';
+import { UserSettingsService } from '../../services/UserSettingsService';
+import { LoggerService } from '../../services/LoggerService';
 
 type FormFields = {
   name: string;
@@ -26,23 +28,26 @@ type FormFields = {
 @Component({
   imports: [
     ReactiveFormsModule,
+    UiAlertComponent,
     UiButtonComponent,
     UiDialogComponent,
     UiFormFieldComponent,
     UiInputComponent,
   ],
   selector: 'app-create-event-dialog',
-  styleUrls: ['./app-create-event-dialog.css'],
-  templateUrl: './app-create-event-dialog.html',
+  styleUrls: ['./create-event-dialog.css'],
+  templateUrl: './create-event-dialog.html',
 })
-export class AppCreateEventDialogComponent {
+export class CreateEventDialogComponent {
   private formBuilder = inject(NonNullableFormBuilder);
   private calendarService = inject(GoogleCalendarService);
   private settings = inject(UserSettingsService);
+  private logger = inject(LoggerService);
   private dialog = viewChild<UiDialogComponent>('dialog');
 
   readonly success = output();
 
+  protected error = '';
   protected isSaving = false;
   protected createEventForm: FormGroup;
   protected formErrors: Partial<FormFields> = {};
@@ -163,6 +168,7 @@ export class AppCreateEventDialogComponent {
   protected resetForm() {
     this.createEventForm.reset();
     this.formErrors = {};
+    this.error = '';
   }
 
   protected handleSubmit() {
@@ -173,6 +179,7 @@ export class AppCreateEventDialogComponent {
       const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       this.formErrors = {};
+      this.error = '';
       this.isSaving = true;
 
       this.calendarService
@@ -194,7 +201,9 @@ export class AppCreateEventDialogComponent {
           },
           error: (error) => {
             this.isSaving = false;
-            console.error('Error creating event:', error);
+            this.error =
+              'There was an error creating the event. Please try again.';
+            this.logger.error('Error creating event', error as Error);
           },
         });
     } else {
