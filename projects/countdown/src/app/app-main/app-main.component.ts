@@ -1,7 +1,8 @@
+import { Component, inject, type OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Component } from '@angular/core';
 import { UiWrapperComponent } from '@cocco3/angular-ui';
 import { AppHeaderComponent } from '../app-header/app-header';
+import { GoogleUserInfoService } from '../services/GoogleUserInfoService';
 
 @Component({
   imports: [RouterOutlet, AppHeaderComponent, UiWrapperComponent],
@@ -9,4 +10,10 @@ import { AppHeaderComponent } from '../app-header/app-header';
   styleUrl: './app-main.css',
   templateUrl: './app-main.html',
 })
-export class AppMainComponent {}
+export class AppMainComponent implements OnInit {
+  private userService = inject(GoogleUserInfoService);
+
+  ngOnInit() {
+    this.userService.fetchUserInfo();
+  }
+}

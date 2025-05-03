@@ -36,6 +36,13 @@
       </ui-form-field>
     </div>
   </form>
+
+  @if (error) {
+    <p>
+      <ui-alert kind="error">{{ error }}</ui-alert>
+    </p>
+  }
+
   <button
     ui-button
     uiSlot="cancel"

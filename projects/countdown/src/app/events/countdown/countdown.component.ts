@@ -5,10 +5,10 @@ export type CountdownFormat = 'days' | 'detailed';
 
 @Component({
   selector: 'app-countdown',
-  styleUrl: './app-countdown.css',
-  templateUrl: './app-countdown.html',
+  styleUrl: './countdown.css',
+  templateUrl: './countdown.html',
 })
-export class AppCountdownComponent {
+export class CountdownComponent {
   date = input.required<string>();
   name = input.required<string>();
   format = input.required<CountdownFormat>();

@@ -1,4 +1,4 @@
-import { type EventsData } from './GoogleCalendarService';
+import { type EventsData } from '../../services/GoogleCalendarService';
 
 export const mockCalendarEvents = (): EventsData[] => {
   return [

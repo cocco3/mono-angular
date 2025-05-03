@@ -32,3 +32,16 @@
   gap: 24px;
   max-width: 600px;
 }
+
+.app {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  margin-inline-end: auto;
+}
+
+.row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

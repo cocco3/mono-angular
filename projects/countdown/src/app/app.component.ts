@@ -3,11 +3,11 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   host: { class: 'theme-dark' },
-  selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
+  selector: 'app-root',
   styleUrl: './app.component.css',
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
-  protected title = 'countdown';
+  protected title = 'CountdownApp';
 }
