@@ -4,6 +4,9 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import docJson from '../documentation.json';
 setCompodocJson(docJson);
 
+// react layout
+import { DocsLayout } from './components/DocsLayout';
+
 // temp fix for
 // https://github.com/storybookjs/storybook/issues/30691
 import 'zone.js';
@@ -35,6 +38,7 @@ const preview: Preview = {
     docs: {
       canvas: { sourceState: 'shown' },
       codePanel: true,
+      page: () => <DocsLayout />,
     },
 
     options: {

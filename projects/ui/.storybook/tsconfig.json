@@ -3,9 +3,14 @@
   "compilerOptions": {
     "types": ["node"],
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node"
   },
   "exclude": ["../src/test.ts", "../src/**/*.spec.ts"],
-  "include": ["../src/**/*", "../src/**/*.stories.*", "./preview.ts"],
+  "include": ["../src/**/*", "../src/**/*.stories.*", "preview.tsx"],
   "files": ["./typings.d.ts"]
 }
