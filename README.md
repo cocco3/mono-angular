@@ -18,6 +18,11 @@ An [Angular](./ANGULAR.md) monorepo.
    - `npm run init:git-hooks`: Sets up a pre-commit hook for linting/formatting
    - `npm run init:env-local`: Creates local environment files that are ignored by git
 
+## Deployment
+
+- [countdown](./projects/countdown) - Auto deployed via Netlify
+- [ui](./projects/ui) - Auto deployed to GitHub pages via GitHub actions
+
 ## Contributing
 
 ### Upgrade Storybook
