@@ -76,6 +76,10 @@
 
 /* animations */
 
+/* TODO: use `transition-behavior: allow-discrete`
+ * https://www.youtube.com/watch?v=vmDEHAzj2XE
+ */
+
 @keyframes dialog-in {
   0% {
     opacity: 0;
