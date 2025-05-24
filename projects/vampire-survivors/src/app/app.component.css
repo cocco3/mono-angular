@@ -1,0 +1,6 @@
+.wrapper {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}

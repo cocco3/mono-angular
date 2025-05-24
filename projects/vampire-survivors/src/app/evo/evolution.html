@@ -1,0 +1,21 @@
+@for (item of evo().items; track item.item.name; let first = $first) {
+  @if (!first) {
+    <span class="operator">+</span>
+  }
+  <app-item
+    [kind]="item.item.kind"
+    [image]="item.item.image"
+    [name]="item.item.name"
+    [wiki]="item.item.wiki"
+    [condition]="item.condition"
+  />
+}
+
+<span class="operator">=</span>
+
+<app-item
+  [kind]="evo().evo.kind"
+  [image]="evo().evo.image"
+  [name]="evo().evo.name"
+  [wiki]="evo().evo.wiki"
+/>

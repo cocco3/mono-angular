@@ -2,6 +2,7 @@
   base = "/"
   publish = "dist/countdown/browser"
   command = "npm run ci:env && npm run build countdown"
+  ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF projects/countdown"
 
 [[redirects]]
   from = "/*"

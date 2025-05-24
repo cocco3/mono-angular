@@ -1,0 +1,10 @@
+<div class="img">
+  <img [src]="image()" [alt]="name()" />
+  @if (!!info()) {
+    <div class="info">{{ info() }}</div>
+  }
+</div>
+
+<a class="name" [href]="wiki()" target="_blank">
+  {{ name() }}
+</a>
