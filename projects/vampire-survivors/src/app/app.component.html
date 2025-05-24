@@ -1,0 +1,14 @@
+<router-outlet />
+
+<div class="wrapper">
+  <app-evo-list
+    game="Base Game"
+    background="#0c0e23"
+    [evolutions]="baseGame() || []"
+  />
+  <app-evo-list
+    game="Tides of the Foscari DLC"
+    background="#032e05"
+    [evolutions]="tidesOfFoscari() || []"
+  />
+</div>

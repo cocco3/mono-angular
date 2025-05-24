@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-block: 24px;
+  padding-inline: 24px;
+}
+
+.title {
+  color: var(--text-primary);
+  margin-block: 12px;
+}

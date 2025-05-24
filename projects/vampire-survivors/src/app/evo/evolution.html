@@ -1,0 +1,19 @@
+@for (item of evo().items; track item.item.name; let first = $first) {
+  @if (!first) {
+    <span class="operator">+</span>
+  }
+  <app-item
+    [image]="item.item.image"
+    [name]="item.item.name"
+    [wiki]="item.item.wiki"
+    [max]="item.max || false"
+  />
+}
+
+<span class="operator">=</span>
+
+<app-item
+  [image]="evo().evo.image"
+  [name]="evo().evo.name"
+  [wiki]="evo().evo.wiki"
+/>

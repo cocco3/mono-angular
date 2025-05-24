@@ -1,0 +1,5 @@
+<h2 class="title">{{ game() }}</h2>
+
+@for (evo of evolutions(); track evo.evo.name) {
+  <app-evolution [evo]="evo" />
+}

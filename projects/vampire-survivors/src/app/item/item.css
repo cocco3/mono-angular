@@ -1,0 +1,49 @@
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+}
+
+.img {
+  aspect-ratio: 1;
+  background-color: #8b8b8b;
+  border: 2px solid #ffcc66;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: grid;
+  padding: 2px;
+  width: 48px;
+
+  img {
+    box-sizing: border-box;
+    display: block;
+    grid-area: 1 / 1;
+    height: 100%;
+    padding: 4px;
+    width: 100%;
+  }
+}
+
+.max {
+  color: white;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 600;
+  grid-area: 1 / 1;
+  align-content: end;
+  text-align: end;
+}
+
+.name {
+  color: var(--text-primary);
+  font-family: Arial;
+  font-size: 10px;
+  margin-block-start: 2px;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
