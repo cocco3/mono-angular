@@ -18,3 +18,4 @@ export * from './lib/forms/textarea/textarea-autosize.directive';
 
 export * from './lib/layout/slot.directive';
 export * from './lib/layout/ui-wrapper/ui-wrapper.component';
+export * from './lib/layout/card-title/card-title';
