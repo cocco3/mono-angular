@@ -1,0 +1,10 @@
+[build]
+  base = "/"
+  publish = "dist/vampire-survivors/browser"
+  command = "npm run build vampire-survivors"
+  ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF projects/vampire-survivors"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

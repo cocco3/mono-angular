@@ -1,0 +1,18 @@
+:host {
+  flex: 1 0 320px;
+  padding-block: 12px;
+  padding-inline: 16px;
+}
+
+.title {
+  color: var(--text-primary);
+  font: 600 var(--type-display-xs);
+  margin-block: 0 20px;
+  text-wrap: pretty;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
