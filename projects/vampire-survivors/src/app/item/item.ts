@@ -1,15 +1,18 @@
 import { Component, computed, input } from '@angular/core';
-import type { EvoCondition, ItemKind } from '../../data/types';
+import type { Game, EvoCondition, ItemKind } from '../../data/types';
+import { UiCardTitleAnchorComponent } from '@cocco3/angular-ui';
 
 @Component({
   host: {
     '[class]': 'cssClass()',
   },
+  imports: [UiCardTitleAnchorComponent],
   selector: 'app-item',
   styleUrl: './item.css',
   templateUrl: './item.html',
 })
 export class ItemComponent {
+  game = input.required<Game>();
   kind = input.required<ItemKind>();
   name = input.required<string>();
   wiki = input.required<string>();
@@ -29,5 +32,6 @@ export class ItemComponent {
 
   protected cssClass = computed(() => ({
     [`kind-${this.kind()}`]: !!this.kind(),
+    [`game-${this.game()}`]: !!this.game(),
   }));
 }

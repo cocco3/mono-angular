@@ -6,6 +6,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 60px;
 }
 
@@ -13,6 +14,11 @@
   --item-bg: #ef8daf;
   --item-border: #bebe58;
   --info-color: #c89f0b;
+}
+
+:host.game-operation-guns {
+  --item-bg: #121212;
+  --item-border: #b2b2b2;
 }
 
 .img {
@@ -59,9 +65,19 @@
   font-size: 10px;
   margin-block-start: 2px;
   text-align: center;
-  text-decoration: none;
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition-property: text-decoration-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
 
-  &:hover {
-    text-decoration: underline;
+  @media (hover: hover) {
+    &:any-link:hover {
+      cursor: pointer;
+      text-decoration-color: var(--text-primary);
+    }
   }
 }

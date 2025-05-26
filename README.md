@@ -4,7 +4,8 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Apps
 
-- [countdown](./projects/countdown) - A countdown app integrated with Google Calendar ([app](https://cocco-countdown.netlify.app))
+- [CountdownApp](./projects/countdown) - A countdown app integrated with Google Calendar ([app](https://cocco-countdown.netlify.app))
+- [Vampire Survivors](./projects/vampire-survivors) - Weapon evolution chart for the video game Vampire Surivors. ([app](https://vamps-evolutions.netlify.app))
 
 ## Libraries
 
@@ -20,7 +21,8 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Deployment
 
-- [countdown](./projects/countdown) - Auto deployed via Netlify
+- [CountdownApp](./projects/countdown) - Auto deployed via Netlify
+- [Vampire Survivors](./projects/vampire-survivors) - Auto deployed via Netlify
 - [ui](./projects/ui) - Auto deployed to GitHub pages via GitHub actions
 
 ## Contributing

@@ -4,16 +4,28 @@
   <app-evo-list
     game="Base Game"
     background="#0c0e23"
-    [evolutions]="baseGame() || []"
-  />
-  <app-evo-list
-    game="Tides of the Foscari DLC"
-    background="#032e05"
-    [evolutions]="tidesOfFoscari() || []"
+    [evolutions]="baseGame()"
   />
   <app-evo-list
     game="Legacy of the Moonspell DLC"
     background="#2f0972"
-    [evolutions]="legacyOfMoonspell() || []"
+    [evolutions]="legacyOfMoonspell()"
   />
+  <app-evo-list
+    game="Tides of the Foscari DLC"
+    background="#032e05"
+    [evolutions]="tidesOfFoscari()"
+  />
+  <app-evo-list
+    game="Emergency Meeting DLC"
+    background="#3e0404"
+    [evolutions]="emergencyMeeting()"
+  />
+  <app-evo-list
+    game="Operation Guns DLC"
+    background="#303030"
+    [evolutions]="operationGuns()"
+  />
+  <!-- castlevania -->
+  <!-- emerald -->
 </div>

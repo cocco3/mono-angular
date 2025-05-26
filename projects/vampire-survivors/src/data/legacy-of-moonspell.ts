@@ -10,6 +10,7 @@ import {
 
 const SilverWind: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Silver Wind',
   image: 'silver-wind.png',
   wiki: 'https://vampire.survivors.wiki/w/Silver_Wind',
@@ -17,6 +18,7 @@ const SilverWind: Item = {
 
 const FestiveWinds: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Festive Winds',
   image: 'festive-winds.png',
   wiki: 'https://vampire.survivors.wiki/w/Festive_Winds',
@@ -24,6 +26,7 @@ const FestiveWinds: Item = {
 
 const SummonNight: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Summon Night',
   image: 'summon-night.png',
   wiki: 'https://vampire.survivors.wiki/w/Summon_Night',
@@ -31,6 +34,7 @@ const SummonNight: Item = {
 
 const EchoNight: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Echo Night',
   image: 'echo-night.png',
   wiki: 'https://vampire.survivors.wiki/w/Echo_Night',
@@ -38,6 +42,7 @@ const EchoNight: Item = {
 
 const MirageRobe: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Mirage Robe',
   image: 'mirage-robe.png',
   wiki: 'https://vampire.survivors.wiki/w/Mirage_Robe',
@@ -45,6 +50,7 @@ const MirageRobe: Item = {
 
 const JOdore: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: `J'Odore`,
   image: 'j-odore.png',
   wiki: 'https://vampire.survivors.wiki/w/J%27Odore',
@@ -52,6 +58,7 @@ const JOdore: Item = {
 
 const MilleBolleBlu: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Mille Bolle Blu',
   image: 'mille-bolle-blu.png',
   wiki: 'https://vampire.survivors.wiki/w/Mille_Bolle_Blu',
@@ -59,6 +66,7 @@ const MilleBolleBlu: Item = {
 
 const BooRooBoolle: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Boo Roo Boolle',
   image: 'boo-roo-boolle.png',
   wiki: 'https://vampire.survivors.wiki/w/Boo_Roo_Boolle',
@@ -66,6 +74,7 @@ const BooRooBoolle: Item = {
 
 const NightSword: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Night Sword',
   image: 'night-sword.png',
   wiki: 'https://vampire.survivors.wiki/w/Night_Sword',
@@ -73,6 +82,7 @@ const NightSword: Item = {
 
 const Muramasa: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Muramasa',
   image: 'muramasa.png',
   wiki: 'https://vampire.survivors.wiki/w/Muramasa',
@@ -80,6 +90,7 @@ const Muramasa: Item = {
 
 const FourSeasons: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Four Seasons',
   image: 'four-seasons.png',
   wiki: 'https://vampire.survivors.wiki/w/Four_Seasons',
@@ -87,6 +98,7 @@ const FourSeasons: Item = {
 
 const GodaiShuffle: Item = {
   kind: 'weapon',
+  game: 'moonspell',
   name: 'Godai Shuffle',
   image: 'godai-shuffle.png',
   wiki: 'https://vampire.survivors.wiki/w/Godai_Shuffle',

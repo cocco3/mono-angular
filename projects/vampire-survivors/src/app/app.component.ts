@@ -17,11 +17,19 @@ export class AppComponent {
     return this.data.getEvolutions('base');
   });
 
-  protected tidesOfFoscari = computed(() => {
-    return this.data.getEvolutions('tides');
-  });
-
   protected legacyOfMoonspell = computed(() => {
     return this.data.getEvolutions('moonspell');
+  });
+
+  protected tidesOfFoscari = computed(() => {
+    return this.data.getEvolutions('foscari');
+  });
+
+  protected emergencyMeeting = computed(() => {
+    return this.data.getEvolutions('emergency-meeting');
+  });
+
+  protected operationGuns = computed(() => {
+    return this.data.getEvolutions('operation-guns');
   });
 }
