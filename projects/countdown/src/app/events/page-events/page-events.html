@@ -1,0 +1,47 @@
+@if (items() === null) {
+  <div>Getting your events...</div>
+} @else if (hasItems()) {
+  <div class="container">
+    @for (item of items(); track item.id) {
+      <app-countdown
+        [date]="item.date"
+        [name]="item.name"
+        [format]="format"
+        (clicked)="handleCountdownClick()"
+      />
+    }
+  </div>
+  <div>
+    <button
+      ui-button
+      kind="primary"
+      size="large"
+      (click)="createEventDialog.showDialog()"
+    >
+      Add Event
+    </button>
+  </div>
+} @else {
+  <ui-empty title="Looks like you don't have any countdowns!">
+    <ui-icon uiSlot="image" kind="calendar" size="80px" />
+    <div uiSlot="content">
+      <p>
+        Go to <a href="https://calendar.google.com">Google Calendar</a> and add
+        "<code>#countdown</code>" to the description of any existing event, or
+        click the button to create a new event.
+      </p>
+      <p>
+        <button
+          ui-button
+          kind="primary"
+          size="large"
+          (click)="createEventDialog.showDialog()"
+        >
+          Add Event
+        </button>
+      </p>
+    </div>
+  </ui-empty>
+}
+
+<app-create-event-dialog #createEventDialog (success)="fetchItems()" />

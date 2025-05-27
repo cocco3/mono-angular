@@ -1,0 +1,7 @@
+<h2 class="title">{{ game() }}</h2>
+
+<div class="list">
+  @for (evo of evolutions(); track evo.evo.name) {
+    <app-evolution [evo]="evo" />
+  }
+</div>

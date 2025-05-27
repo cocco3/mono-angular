@@ -11,7 +11,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: ['attribute', 'element'],
-          prefix: ['ui', 'lib'],
+          prefix: ['ui', 'lib', 'sb'],
           style: 'camelCase',
         },
       ],
@@ -19,7 +19,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: ['attribute', 'element'],
-          prefix: ['ui', 'lib'],
+          prefix: ['ui', 'lib', 'sb'],
           style: 'kebab-case',
         },
       ],

@@ -1,0 +1,67 @@
+<dialog
+  #dialog
+  ui-dialog
+  heading="Add Event"
+  description="Leave both times empty for an all day event."
+  (afterClose)="resetForm()"
+>
+  <form
+    id="createEventForm"
+    class="form"
+    [formGroup]="createEventForm"
+    (submit)="handleSubmit()"
+  >
+    <ui-form-field [label]="'Name'" [error]="formErrors.name">
+      <input ui-input type="text" formControlName="name" autocomplete="off" />
+    </ui-form-field>
+    <div class="dateTime">
+      <ui-form-field [label]="'Start Date'" [error]="formErrors.startDate">
+        <input ui-input type="date" formControlName="startDate" #startDate />
+      </ui-form-field>
+      <ui-form-field [label]="'Start Time'" [error]="formErrors.startTime">
+        <input ui-input type="time" step="900" formControlName="startTime" />
+      </ui-form-field>
+    </div>
+    <div class="dateTime">
+      <ui-form-field [label]="'End Date'" [error]="formErrors.endDate">
+        <input
+          ui-input
+          type="date"
+          formControlName="endDate"
+          [min]="startDate.elementRef.nativeElement.value"
+        />
+      </ui-form-field>
+      <ui-form-field [label]="'End Time'" [error]="formErrors.endTime">
+        <input ui-input type="time" step="900" formControlName="endTime" />
+      </ui-form-field>
+    </div>
+  </form>
+
+  @if (error) {
+    <p>
+      <ui-alert kind="error">{{ error }}</ui-alert>
+    </p>
+  }
+
+  <button
+    ui-button
+    uiSlot="cancel"
+    kind="secondary"
+    size="medium"
+    (click)="dialog.close()"
+  >
+    Cancel
+  </button>
+  <button
+    ui-button
+    uiSlot="submit"
+    kind="primary"
+    size="medium"
+    type="submit"
+    form="createEventForm"
+    [disabled]="isSaving"
+    [loading]="isSaving"
+  >
+    Save
+  </button>
+</dialog>

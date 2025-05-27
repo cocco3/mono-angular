@@ -1,0 +1,20 @@
+.container {
+  --inner-wrap: 600px;
+
+  font: 400 var(--type-text-lg);
+  padding-block: 48px;
+  justify-items: center;
+  text-align: center;
+}
+
+.logo {
+  align-items: center;
+  display: flex;
+  font: 500 36px/1.43 var(--font-family-mono);
+  gap: 16px;
+  justify-content: center;
+}
+
+.alert {
+  margin-block: 24px;
+}

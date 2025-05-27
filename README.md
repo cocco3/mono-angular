@@ -4,8 +4,8 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Apps
 
-- [countdown](./projects/countdown) - A countdown app integrated with Google Calendar ([app](https://cocco-countdown.netlify.app))
-- [angular-invoice](./projects/angular-invoice) - A simple web form for creating invoices and proposals for my dad's business
+- [CountdownApp](./projects/countdown) - A countdown app integrated with Google Calendar ([app](https://cocco-countdown.netlify.app))
+- [Vampire Survivors](./projects/vampire-survivors) - Weapon evolution chart for the video game Vampire Surivors. ([app](https://vamps-evolutions.netlify.app))
 
 ## Libraries
 
@@ -14,11 +14,16 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Setup
 
-1. Install packages `npm install`
+1. Run `npm install` to install dependencies
+1. Run `npm run init` which does the following:
+   - `npm run init:git-hooks`: Sets up a pre-commit hook for linting/formatting
+   - `npm run init:env-local`: Creates local environment files that are ignored by git
 
-   - Also runs `init:hooks` which sets up a pre-commit git hook for linting and formatting
+## Deployment
 
-1. Create local environment files `npm run init:env-local`
+- [CountdownApp](./projects/countdown) - Auto deployed via Netlify
+- [Vampire Survivors](./projects/vampire-survivors) - Auto deployed via Netlify
+- [ui](./projects/ui) - Auto deployed to GitHub pages via GitHub actions
 
 ## Contributing
 
@@ -29,3 +34,5 @@ Follow these steps to [upgrade Storybook](https://storybook.js.org/docs/configur
 ```shell
 npx storybook@latest upgrade --config-dir="projects/ui/.storybook"
 ```
+
+For major version upgrades, be sure to check the [custom DocsLayout](./projects/ui/.storybook/components/DocsLayout.tsx) still works as expected.

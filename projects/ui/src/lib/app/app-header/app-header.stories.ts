@@ -11,6 +11,7 @@ type AppHeaderStory = UiAppHeaderComponent & {
 
 const meta: Meta<AppHeaderStory> = {
   component: UiAppHeaderComponent,
+  subcomponents: { UiAppHeaderAnchorComponent, UiIconComponent },
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({

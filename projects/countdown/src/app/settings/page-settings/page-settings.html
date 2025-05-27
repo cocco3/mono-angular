@@ -1,0 +1,76 @@
+<div class="panel">
+  <div class="panel_header">
+    <h2 class="panel_title">Settings</h2>
+  </div>
+  <div class="panel_body">
+    <div class="form">
+      <div>
+        <ui-form-field [label]="'Query'">
+          <input ui-input type="text" readonly [value]="settings().query" />
+        </ui-form-field>
+      </div>
+
+      <div>
+        <ui-form-field [label]="'Timezone'">
+          <input ui-input type="text" readonly [value]="settings().timeZone" />
+        </ui-form-field>
+      </div>
+
+      <div>
+        <ui-form-field [label]="'Calendar'">
+          <input
+            ui-input
+            type="text"
+            readonly
+            [value]="settings().defaultCalendarId"
+          />
+        </ui-form-field>
+      </div>
+
+      <div>
+        <ui-form-field [label]="'Format'">
+          <input
+            ui-input
+            type="text"
+            readonly
+            [value]="settings().defaultFormat"
+          />
+        </ui-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel_header">
+    <h2 class="panel_title">Linked accounts</h2>
+  </div>
+  <div class="panel_body">
+    <div class="row">
+      <div class="app">
+        <ui-icon kind="google" size="32px" />
+        Google
+      </div>
+      <button
+        ui-button
+        kind="tertiary"
+        size="medium"
+        (click)="unlinkGoogleDialog.showDialog()"
+      >
+        Unlink
+      </button>
+    </div>
+  </div>
+  <app-unlink-google-dialog #unlinkGoogleDialog />
+</div>
+
+<div class="panel">
+  <div class="panel_header">
+    <h2 class="panel_title">Session</h2>
+  </div>
+  <div class="panel_body">
+    <button ui-button kind="primary" size="large" (click)="logOut()">
+      Sign Out
+    </button>
+  </div>
+</div>

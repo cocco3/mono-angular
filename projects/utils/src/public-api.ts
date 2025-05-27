@@ -6,5 +6,6 @@ export * from './lib/dates/formatComplex';
 export * from './lib/dates/formatDays';
 export * from './lib/dates/formatTimeDiff';
 export * from './lib/dates/getDateParts';
+export * from './lib/dates/dateTime';
 
 export * from './lib/Logger';

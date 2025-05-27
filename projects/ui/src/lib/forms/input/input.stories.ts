@@ -89,6 +89,10 @@ export const Date: Story = {
   args: { value: '2025-01-19', type: 'date' },
 };
 
+export const Time: Story = {
+  args: { value: '10:23', type: 'time' },
+};
+
 export const Code: Story = {
   args: {
     value: '123456',

@@ -1,0 +1,29 @@
+@for (item of evo().items; track item.item.name; let last = $last) {
+  <app-item
+    [game]="item.item.game"
+    [kind]="item.item.kind"
+    [image]="item.item.image"
+    [name]="item.item.name"
+    [wiki]="item.item.wiki"
+    [condition]="item.condition"
+  />
+  @if (!last) {
+    <span class="operator">
+      @if (item.operator === 'tech') {
+        {{ '→' }}
+      } @else {
+        {{ '+' }}
+      }
+    </span>
+  }
+}
+
+<span class="operator">=</span>
+
+<app-item
+  [game]="evo().evo.game"
+  [kind]="evo().evo.kind"
+  [image]="evo().evo.image"
+  [name]="evo().evo.name"
+  [wiki]="evo().evo.wiki"
+/>

@@ -29,6 +29,7 @@ export class UiButtonComponent {
   kind = input.required<UiButtonKind>();
   size = input.required<UiButtonSize>();
   type = input<'button' | 'submit' | 'reset'>('button');
+  loading = input(false);
 
   private slots = contentChildren(UiSlotDirective);
   protected hasSlots = useSlots(this.slots, ['start', 'end']);

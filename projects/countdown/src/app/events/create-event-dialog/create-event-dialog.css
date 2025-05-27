@@ -1,0 +1,10 @@
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.dateTime {
+  display: grid;
+  gap: 24px 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+}
