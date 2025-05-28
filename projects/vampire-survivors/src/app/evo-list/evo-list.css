@@ -16,3 +16,8 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.empty {
+  --text-brand: #ffffff;
+  --text-secondary: #dadada;
+}

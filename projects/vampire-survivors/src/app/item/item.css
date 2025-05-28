@@ -77,7 +77,7 @@
   @media (hover: hover) {
     &:any-link:hover {
       cursor: pointer;
-      text-decoration-color: var(--text-primary);
+      text-decoration-color: currentColor;
     }
   }
 }

@@ -1,0 +1,16 @@
+:host {
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-block: 12px;
+  padding-inline: 16px;
+}
+
+.heading {
+  align-content: end;
+  color: var(--text-primary);
+  font: 600 var(--type-display-xs);
+  margin-block: 0;
+}
