@@ -1,0 +1,24 @@
+@for (
+  item of evo().items;
+  track item.item.name;
+  let last = $last;
+  let count = $count;
+  let index = $index
+) {
+  <app-item
+    [gameId]="item.item.gameId"
+    [kind]="item.item.kind"
+    [image]="item.item.image"
+    [name]="item.item.name"
+    [wiki]="item.item.wiki"
+    [condition]="item.condition"
+  />
+
+  @if (!last) {
+    <app-evo-operator
+      [operator]="item.operator"
+      [index]="index"
+      [count]="count"
+    />
+  }
+}

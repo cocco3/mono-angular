@@ -1,5 +1,13 @@
 import type { Item } from './types';
 
+export const Empty: Item = {
+  kind: 'passive',
+  gameId: 'base',
+  name: '',
+  image: '',
+  wiki: '',
+};
+
 /** Base Game */
 
 export const HollowHeart: Item = {

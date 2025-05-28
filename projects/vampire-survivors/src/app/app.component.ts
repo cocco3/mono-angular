@@ -2,8 +2,8 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import type { GameId } from '../data/games';
 import { DataService } from '../data/DataService';
-import { EvolutionListComponent } from './evo-list/evo-list';
-import { ItemFilterComponent } from './item-filter/item-filter';
+import { EvolutionListComponent } from './evo-list/evo-list.component';
+import { ItemFilterComponent } from './item-filter/item-filter.component';
 
 @Component({
   selector: 'app-root',

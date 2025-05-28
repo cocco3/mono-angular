@@ -11,7 +11,7 @@ import {
   Weapon_PowerUp,
   Wings,
 } from './passives';
-import type { Evo, Item } from './types';
+import type { WeaponEvolution, Item } from './types';
 
 export const Long_Gun: Item = {
   kind: 'weapon',
@@ -189,89 +189,92 @@ export const Big_Fuzzy_Fist: Item = {
   wiki: 'https://vampire.survivors.wiki/w/Big_Fuzzy_Fist',
 };
 
-export const operationGunsEvolutions: Evo[] = [
+export const operationGunsEvolutions: WeaponEvolution[] = [
   {
-    items: [{ item: Long_Gun, condition: 'max' }, { item: Weapon_PowerUp }],
-    evo: Prototype_A,
+    items: [
+      { item: Long_Gun, condition: 'max' },
+      { item: Weapon_PowerUp },
+      { item: Prototype_A },
+    ],
   },
   {
     items: [
       { item: Short_Gun, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Bracer },
+      { item: Prototype_B },
     ],
-    evo: Prototype_B,
   },
   {
     items: [
       { item: Spread_Shot, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: EmptyTome },
+      { item: Prototype_C },
     ],
-    evo: Prototype_C,
   },
   {
     items: [
       { item: C_U_Laser, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Tirajisu },
+      { item: Pronto_Beam },
     ],
-    evo: Pronto_Beam,
   },
   {
     items: [
       { item: Firearm, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Candelabrador },
+      { item: Fire_L3GS },
     ],
-    evo: Fire_L3GS,
   },
   {
     items: [
       { item: Sonic_Bloom, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Armor },
+      { item: Wave_Beam },
     ],
-    evo: Wave_Beam,
   },
   {
     items: [
       { item: Blade_Crossbow, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Clover },
+      { item: BFC2000_AD },
     ],
-    evo: BFC2000_AD,
   },
   {
     items: [
       { item: Homing_Miss, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Duplicator },
+      { item: Multistage_Missiles },
     ],
-    evo: Multistage_Missiles,
   },
   {
     items: [
       { item: Diver_Mines, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Attractorb },
+      { item: Atmo_Torpedo },
     ],
-    evo: Atmo_Torpedo,
   },
   {
     items: [
       { item: Prism_Lass, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: Wings },
+      { item: Time_Warp },
     ],
-    evo: Time_Warp,
   },
   {
     items: [
       { item: Metal_Claw, condition: 'max' },
       { item: Weapon_PowerUp },
       { item: HollowHeart },
+      { item: Big_Fuzzy_Fist },
     ],
-    evo: Big_Fuzzy_Fist,
   },
 ];

@@ -1,4 +1,4 @@
-import type { Evo, Item } from './types';
+import type { WeaponEvolution, Item } from './types';
 import {
   Attractorb,
   Candelabrador,
@@ -104,47 +104,47 @@ const GodaiShuffle: Item = {
   wiki: 'https://vampire.survivors.wiki/w/Godai_Shuffle',
 };
 
-export const legacyOfMoonspellEvolutions: Evo[] = [
+export const legacyOfMoonspellEvolutions: WeaponEvolution[] = [
   {
     items: [
       { item: SilverWind, condition: 'max' },
       { item: Pummarola, condition: 'max' },
+      { item: FestiveWinds },
     ],
-    evo: FestiveWinds,
   },
   {
     items: [
       { item: SummonNight, condition: 'max' },
       { item: Duplicator, condition: 'max' },
+      { item: EchoNight },
     ],
-    evo: EchoNight,
   },
   {
     items: [
       { item: MirageRobe, condition: 'max' },
       { item: Attractorb, condition: 'max' },
+      { item: JOdore },
     ],
-    evo: JOdore,
   },
   {
     items: [
       { item: MilleBolleBlu, condition: 'max' },
       { item: Spellbinder, condition: 'max' },
+      { item: BooRooBoolle },
     ],
-    evo: BooRooBoolle,
   },
   {
     items: [
       { item: NightSword, condition: 'max' },
       { item: StoneMask, condition: 'max' },
+      { item: Muramasa },
     ],
-    evo: Muramasa,
   },
   {
     items: [
       { item: FourSeasons, condition: 'max' },
       { item: Candelabrador, condition: 'max' },
+      { item: GodaiShuffle },
     ],
-    evo: GodaiShuffle,
   },
 ];
