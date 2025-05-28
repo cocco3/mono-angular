@@ -366,7 +366,11 @@
                 "input": "projects/vampire-survivors/public"
               }
             ],
-            "styles": ["projects/vampire-survivors/src/styles.css"],
+            "styles": [
+              "projects/ui/src/css/theme.css",
+              "projects/ui/src/css/typography.css",
+              "projects/vampire-survivors/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -419,7 +423,11 @@
                 "input": "projects/vampire-survivors/public"
               }
             ],
-            "styles": ["projects/vampire-survivors/src/styles.css"],
+            "styles": [
+              "projects/ui/src/css/theme.css",
+              "projects/ui/src/css/typography.css",
+              "projects/vampire-survivors/src/styles.css"
+            ],
             "scripts": []
           }
         },

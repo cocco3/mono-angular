@@ -1,6 +1,6 @@
 @for (item of evo().items; track item.item.name; let last = $last) {
   <app-item
-    [game]="item.item.game"
+    [gameId]="item.item.gameId"
     [kind]="item.item.kind"
     [image]="item.item.image"
     [name]="item.item.name"
@@ -21,7 +21,7 @@
 <span class="operator">=</span>
 
 <app-item
-  [game]="evo().evo.game"
+  [gameId]="evo().evo.gameId"
   [kind]="evo().evo.kind"
   [image]="evo().evo.image"
   [name]="evo().evo.name"

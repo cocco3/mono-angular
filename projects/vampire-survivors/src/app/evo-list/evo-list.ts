@@ -1,18 +1,42 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
+import {
+  UiButtonComponent,
+  UiEmptyComponent,
+  UiSlotDirective,
+} from '@cocco3/angular-ui';
 import type { Evo } from '../../data/types';
 import { EvolutionComponent } from '../evo/evolution';
 
 @Component({
   host: {
-    '[style.background-color]': 'background()',
+    '[style.background-color]': 'bgColor()',
   },
-  imports: [EvolutionComponent],
+  imports: [
+    EvolutionComponent,
+    UiButtonComponent,
+    UiEmptyComponent,
+    UiSlotDirective,
+  ],
   selector: 'app-evo-list',
   styleUrl: './evo-list.css',
   templateUrl: './evo-list.html',
 })
 export class EvolutionListComponent {
-  background = input.required<string>();
-  game = input.required<string>();
+  bgColor = input.required<string>();
+  gameName = input.required<string>();
   evolutions = input.required<Evo[]>();
+  selectedPassive = input<string | undefined>();
+
+  filteredEvos = computed(() => {
+    const filter = this.selectedPassive();
+    return this.evolutions().filter((evo) =>
+      filter ? evo.items.find((item) => item.item.name === filter) : evo
+    );
+  });
+
+  readonly clearFilters = output();
+
+  protected handleClearFilters() {
+    this.clearFilters.emit();
+  }
 }
