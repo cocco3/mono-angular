@@ -23,3 +23,15 @@ export const getToday = () => {
   );
   return localDate.toISOString().split('T')[0];
 };
+
+export const formatDate = (isoDate: string) => {
+  const date = new Date(isoDate);
+  const hasTime = isoDate.includes('T') && isoDate.match(/T\d{2}:\d{2}/);
+
+  const formatter = new Intl.DateTimeFormat(
+    'en-us',
+    hasTime ? { dateStyle: 'long', timeStyle: 'short' } : { dateStyle: 'long' }
+  );
+
+  return formatter.format(date);
+};
