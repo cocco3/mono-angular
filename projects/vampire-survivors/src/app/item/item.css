@@ -21,6 +21,11 @@
   --item-border: #b2b2b2;
 }
 
+:host.game-emerald-diorama {
+  --item-bg: #151414;
+  --item-border: #52cbbe;
+}
+
 .img {
   aspect-ratio: 1;
   background-color: var(--item-bg);
@@ -57,6 +62,7 @@
   padding-inline: 2px;
   pointer-events: none;
   text-align: end;
+  word-break: break-word;
 }
 
 .name {
@@ -69,7 +75,7 @@
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 1px;
   transition-property: text-decoration-color;
   transition-duration: 200ms;
   transition-timing-function: ease-out;

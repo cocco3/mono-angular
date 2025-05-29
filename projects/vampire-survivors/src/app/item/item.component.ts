@@ -26,6 +26,8 @@ export class ItemComponent {
       return 'MAX';
     } else if (this.condition() === 'lvl80') {
       return 'LVL80';
+    } else if (this.condition() === 'max5passives') {
+      return '5 MAX PASSIVES';
     }
     return undefined;
   });

@@ -7,7 +7,7 @@ import {
   Mini_Scientist,
   Mini_Shapeshifter,
 } from './passives';
-import type { Evo, Item } from './types';
+import type { WeaponEvolution, Item } from './types';
 
 const Report: Item = {
   kind: 'weapon',
@@ -121,54 +121,54 @@ const Rocket_Science: Item = {
   wiki: 'https://vampire.survivors.wiki/w/Rocket_Science',
 };
 
-export const emergencyMeetingEvolutions: Evo[] = [
+export const emergencyMeetingEvolutions: WeaponEvolution[] = [
   {
     items: [
       { item: Report, condition: 'max' },
       { item: Mini_Crewmate, condition: 'max' },
+      { item: Emergency_Meeting },
     ],
-    evo: Emergency_Meeting,
   },
   {
     items: [
       { item: Lucky_Swipe, condition: 'max' },
       { item: Mini_Engineer, condition: 'max' },
+      { item: Crossed_Wires },
     ],
-    evo: Crossed_Wires,
   },
   {
     items: [
       { item: Lifesign_Scan, condition: 'max' },
       { item: Mini_Ghost, condition: 'max' },
+      { item: Paranormal_Scan },
     ],
-    evo: Paranormal_Scan,
   },
   {
     items: [
       { item: Just_Vent, condition: 'max' },
       { item: Mini_Shapeshifter, condition: 'max' },
+      { item: Unjust_Ejection },
     ],
-    evo: Unjust_Ejection,
   },
   {
     items: [
       { item: Clear_Debris, condition: 'max' },
       { item: Mini_Guardian, condition: 'max' },
+      { item: Clear_Asteroids },
     ],
-    evo: Clear_Asteroids,
   },
   {
     items: [
       { item: Sharp_Tongue, condition: 'max' },
       { item: Mini_Impostor, condition: 'max' },
+      { item: Impostongue },
     ],
-    evo: Impostongue,
   },
   {
     items: [
       { item: Science_Rocks, condition: 'max' },
       { item: Mini_Scientist, condition: 'max' },
+      { item: Rocket_Science },
     ],
-    evo: Rocket_Science,
   },
 ];

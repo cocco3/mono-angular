@@ -2,8 +2,8 @@ import { type GameId } from './games';
 
 export { type GameId } from './games';
 export type ItemKind = 'passive' | 'weapon' | 'relic' | 'character';
-export type EvoCondition = 'max' | 'lvl80';
-export type EvoOperator = 'plus' | 'tech';
+export type EvoCondition = 'max' | 'lvl80' | 'max5passives';
+export type EvoNextOperator = 'plus' | 'tech' | 'equals';
 
 export type Item = {
   kind: ItemKind;
@@ -13,7 +13,12 @@ export type Item = {
   wiki: string;
 };
 
-export type Evo = {
-  items: { item: Item; operator?: EvoOperator; condition?: EvoCondition }[];
-  evo: Item;
+export type WeaponEvolutionItem = {
+  item: Item;
+  operator?: EvoNextOperator;
+  condition?: EvoCondition;
+};
+
+export type WeaponEvolution = {
+  items: WeaponEvolutionItem[];
 };

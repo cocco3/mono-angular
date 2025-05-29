@@ -1,31 +1,33 @@
 <h2 class="heading">Filters:</h2>
 
-<ui-form-field [label]="'Game'">
-  <select
-    ui-select
-    [value]="selectedGameId()"
-    (change)="handleGameChange($event)"
-  >
-    <option></option>
-    @for (game of gamesList(); track game.id) {
-      <option [value]="game.id">{{ game.name }}</option>
-    }
-  </select>
-</ui-form-field>
+<div class="inner">
+  <ui-form-field [label]="'Game'">
+    <select
+      ui-select
+      [value]="selectedGameId()"
+      (change)="handleGameChange($event)"
+    >
+      <option></option>
+      @for (game of gamesList(); track game.id) {
+        <option [value]="game.id">{{ game.name }}</option>
+      }
+    </select>
+  </ui-form-field>
 
-<ui-form-field [label]="'Passive'">
-  <select
-    ui-select
-    [value]="selectedPassive()"
-    (change)="handlePassiveChange($event)"
-  >
-    <option></option>
-    @for (group of passivesList(); track group.game) {
-      <optgroup [label]="group.game">
-        @for (item of group.items; track item.name) {
-          <option [value]="item.name">{{ item.name }}</option>
-        }
-      </optgroup>
-    }
-  </select>
-</ui-form-field>
+  <ui-form-field [label]="'Passive'">
+    <select
+      ui-select
+      [value]="selectedPassive()"
+      (change)="handlePassiveChange($event)"
+    >
+      <option></option>
+      @for (group of passivesList(); track group.game) {
+        <optgroup [label]="group.game">
+          @for (item of group.items; track item.name) {
+            <option [value]="item.name">{{ item.name }}</option>
+          }
+        </optgroup>
+      }
+    </select>
+  </ui-form-field>
+</div>

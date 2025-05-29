@@ -4,8 +4,8 @@ import {
   UiEmptyComponent,
   UiSlotDirective,
 } from '@cocco3/angular-ui';
-import type { Evo } from '../../data/types';
-import { EvolutionComponent } from '../evo/evolution';
+import type { WeaponEvolution } from '../../data/types';
+import { EvolutionComponent } from '../evolution/evolution.component';
 
 @Component({
   host: {
@@ -24,7 +24,7 @@ import { EvolutionComponent } from '../evo/evolution';
 export class EvolutionListComponent {
   bgColor = input.required<string>();
   gameName = input.required<string>();
-  evolutions = input.required<Evo[]>();
+  evolutions = input.required<WeaponEvolution[]>();
   selectedPassive = input<string | undefined>();
 
   filteredEvos = computed(() => {

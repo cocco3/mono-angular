@@ -1,0 +1,16 @@
+:host {
+  align-items: center;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  line-height: 1;
+  margin-block-start: 12px;
+  min-width: 24px;
+}
+
+.label {
+  font-family: Arial;
+  font-size: 8px;
+  margin-block-start: -2px;
+}

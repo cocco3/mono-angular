@@ -1,4 +1,4 @@
-import type { Evo, Item } from './types';
+import type { WeaponEvolution, Item } from './types';
 
 import {
   Armor,
@@ -547,150 +547,198 @@ const EmbraceOfGaea: Item = {
   wiki: 'https://vampire.survivors.wiki/w/Embrace_of_Gaea',
 };
 
-export const baseGameEvolutions: Evo[] = [
+export const baseGameEvolutions: WeaponEvolution[] = [
   {
-    items: [{ item: Whip, condition: 'max' }, { item: HollowHeart }],
-    evo: BloodyTear,
+    items: [
+      { item: Whip, condition: 'max' },
+      { item: HollowHeart },
+      { item: BloodyTear },
+    ],
   },
   {
-    items: [{ item: MagicWand, condition: 'max' }, { item: EmptyTome }],
-    evo: HolyWand,
+    items: [
+      { item: MagicWand, condition: 'max' },
+      { item: EmptyTome },
+      { item: HolyWand },
+    ],
   },
   {
-    items: [{ item: Knife, condition: 'max' }, { item: Bracer }],
-    evo: ThousandEdge,
+    items: [
+      { item: Knife, condition: 'max' },
+      { item: Bracer },
+      { item: ThousandEdge },
+    ],
   },
   {
-    items: [{ item: Axe, condition: 'max' }, { item: Candelabrador }],
-    evo: DeathSpiral,
+    items: [
+      { item: Axe, condition: 'max' },
+      { item: Candelabrador },
+      { item: DeathSpiral },
+    ],
   },
   {
-    items: [{ item: Cross, condition: 'max' }, { item: Clover }],
-    evo: HeavenSword,
+    items: [
+      { item: Cross, condition: 'max' },
+      { item: Clover },
+      { item: HeavenSword },
+    ],
   },
   {
-    items: [{ item: KingBible, condition: 'max' }, { item: Spellbinder }],
-    evo: UnholyVespers,
+    items: [
+      { item: KingBible, condition: 'max' },
+      { item: Spellbinder },
+      { item: UnholyVespers },
+    ],
   },
   {
-    items: [{ item: FireWand, condition: 'max' }, { item: Spinach }],
-    evo: Hellfire,
+    items: [
+      { item: FireWand, condition: 'max' },
+      { item: Spinach },
+      { item: Hellfire },
+    ],
   },
   {
-    items: [{ item: Garlic, condition: 'max' }, { item: Pummarola }],
-    evo: SoulEater,
+    items: [
+      { item: Garlic, condition: 'max' },
+      { item: Pummarola },
+      { item: SoulEater },
+    ],
   },
   {
-    items: [{ item: SantaWater, condition: 'max' }, { item: Attractorb }],
-    evo: LaBorra,
+    items: [
+      { item: SantaWater, condition: 'max' },
+      { item: Attractorb },
+      { item: LaBorra },
+    ],
   },
   {
-    items: [{ item: Runetracer, condition: 'max' }, { item: Armor }],
-    evo: NoFuture,
+    items: [
+      { item: Runetracer, condition: 'max' },
+      { item: Armor },
+      { item: NoFuture },
+    ],
   },
   {
-    items: [{ item: LightningRing, condition: 'max' }, { item: Duplicator }],
-    evo: ThunderLoop,
+    items: [
+      { item: LightningRing, condition: 'max' },
+      { item: Duplicator },
+      { item: ThunderLoop },
+    ],
   },
   {
-    items: [{ item: Pentagram, condition: 'max' }, { item: Crown }],
-    evo: GorgeousMoon,
+    items: [
+      { item: Pentagram, condition: 'max' },
+      { item: Crown },
+      { item: GorgeousMoon },
+    ],
   },
   {
-    items: [{ item: GattiAmari, condition: 'max' }, { item: StoneMask }],
-    evo: ViciousHunger,
+    items: [
+      { item: GattiAmari, condition: 'max' },
+      { item: StoneMask },
+      { item: ViciousHunger },
+    ],
   },
   {
-    items: [{ item: SongOfMana, condition: 'max' }, { item: Skull_O_Maniac }],
-    evo: Mannajja,
+    items: [
+      { item: SongOfMana, condition: 'max' },
+      { item: Skull_O_Maniac },
+      { item: Mannajja },
+    ],
   },
   {
-    items: [{ item: ShadowPinion, condition: 'max' }, { item: Wings }],
-    evo: ValkyrieTurner,
+    items: [
+      { item: ShadowPinion, condition: 'max' },
+      { item: Wings },
+      { item: ValkyrieTurner },
+    ],
   },
   {
     items: [
       { item: Peachone, condition: 'max' },
       { item: EbonyWings, condition: 'max' },
+      { item: Vandalier },
     ],
-    evo: Vandalier,
   },
   {
-    items: [{ item: VentoSacro, condition: 'max' }, { item: BloodyTear }],
-    evo: Fuwalafuwaloo,
+    items: [
+      { item: VentoSacro, condition: 'max' },
+      { item: BloodyTear },
+      { item: Fuwalafuwaloo },
+    ],
   },
   {
     items: [
       { item: GlassFandango, condition: 'max' },
       { item: Wings, condition: 'max' },
+      { item: CelestialVoulge },
     ],
-    evo: CelestialVoulge,
   },
   {
     items: [
       { item: Phas3r, condition: 'max' },
       { item: EmptyTome, condition: 'max' },
+      { item: Photonstorm },
     ],
-    evo: Photonstorm,
   },
   {
     items: [
       { item: PakoBattiliar, condition: 'max' },
       { item: HollowHeart, condition: 'max' },
+      { item: MazoFamiliar },
     ],
-    evo: MazoFamiliar,
   },
   {
     items: [
       { item: SantaJavelin, condition: 'max' },
       { item: Clover, condition: 'max' },
+      { item: SeraphicCry },
     ],
-    evo: SeraphicCry,
   },
   {
     items: [
       { item: Bracelet, condition: 'max' },
       { item: BiBracelet, condition: 'max' },
+      { item: TriBracelet },
     ],
-    evo: TriBracelet,
   },
   {
     items: [
       { item: VictorySword, condition: 'max' },
       { item: TorronasBox, condition: 'max' },
+      { item: SoleSolution },
     ],
-    evo: SoleSolution,
   },
   {
     items: [
       { item: FlamesOfMisspell, condition: 'max' },
       { item: TorronasBox, condition: 'max' },
+      { item: AshesOfMuspell },
     ],
-    evo: AshesOfMuspell,
   },
   {
     items: [
       { item: PhieraDerTuphello, condition: 'max' },
       { item: EightTheSparrow, condition: 'max' },
       { item: Tirajisu },
+      { item: Phieraggi },
     ],
-    evo: Phieraggi,
   },
   {
     items: [
       { item: ClockLancet, condition: 'max' },
       { item: GoldRing, condition: 'max' },
       { item: SilverRing, condition: 'max' },
+      { item: InfiniteCorridor },
     ],
-    evo: InfiniteCorridor,
   },
   {
     items: [
       { item: Laurel, condition: 'max' },
       { item: MetaglioLeft, condition: 'max' },
       { item: MetaglioRight, condition: 'max' },
+      { item: CrimsonShroud },
     ],
-    evo: CrimsonShroud,
   },
 
   {
@@ -698,27 +746,30 @@ export const baseGameEvolutions: Evo[] = [
       { item: Bone, condition: 'max' },
       { item: ChaosMalachite },
       { item: Mortaccio, condition: 'lvl80' },
+      { item: AnimaOfMortaccio },
     ],
-    evo: AnimaOfMortaccio,
   },
   {
     items: [
       { item: CherryBomb, condition: 'max' },
       { item: ChaosRosalia },
       { item: Cavallo, condition: 'lvl80' },
+      { item: YattaDaikarin },
     ],
-    evo: YattaDaikarin,
   },
   {
     items: [
       { item: CelestialDusting, condition: 'max' },
       { item: ChaosAltemanna },
       { item: OSole, condition: 'lvl80' },
+      { item: ProfusioneDAmore },
     ],
-    evo: ProfusioneDAmore,
   },
   {
-    items: [{ item: GazeOfGaea, condition: 'max' }, { item: ParmAegis }],
-    evo: EmbraceOfGaea,
+    items: [
+      { item: GazeOfGaea, condition: 'max' },
+      { item: ParmAegis },
+      { item: EmbraceOfGaea },
+    ],
   },
 ];

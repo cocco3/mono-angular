@@ -1,4 +1,4 @@
-import type { Evo, Item } from './types';
+import type { WeaponEvolution, Item } from './types';
 import { Armor, Bracer, Crown, Skull_O_Maniac } from './passives';
 
 const Eskizzibur: Item = {
@@ -97,41 +97,41 @@ const SpellStrom: Item = {
   wiki: 'https://vampire.survivors.wiki/w/SpellStrom',
 };
 
-export const tidesOfFoscariEvolutions: Evo[] = [
+export const tidesOfFoscariEvolutions: WeaponEvolution[] = [
   {
     items: [
       { item: Eskizzibur, condition: 'max' },
       { item: Armor, condition: 'max' },
+      { item: Legionnaire },
     ],
-    evo: Legionnaire,
   },
   {
     items: [
       { item: PrismaticMissile, condition: 'max' },
       { item: Crown, condition: 'max' },
+      { item: Luminaire },
     ],
-    evo: Luminaire,
   },
   {
     items: [
       { item: ShadowServant, condition: 'max' },
       { item: Skull_O_Maniac, condition: 'max' },
+      { item: Ophion },
     ],
-    evo: Ophion,
   },
   {
     items: [
       { item: FlashArrow, condition: 'max' },
       { item: Bracer, condition: 'max' },
+      { item: Millionaire },
     ],
-    evo: Millionaire,
   },
   {
     items: [
       { item: SpellString, condition: 'max' },
       { item: SpellStream, condition: 'max' },
       { item: SpellStrike, condition: 'max' },
+      { item: SpellStrom },
     ],
-    evo: SpellStrom,
   },
 ];
