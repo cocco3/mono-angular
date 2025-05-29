@@ -1,9 +1,11 @@
 import { Component, computed, input, output } from '@angular/core';
-import { formatDays, formatComplex } from '@cocco3/utils';
+import { UiPopoverDirective, UiTooltipComponent } from '@cocco3/angular-ui';
+import { formatDate, formatDays, formatComplex } from '@cocco3/utils';
 
 export type CountdownFormat = 'days' | 'detailed';
 
 @Component({
+  imports: [UiTooltipComponent, UiPopoverDirective],
   selector: 'app-countdown',
   styleUrl: './countdown.css',
   templateUrl: './countdown.html',
@@ -18,6 +20,10 @@ export class CountdownComponent {
   protected handleClick() {
     this.clicked.emit();
   }
+
+  protected formattedDate = computed(() => {
+    return formatDate(this.date());
+  });
 
   protected displayName = computed(() => {
     return this.name() || 'Event';
