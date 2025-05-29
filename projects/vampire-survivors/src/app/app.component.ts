@@ -18,6 +18,8 @@ export class AppComponent {
   protected selectedGameId = signal<GameId | undefined>(undefined);
   protected selectedPassive = signal<string | undefined>(undefined);
 
+  protected lastUpdatedDate = `Last updated: May 30, 2025`;
+
   protected allEvos = computed(() => {
     return this.selectedGameId()
       ? this.data

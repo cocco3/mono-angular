@@ -4,8 +4,8 @@ export type GameId =
   | 'foscari'
   | 'emergency-meeting'
   | 'operation-guns'
-  | 'emerald-diorama';
-// |'castlevania'
+  | 'emerald-diorama'
+  | 'castlevania';
 
 export type Game = { id: GameId; name: string; color: string };
 
@@ -45,6 +45,12 @@ const EmeraldDiorama: Game = {
   color: '#47725d',
 };
 
+const OdeToCastleVania: Game = {
+  id: 'castlevania',
+  name: 'Ode to CastleVania DLC',
+  color: '#554326',
+};
+
 export const allGames = [
   BaseGame,
   Moonspell,
@@ -52,4 +58,5 @@ export const allGames = [
   EmergencyMeeting,
   OperationGuns,
   EmeraldDiorama,
+  OdeToCastleVania,
 ];

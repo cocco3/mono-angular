@@ -17,6 +17,7 @@ export class EvoOperatorComponent {
         return '=';
       case 'plus':
         return '+';
+      case 'arrow':
       case 'tech':
         return '→';
       default:
