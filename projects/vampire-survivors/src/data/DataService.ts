@@ -8,6 +8,7 @@ import { emergencyMeetingEvolutions } from './emergency-meeting';
 import { operationGunsEvolutions } from './operation-guns';
 import { allGames } from './games';
 import { emeraldDioramaEvolutions } from './emerald-diorama';
+import { odeToCastlevaniaEvolutions } from './ode-to-castlevania';
 
 @Injectable({
   providedIn: 'root',
@@ -44,6 +45,8 @@ export class DataService {
         return operationGunsEvolutions;
       case 'emerald-diorama':
         return emeraldDioramaEvolutions;
+      case 'castlevania':
+        return odeToCastlevaniaEvolutions;
       default:
         return [];
     }

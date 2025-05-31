@@ -697,8 +697,8 @@ export const baseGameEvolutions: WeaponEvolution[] = [
   },
   {
     items: [
-      { item: Bracelet, condition: 'max' },
-      { item: BiBracelet, condition: 'max' },
+      { item: Bracelet, condition: 'max', operator: 'arrow' },
+      { item: BiBracelet, condition: 'max', operator: 'arrow' },
       { item: TriBracelet },
     ],
   },

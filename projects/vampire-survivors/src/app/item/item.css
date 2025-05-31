@@ -26,7 +26,12 @@
   --item-border: #52cbbe;
 }
 
-.img {
+:host.game-castlevania {
+  --item-bg: #272770;
+  --item-border: #f7f7f9;
+}
+
+.box {
   aspect-ratio: 1;
   background-color: var(--item-bg);
   border: 2px solid var(--item-border);
@@ -35,15 +40,17 @@
   display: grid;
   overflow: hidden;
   width: 48px;
+}
 
-  img {
-    box-sizing: border-box;
-    display: block;
-    grid-area: 1 / 1;
-    height: 100%;
-    padding: 6px;
-    width: 100%;
-  }
+.img {
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  display: block;
+  grid-area: 1 / 1;
+  height: 100%;
+  image-rendering: pixelated;
+  padding: 6px;
+  width: 100%;
 }
 
 .info {
@@ -67,8 +74,7 @@
 
 .name {
   color: var(--text-primary);
-  font-family: Arial;
-  font-size: 10px;
+  font: 400 var(--type-text-2xs);
   margin-block-start: 2px;
   text-align: center;
   text-decoration-color: transparent;

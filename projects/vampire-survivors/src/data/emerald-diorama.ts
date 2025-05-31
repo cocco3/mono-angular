@@ -424,16 +424,16 @@ export const emeraldDioramaEvolutions: WeaponEvolution[] = [
   },
   {
     items: [
-      { item: Emerald_Rapture, operator: 'plus' },
-      { item: Crown, operator: 'equals' },
-      { item: Emerald_Wave },
+      { item: Spirit_Rings, operator: 'plus' },
+      { item: Empty, condition: 'max5passives', operator: 'equals' },
+      { item: Rings_of_Calamity },
     ],
   },
   {
     items: [
-      { item: Spirit_Rings, operator: 'plus' },
-      { item: Empty, condition: 'max5passives', operator: 'equals' },
-      { item: Rings_of_Calamity },
+      { item: Emerald_Rapture, operator: 'plus' },
+      { item: Crown, operator: 'equals' },
+      { item: Emerald_Wave },
     ],
   },
 ];

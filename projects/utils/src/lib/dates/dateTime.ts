@@ -24,14 +24,27 @@ export const getToday = () => {
   return localDate.toISOString().split('T')[0];
 };
 
-export const formatDate = (isoDate: string) => {
-  const date = new Date(isoDate);
-  const hasTime = isoDate.includes('T') && isoDate.match(/T\d{2}:\d{2}/);
+export const formatIsoDate = (isoDate: string) => {
+  const hasTime = doesIsoDateHaveTime(isoDate);
 
-  const formatter = new Intl.DateTimeFormat(
-    'en-us',
-    hasTime ? { dateStyle: 'long', timeStyle: 'short' } : { dateStyle: 'long' }
-  );
+  if (hasTime) {
+    const date = new Date(isoDate);
+    const formatter = new Intl.DateTimeFormat('en-us', {
+      dateStyle: 'long',
+      timeStyle: 'short',
+    });
 
-  return formatter.format(date);
+    return formatter.format(date);
+  } else {
+    const date = new Date(`${isoDate}T00:00:00`);
+    const formatter = new Intl.DateTimeFormat('en-us', {
+      dateStyle: 'long',
+    });
+
+    return formatter.format(date);
+  }
+};
+
+export const doesIsoDateHaveTime = (isoDate: string) => {
+  return isoDate.includes('T') && isoDate.match(/T\d{2}:\d{2}/);
 };

@@ -1,0 +1,16 @@
+:host {
+  align-items: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font: 400 var(--type-text-sm);
+  gap: 24px;
+  padding-block: 12px;
+  padding-inline: 16px;
+
+  a {
+    color: #ffffff;
+  }
+}

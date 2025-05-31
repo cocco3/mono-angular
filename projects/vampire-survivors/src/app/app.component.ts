@@ -4,10 +4,16 @@ import type { GameId } from '../data/games';
 import { DataService } from '../data/DataService';
 import { EvolutionListComponent } from './evo-list/evo-list.component';
 import { ItemFilterComponent } from './item-filter/item-filter.component';
+import { AppFooterComponent } from './app-footer/app-footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EvolutionListComponent, ItemFilterComponent],
+  imports: [
+    RouterOutlet,
+    EvolutionListComponent,
+    ItemFilterComponent,
+    AppFooterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

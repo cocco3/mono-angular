@@ -28,6 +28,10 @@ export class ItemComponent {
       return 'LVL80';
     } else if (this.condition() === 'max5passives') {
       return '5 MAX PASSIVES';
+    } else if (this.condition() === 'max6passives') {
+      return '6 MAX PASSIVES';
+    } else if (this.condition() === '6-full-evos') {
+      return '6 FULL EVOS';
     }
     return undefined;
   });

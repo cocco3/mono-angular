@@ -10,7 +10,6 @@
 }
 
 .label {
-  font-family: Arial;
-  font-size: 8px;
+  font: 400 var(--type-text-3xs);
   margin-block-start: -2px;
 }
