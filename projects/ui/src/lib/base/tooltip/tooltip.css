@@ -5,10 +5,6 @@
   padding: 0;
 }
 
-:host:popover-open {
-  position: absolute;
-}
-
 .content {
   background-color: var(--bg-quaternary);
   border-radius: 8px;
@@ -19,4 +15,21 @@
   padding-block: 8px;
   padding-inline: 12px;
   width: fit-content;
+}
+
+:host[popover] {
+  opacity: 0;
+  transition-behavior: allow-discrete;
+  transition-timing-function: ease-out;
+  transition-duration: 200ms;
+  transition-property: display, opacity;
+}
+
+:host[popover]:popover-open {
+  opacity: 1;
+  position: absolute;
+
+  @starting-style {
+    opacity: 0;
+  }
 }
