@@ -1,6 +1,16 @@
 :host {
-  background-color: var(--bg-quaternary);
+  background: none;
   border: none;
+  margin: 0;
+  padding: 0;
+}
+
+:host:popover-open {
+  position: absolute;
+}
+
+.content {
+  background-color: var(--bg-quaternary);
   border-radius: 8px;
   box-sizing: border-box;
   color: var(--text-secondary);
