@@ -10,11 +10,3 @@
   flex-direction: row;
   overflow-x: auto;
 }
-
-.footer {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font: 400 var(--type-text-sm);
-  padding-block: 12px;
-  padding-inline: 16px;
-}
