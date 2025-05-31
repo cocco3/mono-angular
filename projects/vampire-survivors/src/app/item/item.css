@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 60px;
+  width: 64px;
 }
 
 :host.kind-relic {
@@ -39,7 +39,7 @@
   box-sizing: border-box;
   display: grid;
   overflow: hidden;
-  width: 48px;
+  width: 60px;
 }
 
 .img {
