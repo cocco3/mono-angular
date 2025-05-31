@@ -1,21 +1,14 @@
 <router-outlet />
 
 <div class="page">
-  <app-item-filter
-    [selectedGameId]="selectedGameId()"
-    [selectedPassive]="selectedPassive()"
-    (gameIdChanged)="handleGameIdChange($event)"
-    (passiveChanged)="handlePassiveChange($event)"
-  />
+  <app-item-filter />
 
   <div class="wrapper">
-    @for (game of allEvos(); track game.game.id) {
+    @for (game of filteredGames(); track game.game.id) {
       <app-evo-list
         [gameName]="game.game.name"
         [bgColor]="game.game.color"
         [evolutions]="game.evos"
-        [selectedPassive]="selectedPassive()"
-        (clearFilters)="handleClearFilters()"
       />
     }
   </div>

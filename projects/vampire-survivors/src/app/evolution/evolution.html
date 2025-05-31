@@ -1,6 +1,6 @@
 @for (
   item of evo().items;
-  track item.item.name;
+  track `${item.item.name}-${$index}`;
   let last = $last;
   let count = $count;
   let index = $index

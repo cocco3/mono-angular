@@ -1,8 +1,10 @@
-import { Component, computed, inject, input, output } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { UiFormFieldComponent, UiSelectComponent } from '@cocco3/angular-ui';
+import { groupBy } from '@cocco3/utils';
+import { ItemFilterService } from './item-filter.service';
 import { DataService } from '../../data/DataService';
-import type { GameId, Item } from '../../data/types';
 import { allGames } from '../../data/games';
+import type { GameId } from '../../data/types';
 
 @Component({
   host: {
@@ -15,11 +17,10 @@ import { allGames } from '../../data/games';
 })
 export class ItemFilterComponent {
   private readonly data = inject(DataService);
-  selectedGameId = input<GameId | undefined>(undefined);
-  selectedPassive = input<string | undefined>(undefined);
+  private readonly itemFilter = inject(ItemFilterService);
 
-  readonly gameIdChanged = output<GameId | undefined>();
-  readonly passiveChanged = output<string | undefined>();
+  protected selectedGameId = this.itemFilter.gameId$;
+  protected selectedPassive = this.itemFilter.passive$;
 
   protected gamesList = computed(() => {
     return this.data.getAllGames();
@@ -28,34 +29,31 @@ export class ItemFilterComponent {
   protected passivesList = computed(() => {
     const passives = this.data.getPassives();
 
-    /** TODO: replace with Object.groupBy() */
-    const grouped = passives.reduce(
-      (acc, item) => {
-        const game = allGames.find((x) => x.id === item.gameId);
-        const key = game?.name || item.gameId;
-        if (!acc[key]) {
-          acc[key] = [];
-        }
-        acc[key].push(item);
-        return acc;
-      },
-      {} as Record<string, Item[]>
-    );
+    const grouped = groupBy(passives, (item) => {
+      const game = allGames.find((x) => x.id === item.gameId);
+      return game?.name || item.gameId;
+    });
 
-    const arr = Object.entries(grouped).map(([game, items]) => {
+    const list = Object.entries(grouped).map(([game, items]) => {
       return { game, items };
     });
 
-    return arr;
+    return list;
   });
 
   protected handleGameChange(event: Event) {
     const target = event.target as HTMLSelectElement;
-    this.gameIdChanged.emit(target.value as GameId);
+    this.itemFilter.updateFilters({
+      gameId: target.value as GameId,
+      passive: this.selectedPassive(),
+    });
   }
 
   protected handlePassiveChange(event: Event) {
     const target = event.target as HTMLSelectElement;
-    this.passiveChanged.emit(target.value);
+    this.itemFilter.updateFilters({
+      gameId: this.selectedGameId(),
+      passive: target.value,
+    });
   }
 }
