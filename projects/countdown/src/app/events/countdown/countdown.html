@@ -1,5 +1,22 @@
-<div class="name">
-  {{ displayName() }}
+<div>
+  <span
+    class="name"
+    #dateTooltipAnchor
+    (mouseenter)="tooltip.showTooltip()"
+    (mouseleave)="tooltip.hideTooltip()"
+    (touchstart)="tooltip.toggleTooltip()"
+  >
+    {{ displayName() }}
+  </span>
+  <ui-tooltip
+    uiTooltip
+    #tooltip="uiTooltip"
+    [anchor]="dateTooltipAnchor"
+    offset="8"
+    placement="after-center"
+  >
+    {{ formattedDate() }}
+  </ui-tooltip>
 </div>
 
 <button class="time" (click)="handleClick()">

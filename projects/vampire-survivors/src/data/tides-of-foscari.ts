@@ -1,9 +1,9 @@
-import type { Evo, Item } from './types';
+import type { WeaponEvolution, Item } from './types';
 import { Armor, Bracer, Crown, Skull_O_Maniac } from './passives';
 
 const Eskizzibur: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Eskizzibur',
   image: 'eskizzibur.png',
   wiki: 'https://vampire.survivors.wiki/w/Eskizzibur',
@@ -11,7 +11,7 @@ const Eskizzibur: Item = {
 
 const Legionnaire: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Legionnaire',
   image: 'legionnaire.png',
   wiki: 'https://vampire.survivors.wiki/w/Legionnaire',
@@ -19,7 +19,7 @@ const Legionnaire: Item = {
 
 const PrismaticMissile: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Prismatic Missile',
   image: 'prismatic-missile.png',
   wiki: 'https://vampire.survivors.wiki/w/Prismatic_Missile',
@@ -27,7 +27,7 @@ const PrismaticMissile: Item = {
 
 const Luminaire: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Luminaire',
   image: 'luminaire.png',
   wiki: 'https://vampire.survivors.wiki/w/Luminaire',
@@ -35,7 +35,7 @@ const Luminaire: Item = {
 
 const ShadowServant: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Shadow Servant',
   image: 'shadow-servant.png',
   wiki: 'https://vampire.survivors.wiki/w/Shadow_Servant',
@@ -43,7 +43,7 @@ const ShadowServant: Item = {
 
 const Ophion: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Ophion',
   image: 'ophion.png',
   wiki: 'https://vampire.survivors.wiki/w/Ophion',
@@ -51,7 +51,7 @@ const Ophion: Item = {
 
 const FlashArrow: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Flash Arrow',
   image: 'flash-arrow.png',
   wiki: 'https://vampire.survivors.wiki/w/Flash_Arrow',
@@ -59,7 +59,7 @@ const FlashArrow: Item = {
 
 const Millionaire: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'Millionaire',
   image: 'millionaire.png',
   wiki: 'https://vampire.survivors.wiki/w/Millionaire',
@@ -67,7 +67,7 @@ const Millionaire: Item = {
 
 const SpellString: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'SpellString',
   image: 'spellstring.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellString',
@@ -75,7 +75,7 @@ const SpellString: Item = {
 
 const SpellStream: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'SpellStream',
   image: 'spellstream.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellStream',
@@ -83,7 +83,7 @@ const SpellStream: Item = {
 
 const SpellStrike: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'SpellStrike',
   image: 'spellstrike.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellStrike',
@@ -91,47 +91,47 @@ const SpellStrike: Item = {
 
 const SpellStrom: Item = {
   kind: 'weapon',
-  game: 'foscari',
+  gameId: 'foscari',
   name: 'SpellStrom',
   image: 'spellstrom.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellStrom',
 };
 
-export const tidesOfFoscariEvolutions: Evo[] = [
+export const tidesOfFoscariEvolutions: WeaponEvolution[] = [
   {
     items: [
       { item: Eskizzibur, condition: 'max' },
       { item: Armor, condition: 'max' },
+      { item: Legionnaire },
     ],
-    evo: Legionnaire,
   },
   {
     items: [
       { item: PrismaticMissile, condition: 'max' },
       { item: Crown, condition: 'max' },
+      { item: Luminaire },
     ],
-    evo: Luminaire,
   },
   {
     items: [
       { item: ShadowServant, condition: 'max' },
       { item: Skull_O_Maniac, condition: 'max' },
+      { item: Ophion },
     ],
-    evo: Ophion,
   },
   {
     items: [
       { item: FlashArrow, condition: 'max' },
       { item: Bracer, condition: 'max' },
+      { item: Millionaire },
     ],
-    evo: Millionaire,
   },
   {
     items: [
       { item: SpellString, condition: 'max' },
       { item: SpellStream, condition: 'max' },
       { item: SpellStrike, condition: 'max' },
+      { item: SpellStrom },
     ],
-    evo: SpellStrom,
   },
 ];

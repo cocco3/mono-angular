@@ -21,7 +21,17 @@
   --item-border: #b2b2b2;
 }
 
-.img {
+:host.game-emerald-diorama {
+  --item-bg: #151414;
+  --item-border: #52cbbe;
+}
+
+:host.game-castlevania {
+  --item-bg: #272770;
+  --item-border: #f7f7f9;
+}
+
+.box {
   aspect-ratio: 1;
   background-color: var(--item-bg);
   border: 2px solid var(--item-border);
@@ -30,15 +40,17 @@
   display: grid;
   overflow: hidden;
   width: 48px;
+}
 
-  img {
-    box-sizing: border-box;
-    display: block;
-    grid-area: 1 / 1;
-    height: 100%;
-    padding: 6px;
-    width: 100%;
-  }
+.img {
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  display: block;
+  grid-area: 1 / 1;
+  height: 100%;
+  image-rendering: pixelated;
+  padding: 6px;
+  width: 100%;
 }
 
 .info {
@@ -57,19 +69,19 @@
   padding-inline: 2px;
   pointer-events: none;
   text-align: end;
+  word-break: break-word;
 }
 
 .name {
   color: var(--text-primary);
-  font-family: Arial;
-  font-size: 10px;
+  font: 400 var(--type-text-2xs);
   margin-block-start: 2px;
   text-align: center;
   text-decoration-color: transparent;
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 1px;
   transition-property: text-decoration-color;
   transition-duration: 200ms;
   transition-timing-function: ease-out;
@@ -77,7 +89,7 @@
   @media (hover: hover) {
     &:any-link:hover {
       cursor: pointer;
-      text-decoration-color: var(--text-primary);
+      text-decoration-color: currentColor;
     }
   }
 }

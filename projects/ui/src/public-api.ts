@@ -7,6 +7,8 @@ export * from './lib/base/button/button.component';
 export * from './lib/base/dialog/dialog.component';
 export * from './lib/base/empty/empty.component';
 export * from './lib/base/icon/icon.component';
+export * from './lib/base/tooltip/tooltip.component';
+export * from './lib/base/tooltip/tooltip.directive';
 
 export * from './lib/forms/form-field/form-field.component';
 export * from './lib/forms/checkbox/checkbox.component';

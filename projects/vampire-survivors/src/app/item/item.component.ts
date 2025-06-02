@@ -1,5 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import type { Game, EvoCondition, ItemKind } from '../../data/types';
+import type { GameId, EvoCondition, ItemKind } from '../../data/types';
 import { UiCardTitleAnchorComponent } from '@cocco3/angular-ui';
 
 @Component({
@@ -12,7 +12,7 @@ import { UiCardTitleAnchorComponent } from '@cocco3/angular-ui';
   templateUrl: './item.html',
 })
 export class ItemComponent {
-  game = input.required<Game>();
+  gameId = input.required<GameId>();
   kind = input.required<ItemKind>();
   name = input.required<string>();
   wiki = input.required<string>();
@@ -26,12 +26,18 @@ export class ItemComponent {
       return 'MAX';
     } else if (this.condition() === 'lvl80') {
       return 'LVL80';
+    } else if (this.condition() === 'max5passives') {
+      return '5 MAX PASSIVES';
+    } else if (this.condition() === 'max6passives') {
+      return '6 MAX PASSIVES';
+    } else if (this.condition() === '6-full-evos') {
+      return '6 FULL EVOS';
     }
     return undefined;
   });
 
   protected cssClass = computed(() => ({
     [`kind-${this.kind()}`]: !!this.kind(),
-    [`game-${this.game()}`]: !!this.game(),
+    [`game-${this.gameId()}`]: !!this.gameId(),
   }));
 }

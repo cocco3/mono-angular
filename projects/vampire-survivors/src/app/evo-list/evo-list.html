@@ -1,7 +1,22 @@
-<h2 class="title">{{ game() }}</h2>
+<h2 class="title">{{ gameName() }}</h2>
 
-<div class="list">
-  @for (evo of evolutions(); track evo.evo.name) {
-    <app-evolution [evo]="evo" />
-  }
-</div>
+@if (filteredEvos().length) {
+  <div class="list">
+    @for (evo of filteredEvos(); track evo) {
+      <app-evolution [evo]="evo" />
+    }
+  </div>
+} @else {
+  <ui-empty class="empty" title="Nothing here!">
+    <div uiSlot="content">
+      <button
+        ui-button
+        kind="secondary"
+        size="small"
+        (click)="handleClearFilters()"
+      >
+        Clear filters
+      </button>
+    </div>
+  </ui-empty>
+}
