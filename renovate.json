@@ -1,6 +1,66 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:recommended"],
+  "separateMajorMinor": true,
+  "packageRules": [
+    {
+      "groupName": "angular",
+      "matchSourceUrls": [
+        "https://github.com/angular/angular",
+        "https://github.com/angular/angular-cli",
+        "https://github.com/angular-eslint/angular-eslint"
+      ],
+      "matchPackageNames": ["rxjs", "zone.js", "ng-packagr"]
+    },
+    {
+      "groupName": "react",
+      "matchSourceUrls": ["https://github.com/facebook/react"],
+      "matchPackageNames": ["@types/react", "@types/react-dom"]
+    },
+    {
+      "groupName": "storybook",
+      "matchSourceUrls": ["https://github.com/storybookjs/storybook"],
+      "matchPackageNames": [
+        "@chromatic-com/storybook",
+        "@storybook/addon-designs"
+      ]
+    },
+    {
+      "groupName": "linters",
+      "matchSourceUrls": ["https://github.com/eslint/eslint"],
+      "matchPackageNames": ["prettier"]
+    },
+    {
+      "groupName": "testing",
+      "matchSourceUrls": ["https://github.com/jasmine/jasmine"],
+      "matchPackageNames": ["@types/jasmine", "karma*"]
+    },
+    {
+      "groupName": "git hooks",
+      "matchPackageNames": ["@nano-staged", "simple-git-hooks"]
+    },
+    {
+      "groupName": "fs-extra",
+      "matchPackageNames": ["fs-extra", "@types/fs-extra"]
+    },
+    {
+      "groupName": "typescript",
+      "matchPackageNames": ["typescript", "ts-node", "tslib"]
+    },
+    {
+      "groupName": "date-fns",
+      "matchSourceUrls": ["https://github.com/date-fns/date-fns"]
+    },
+    {
+      "groupName": "pdf tools",
+      "matchPackageNames": [
+        "blob-stream",
+        "jspdf",
+        "pdfkit",
+        "pdfmake",
+        "@types/blob-stream",
+        "@types/pdfmake"
+      ]
+    }
   ]
 }
