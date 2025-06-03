@@ -61,7 +61,7 @@
     "@types/blob-stream": "^0.1.33",
     "@types/express": "^5.0.2",
     "@types/fs-extra": "^11.0.4",
-    "@types/google.accounts": "^0.0.15",
+    "@types/google.accounts": "^0.0.16",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^22.14.1",
     "@types/pdfmake": "^0.2.11",
