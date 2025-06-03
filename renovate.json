@@ -4,38 +4,43 @@
     ":dependencyDashboard",
     ":semanticPrefixFixDepsChoreOthers",
     ":ignoreModulesAndTests",
+    "packages:linters",
     "replacements:all",
-    "workarounds:all",
-    "packages:linters"
+    "workarounds:all"
   ],
   "separateMajorMinor": true,
   "packageRules": [
     {
       "groupName": "angular",
-      "matchSourceUrls": [
-        "https://github.com/angular/angular",
-        "https://github.com/angular/angular-cli",
-        "https://github.com/angular-eslint/angular-eslint"
-      ],
-      "matchPackageNames": ["rxjs", "zone.js", "ng-packagr"]
+      "matchPackageNames": [
+        "@angular/*",
+        "@angular-devkit/*",
+        "angular-eslint",
+        "rxjs",
+        "zone.js",
+        "ng-packagr"
+      ]
     },
     {
       "groupName": "react",
-      "matchSourceUrls": ["https://github.com/facebook/react"],
-      "matchPackageNames": ["@types/react", "@types/react-dom"]
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ]
     },
     {
       "groupName": "storybook",
-      "matchSourceUrls": ["https://github.com/storybookjs/storybook"],
       "matchPackageNames": [
-        "@chromatic-com/storybook",
-        "@storybook/addon-designs"
+        "storybook",
+        "@storybook/*",
+        "@chromatic-com/storybook"
       ]
     },
     {
       "groupName": "testing",
-      "matchSourceUrls": ["https://github.com/jasmine/jasmine"],
-      "matchPackageNames": ["@types/jasmine", "karma*"]
+      "matchPackageNames": ["jasmin-core", "@types/jasmine", "karma*"]
     },
     {
       "groupName": "git hooks",
@@ -51,7 +56,7 @@
     },
     {
       "groupName": "date-fns",
-      "matchSourceUrls": ["https://github.com/date-fns/date-fns"]
+      "matchPackageNames": ["date-fns", "@date-fns/*"]
     },
     {
       "groupName": "pdf tools",
