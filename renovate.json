@@ -1,6 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":ignoreModulesAndTests",
+    "replacements:all",
+    "workarounds:all",
+    "packages:linters"
+  ],
   "separateMajorMinor": true,
   "packageRules": [
     {
@@ -26,18 +33,13 @@
       ]
     },
     {
-      "groupName": "linters",
-      "matchSourceUrls": ["https://github.com/eslint/eslint"],
-      "matchPackageNames": ["prettier"]
-    },
-    {
       "groupName": "testing",
       "matchSourceUrls": ["https://github.com/jasmine/jasmine"],
       "matchPackageNames": ["@types/jasmine", "karma*"]
     },
     {
       "groupName": "git hooks",
-      "matchPackageNames": ["@nano-staged", "simple-git-hooks"]
+      "matchPackageNames": ["nano-staged", "simple-git-hooks"]
     },
     {
       "groupName": "fs-extra",
