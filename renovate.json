@@ -6,7 +6,8 @@
     ":ignoreModulesAndTests",
     "packages:linters",
     "replacements:all",
-    "workarounds:all"
+    "workarounds:all",
+    "schedule:monthly"
   ],
   "separateMajorMinor": true,
   "packageRules": [
