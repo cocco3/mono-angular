@@ -18,10 +18,10 @@ module.exports = tseslint.config(
       'no-duplicate-imports': 'error',
       'no-useless-rename': ['error'],
 
-      // '@angular-eslint/prefer-inject': 'error',
       // '@angular-eslint/sort-keys-in-type-decorator': 'error',
       // '@angular-eslint/no-uncalled-signals': 'error',
 
+      '@angular-eslint/prefer-inject': 'error',
       '@angular-eslint/prefer-output-emitter-ref': 'error',
       '@angular-eslint/prefer-output-readonly': 'error',
       '@angular-eslint/prefer-standalone': 'error',
