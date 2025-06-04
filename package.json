@@ -85,7 +85,7 @@
     "storybook": "^8.6.12",
     "svgo": "^3.3.2",
     "ts-node": "^10.9.2",
-    "typescript": "~5.7.2"
+    "typescript": "~5.8.0"
   },
   "simple-git-hooks": {
     "pre-commit": "./node_modules/.bin/nano-staged"

@@ -10,7 +10,7 @@ import * as path from 'path';
 /**
  * Replace all instances of `{{ KEY }}` with `process.env[KEY]`
  */
-function transform(content) {
+function transform(content: string) {
   return content.replace(/\{\{\s*([A-Za-z0-9_]+)\s*\}\}/g, (_, variable) => {
     return `${process.env[variable]}`;
   });
