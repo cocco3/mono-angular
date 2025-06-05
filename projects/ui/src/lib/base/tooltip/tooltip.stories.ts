@@ -1,31 +1,31 @@
 import { type Meta, type StoryObj, moduleMetadata } from '@storybook/angular';
-import { UiTooltipComponent } from './tooltip.component';
 import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
-import {
-  UiPopoverDirective,
-  type UiPopoverPlacement,
-  UiPopoverPlacements,
-} from './popover.directive';
+import { UiTooltipComponent } from './tooltip.component';
+import { UiTooltipDirective } from './tooltip.directive';
+import { type UiFloatingPlacement, UiFloatingPlacements } from './UiFloating';
 
 type TooltipStory = UiTooltipComponent & {
   content: string;
   offset: number;
-  placement: UiPopoverPlacement;
+  placement: UiFloatingPlacement;
 };
 
+/**
+ * Use with uiTooltip directive.
+ */
 const meta: Meta<TooltipStory> = {
   component: UiTooltipComponent,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [UiPopoverDirective] })],
+  decorators: [moduleMetadata({ imports: [UiTooltipDirective] })],
   argTypes: {
     offset: {
       control: { type: 'number' },
-      table: { category: 'uiPopover', type: { detail: undefined } },
+      table: { category: 'uiTooltip', type: { detail: undefined } },
     },
     placement: {
-      options: Object.keys(UiPopoverPlacements),
+      options: Object.keys(UiFloatingPlacements),
       control: { type: 'select' },
-      table: { category: 'uiPopover', type: { detail: undefined } },
+      table: { category: 'uiTooltip', type: { detail: undefined } },
     },
   },
   args: {
@@ -49,21 +49,23 @@ type Story = StoryObj<TooltipStory>;
 
 export const Default: Story = {};
 
-export const PopoverClick: Story = {
+export const ShowOnHover: Story = {
   render: ({ content, offset, placement, ...args }) => ({
     props: args,
     template: `
       <button
-        #tooltipClickAnchor
-        (click)="tooltip.togglePopover()"
+        #tooltipHoverAnchor
+        (mouseenter)="tooltip.showTooltip()"
+        (mouseleave)="tooltip.hideTooltip()"
+        (touchstart)="tooltip.toggleTooltip()"
       >
-        click
+        hover
       </button>
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
-        uiPopover
-        #tooltip="uiPopover"
-        [anchor]="tooltipClickAnchor"
+        uiTooltip
+        #tooltip="uiTooltip"
+        [anchor]="tooltipHoverAnchor"
         offset="${offset}"
         [placement]="'${placement}'"
       >
@@ -73,22 +75,21 @@ export const PopoverClick: Story = {
   }),
 };
 
-export const PopoverHover: Story = {
+export const ToggleOnClick: Story = {
   render: ({ content, offset, placement, ...args }) => ({
     props: args,
     template: `
       <button
-        #tooltipHoverAnchor
-        (mouseenter)="tooltip.showPopover()"
-        (mouseleave)="tooltip.hidePopover()"
+        #tooltipClickAnchor
+        (click)="tooltip.toggleTooltip()"
       >
-        hover
+        click
       </button>
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
-        uiPopover
-        #tooltip="uiPopover"
-        [anchor]="tooltipHoverAnchor"
+        uiTooltip
+        #tooltip="uiTooltip"
+        [anchor]="tooltipClickAnchor"
         offset="${offset}"
         [placement]="'${placement}'"
       >

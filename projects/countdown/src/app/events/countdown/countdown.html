@@ -2,16 +2,17 @@
   <span
     class="name"
     #dateTooltipAnchor
-    (mouseenter)="tooltip.showPopover()"
-    (mouseleave)="tooltip.hidePopover()"
+    (mouseenter)="tooltip.showTooltip()"
+    (mouseleave)="tooltip.hideTooltip()"
+    (touchstart)="tooltip.toggleTooltip()"
   >
     {{ displayName() }}
   </span>
   <ui-tooltip
-    uiPopover
-    #tooltip="uiPopover"
+    uiTooltip
+    #tooltip="uiTooltip"
     [anchor]="dateTooltipAnchor"
-    offset="4"
+    offset="8"
     placement="after-center"
   >
     {{ formattedDate() }}

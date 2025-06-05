@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, Inject } from '@angular/core';
+import { Component, ElementRef, forwardRef, inject } from '@angular/core';
 
 export abstract class UiCardTitleBase {
   abstract isClickable(): boolean;
@@ -17,12 +17,7 @@ export abstract class UiCardTitleBase {
   template: '<ng-content/>',
 })
 export class UiCardTitleButtonComponent extends UiCardTitleBase {
-  constructor(
-    @Inject(ElementRef)
-    public readonly elementRef: ElementRef<HTMLButtonElement>
-  ) {
-    super();
-  }
+  public readonly elementRef = inject(ElementRef<HTMLButtonElement>);
 
   override isClickable() {
     return !this.elementRef.nativeElement.disabled;
@@ -42,12 +37,7 @@ export class UiCardTitleButtonComponent extends UiCardTitleBase {
   template: '<ng-content/>',
 })
 export class UiCardTitleAnchorComponent extends UiCardTitleBase {
-  constructor(
-    @Inject(ElementRef)
-    public readonly elementRef: ElementRef<HTMLAnchorElement>
-  ) {
-    super();
-  }
+  public readonly elementRef = inject(ElementRef<HTMLAnchorElement>);
 
   override isClickable() {
     return !!this.elementRef.nativeElement.href;

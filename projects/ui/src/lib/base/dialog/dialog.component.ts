@@ -1,10 +1,9 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
   inject,
   input,
-  Output,
+  output,
   Renderer2,
   type OnDestroy,
 } from '@angular/core';
@@ -23,7 +22,7 @@ export class UiDialogComponent implements OnDestroy {
   heading = input<string>();
   description = input<string>();
 
-  @Output() readonly afterClose = new EventEmitter<void>();
+  readonly afterClose = output();
 
   private get isOpen() {
     return this.elementRef.nativeElement.open;

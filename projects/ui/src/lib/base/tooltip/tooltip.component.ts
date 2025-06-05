@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
 /**
- * Use with uiPopover to show/hide/toggle and placement.
+ * Use with [uiTooltip](./tooltip.directive.ts) directive.
  */
 @Component({
-  exportAs: 'uiTooltip',
   selector: 'ui-tooltip',
   styleUrl: './tooltip.css',
   template: `

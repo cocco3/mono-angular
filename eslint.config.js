@@ -18,8 +18,13 @@ module.exports = tseslint.config(
       'no-duplicate-imports': 'error',
       'no-useless-rename': ['error'],
 
-      '@angular-eslint/prefer-standalone': 'error',
+      // '@angular-eslint/prefer-inject': 'error',
+      // '@angular-eslint/sort-keys-in-type-decorator': 'error',
+      // '@angular-eslint/no-uncalled-signals': 'error',
+
+      '@angular-eslint/prefer-output-emitter-ref': 'error',
       '@angular-eslint/prefer-output-readonly': 'error',
+      '@angular-eslint/prefer-standalone': 'error',
 
       '@typescript-eslint/consistent-type-imports': [
         'error',
@@ -50,6 +55,7 @@ module.exports = tseslint.config(
     ],
     rules: {
       '@angular-eslint/template/prefer-self-closing-tags': ['error'],
+      '@angular-eslint/template/prefer-template-literal': ['error'],
 
       // disable this until it works better with signals
       // '@angular-eslint/template/no-call-expression': ['warn'],
