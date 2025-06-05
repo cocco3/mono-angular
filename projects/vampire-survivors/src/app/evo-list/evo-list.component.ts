@@ -1,4 +1,4 @@
-import { Component, computed, input, output } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import {
   UiButtonComponent,
   UiEmptyComponent,
@@ -6,6 +6,7 @@ import {
 } from '@cocco3/angular-ui';
 import type { WeaponEvolution } from '../../data/types';
 import { EvolutionComponent } from '../evolution/evolution.component';
+import { ItemFilterService } from '../item-filter/item-filter.service';
 
 @Component({
   host: {
@@ -22,21 +23,30 @@ import { EvolutionComponent } from '../evolution/evolution.component';
   templateUrl: './evo-list.html',
 })
 export class EvolutionListComponent {
+  private readonly itemFilter = inject(ItemFilterService);
+
   bgColor = input.required<string>();
   gameName = input.required<string>();
   evolutions = input.required<WeaponEvolution[]>();
-  selectedPassive = input<string | undefined>();
 
-  filteredEvos = computed(() => {
-    const filter = this.selectedPassive();
-    return this.evolutions().filter((evo) =>
-      filter ? evo.items.find((item) => item.item.name === filter) : evo
-    );
+  protected filteredEvos = computed(() => {
+    const selectedPassive = this.itemFilter.passive$();
+
+    return this.evolutions()
+      .filter((evo) =>
+        selectedPassive
+          ? evo.items.find((item) => item.item.name === selectedPassive)
+          : evo
+      )
+      .map((evo) => {
+        return {
+          ...evo,
+          key: evo.items.map((x) => x.item.name.replaceAll(' ', '')).join('-'),
+        };
+      });
   });
 
-  readonly clearFilters = output();
-
   protected handleClearFilters() {
-    this.clearFilters.emit();
+    this.itemFilter.clearFilters();
   }
 }

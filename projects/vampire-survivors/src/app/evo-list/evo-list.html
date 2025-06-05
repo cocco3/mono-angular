@@ -2,7 +2,7 @@
 
 @if (filteredEvos().length) {
   <div class="list">
-    @for (evo of filteredEvos(); track evo) {
+    @for (evo of filteredEvos(); track evo.key) {
       <app-evolution [evo]="evo" />
     }
   </div>
