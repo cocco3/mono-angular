@@ -1,6 +1,6 @@
 <div class="box">
   @if (image()) {
-    <img class="img" [src]="image()" [alt]="name()" />
+    <img class="img" [src]="image()" [alt]="name()" loading="lazy" />
   }
   @if (!!info()) {
     <div class="info">{{ info() }}</div>
