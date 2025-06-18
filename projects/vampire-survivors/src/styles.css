@@ -29,5 +29,6 @@ body {
 
 body {
   background-color: #000000;
+  interpolate-size: allow-keywords;
   min-height: 100dvh;
 }

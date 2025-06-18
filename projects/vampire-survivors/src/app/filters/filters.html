@@ -1,0 +1,48 @@
+<details class="details" open>
+  <summary class="summary">Filters</summary>
+
+  <div class="inner">
+    <fieldset class="fieldset">
+      <legend class="legend">Game</legend>
+      <div class="list">
+        @for (game of gamesList(); track game.id) {
+          <app-filter-item
+            group="game"
+            [checked]="selectedGames().includes(game.id)"
+            [image]="game.image"
+            [name]="game.name"
+            [value]="game.id"
+            (changed)="handleGameChange($event)"
+          />
+        }
+      </div>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <legend class="legend">Passive</legend>
+      <div class="list">
+        @for (passive of baseGamePassives(); track passive.name) {
+          <app-filter-item
+            group="passive"
+            [checked]="selectedPassives().includes(passive.name)"
+            [image]="passive.image"
+            [name]="passive.name"
+            [value]="passive.name"
+            (changed)="handlePassiveChange($event)"
+          />
+        }
+      </div>
+    </fieldset>
+
+    <div class="button">
+      <button
+        ui-button
+        kind="secondary"
+        size="small"
+        (click)="handleClearFilters()"
+      >
+        Clear filters
+      </button>
+    </div>
+  </div>
+</details>

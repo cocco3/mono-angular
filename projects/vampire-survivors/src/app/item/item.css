@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 64px;
+  width: var(--container-size);
 }
 
 :host.kind-relic {
@@ -31,20 +31,33 @@
   --item-border: #f7f7f9;
 }
 
+:host.size-small {
+  --container-size: 48px;
+  --box-size: 40px;
+}
+
+:host.size-medium {
+  --container-size: 56px;
+  --box-size: 48px;
+}
+
+:host.size-large {
+  --container-size: 64px;
+  --box-size: 60px;
+}
+
 .box {
   aspect-ratio: 1;
   background-color: var(--item-bg);
   border: 2px solid var(--item-border);
   border-radius: 4px;
-  box-sizing: border-box;
   display: grid;
   overflow: hidden;
-  width: 60px;
+  width: var(--box-size);
 }
 
 .img {
   aspect-ratio: 1;
-  box-sizing: border-box;
   display: block;
   grid-area: 1 / 1;
   height: 100%;
@@ -74,22 +87,38 @@
 
 .name {
   color: var(--text-primary);
+  display: inline-block;
   font: 400 var(--type-text-2xs);
   margin-block-start: 2px;
   text-align: center;
-  text-decoration-color: transparent;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 1px;
-  transition-property: text-decoration-color;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
+
+  &:enabled,
+  &:any-link {
+    text-decoration-color: transparent;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 1px;
+    transition-property: text-decoration-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+  }
 
   @media (hover: hover) {
+    &:enabled:hover,
     &:any-link:hover {
       cursor: pointer;
       text-decoration-color: currentColor;
     }
   }
+}
+
+:host.hideName .name {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
