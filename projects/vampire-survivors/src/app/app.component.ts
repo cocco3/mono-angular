@@ -2,16 +2,16 @@ import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DataService } from '../data/DataService';
 import { EvolutionListComponent } from './evo-list/evo-list.component';
-import { ItemFilterComponent } from './item-filter/item-filter.component';
+import { FiltersComponent } from './filters/filters.component';
 import { AppFooterComponent } from './app-footer/app-footer';
-import { ItemFilterService } from './item-filter/item-filter.service';
+import { ItemFilterService } from './filters/filters.service';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
     EvolutionListComponent,
-    ItemFilterComponent,
+    FiltersComponent,
     AppFooterComponent,
   ],
   templateUrl: './app.component.html',
@@ -24,10 +24,22 @@ export class AppComponent {
   private readonly itemFilter = inject(ItemFilterService);
 
   protected filteredGames = computed(() => {
-    const selectedGameId = this.itemFilter.gameId$();
+    const allGames = this.data.getAllEvolutions();
+    const selectedGames = this.itemFilter.games$();
+    const selectedPassives = this.itemFilter.passives$();
 
-    return selectedGameId
-      ? this.data.getAllEvolutions().filter((x) => x.game.id === selectedGameId)
-      : this.data.getAllEvolutions();
+    if (selectedGames.length) {
+      return allGames.filter((x) => selectedGames.includes(x.game.id));
+    }
+
+    if (selectedPassives.length) {
+      return allGames.filter((x) =>
+        x.evos.some((y) =>
+          y.items.some((z) => selectedPassives.includes(z.item.name))
+        )
+      );
+    }
+
+    return allGames;
   });
 }

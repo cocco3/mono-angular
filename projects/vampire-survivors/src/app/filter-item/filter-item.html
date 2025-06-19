@@ -1,0 +1,25 @@
+<label
+  class="label"
+  #filterItem
+  (mouseenter)="tooltip.showTooltip()"
+  (mouseleave)="tooltip.hideTooltip()"
+>
+  <input
+    class="input"
+    type="checkbox"
+    [checked]="checked()"
+    [name]="group()"
+    [value]="value()"
+    (change)="handleChange($event)"
+  />
+  <img class="img" [src]="image()" [alt]="name()" />
+</label>
+<ui-tooltip
+  uiTooltip
+  #tooltip="uiTooltip"
+  [anchor]="filterItem"
+  offset="4"
+  [placement]="'above-center'"
+>
+  {{ name() }}
+</ui-tooltip>

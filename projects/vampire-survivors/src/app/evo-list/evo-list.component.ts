@@ -6,7 +6,7 @@ import {
 } from '@cocco3/angular-ui';
 import type { WeaponEvolution } from '../../data/types';
 import { EvolutionComponent } from '../evolution/evolution.component';
-import { ItemFilterService } from '../item-filter/item-filter.service';
+import { ItemFilterService } from '../filters/filters.service';
 
 @Component({
   host: {
@@ -30,12 +30,12 @@ export class EvolutionListComponent {
   evolutions = input.required<WeaponEvolution[]>();
 
   protected filteredEvos = computed(() => {
-    const selectedPassive = this.itemFilter.passive$();
+    const selectedPassives = this.itemFilter.passives$();
 
     return this.evolutions()
       .filter((evo) =>
-        selectedPassive
-          ? evo.items.find((item) => item.item.name === selectedPassive)
+        selectedPassives.length
+          ? evo.items.find((item) => selectedPassives.includes(item.item.name))
           : evo
       )
       .map((evo) => {

@@ -13,5 +13,5 @@ export class AppFooterComponent {
   protected issuesUrl =
     'https://github.com/cocco3/mono-angular/issues/new?labels=vampire-survivors';
 
-  protected lastUpdatedDate = `Last updated: ${formatIsoDate('2025-05-30')}`;
+  protected lastUpdatedDate = `Last updated: ${formatIsoDate('2025-06-19')}`;
 }

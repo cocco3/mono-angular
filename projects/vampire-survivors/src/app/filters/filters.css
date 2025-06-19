@@ -1,0 +1,99 @@
+:host {
+  background-color: var(--bg-primary);
+  padding-block: 8px;
+  padding-inline: 16px;
+}
+
+.details {
+  overflow: hidden;
+
+  &[open] .summary::before {
+    transform: rotate(90deg);
+  }
+}
+
+/**
+ * https://caniuse.com/mdn-css_properties_display_is_transitionable
+ * https://caniuse.com/mdn-css_properties_interpolate-size_allow-keywords
+ */
+@supports (interpolate-size: allow-keywords) {
+  .details {
+    &::details-content {
+      height: 0;
+      transition-behavior: allow-discrete;
+      transition-duration: 200ms;
+      transition-property: content-visibility, height;
+      transition-timing-function: ease-out;
+    }
+
+    &[open]::details-content {
+      height: auto;
+    }
+  }
+}
+
+.summary {
+  align-items: center;
+  border-radius: 4px;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  font: 600 var(--type-display-xs);
+  list-style: none;
+  outline-offset: -2px;
+  padding-block: 2px;
+  padding-inline: 8px;
+  transition-duration: 200ms;
+  transition-property: background-color;
+  transition-timing-function: ease-out;
+  user-select: none;
+
+  &:hover {
+    background-color: var(--bg-secondary);
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::before {
+    content: '›';
+    display: inline-block;
+    font-size: 24px;
+    margin-inline-end: 4px;
+    transition: transform 0.2s ease;
+  }
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 4px;
+}
+
+.fieldset {
+  border: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.legend {
+  color: var(--text-secondary);
+  font: 500 var(--type-text-sm);
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.button {
+  align-content: flex-end;
+  margin-inline-start: auto;
+}
