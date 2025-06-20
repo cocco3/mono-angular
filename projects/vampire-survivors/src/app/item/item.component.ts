@@ -1,6 +1,7 @@
-import { Component, computed, input } from '@angular/core';
-import type { GameId, EvoCondition, ItemKind } from '../../data/types';
+import { Component, computed, inject, input } from '@angular/core';
 import { UiCardTitleAnchorComponent } from '@cocco3/angular-ui';
+import type { GameId, EvoCondition, ItemKind } from '../../data/types';
+import { AnalyticsService } from '../analytics/AnalyticsService';
 
 export const ItemSizes = ['small', 'medium', 'large'] as const;
 export type ItemSize = (typeof ItemSizes)[number];
@@ -15,6 +16,8 @@ export type ItemSize = (typeof ItemSizes)[number];
   templateUrl: './item.html',
 })
 export class ItemComponent {
+  private readonly analytics = inject(AnalyticsService);
+
   gameId = input.required<GameId>();
   kind = input.required<ItemKind>();
   name = input.required<string>();
@@ -47,4 +50,11 @@ export class ItemComponent {
     [`size-${this.size()}`]: !!this.size(),
     ['hideName']: this.hideName(),
   }));
+
+  protected handleClick() {
+    this.analytics.trackEvent({
+      name: 'wiki_clicked',
+      data: { item: this.name() },
+    });
+  }
 }

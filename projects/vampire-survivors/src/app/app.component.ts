@@ -1,11 +1,12 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, type OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { EnvironmentService } from './EnvironmentService';
 import { DataService } from '../data/DataService';
+import { injectAnalyticsScript } from './analytics/injectAnalyticsScript';
+import { AppFooterComponent } from './app-footer/app-footer';
 import { EvolutionListComponent } from './evo-list/evo-list.component';
 import { FiltersComponent } from './filters/filters.component';
-import { AppFooterComponent } from './app-footer/app-footer';
 import { ItemFilterService } from './filters/filters.service';
-import { EnvironmentService } from './EnvironmentService';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ import { EnvironmentService } from './EnvironmentService';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'vampire-survivors';
 
   private readonly env = inject(EnvironmentService);
@@ -44,4 +45,11 @@ export class AppComponent {
 
     return allGames;
   });
+
+  ngOnInit() {
+    injectAnalyticsScript(
+      this.env.config.env === 'prod',
+      this.env.config.analyticsApiKey
+    );
+  }
 }

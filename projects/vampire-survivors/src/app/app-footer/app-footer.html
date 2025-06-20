@@ -2,6 +2,8 @@
   {{ lastUpdatedDate }}
 </span>
 
-<a [href]="posterUrl" target="_blank"> PNG Guide </a>
+<a [href]="posterUrl" target="_blank" (click)="handleGuideClick()">
+  PNG Guide
+</a>
 
 <a [href]="issuesUrl" target="_blank"> Report an issue </a>
