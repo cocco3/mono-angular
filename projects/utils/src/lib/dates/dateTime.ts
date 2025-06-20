@@ -24,27 +24,33 @@ export const getToday = () => {
   return localDate.toISOString().split('T')[0];
 };
 
-export const formatIsoDate = (isoDate: string) => {
-  const hasTime = doesIsoDateHaveTime(isoDate);
-
-  if (hasTime) {
-    const date = new Date(isoDate);
-    const formatter = new Intl.DateTimeFormat('en-us', {
-      dateStyle: 'long',
-      timeStyle: 'short',
-    });
-
-    return formatter.format(date);
-  } else {
-    const date = new Date(`${isoDate}T00:00:00`);
-    const formatter = new Intl.DateTimeFormat('en-us', {
-      dateStyle: 'long',
-    });
-
-    return formatter.format(date);
-  }
-};
-
 export const doesIsoDateHaveTime = (isoDate: string) => {
   return isoDate.includes('T') && isoDate.match(/T\d{2}:\d{2}/);
+};
+
+type IsoDateFormatOptions = {
+  date?: Intl.DateTimeFormatOptions['dateStyle'];
+  time?: Intl.DateTimeFormatOptions['timeStyle'];
+};
+
+export const formatIsoDate = (
+  isoDate: string,
+  options?: IsoDateFormatOptions
+) => {
+  const hasTime = doesIsoDateHaveTime(isoDate);
+
+  const date = hasTime ? new Date(isoDate) : new Date(`${isoDate}T00:00:00`);
+
+  if (hasTime && !!options?.time) {
+    const formatter = new Intl.DateTimeFormat('en-us', {
+      dateStyle: options?.date || 'short',
+      timeStyle: options?.time || 'short',
+    });
+    return formatter.format(date);
+  } else {
+    const formatter = new Intl.DateTimeFormat('en-us', {
+      dateStyle: options?.date || 'short',
+    });
+    return formatter.format(date);
+  }
 };

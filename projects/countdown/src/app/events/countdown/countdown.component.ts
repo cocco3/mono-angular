@@ -22,7 +22,7 @@ export class CountdownComponent {
   }
 
   protected formattedDate = computed(() => {
-    return formatIsoDate(this.date());
+    return formatIsoDate(this.date(), { date: 'long', time: 'short' });
   });
 
   protected displayName = computed(() => {
