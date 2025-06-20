@@ -1,4 +1,4 @@
-import { Component, computed, inject, type OnInit } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DataService } from '../data/DataService';
 import { EvolutionListComponent } from './evo-list/evo-list.component';
@@ -18,7 +18,7 @@ import { EnvironmentService } from './EnvironmentService';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'vampire-survivors';
 
   private readonly env = inject(EnvironmentService);
@@ -44,14 +44,4 @@ export class AppComponent implements OnInit {
 
     return allGames;
   });
-
-  ngOnInit() {
-    if (this.env.config.env === 'prod') {
-      const script = document.createElement('script');
-      script.src = 'https://app.rybbit.io/api/script.js';
-      script.defer = true;
-      script.setAttribute('data-site-id', '851');
-      document.head.appendChild(script);
-    }
-  }
 }
