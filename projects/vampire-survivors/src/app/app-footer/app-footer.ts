@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { formatIsoDate } from '@cocco3/utils';
 import { EnvironmentService } from '../EnvironmentService';
+import { AnalyticsService } from '../analytics/AnalyticsService';
 
 @Component({
   host: {
@@ -12,6 +13,7 @@ import { EnvironmentService } from '../EnvironmentService';
 })
 export class AppFooterComponent {
   private readonly env = inject(EnvironmentService);
+  private readonly analytics = inject(AnalyticsService);
 
   protected issuesUrl =
     'https://github.com/cocco3/mono-angular/issues/new?labels=vampire-survivors';
@@ -23,4 +25,8 @@ export class AppFooterComponent {
     date: 'long',
   });
   protected lastUpdatedDate = `Last updated: ${this.formattedDate}`;
+
+  protected handleGuideClick() {
+    this.analytics.trackEvent({ name: 'guide_clicked' });
+  }
 }
