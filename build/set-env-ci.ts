@@ -39,4 +39,5 @@ function processEnvironmentFiles(paths: string[]) {
 
 processEnvironmentFiles([
   'projects/countdown/src/environments/environment.prod.ts',
+  'projects/vampire-survivors/src/environments/environment.prod.ts',
 ]);
