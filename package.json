@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ci:env": "ts-node ./build/set-env-ci.ts",
-    "init:env-local": "ts-node ./build/set-env-local.ts",
+    "init:env-local": "ts-node ./build/create-local-env.ts",
     "init:git-hooks": "simple-git-hooks",
     "init": "npm run init:git-hooks && npm run init:env-local",
     "ng": "ng",

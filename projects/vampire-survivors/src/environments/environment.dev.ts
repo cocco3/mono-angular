@@ -2,6 +2,6 @@ import type { EnvConfig } from './types';
 
 export const environment: EnvConfig = {
   env: 'dev',
-  buildDate: new Date().toISOString(),
+  buildDate: '__BUILD_DATE__',
   analyticsApiKey: '',
 };
