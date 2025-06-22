@@ -1,3 +1,8 @@
+/**
+ * Create an enviroment.local.ts file that won't be checked in
+ * and can be used for local development.
+ */
+
 import * as fs from 'fs';
 import * as path from 'path';
 
