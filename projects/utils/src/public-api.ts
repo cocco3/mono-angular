@@ -9,4 +9,6 @@ export * from './lib/dates/formatTimeDiff';
 export * from './lib/dates/getDateParts';
 export * from './lib/dates/dateTime';
 
+export * from './lib/dom/resizeObserver';
+
 export * from './lib/Logger';

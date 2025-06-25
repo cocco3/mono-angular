@@ -85,10 +85,16 @@ export const Email: Story = {
   },
 };
 
+/**
+ * Uses the default browser date picker.
+ */
 export const Date: Story = {
   args: { value: '2025-01-19', type: 'date' },
 };
 
+/**
+ * Uses the default browser time picker.
+ */
 export const Time: Story = {
   args: { value: '10:23', type: 'time' },
 };

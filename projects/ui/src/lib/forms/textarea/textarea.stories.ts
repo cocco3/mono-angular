@@ -21,7 +21,7 @@ const meta: Meta<TextareaStory> = {
     value: { control: { type: 'text' } },
   },
   args: {
-    value: `More it show yet arrange now, the for afforded everything than many acknowledge his plan objects including tones at on because for function.`,
+    value: `Ipsum consequat ipsum quis elit eiusmod do minim ad enim commodo ipsum on4t. Exercitation veniam elit ut do elit nostrud aliqua nostrud tempor dolore exercitation magna. Labore aliquip sed labore dolore ex nisi adipiscing commodo minim tempor minim.`,
   },
   parameters: {
     design: {
