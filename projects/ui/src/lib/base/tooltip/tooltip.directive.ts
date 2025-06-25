@@ -13,7 +13,10 @@ import { UiFloating, type UiFloatingPlacement } from './UiFloating';
 
 @Directive({
   exportAs: 'uiTooltip',
-  host: { popover: 'manual' },
+  host: {
+    popover: 'manual',
+    role: 'tooltip',
+  },
   selector: '[uiTooltip]',
 })
 export class UiTooltipDirective implements OnDestroy, OnInit {
@@ -28,7 +31,7 @@ export class UiTooltipDirective implements OnDestroy, OnInit {
   private cleanup?: () => void;
 
   private updatePosition() {
-    this.floating.calcPosition((x, y) => {
+    this.cleanup = this.floating.calcPosition((x, y) => {
       this.renderer.setStyle(this.el.nativeElement, 'left', `${x}px`);
       this.renderer.setStyle(this.el.nativeElement, 'top', `${y}px`);
     });

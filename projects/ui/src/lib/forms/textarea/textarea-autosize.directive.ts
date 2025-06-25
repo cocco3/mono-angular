@@ -8,6 +8,7 @@ import {
   type OnDestroy,
   type OnInit,
 } from '@angular/core';
+import { resizeObserver } from '@cocco3/utils';
 
 /**
  * If the CSS property `field-sizing` is not supported in the browser,
@@ -20,7 +21,6 @@ import {
  */
 @Directive({
   selector: 'textarea[uiAutosize]',
-  standalone: true,
 })
 export class UiTextareaAutosizeDirective implements OnInit, OnDestroy {
   private renderer = inject(Renderer2);
@@ -29,31 +29,68 @@ export class UiTextareaAutosizeDirective implements OnInit, OnDestroy {
   uiAutosize = input(false, { transform: booleanAttribute });
 
   private inputListener: (() => void) | undefined;
+  private resizeObserver: ResizeObserver | undefined;
 
   ngOnInit() {
     if (!this.uiAutosize()) return;
 
     const textarea = this.textareaRef.nativeElement;
 
-    if (!CSS.supports('field-sizing', 'content')) {
+    const isFieldSizingSupported = this.doesBrowserSupportCssFieldSizing();
+
+    if (!isFieldSizingSupported) {
       this.inputListener = this.renderer.listen(textarea, 'input', () => {
-        this.adjustHeight(textarea);
+        this.adjustHeight();
       });
 
-      this.adjustHeight(textarea);
+      this.resizeObserver = resizeObserver(textarea, () => {
+        this.adjustHeight();
+      });
+
+      this.adjustHeight();
     }
   }
 
   ngOnDestroy() {
     this.inputListener?.();
+    this.resizeObserver?.disconnect();
   }
 
-  private adjustHeight(textarea: HTMLTextAreaElement) {
+  /**
+   * https://caniuse.com/mdn-css_properties_field-sizing
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing
+   */
+  private doesBrowserSupportCssFieldSizing() {
+    return CSS.supports('field-sizing', 'content');
+  }
+
+  private calcHeight() {
+    const textarea = this.textareaRef.nativeElement;
+
+    const styles = getComputedStyle(textarea);
+
+    const scrollHeight = parseFloat(textarea.scrollHeight);
+
+    const topBorderWidth = parseFloat(
+      styles.borderBlockStartWidth || styles.borderTopWidth
+    );
+
+    const bottomBorderWidth = parseFloat(
+      styles.borderBlockEndWidth || styles.borderBottomWidth
+    );
+
+    const value = scrollHeight + topBorderWidth + bottomBorderWidth;
+
+    return { value, cssValue: `${value}px` };
+  }
+
+  private adjustHeight() {
+    const textarea = this.textareaRef.nativeElement;
+
     // reset first
     this.renderer.setStyle(textarea, 'height', 'auto');
 
-    // set height to scrollHeight + borders
-    const newHeight = `${textarea.scrollHeight + 2}px`;
-    this.renderer.setStyle(textarea, 'height', newHeight);
+    const newHeight = this.calcHeight();
+    this.renderer.setStyle(textarea, 'height', newHeight.cssValue);
   }
 }
