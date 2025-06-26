@@ -48,7 +48,13 @@
   transition-timing-function: ease-out;
   user-select: none;
 
-  &:hover {
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--bg-secondary);
+    }
+  }
+
+  &:active {
     background-color: var(--bg-secondary);
   }
 
