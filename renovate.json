@@ -41,6 +41,10 @@
       ]
     },
     {
+      "groupName": "linting",
+      "matchPackageNames": ["eslint", "prettier"]
+    },
+    {
       "groupName": "testing",
       "matchPackageNames": ["jasmin-core", "@types/jasmine", "karma*"]
     },
