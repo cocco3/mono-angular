@@ -6,11 +6,18 @@
   flex-direction: row;
   flex-wrap: wrap;
   font: 400 var(--type-text-sm);
-  gap: 24px;
+  gap: 8px 24px;
   padding-block: 12px;
   padding-inline: 16px;
 
-  a {
+  & a {
     color: #ffffff;
   }
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 24px;
 }

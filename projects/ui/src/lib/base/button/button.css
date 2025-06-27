@@ -30,8 +30,13 @@
 @media (hover: hover) {
   :host:enabled:hover,
   :host:any-link:hover {
+    background-color: var(--button-background-hover);
     cursor: pointer;
   }
+}
+
+:host:active {
+  background-color: var(--button-background-hover);
 }
 
 :host:disabled {
@@ -44,44 +49,28 @@
   --button-background-color: var(--button-primary-default-bg);
   --button-border-color: var(--button-primary-default-border);
   --button-text-color: var(--button-primary-default-text);
-
-  &:enabled:hover,
-  &:any-link:hover {
-    --button-background-color: var(--button-primary-hover-bg);
-  }
+  --button-background-hover: var(--button-primary-hover-bg);
 }
 
 :host.kind-secondary {
   --button-background-color: var(--button-secondary-default-bg);
   --button-border-color: var(--button-secondary-default-border);
   --button-text-color: var(--button-secondary-default-text);
-
-  &:enabled:hover,
-  &:any-link:hover {
-    --button-background-color: var(--button-secondary-hover-bg);
-  }
+  --button-background-hover: var(--button-secondary-hover-bg);
 }
 
 :host.kind-tertiary {
   --button-background-color: var(--button-tertiary-default-bg);
   --button-border-color: var(--button-tertiary-default-border);
   --button-text-color: var(--button-tertiary-default-text);
-
-  &:enabled:hover,
-  &:any-link:hover {
-    --button-background-color: var(--button-tertiary-hover-bg);
-  }
+  --button-background-hover: var(--button-tertiary-hover-bg);
 }
 
 :host.kind-destructive {
   --button-background-color: var(--button-destructive-default-bg);
   --button-border-color: var(--button-destructive-default-border);
   --button-text-color: var(--button-destructive-default-text);
-
-  &:enabled:hover,
-  &:any-link:hover {
-    --button-background-color: var(--button-destructive-hover-bg);
-  }
+  --button-background-hover: var(--button-destructive-hover-bg);
 }
 
 :host.size-small {
