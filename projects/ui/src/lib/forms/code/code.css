@@ -1,0 +1,44 @@
+:host {
+  --font-size: 4rem;
+
+  --char-count: 4;
+  --char-width: 1ch; /** do not change **/
+  --char-gap: 0.5ch;
+  --segment-width: calc(var(--char-width) + var(--char-gap));
+
+  --underline-width: var(--char-width);
+  --underline-thickness: 2px;
+  --underline-color: var(--border-primary);
+  --underline-offset: 4px;
+
+  --total-width: calc(var(--segment-width) * var(--char-count));
+
+  background-color: var(--bg-primary);
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--underline-color),
+    var(--underline-color) var(--underline-width),
+    transparent var(--underline-width),
+    transparent var(--segment-width)
+  );
+  background-origin: border-box;
+  background-position: left calc(100% - var(--underline-offset));
+  background-repeat: no-repeat;
+  background-size: var(--total-width) var(--underline-thickness);
+  border-bottom: var(--underline-thickness) solid transparent;
+  border: none;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  font-family: monospace;
+  font-size: var(--font-size);
+  letter-spacing: var(--char-gap);
+  outline: none;
+  padding-block: 0.5rem;
+  padding-inline: 0;
+  width: var(--total-width);
+
+  /* Can rely on attr(maxlength) once the syntax is widely supported */
+  @supports (x: attr(x type(*))) {
+    --char-count: attr(maxlength type(<number>), 6);
+  }
+}
