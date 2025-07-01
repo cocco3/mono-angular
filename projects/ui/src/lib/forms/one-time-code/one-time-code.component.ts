@@ -1,15 +1,19 @@
 import { Component, computed, input } from '@angular/core';
 
-export const UiCodeKinds = ['alphanumeric', 'numeric'] as const;
-export type UiCodeKind = (typeof UiCodeKinds)[number];
+export const UiOneTimeCodeKinds = ['alphanumeric', 'numeric'] as const;
+export type UiOneTimeCodeKind = (typeof UiOneTimeCodeKinds)[number];
 
-export const UiCodeTransforms = ['none', 'uppercase', 'lowercase'] as const;
-export type UiCodeTransform = (typeof UiCodeTransforms)[number];
+export const UiOneTimeCodeTransforms = [
+  'none',
+  'uppercase',
+  'lowercase',
+] as const;
+export type UiOneTimeCodeTransform = (typeof UiOneTimeCodeTransforms)[number];
 
 /**
  * Usage: Add `ui-code` to any `<input>` element.
  *
- * A single input, accessible verification code field. Adds attributes to assist in auto complete and keyboard input.
+ * A one-time-code field built with a single input for accessibility. Adds attributes to assist in auto complete and keyboard input.
  */
 @Component({
   host: {
@@ -21,21 +25,21 @@ export type UiCodeTransform = (typeof UiCodeTransforms)[number];
     '[style.--text-transform]': 'transform()',
   },
   selector: `input[ui-code]`,
-  styleUrls: ['./code.css'],
+  styleUrls: ['./one-time-code.css'],
   template: '',
 })
-export class UiCodeComponent {
+export class UiOneTimeCodeComponent {
   /** Add the "one-time-code" autocomplete. */
   enableAutocomplete = input(true);
 
   /** Add an inputmode to assist with virtual keyboards. */
-  kind = input<UiCodeKind>('alphanumeric');
+  kind = input<UiOneTimeCodeKind>('alphanumeric');
 
   /** How many characters is the code. */
   charCount = input.required<number>();
 
   /** Display as uppercase or lowercase. */
-  transform = input<UiCodeTransform>('none');
+  transform = input<UiOneTimeCodeTransform>('none');
 
   protected autocomplete = computed(() => {
     return this.enableAutocomplete() ? 'one-time-code' : 'off';

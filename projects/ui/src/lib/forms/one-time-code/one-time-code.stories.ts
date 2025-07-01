@@ -1,18 +1,18 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
 import {
-  UiCodeComponent,
-  UiCodeKinds,
-  UiCodeTransforms,
-} from './code.component';
+  UiOneTimeCodeComponent,
+  UiOneTimeCodeKinds,
+  UiOneTimeCodeTransforms,
+} from './one-time-code.component';
 
-const meta: Meta<UiCodeComponent> = {
-  component: UiCodeComponent,
+const meta: Meta<UiOneTimeCodeComponent> = {
+  component: UiOneTimeCodeComponent,
   tags: ['autodocs'],
   argTypes: {
     charCount: { control: 'number' },
-    kind: { options: UiCodeKinds, control: { type: 'radio' } },
-    transform: { options: UiCodeTransforms, control: { type: 'radio' } },
+    kind: { options: UiOneTimeCodeKinds, control: { type: 'radio' } },
+    transform: { options: UiOneTimeCodeTransforms, control: { type: 'radio' } },
   },
   args: {
     kind: 'alphanumeric',
@@ -26,6 +26,6 @@ const meta: Meta<UiCodeComponent> = {
 
 export default meta;
 
-type Story = StoryObj<UiCodeComponent>;
+type Story = StoryObj<UiOneTimeCodeComponent>;
 
 export const Default: Story = {};
