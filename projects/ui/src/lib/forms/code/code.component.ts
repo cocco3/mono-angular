@@ -1,7 +1,10 @@
 import { Component, computed, input } from '@angular/core';
 
-export const UiCodeKinds = ['numeric', 'alphanumeric'] as const;
+export const UiCodeKinds = ['alphanumeric', 'numeric'] as const;
 export type UiCodeKind = (typeof UiCodeKinds)[number];
+
+export const UiCodeTransforms = ['none', 'uppercase', 'lowercase'] as const;
+export type UiCodeTransform = (typeof UiCodeTransforms)[number];
 
 /**
  * Usage: Add `ui-code` to any `<input>` element.
@@ -10,24 +13,29 @@ export type UiCodeKind = (typeof UiCodeKinds)[number];
  */
 @Component({
   host: {
+    spellcheck: 'false',
     '[attr.autocomplete]': 'autocomplete()',
     '[attr.inputmode]': 'inputmode()',
-    '[attr.maxlength]': 'maxChars()',
-    '[style.--char-count]': 'maxChars()',
+    '[attr.maxlength]': 'charCount()',
+    '[style.--char-count]': 'charCount()',
+    '[style.--text-transform]': 'transform()',
   },
   selector: `input[ui-code]`,
   styleUrls: ['./code.css'],
   template: '',
 })
 export class UiCodeComponent {
-  /** Adds the "one-time-code" autocomplete. */
+  /** Add the "one-time-code" autocomplete. */
   enableAutocomplete = input(true);
 
-  /** Adds an inputmode to assist with virtual keyboards. */
-  kind = input.required<UiCodeKind>();
+  /** Add an inputmode to assist with virtual keyboards. */
+  kind = input<UiCodeKind>('alphanumeric');
 
   /** How many characters is the code. */
-  maxChars = input.required<number>();
+  charCount = input.required<number>();
+
+  /** Display as uppercase or lowercase. */
+  transform = input<UiCodeTransform>('none');
 
   protected autocomplete = computed(() => {
     return this.enableAutocomplete() ? 'one-time-code' : 'off';

@@ -1,5 +1,6 @@
 :host {
   --font-size: 4rem;
+  --text-transform: none;
 
   --char-count: 4;
   --char-width: 1ch; /** do not change **/
@@ -29,12 +30,13 @@
   border: none;
   box-sizing: border-box;
   color: var(--text-primary);
-  font-family: monospace;
+  font-family: var(--font-family-mono);
   font-size: var(--font-size);
   letter-spacing: var(--char-gap);
   outline: none;
   padding-block: 0.5rem;
   padding-inline: 0;
+  text-transform: var(--text-transform);
   width: var(--total-width);
 
   /* Can rely on attr(maxlength) once the syntax is widely supported */
