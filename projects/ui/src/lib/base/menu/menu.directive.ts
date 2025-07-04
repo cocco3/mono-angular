@@ -8,17 +8,20 @@ import {
   type OnDestroy,
   type OnInit,
 } from '@angular/core';
-import { UiFloating, type UiFloatingPlacement, uniqueId } from '@cocco3/utils';
+import {
+  UiFloating,
+  type UiFloatingPlacement,
+  //  uniqueId,
+} from '@cocco3/utils';
 
 @Directive({
-  exportAs: 'uiTooltip',
+  exportAs: 'uiMenu',
   host: {
     popover: 'manual',
-    role: 'tooltip',
   },
-  selector: '[uiTooltip]',
+  selector: '[uiMenu]',
 })
-export class UiTooltipDirective implements OnDestroy, OnInit {
+export class UiMenuDirective implements OnDestroy, OnInit {
   private el = inject(ElementRef<HTMLElement>);
   private renderer = inject(Renderer2);
   private floating!: UiFloating;
@@ -36,35 +39,28 @@ export class UiTooltipDirective implements OnDestroy, OnInit {
     });
   }
 
-  public showTooltip() {
+  public showMenu() {
     this.el.nativeElement.showPopover?.();
     this.updatePosition();
   }
 
-  public hideTooltip() {
+  public hideMenu() {
     this.el.nativeElement.hidePopover?.();
   }
 
-  public toggleTooltip() {
+  public toggleMenu() {
     const popoverEl = this.el.nativeElement;
     const isOpen = popoverEl.matches(':popover-open');
 
     if (isOpen) {
-      this.hideTooltip();
+      this.hideMenu();
     } else {
-      this.showTooltip();
+      this.showMenu();
     }
   }
 
   private initAria() {
-    let tooltipId = this.el.nativeElement.id;
-
-    if (!tooltipId) {
-      tooltipId = uniqueId();
-      this.el.nativeElement.id = tooltipId;
-    }
-
-    this.renderer.setAttribute(this.anchor(), 'aria-describedby', tooltipId);
+    //todo: https://css-tricks.com/clarifying-the-relationship-between-popovers-and-dialogs/
   }
 
   ngOnInit() {

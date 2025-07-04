@@ -1,8 +1,8 @@
 import { type Meta, type StoryObj, moduleMetadata } from '@storybook/angular';
+import { type UiFloatingPlacement, UiFloatingPlacements } from '@cocco3/utils';
 import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
 import { UiTooltipComponent } from './tooltip.component';
 import { UiTooltipDirective } from './tooltip.directive';
-import { type UiFloatingPlacement, UiFloatingPlacements } from './UiFloating';
 
 type TooltipStory = UiTooltipComponent & {
   content: string;
@@ -55,16 +55,16 @@ export const ShowOnHover: Story = {
     template: `
       <button
         #tooltipHoverAnchor
-        (mouseenter)="tooltip.showTooltip()"
-        (mouseleave)="tooltip.hideTooltip()"
-        (touchstart)="tooltip.toggleTooltip()"
+        (mouseenter)="myTooltip.showTooltip()"
+        (mouseleave)="myTooltip.hideTooltip()"
+        (touchstart)="myTooltip.toggleTooltip()"
       >
         hover
       </button>
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
         uiTooltip
-        #tooltip="uiTooltip"
+        #myTooltip="uiTooltip"
         [anchor]="tooltipHoverAnchor"
         offset="${offset}"
         [placement]="'${placement}'"
@@ -81,14 +81,14 @@ export const ToggleOnClick: Story = {
     template: `
       <button
         #tooltipClickAnchor
-        (click)="tooltip.toggleTooltip()"
+        (click)="myTooltip.toggleTooltip()"
       >
         click
       </button>
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
         uiTooltip
-        #tooltip="uiTooltip"
+        #myTooltip="uiTooltip"
         [anchor]="tooltipClickAnchor"
         offset="${offset}"
         [placement]="'${placement}'"

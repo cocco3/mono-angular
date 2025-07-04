@@ -1,0 +1,39 @@
+:host {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+:host[popover] {
+  opacity: 0;
+  transition-behavior: allow-discrete;
+  transition-timing-function: ease-out;
+  transition-duration: 200ms;
+  transition-property: display, opacity;
+}
+
+:host[popover]:popover-open {
+  opacity: 1;
+  position: absolute;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.content {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-secondary);
+  box-shadow:
+    0px 8px 8px -4px rgb(from var(--bg-secondary) r g b / 3%),
+    0px 20px 24px -4px rgb(from var(--bg-secondary) r g b / 8%);
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: block;
+  min-width: 240px;
+}
+
+:host::ng-deep ui-menusection + ui-menusection {
+  border-block-start: 1px solid var(--border-secondary);
+}

@@ -10,5 +10,6 @@ export * from './lib/dates/getDateParts';
 export * from './lib/dates/dateTime';
 
 export * from './lib/dom/resizeObserver';
+export * from './lib/dom/UiFloating';
 
 export * from './lib/Logger';

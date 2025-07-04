@@ -1,0 +1,15 @@
+<ng-content select="[uiSlot='start']" />
+
+<div class="content">
+  <span class="label">
+    <ng-content />
+  </span>
+
+  @if (!!description()) {
+    <span class="description">
+      {{ description() }}
+    </span>
+  }
+</div>
+
+<ng-content select="[uiSlot='end']" />
