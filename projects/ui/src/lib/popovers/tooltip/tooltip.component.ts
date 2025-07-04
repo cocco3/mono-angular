@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 /**
- * Use with [uiTooltip](./tooltip.directive.ts) directive.
+ * Use with [uiPopover](../../utils/popover.directive.ts) directive.
  */
 @Component({
   selector: 'ui-tooltip',

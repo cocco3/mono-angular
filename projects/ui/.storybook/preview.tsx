@@ -49,6 +49,7 @@ const preview: Preview = {
           'foundations',
           ['Colors', 'Theme', 'Typography', 'Icons', '*'],
           'base',
+          'popovers',
           'forms',
           ['form-field', '*'],
           'layout',

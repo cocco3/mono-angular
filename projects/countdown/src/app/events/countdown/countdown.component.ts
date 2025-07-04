@@ -1,11 +1,11 @@
 import { Component, computed, input, output } from '@angular/core';
-import { UiTooltipDirective, UiTooltipComponent } from '@cocco3/angular-ui';
+import { UiPopoverDirective, UiTooltipComponent } from '@cocco3/angular-ui';
 import { formatIsoDate, formatDays, formatComplex } from '@cocco3/utils';
 
 export type CountdownFormat = 'days' | 'detailed';
 
 @Component({
-  imports: [UiTooltipComponent, UiTooltipDirective],
+  imports: [UiTooltipComponent, UiPopoverDirective],
   selector: 'app-countdown',
   styleUrl: './countdown.css',
   templateUrl: './countdown.html',

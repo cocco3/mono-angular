@@ -6,7 +6,7 @@ import {
   shift,
 } from '@floating-ui/dom';
 
-export const UiFloatingPlacements = {
+export const UiPopoverPlacements = {
   'above-start': 'top-start',
   'above-center': 'top',
   'above-end': 'top-end',
@@ -23,11 +23,11 @@ export const UiFloatingPlacements = {
   'before-center': 'left',
   'before-end': 'left-end',
 } as const;
-export type UiFloatingPlacement = keyof typeof UiFloatingPlacements;
+export type UiPopoverPlacement = keyof typeof UiPopoverPlacements;
 
-type UiFloatingOptions = {
+type UiPopoverOptions = {
   offset: number;
-  placement: UiFloatingPlacement;
+  placement: UiPopoverPlacement;
   edgePadding: number;
 };
 
@@ -35,20 +35,20 @@ type UiFloatingOptions = {
  * Uses [floating-ui](https://floating-ui.com)
  * for positioning floating elements.
  */
-export class UiFloating {
+export class UiPopover {
   private floatingEl: HTMLElement;
   private anchorEl: HTMLElement;
-  private options: UiFloatingOptions;
+  private options: UiPopoverOptions;
 
   constructor(
     _floating: HTMLElement,
     _anchor: HTMLElement,
-    _options?: Partial<UiFloatingOptions>
+    _options?: Partial<UiPopoverOptions>
   ) {
     this.floatingEl = _floating;
     this.anchorEl = _anchor;
 
-    const defaultOptions: UiFloatingOptions = {
+    const defaultOptions: UiPopoverOptions = {
       offset: 0,
       placement: 'above-center',
       edgePadding: 0,
@@ -67,7 +67,7 @@ export class UiFloating {
    * @returns A cleanup function when floatin element is hidden or removed.
    */
   public calcPosition(callback: (x: number, y: number) => void) {
-    const floatingPlacement = UiFloatingPlacements[this.options.placement];
+    const floatingPlacement = UiPopoverPlacements[this.options.placement];
 
     return autoUpdate(this.anchorEl, this.floatingEl, () => {
       computePosition(this.anchorEl, this.floatingEl, {

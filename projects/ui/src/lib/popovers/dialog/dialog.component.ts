@@ -7,7 +7,7 @@ import {
   Renderer2,
   type OnDestroy,
 } from '@angular/core';
-import { UiIconComponent } from '../icon/icon.component';
+import { UiIconComponent } from '../../base/icon/icon.component';
 
 @Component({
   imports: [UiIconComponent],

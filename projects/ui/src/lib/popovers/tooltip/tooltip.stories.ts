@@ -1,31 +1,31 @@
 import { type Meta, type StoryObj, moduleMetadata } from '@storybook/angular';
+import { type UiPopoverPlacement, UiPopoverPlacements } from '@cocco3/utils';
 import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
 import { UiTooltipComponent } from './tooltip.component';
-import { UiTooltipDirective } from './tooltip.directive';
-import { type UiFloatingPlacement, UiFloatingPlacements } from './UiFloating';
+import { UiPopoverDirective } from '../popover.directive';
 
 type TooltipStory = UiTooltipComponent & {
   content: string;
   offset: number;
-  placement: UiFloatingPlacement;
+  placement: UiPopoverPlacement;
 };
 
 /**
- * Use with uiTooltip directive.
+ * Use with uiPopover directive.
  */
 const meta: Meta<TooltipStory> = {
   component: UiTooltipComponent,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [UiTooltipDirective] })],
+  decorators: [moduleMetadata({ imports: [UiPopoverDirective] })],
   argTypes: {
     offset: {
       control: { type: 'number' },
-      table: { category: 'uiTooltip', type: { detail: undefined } },
+      table: { category: 'uiPopover', type: { detail: undefined } },
     },
     placement: {
-      options: Object.keys(UiFloatingPlacements),
+      options: Object.keys(UiPopoverPlacements),
       control: { type: 'select' },
-      table: { category: 'uiTooltip', type: { detail: undefined } },
+      table: { category: 'uiPopover', type: { detail: undefined } },
     },
   },
   args: {
@@ -55,16 +55,16 @@ export const ShowOnHover: Story = {
     template: `
       <button
         #tooltipHoverAnchor
-        (mouseenter)="tooltip.showTooltip()"
-        (mouseleave)="tooltip.hideTooltip()"
-        (touchstart)="tooltip.toggleTooltip()"
+        (mouseenter)="myTooltip1.show()"
+        (mouseleave)="myTooltip1.hide()"
+        (touchstart)="myTooltip1.toggle()"
       >
         hover
       </button>
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
-        uiTooltip
-        #tooltip="uiTooltip"
+        uiPopover="tooltip"
+        #myTooltip1="uiPopover"
         [anchor]="tooltipHoverAnchor"
         offset="${offset}"
         [placement]="'${placement}'"
@@ -81,14 +81,14 @@ export const ToggleOnClick: Story = {
     template: `
       <button
         #tooltipClickAnchor
-        (click)="tooltip.toggleTooltip()"
+        (click)="myTooltip2.toggle()"
       >
         click
       </button>
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
-        uiTooltip
-        #tooltip="uiTooltip"
+        uiPopover="tooltip"
+        #myTooltip2="uiPopover"
         [anchor]="tooltipClickAnchor"
         offset="${offset}"
         [placement]="'${placement}'"
