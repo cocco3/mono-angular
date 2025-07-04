@@ -17,6 +17,7 @@ export * from './lib/forms/radio/radio.component';
 export * from './lib/forms/select/select.component';
 export * from './lib/forms/textarea/textarea.component';
 export * from './lib/forms/textarea/textarea-autosize.directive';
+export * from './lib/forms/one-time-code/one-time-code.component';
 
 export * from './lib/layout/slot.directive';
 export * from './lib/layout/ui-wrapper/ui-wrapper.component';

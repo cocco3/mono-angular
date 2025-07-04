@@ -3,23 +3,24 @@
   --text-transform: none;
 
   --char-count: 4;
-  --char-width: 1ch; /** do not change **/
+  --char-width: 1ch;
   --char-gap: 0.5ch;
-  --segment-width: calc(var(--char-width) + var(--char-gap));
 
-  --underline-width: var(--char-width);
   --underline-thickness: 2px;
   --underline-color: var(--border-primary);
   --underline-offset: 4px;
 
+  --indent: calc((var(--char-width) - 1ch) / 2);
+  --spacing: calc(var(--char-gap) + var(--char-width) - 1ch);
+  --segment-width: calc(var(--char-width) + var(--char-gap));
   --total-width: calc(var(--segment-width) * var(--char-count));
 
   background-color: var(--bg-primary);
   background-image: repeating-linear-gradient(
     to right,
     var(--underline-color),
-    var(--underline-color) var(--underline-width),
-    transparent var(--underline-width),
+    var(--underline-color) var(--char-width),
+    transparent var(--char-width),
     transparent var(--segment-width)
   );
   background-origin: border-box;
@@ -32,10 +33,12 @@
   color: var(--text-primary);
   font-family: var(--font-family-mono);
   font-size: var(--font-size);
-  letter-spacing: var(--char-gap);
+  letter-spacing: var(--spacing);
+  line-height: 1;
   outline: none;
   padding-block: 0.5rem;
   padding-inline: 0;
+  text-indent: var(--indent);
   text-transform: var(--text-transform);
   width: var(--total-width);
 
