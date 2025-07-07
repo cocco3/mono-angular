@@ -12,6 +12,13 @@
   "separateMajorMinor": true,
   "packageRules": [
     {
+      "groupName": "node",
+      "matchPackageNames": ["@types/node", "node"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["npm", "nvm"],
+      "matchDatasources": ["npm", "nvm"]
+    },
+    {
       "groupName": "angular",
       "matchPackageNames": [
         "@angular/*",
