@@ -1,8 +1,8 @@
 import { booleanAttribute, Component, input, output } from '@angular/core';
-import { UiTooltipComponent, UiTooltipDirective } from '@cocco3/angular-ui';
+import { UiTooltipComponent, UiPopoverDirective } from '@cocco3/angular-ui';
 
 @Component({
-  imports: [UiTooltipComponent, UiTooltipDirective],
+  imports: [UiTooltipComponent, UiPopoverDirective],
   selector: 'app-filter-item',
   styleUrl: './filter-item.css',
   templateUrl: './filter-item.html',

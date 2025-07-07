@@ -1,0 +1,23 @@
+@if (hasSlots().start) {
+  <span class="icon">
+    <ng-content select="[uiSlot='start']" />
+  </span>
+}
+
+<div class="content">
+  <span class="label">
+    <ng-content />
+  </span>
+
+  @if (!!description()) {
+    <span class="description">
+      {{ description() }}
+    </span>
+  }
+</div>
+
+@if (hasSlots().end) {
+  <span class="icon">
+    <ng-content select="[uiSlot='end']" />
+  </span>
+}

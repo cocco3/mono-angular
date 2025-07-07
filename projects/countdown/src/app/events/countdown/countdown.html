@@ -2,15 +2,15 @@
   <span
     class="name"
     #dateTooltipAnchor
-    (mouseenter)="tooltip.showTooltip()"
-    (mouseleave)="tooltip.hideTooltip()"
-    (touchstart)="tooltip.toggleTooltip()"
+    (mouseenter)="tooltip.show()"
+    (mouseleave)="tooltip.hide()"
+    (touchstart)="tooltip.toggle()"
   >
     {{ displayName() }}
   </span>
   <ui-tooltip
-    uiTooltip
-    #tooltip="uiTooltip"
+    uiPopover="tooltip"
+    #tooltip="uiPopover"
     [anchor]="dateTooltipAnchor"
     offset="8"
     placement="after-center"

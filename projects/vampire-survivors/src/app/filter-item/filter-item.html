@@ -1,8 +1,8 @@
 <label
   class="label"
   #filterItem
-  (mouseenter)="tooltip.showTooltip()"
-  (mouseleave)="tooltip.hideTooltip()"
+  (mouseenter)="tooltip.show()"
+  (mouseleave)="tooltip.hide()"
 >
   <input
     class="input"
@@ -15,8 +15,8 @@
   <img class="img" [src]="image()" [alt]="name()" />
 </label>
 <ui-tooltip
-  uiTooltip
-  #tooltip="uiTooltip"
+  uiPopover="tooltip"
+  #tooltip="uiPopover"
   [anchor]="filterItem"
   offset="4"
   [placement]="'above-center'"

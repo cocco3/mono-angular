@@ -8,24 +8,24 @@ import {
   type OnDestroy,
   type OnInit,
 } from '@angular/core';
-import { uniqueId } from '@cocco3/utils';
-import { UiFloating, type UiFloatingPlacement } from './UiFloating';
+import { UiPopover, type UiPopoverPlacement, uniqueId } from '@cocco3/utils';
 
 @Directive({
-  exportAs: 'uiTooltip',
+  exportAs: 'uiPopover',
   host: {
     popover: 'manual',
-    role: 'tooltip',
+    '[role]': 'role()',
   },
-  selector: '[uiTooltip]',
+  selector: '[uiPopover]',
 })
-export class UiTooltipDirective implements OnDestroy, OnInit {
+export class UiPopoverDirective implements OnDestroy, OnInit {
   private el = inject(ElementRef<HTMLElement>);
   private renderer = inject(Renderer2);
-  private floating!: UiFloating;
+  private floating!: UiPopover;
 
+  role = input.required<'tooltip' | 'menu'>({ alias: 'uiPopover' });
   anchor = input.required<HTMLElement>();
-  placement = input.required<UiFloatingPlacement>();
+  placement = input.required<UiPopoverPlacement>();
   offset = input(0, { transform: numberAttribute });
 
   private cleanup?: () => void;
@@ -37,27 +37,27 @@ export class UiTooltipDirective implements OnDestroy, OnInit {
     });
   }
 
-  public showTooltip() {
+  public show() {
     this.el.nativeElement.showPopover?.();
     this.updatePosition();
   }
 
-  public hideTooltip() {
+  public hide() {
     this.el.nativeElement.hidePopover?.();
   }
 
-  public toggleTooltip() {
+  public toggle() {
     const popoverEl = this.el.nativeElement;
     const isOpen = popoverEl.matches(':popover-open');
 
     if (isOpen) {
-      this.hideTooltip();
+      this.hide();
     } else {
-      this.showTooltip();
+      this.show();
     }
   }
 
-  private initAria() {
+  private initAriaTooltip() {
     let tooltipId = this.el.nativeElement.id;
 
     if (!tooltipId) {
@@ -68,10 +68,22 @@ export class UiTooltipDirective implements OnDestroy, OnInit {
     this.renderer.setAttribute(this.anchor(), 'aria-describedby', tooltipId);
   }
 
+  private initAriaMenu() {
+    this.renderer.setAttribute(this.anchor(), 'aria-haspopup', 'menu');
+  }
+
+  private initAria() {
+    if (this.role() === 'menu') {
+      this.initAriaMenu();
+    } else if (this.role() === 'tooltip') {
+      this.initAriaTooltip();
+    }
+  }
+
   ngOnInit() {
     this.initAria();
 
-    this.floating = new UiFloating(this.el.nativeElement, this.anchor(), {
+    this.floating = new UiPopover(this.el.nativeElement, this.anchor(), {
       offset: this.offset(),
       placement: this.placement(),
       edgePadding: 8,
