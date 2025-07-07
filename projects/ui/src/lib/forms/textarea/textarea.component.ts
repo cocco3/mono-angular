@@ -29,7 +29,6 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
     },
   ],
   selector: 'textarea[ui-textarea]',
-  standalone: true,
   styleUrls: ['./textarea.css'],
   template: '<ng-content />',
 })

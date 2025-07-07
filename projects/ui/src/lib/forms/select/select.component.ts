@@ -13,7 +13,6 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
     },
   ],
   selector: `select[ui-select]`,
-  standalone: true,
   styleUrls: ['./select.css'],
   template: '<ng-content />',
 })

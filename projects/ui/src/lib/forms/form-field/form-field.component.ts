@@ -14,7 +14,6 @@ import { UiFormFieldDirective } from './form-field.directive';
     '[class]': 'cssClass()',
   },
   selector: 'ui-form-field',
-  standalone: true,
   styleUrls: ['./form-field.css'],
   templateUrl: './form-field.html',
 })
