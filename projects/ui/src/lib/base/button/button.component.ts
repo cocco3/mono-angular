@@ -21,7 +21,6 @@ export type UiButtonSize = (typeof UiButtonSizes)[number];
     '[attr.type]': 'type',
   },
   selector: 'button[ui-button]',
-  standalone: true,
   styleUrls: ['./button.css'],
   templateUrl: './button.html',
 })

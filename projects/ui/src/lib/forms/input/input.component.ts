@@ -22,7 +22,6 @@ export type UiInputType = (typeof UiInputTypes)[number];
     },
   ],
   selector: `input[ui-input]`,
-  standalone: true,
   styleUrls: ['./input.css'],
   template: '',
 })

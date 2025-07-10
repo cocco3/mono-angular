@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
 import { UiMenuItemButtonComponent } from './menuitem.component';
 import {

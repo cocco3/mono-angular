@@ -3,7 +3,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-iframe',
-  standalone: true,
   styleUrl: './app-iframe.css',
   templateUrl: './app-iframe.html',
 })

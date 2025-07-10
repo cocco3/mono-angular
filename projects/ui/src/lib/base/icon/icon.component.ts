@@ -17,7 +17,6 @@ export type UiIconKind = keyof typeof svgIconStore;
     '[style.color]': 'color()',
   },
   selector: 'ui-icon',
-  standalone: true,
   styleUrls: ['./icon.css'],
   template: '',
 })

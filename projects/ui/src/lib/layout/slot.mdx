@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="layout/slot" docsOnly />
 
@@ -22,7 +22,6 @@ import { UiSlotDirective, useSlots } from './slot.directive';
 @Component({
   imports: [CommonModule],
   selector: 'app-child-component',
-  standalone: true,
   template: `
     <div class="icon" *ngIf="hasSlots().start">
       <ng-content select="[uiSlot='start']" />
@@ -53,7 +52,6 @@ In the parent component, add the `uiSlot` attribute on the appropriate elements.
 @Component({
   imports: [UiSlotDirective, AppChildComponent],
   selector: 'app-parent-component',
-  standalone: true,
   template: `
     <app-child-component label="My label">
       <span uiSlot="start">Leading slot</span>

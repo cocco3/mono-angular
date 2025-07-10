@@ -16,7 +16,6 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
     },
   ],
   selector: `input[ui-radio]`,
-  standalone: true,
   styleUrls: ['./radio.css'],
   template: '',
 })

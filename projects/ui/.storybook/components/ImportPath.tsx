@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { DocsContext, Source } from '@storybook/blocks';
+import { DocsContext, Source } from '@storybook/addon-docs/blocks';
 import pkg from '../../package.json';
 
 export const ImportPath = () => {

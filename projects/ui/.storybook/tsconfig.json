@@ -11,6 +11,11 @@
     "moduleResolution": "node"
   },
   "exclude": ["../src/test.ts", "../src/**/*.spec.ts"],
-  "include": ["../src/**/*", "../src/**/*.stories.*", "preview.tsx"],
+  "include": [
+    "../src/**/*",
+    "../src/**/*.stories.*",
+    "preview.tsx",
+    "formatCode.ts"
+  ],
   "files": ["./typings.d.ts"]
 }
