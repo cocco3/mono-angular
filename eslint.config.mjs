@@ -1,6 +1,6 @@
-import eslint from '@eslint/js'
-import * as tseslint from 'typescript-eslint'
-import * as angular from 'angular-eslint'
+import eslint from '@eslint/js';
+import * as tseslint from 'typescript-eslint';
+import * as angular from 'angular-eslint';
 import storybook from 'eslint-plugin-storybook';
 
 export default tseslint.config(
