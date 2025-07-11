@@ -1,11 +1,7 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from 'eslint-plugin-storybook';
+import * as tseslint from 'typescript-eslint';
+import rootConfig from '../../eslint.config.mjs';
 
-// @ts-check
-const tseslint = require('typescript-eslint');
-const rootConfig = require('../../eslint.config.js');
-
-module.exports = tseslint.config(
+export default tseslint.config(
   ...rootConfig,
   {
     files: ['**/*.ts'],

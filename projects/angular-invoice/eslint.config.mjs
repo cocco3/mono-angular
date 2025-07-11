@@ -1,8 +1,7 @@
-// @ts-check
-const tseslint = require('typescript-eslint');
-const rootConfig = require('../../eslint.config.js');
+import * as tseslint from 'typescript-eslint';
+import rootConfig from '../../eslint.config.mjs';
 
-module.exports = tseslint.config(
+export default tseslint.config(
   ...rootConfig,
   {
     files: ['**/*.ts'],
@@ -11,7 +10,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: 'attribute',
-          prefix: 'lib',
+          prefix: 'app',
           style: 'camelCase',
         },
       ],
@@ -19,7 +18,7 @@ module.exports = tseslint.config(
         'error',
         {
           type: 'element',
-          prefix: 'lib',
+          prefix: 'app',
           style: 'kebab-case',
         },
       ],

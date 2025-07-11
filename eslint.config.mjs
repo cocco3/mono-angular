@@ -1,9 +1,10 @@
-// @ts-check
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
+import eslint from '@eslint/js';
+import * as tseslint from 'typescript-eslint';
+import * as angular from 'angular-eslint';
+import storybook from 'eslint-plugin-storybook';
 
-module.exports = tseslint.config(
+export default tseslint.config(
+  ...storybook.configs['flat/recommended'],
   {
     files: ['**/*.ts'],
     extends: [
