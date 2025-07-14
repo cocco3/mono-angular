@@ -1,16 +1,13 @@
 import type { Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { formatAngularCode } from '@cocco3/utils';
+
 import docJson from '../documentation.json';
 setCompodocJson(docJson);
 
 // react layout
 import { DocsLayout } from './components/DocsLayout';
-
-// temp fix for
-// https://github.com/storybookjs/storybook/issues/30691
-import 'zone.js';
-import { formatCode } from './formatCode';
 
 const preview: Preview = {
   decorators: [
@@ -42,7 +39,7 @@ const preview: Preview = {
       page: () => <DocsLayout />,
       source: {
         transform: async (code: string) => {
-          return await formatCode(code);
+          return await formatAngularCode(code);
         },
       },
     },

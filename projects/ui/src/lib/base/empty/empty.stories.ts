@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
+import { storybookArgsToTemplate } from '@cocco3/utils';
 import { UiEmptyComponent } from './empty.component';
 import { UiSlotDirective } from '../../layout/slot.directive';
 import {

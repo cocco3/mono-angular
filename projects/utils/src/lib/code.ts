@@ -1,7 +1,11 @@
 import * as prettier from 'prettier/standalone';
 import * as prettierPluginHtml from 'prettier/plugins/html';
 
-export async function formatCode(code: string) {
+/**
+ * Format Angular code in the browser using prettier/standalone.
+ * @see https://prettier.io/docs/browser
+ */
+export async function formatAngularCode(code: string) {
   return await prettier.format(code, {
     parser: 'angular',
     plugins: [prettierPluginHtml],
