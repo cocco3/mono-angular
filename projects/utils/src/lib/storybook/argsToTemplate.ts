@@ -7,7 +7,7 @@
  *  https://github.com/storybookjs/storybook/pull/29190/files#diff-8bd7f89f970c6191c0d11077ba1739b7a042ec8b16059c8f15302684dc7f952e
  *
  * This file is just the code lifted from that PR, and can be deleted
- *  once the above PR is merged, and we've upgraded to Storybook 8.
+ *  if the above PR gets merged.
  */
 
 import { type ArgTypes } from '@storybook/angular';

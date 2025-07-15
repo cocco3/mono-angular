@@ -1,5 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
+import { storybookArgsToTemplate } from '@cocco3/utils';
 import { UiInputComponent, UiInputTypes } from './input.component';
 
 type InputStory = UiInputComponent & {

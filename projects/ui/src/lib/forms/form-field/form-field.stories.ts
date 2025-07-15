@@ -1,5 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
+import { storybookArgsToTemplate } from '@cocco3/utils';
 import { UiFormFieldComponent } from './form-field.component';
 import { UiInputComponent } from '../input/input.component';
 import { UiSelectComponent } from '../select/select.component';

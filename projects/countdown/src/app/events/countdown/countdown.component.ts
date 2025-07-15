@@ -26,7 +26,7 @@ export class CountdownComponent {
   });
 
   protected displayName = computed(() => {
-    return this.name() || 'Event';
+    return this.name().trim() || 'Event';
   });
 
   protected displayDate = computed(() => {
