@@ -5,6 +5,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { logError } from './logError';
 
 function processEnvironmentFiles(paths: string[]) {
   paths.forEach((filePath) => {
@@ -31,7 +32,7 @@ function processEnvironmentFiles(paths: string[]) {
         console.log(`  Finished: Add correct env values to '${newFilePath}'`);
       }
     } else {
-      console.error('  Skipping: Env file not found or invalid');
+      logError('  Skipping: Env file not found or invalid');
     }
 
     console.log('\n');
