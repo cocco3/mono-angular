@@ -41,6 +41,10 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# env
+environment.local.ts
+
+# storybook
 *storybook.log
 documentation.json
-environment.local.ts
+storybook-static

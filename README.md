@@ -32,7 +32,7 @@ An [Angular](./ANGULAR.md) monorepo.
 Follow these steps to [upgrade Storybook](https://storybook.js.org/docs/configure/upgrading).
 
 ```shell
-npx storybook@latest upgrade --config-dir="projects/ui/.storybook"
+npm run sb:update
 ```
 
 For major version upgrades, be sure to check the [custom DocsLayout](./projects/ui/.storybook/components/DocsLayout.tsx) still works as expected.

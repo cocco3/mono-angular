@@ -13,8 +13,8 @@
     "test": "ng test",
     "serve:ssr:angular-invoice": "node dist/angular-invoice/server/server.mjs",
     "assets:build": "ts-node ./projects/ui/src/build/runBuild.ts",
-    "sb:dev": "ng run ui:storybook",
-    "sb:build": "ng run ui:build-storybook",
+    "sb:start": "ts-node build/run-storybook.ts start",
+    "sb:build": "ts-node build/run-storybook.ts build",
     "sb:update": "npx storybook@latest upgrade --config-dir=projects/ui/.storybook"
   },
   "private": true,

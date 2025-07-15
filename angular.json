@@ -342,6 +342,54 @@
             ],
             "eslintConfig": "projects/countdown/eslint.config.js"
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/countdown/.storybook",
+            "browserTarget": "countdown:build",
+            "styles": [
+              "projects/ui/src/css/theme.css",
+              "projects/ui/src/css/typography.css",
+              "projects/countdown/src/styles.css"
+            ],
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/countdown",
+              "--disablePrivate",
+              "--disableProtected",
+              "--disableInternal",
+              "--disableLifeCycleHooks"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/countdown/.storybook",
+            "browserTarget": "countdown:build",
+            "styles": [
+              "projects/ui/src/css/theme.css",
+              "projects/ui/src/css/typography.css",
+              "projects/countdown/src/styles.css"
+            ],
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/countdown",
+              "--disablePrivate",
+              "--disableProtected",
+              "--disableInternal",
+              "--disableLifeCycleHooks"
+            ],
+            "outputDir": "dist/storybook/countdown"
+          }
         }
       }
     },

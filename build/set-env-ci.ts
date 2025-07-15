@@ -6,6 +6,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { logError } from './logError';
 
 /**
  * Replace all instances of `__BUILD_DATE__` with the current date
@@ -45,7 +46,7 @@ function processEnvironmentFiles(paths: string[]) {
       const newFilePath = path.join(path.dirname(fullPath), 'environment.ts');
       fs.writeFileSync(newFilePath, transformedContent, 'utf8');
     } else {
-      console.error(`File not found or invalid: ${filePath}`);
+      logError(`File not found or invalid: ${filePath}`);
     }
   });
 }
