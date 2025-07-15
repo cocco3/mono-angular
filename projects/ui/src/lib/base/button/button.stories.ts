@@ -4,7 +4,9 @@ import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
 import {
   UiButtonComponent,
   UiButtonKinds,
+  UiButtonShapes,
   UiButtonSizes,
+  UiButtonTypes,
 } from './button.component';
 import {
   UiIconComponent,
@@ -27,7 +29,9 @@ const meta: Meta<ButtonStory> = {
   argTypes: {
     disabled: { control: { type: 'boolean' } },
     kind: { options: UiButtonKinds, control: { type: 'radio' } },
+    shape: { options: UiButtonShapes, control: { type: 'radio' } },
     size: { options: UiButtonSizes, control: { type: 'radio' } },
+    type: { options: UiButtonTypes, control: { type: 'radio' } },
     start: {
       options: UiIconKinds,
       control: { type: 'select' },
@@ -42,7 +46,9 @@ const meta: Meta<ButtonStory> = {
     },
   },
   args: {
+    shape: 'normal',
     size: 'medium',
+    type: 'button',
   },
   parameters: {
     design: {
@@ -99,7 +105,33 @@ export const Icons: Story = {
     size: 'medium',
     content: 'Support',
     start: 'help-circle',
-    end: 'link-external',
+    end: 'chevron-right',
+  },
+};
+
+/**
+ * Use `shape = 'circle' | 'square'` for an icon only button.
+ */
+export const CircleIcon: Story = {
+  args: {
+    kind: 'secondary',
+    shape: 'circle',
+    size: 'small',
+    content: 'Calendar',
+    start: 'calendar',
+  },
+};
+
+/**
+ * Use `shape = 'circle' | 'square'` for an icon only button.
+ */
+export const SquareIcon: Story = {
+  args: {
+    kind: 'secondary',
+    shape: 'square',
+    size: 'small',
+    content: 'Calendar',
+    start: 'calendar',
   },
 };
 
