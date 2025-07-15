@@ -24,7 +24,7 @@ export type UiButtonShape = (typeof UiButtonShapes)[number];
 @Component({
   host: {
     '[class]': 'cssClass()',
-    '[attr.type]': 'type',
+    '[attr.type]': 'type()',
   },
   selector: 'button[ui-button]',
   styleUrls: ['./button.css'],
