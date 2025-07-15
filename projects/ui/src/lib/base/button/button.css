@@ -5,7 +5,7 @@
   border-color: var(--button-border-color);
   border-style: solid;
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   box-sizing: border-box;
   color: var(--button-text-color);
   display: inline-flex;
@@ -74,13 +74,15 @@
 }
 
 :host.size-small {
-  font: 600 var(--type-text-sm);
+  --button-icon: 16px;
+  font: 600 var(--type-text-xs);
   min-height: 36px;
   padding-block: 4px;
-  padding-inline: 12px;
+  padding-inline: 8px;
 }
 
 :host.size-medium {
+  --button-icon: 18px;
   font: 600 var(--type-text-sm);
   min-height: 40px;
   padding-block: 8px;
@@ -88,15 +90,47 @@
 }
 
 :host.size-large {
+  --button-icon: 20px;
   font: 600 var(--type-text-md);
   min-height: 44px;
   padding-block: 8px;
   padding-inline: 16px;
 }
 
+:host.shape-normal {
+  --button-border-radius: 8px;
+}
+
+:host.shape-pill {
+  --button-border-radius: 999px;
+}
+
+:host.shape-circle {
+  --button-border-radius: 50%;
+}
+
+:host.shape-square {
+  --button-border-radius: 8px;
+}
+
+:host.icon-only {
+  aspect-ratio: 1;
+  padding: 0;
+
+  & .text {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
 .icon {
-  height: 20px;
-  width: 20px;
+  height: var(--button-icon);
+  width: var(--button-icon);
 }
 
 /* loading */
@@ -107,9 +141,9 @@
   border-radius: 50%;
   border-style: solid;
   border-width: 2px;
-  height: 20px;
+  height: var(--button-icon);
   transform: translateZ(0);
-  width: 20px;
+  width: var(--button-icon);
 }
 
 @keyframes spin {

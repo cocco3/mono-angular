@@ -12,6 +12,8 @@ export type UiIconKind = keyof typeof svgIconStore;
 @Component({
   exportAs: 'uiIcon',
   host: {
+    'aria-hidden': 'true',
+    focusable: 'false',
     '[innerHTML]': 'svg()',
     '[style.width]': 'size()',
     '[style.color]': 'color()',
