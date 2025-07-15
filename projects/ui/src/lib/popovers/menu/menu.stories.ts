@@ -1,6 +1,9 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { type UiPopoverPlacement, UiPopoverPlacements } from '@cocco3/utils';
-import { storybookArgsToTemplate } from '../../utils/storybookArgsToTemplate';
+import {
+  type UiPopoverPlacement,
+  UiPopoverPlacements,
+  storybookArgsToTemplate,
+} from '@cocco3/utils';
 import { UiMenuComponent, UiMenuSectionComponent } from './menu.component';
 import {
   UiMenuItemAnchorComponent,

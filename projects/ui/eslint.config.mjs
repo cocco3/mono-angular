@@ -6,6 +6,11 @@ export default tseslint.config(
   {
     files: ['**/*.ts'],
     rules: {
+      'storybook/no-uninstalled-addons': [
+        'error',
+        { packageJsonLocation: '../../package.json' },
+      ],
+
       '@angular-eslint/directive-selector': [
         'error',
         {
