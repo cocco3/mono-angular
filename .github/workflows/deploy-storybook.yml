@@ -23,12 +23,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Storybook
+      - name: 'Build Storybook: ui'
         run: npm run sb:build -- ui
+
+      - name: 'Build Storybook: countdown'
+        run: npm run sb:build -- countdown
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/storybook/ui
+          publish_dir: ./dist/storybook
           publish_branch: gh-pages
