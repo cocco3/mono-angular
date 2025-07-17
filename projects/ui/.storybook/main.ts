@@ -16,6 +16,15 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['./static'],
+  refs: (_config, { configType }) => ({
+    countdown: {
+      title: 'Countdown',
+      url:
+        configType === 'DEVELOPMENT'
+          ? 'http://localhost:6016'
+          : 'https://cocco3.github.io/mono-angular/countdown',
+    },
+  }),
 };
 
 export default config;

@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/angular';
 import { CountdownComponent, CountdownFormats } from './countdown.component';
 
 const meta: Meta<CountdownComponent> = {
-  title: 'countdown',
+  title: 'app/countdown',
   component: CountdownComponent,
   tags: ['autodocs'],
   argTypes: {

@@ -14,6 +14,8 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Setup
 
+1. Use the required version of node defined in [.nvmrc](./.nvmrc)
+   - Use a tool like [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm)
 1. Run `npm install` to install dependencies
 1. Run `npm run init` which does the following:
    - `npm run init:git-hooks`: Sets up a pre-commit hook for linting/formatting

@@ -77,7 +77,7 @@
               "--disableInternal",
               "--disableLifeCycleHooks"
             ],
-            "outputDir": "dist/storybook/ui"
+            "outputDir": "dist/storybook"
           }
         },
         "lint": {
@@ -364,7 +364,7 @@
               "--disableInternal",
               "--disableLifeCycleHooks"
             ],
-            "port": 6006
+            "port": 6016
           }
         },
         "build-storybook": {
