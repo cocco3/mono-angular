@@ -57,18 +57,19 @@ export const ShowOnHover: Story = {
     props: args,
     template: `
       <button
-        #tooltipHoverAnchor
-        (mouseenter)="myTooltip1.show()"
-        (mouseleave)="myTooltip1.hide()"
-        (touchstart)="myTooltip1.toggle()"
+        #tooltip1Anchor
+        (mouseenter)="tooltip1.show()"
+        (mouseleave)="tooltip1.hide()"
+        (touchstart)="tooltip1.toggle()"
       >
         hover
       </button>
+
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
         uiPopover="tooltip"
-        #myTooltip1="uiPopover"
-        [anchor]="tooltipHoverAnchor"
+        #tooltip1="uiPopover"
+        [anchor]="tooltip1Anchor"
         offset="${offset}"
         [placement]="'${placement}'"
       >
@@ -83,16 +84,17 @@ export const ToggleOnClick: Story = {
     props: args,
     template: `
       <button
-        #tooltipClickAnchor
-        (click)="myTooltip2.toggle()"
+        #tooltip2Anchor
+        (click)="tooltip2.toggle()"
       >
         click
       </button>
+
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
         uiPopover="tooltip"
-        #myTooltip2="uiPopover"
-        [anchor]="tooltipClickAnchor"
+        #tooltip2="uiPopover"
+        [anchor]="tooltip2Anchor"
         offset="${offset}"
         [placement]="'${placement}'"
       >
