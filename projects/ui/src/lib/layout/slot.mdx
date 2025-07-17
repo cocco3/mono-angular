@@ -15,25 +15,29 @@ In this example, the child component template has 2 optional content placeholder
 In the child component, get all the `UiSlotDirective` content children, and check if they are available with the `useSlots` function.
 
 ```ts
-import { CommonModule } from '@angular/common';
 import { Component, contentChildren, input } from '@angular/core';
-import { UiSlotDirective, useSlots } from './slot.directive';
+import { UiSlotDirective, useSlots } from '@cocco3/angular-ui';
 
 @Component({
-  imports: [CommonModule],
   selector: 'app-child-component',
   template: `
-    <div class="icon" *ngIf="hasSlots().start">
-      <ng-content select="[uiSlot='start']" />
-    </div>
+    @if (hasSlots().start) {
+      <div class="icon">
+        <ng-content select="[uiSlot='start']" />
+      </div>
+    }
 
-    <div class="label" *ngIf="!!label()">
-      {{ label() }}
-    </div>
+    @if (!!label()) {
+      <div class="label">
+        {{ label() }}
+      </div>
+    }
 
-    <div class="icon" *ngIf="hasSlots().end">
-      <ng-content select="[uiSlot='end']" />
-    </div>
+    @if (hasSlots().end) {
+      <div class="icon">
+        <ng-content select="[uiSlot='end']" />
+      </div>
+    }
   `,
 })
 export class AppChildComponent {
