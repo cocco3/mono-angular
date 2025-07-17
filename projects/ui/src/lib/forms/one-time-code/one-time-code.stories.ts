@@ -17,6 +17,7 @@ const meta: Meta<UiOneTimeCodeComponent> = {
   args: {
     kind: 'alphanumeric',
     charCount: 6,
+    transform: 'none',
   },
   render: (args) => ({
     props: args,

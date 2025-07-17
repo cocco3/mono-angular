@@ -100,16 +100,17 @@ export const ToggleOnClick: Story = {
     props: args,
     template: `
       <button
-        #menuClickAnchor
-        (click)="myMenu1.toggle()"
+        #menu1Anchor
+        (click)="menu1.toggle()"
       >
         click
       </button>
+
       <ui-menu
         ${storybookArgsToTemplate(args)}
         uiPopover="menu"
-        #myMenu1="uiPopover"
-        [anchor]="menuClickAnchor"
+        #menu1="uiPopover"
+        [anchor]="menu1Anchor"
         offset="${offset}"
         [placement]="'${placement}'"
       >

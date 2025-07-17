@@ -27,7 +27,7 @@ export class UiAvatarComponent {
   /** If there is an error loading the photo, fallback will be shown instead */
   photoUrl = input<string>();
 
-  /** What do display if image fails to load */
+  /** What to display if image fails to load */
   fallback = input<UiAvatarFallback>('initials');
 
   protected alt = computed(() => `Profile picture for ${this.fullName()}`);
