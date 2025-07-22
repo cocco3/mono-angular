@@ -26,13 +26,15 @@ function processEnvironmentFiles(paths: string[]) {
       const resolvedNewFilePath = path.resolve(newFilePath);
 
       if (fs.existsSync(resolvedNewFilePath)) {
-        console.log(`  Skipping: '${newFilePath}' already exists`);
+        console.log(` ↳ SKIPPED: '${newFilePath}' already exists`);
       } else {
         fs.writeFileSync(resolvedNewFilePath, content, 'utf8');
-        console.log(`  Finished: Add correct env values to '${newFilePath}'`);
+        console.log(
+          ` ↳ FINISHED: Now add correct env values to '${newFilePath}'`
+        );
       }
     } else {
-      logError('  Skipping: Env file not found or invalid');
+      logError(' ↳ SKIPPED: Env file not found or invalid');
     }
 
     console.log('\n');

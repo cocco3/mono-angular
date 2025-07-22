@@ -1,12 +1,18 @@
 import * as fs from 'fs-extra';
 import { lightTheme, darkTheme, type Theme } from '../../lib/styles';
-import {
-  anyModifiedSourceFiles,
-  fileCommentHeader,
-  formatCode,
-} from '../utils';
+import { shouldGenerateFile, fileCommentHeader, formatCode } from '../utils';
 
-const OUT_FILE_PATH = './projects/ui/src/css/theme.css';
+const themes = [
+  {
+    srcFiles: [
+      './projects/ui/src/lib/styles/colorPrimitives.ts',
+      './projects/ui/src/lib/styles/theme.ts',
+    ],
+    outFilePath: './projects/ui/src/css/theme.css',
+    light: lightTheme,
+    dark: darkTheme,
+  },
+];
 
 const template = `
 {{SELECTOR}} {
@@ -33,26 +39,30 @@ const transformToVariables = async (theme: Theme, selector: string) => {
 };
 
 export const buildThemeCss = async () => {
-  const hasModifiedSourceFiles = anyModifiedSourceFiles(OUT_FILE_PATH, [
-    './projects/ui/src/lib/styles/colorPrimitives.ts',
-    './projects/ui/src/lib/styles/theme.ts',
-  ]);
+  for (const theme of themes) {
+    console.log(`\nCreating "${theme.outFilePath}"`);
 
-  if (!hasModifiedSourceFiles) {
-    console.log('SKIPPING build:theme - no modified files');
-    return;
+    const hasModifiedSourceFiles = shouldGenerateFile(
+      theme.outFilePath,
+      theme.srcFiles
+    );
+
+    if (!hasModifiedSourceFiles) {
+      console.log(` ↳ SKIPPED - No modified source files`);
+      return;
+    }
+
+    fs.outputFileSync(theme.outFilePath, fileCommentHeader);
+
+    const lightThemeCss = await transformToVariables(
+      theme.light,
+      ':root, .theme-light'
+    );
+    fs.appendFileSync(theme.outFilePath, lightThemeCss);
+
+    const darkThemeCss = await transformToVariables(theme.dark, '.theme-dark');
+    fs.appendFileSync(theme.outFilePath, darkThemeCss);
+
+    console.log(` ↳ FINISHED building theme file`);
   }
-
-  console.log(`Generating new theme file: ${OUT_FILE_PATH}`);
-
-  fs.outputFileSync(OUT_FILE_PATH, fileCommentHeader);
-
-  const lightThemeCss = await transformToVariables(
-    lightTheme,
-    ':root, .theme-light'
-  );
-  fs.appendFileSync(OUT_FILE_PATH, lightThemeCss);
-
-  const darkThemeCss = await transformToVariables(darkTheme, '.theme-dark');
-  fs.appendFileSync(OUT_FILE_PATH, darkThemeCss);
 };
