@@ -1,5 +1,5 @@
 import { Heading, Meta, Subheading } from '@storybook/addon-docs/blocks';
-import { typography } from '../styles';
+import { typographyDictionary, defaultThemeTypography } from '../styles';
 
 <Meta title="foundations/Typography" />
 
@@ -8,9 +8,17 @@ import { typography } from '../styles';
 Font is [Inter](https://fonts.google.com/specimen/Inter) and variables sourced from [Untitled UI](https://www.untitledui.com/components/typography-styles).
 
 <div>
-  {Object.values(typography).map((group) => (
+  {Object.values(defaultThemeTypography).map((group) => (
     <div key={group.id} style={{ marginBlock: 40 }}>
-      <Heading>{group.name}</Heading>
+      <Heading>{typographyDictionary[group.id].name}</Heading>
+
+      <p>
+        {typographyDictionary[group.id].description}
+      </p>
+      <p>
+        <code>font-family: {group.family}</code>
+      </p>
+
       <div class="list sb-unstyled theme-light">
         {Object.entries(group.values).map(([variantKey, variant]) => {
           const variable = `type-${group.id}-${variantKey}`
@@ -65,8 +73,8 @@ Use the CSS `font` property and combine the weight with the variable:
 
 ```css
 /* bold and large */
-font: 700 var(--text-display-lg);
+font: 700 var(--type-display-lg);
 
 /* regular and small */
-font: 400 var(--text-type-sm);
+font: 400 var(--type-text-sm);
 ```

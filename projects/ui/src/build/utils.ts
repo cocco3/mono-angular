@@ -3,12 +3,11 @@ import * as prettier from 'prettier';
 import { type BuiltInParserName } from 'prettier';
 
 /**
- * Check if any source files have been modified after the output file.
+ * Check whether a new file should be generated:
+ *  - if the output file does not exist
+ *  - if the modified date of any source file is after that of the output file
  */
-export const anyModifiedSourceFiles = (
-  outFilePath: string,
-  sources: string[]
-) => {
+export const shouldGenerateFile = (outFilePath: string, sources: string[]) => {
   const doesOutputFileExist = fs.existsSync(outFilePath);
   if (!doesOutputFileExist) {
     return true;
@@ -16,9 +15,11 @@ export const anyModifiedSourceFiles = (
 
   const outputFileModifiedDate = fs.statSync(outFilePath).mtime.toISOString();
 
-  return sources.some(
+  const anyRecentlyModified = sources.some(
     (path) => fs.statSync(path).mtime.toISOString() > outputFileModifiedDate
   );
+
+  return anyRecentlyModified;
 };
 
 /**

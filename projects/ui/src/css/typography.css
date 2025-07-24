@@ -1,9 +1,9 @@
 /**
- * Auto-generated on Fri Apr 11 2025. Do not modify.
+ * Auto-generated on Thu Jul 24 2025. Do not modify.
  */
 :root {
   --font-family-display: Inter, -apple-system, 'Helvetica Neue', sans-serif;
-  --font-family-body: Inter, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-family-text: Inter, -apple-system, 'Helvetica Neue', sans-serif;
   --font-family-mono:
     source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 
@@ -14,9 +14,12 @@
   --type-display-sm: 30px/1.27 var(--font-family-display);
   --type-display-xs: 24px/1.33 var(--font-family-display);
 
-  --type-text-xl: 20px/1.5 var(--font-family-body);
-  --type-text-lg: 18px/1.56 var(--font-family-body);
-  --type-text-md: 16px/1.5 var(--font-family-body);
-  --type-text-sm: 14px/1.43 var(--font-family-body);
-  --type-text-xs: 12px/1.5 var(--font-family-body);
+  --type-text-xl: 20px/1.5 var(--font-family-text);
+  --type-text-lg: 18px/1.56 var(--font-family-text);
+  --type-text-md: 16px/1.5 var(--font-family-text);
+  --type-text-sm: 14px/1.43 var(--font-family-text);
+  --type-text-xs: 12px/1.5 var(--font-family-text);
+
+  --type-mono-md: 16px/1.5 var(--font-family-mono);
+  --type-mono-sm: 14px/1.43 var(--font-family-mono);
 }
