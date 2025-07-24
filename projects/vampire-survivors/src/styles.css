@@ -11,8 +11,6 @@
   --type-text-xs: 12px/1.25 var(--font-family-body);
   --type-text-2xs: 10px/1.25 var(--font-family-body);
   --type-text-3xs: 8px/1.25 var(--font-family-body);
-
-  --text-primary: #ffffff;
 }
 
 *,

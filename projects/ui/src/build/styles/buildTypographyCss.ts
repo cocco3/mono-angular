@@ -10,9 +10,9 @@ const themes = [
   },
 ];
 
-const template = `
-{{SELECTOR}} {
-{{CONTENTS}}
+const cssTemplate = `
+:root {
+  {{CONTENTS}}
 }
 `;
 
@@ -21,10 +21,7 @@ const fontVar = (name: string) => `--font-family-${name}`;
 const typeVar = (group: string, variant: string) =>
   `--type-${group}-${variant}`;
 
-const transformToVariables = async (
-  typography: TypographySets,
-  selector: string
-) => {
+const transformToVariables = (typography: TypographySets) => {
   const fonts = Object.entries(typography)
     .map(([_, font]) => `${fontVar(font.id)}: ${font.family};`)
     .join('\n');
@@ -40,13 +37,9 @@ const transformToVariables = async (
     )
     .join('\n\n');
 
-  const code = template
-    .replace('{{SELECTOR}}', selector)
-    .replace('{{CONTENTS}}', fonts + '\n\n' + variables);
+  const code = cssTemplate.replace('{{CONTENTS}}', fonts + '\n\n' + variables);
 
-  const formattedCode = await formatCode(code, 'css');
-
-  return formattedCode;
+  return code;
 };
 
 export const buildTypographyCss = async () => {
@@ -65,11 +58,10 @@ export const buildTypographyCss = async () => {
 
     fs.outputFileSync(theme.outFilePath, fileCommentHeader);
 
-    const typographyCss = await transformToVariables(
-      theme.typographySet,
-      ':root'
-    );
-    fs.appendFileSync(theme.outFilePath, typographyCss);
+    const css = transformToVariables(theme.typographySet);
+    const formattedCode = await formatCode(css, 'css');
+
+    fs.appendFileSync(theme.outFilePath, formattedCode);
 
     console.log(` ↳ FINISHED building typography file`);
   }

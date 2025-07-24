@@ -1,5 +1,5 @@
 import * as fs from 'fs-extra';
-import { lightTheme, darkTheme, type Theme } from '../../lib/styles';
+import { defaultThemeColors, type Theme } from '../../lib/styles';
 import { shouldGenerateFile, fileCommentHeader, formatCode } from '../utils';
 
 const themes = [
@@ -9,33 +9,40 @@ const themes = [
       './projects/ui/src/lib/styles/theme.ts',
     ],
     outFilePath: './projects/ui/src/css/theme.css',
-    light: lightTheme,
-    dark: darkTheme,
+    colors: defaultThemeColors,
   },
 ];
 
-const template = `
-{{SELECTOR}} {
-{{CONTENTS}}
+const cssTemplate = `
+:root {
+  {{CONTENTS}}
+}
+html {
+  color-scheme: light dark;
+}
+.light-mode {
+  color-scheme: light;
+}
+.dark-mode {
+  color-scheme: dark;
 }
 `;
 
-const transformToVariables = async (theme: Theme, selector: string) => {
+const transformToVariables = (theme: Theme) => {
   const variables = Object.values(theme)
     .map((item) =>
       Object.entries(item.values)
-        .map(([key, value]) => `  --${item.id}-${key}: ${value};`)
+        .map(
+          ([key, value]) =>
+            `--${item.id}-${key}: light-dark(${value[0]}, ${value[1]});`
+        )
         .join('\n')
     )
     .join('\n\n');
 
-  const code = template
-    .replace('{{SELECTOR}}', selector)
-    .replace('{{CONTENTS}}', variables);
+  const code = cssTemplate.replace('{{CONTENTS}}', variables);
 
-  const formattedCode = await formatCode(code, 'css');
-
-  return formattedCode;
+  return code;
 };
 
 export const buildThemeCss = async () => {
@@ -54,14 +61,10 @@ export const buildThemeCss = async () => {
 
     fs.outputFileSync(theme.outFilePath, fileCommentHeader);
 
-    const lightThemeCss = await transformToVariables(
-      theme.light,
-      ':root, .theme-light'
-    );
-    fs.appendFileSync(theme.outFilePath, lightThemeCss);
+    const css = transformToVariables(theme.colors);
+    const formattedCode = await formatCode(css, 'css');
 
-    const darkThemeCss = await transformToVariables(theme.dark, '.theme-dark');
-    fs.appendFileSync(theme.outFilePath, darkThemeCss);
+    fs.appendFileSync(theme.outFilePath, formattedCode);
 
     console.log(` ↳ FINISHED building theme file`);
   }

@@ -4,9 +4,6 @@ import { EnvironmentService } from '../EnvironmentService';
 import { AnalyticsService } from '../analytics/AnalyticsService';
 
 @Component({
-  host: {
-    class: 'theme-dark',
-  },
   selector: 'app-footer',
   styleUrl: './app-footer.css',
   templateUrl: './app-footer.html',

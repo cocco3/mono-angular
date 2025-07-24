@@ -1,5 +1,5 @@
 import { Heading, Meta, Title } from '@storybook/addon-docs/blocks';
-import { lightTheme, darkTheme, colorNameLookup } from '../styles';
+import { defaultThemeColors, colorNameLookup } from '../styles';
 
 <Meta title="foundations/Theme" />
 
@@ -10,45 +10,43 @@ provide context and convey information, such as status, state, or action.
 
 All variables are sourced from [Untitled UI](https://www.untitledui.com/components/color-styles).
 
-The light theme is the **default theme**. Variables are applied on the `:root` pseudo-class
-so no action needs to be taken to apply the light theme.
+Themes support a light mode and dark mode. The color scheme will match your system settings by default, or can be manually applied by setting the `color-scheme` property.
 
-You can also apply a theme to an element and all of its children by adding one of the theme classes:
-
-- `theme-light`
-- `theme-dark`
+- For **light-mode**, apply the `color-scheme: light` property
+- For **dark-mode**, apply the `color-scheme: dark` property
 
 <div>
-  {Object.entries(lightTheme).map(([key, item]) => (
+  {Object.entries(defaultThemeColors).map(([key, item]) => (
     <div key={key} style={{ marginBlock: 40 }}>
       <Heading>{item.name}</Heading>
-      <div class="list sb-unstyled theme-light">
+      <div class="list sb-unstyled">
         {Object.entries(item.values).map(([weight, hex]) => {
-          const variable = `${item.id}-${weight}`
-          const lightThemeHex = hex
-          const darkThemeHex = darkTheme[key].values[weight]
+          const variableName = `${item.id}-${weight}`
+          const cssVariable=`var(--${variableName})`
+          const lightSchemeValue = hex[0]
+          const darkSchemeValue = hex[1]
 
           return (
             <div class="row">
-              <div class="variableName theme-light">
-                {variable}
+              <div class="variableName">
+                {variableName}
               </div>
 
-              <div class="colorChip theme-light">
+              <div class="colorChip">
                 <div class="color"
-                  style={{ backgroundColor: lightThemeHex}} />
+                  style={{ backgroundColor: cssVariable}} />
                 <div>
-                  <div class="variable">{colorNameLookup(lightThemeHex)}</div>
-                  <div class="hex">{lightThemeHex}</div>
+                  <div class="variable">{colorNameLookup(lightSchemeValue)}</div>
+                  <div class="hex">{lightSchemeValue}</div>
                 </div>
               </div>
 
-              <div class="colorChip theme-dark">
+              <div class="colorChip colorChip-dark">
                 <div class="color"
-                  style={{ backgroundColor: darkThemeHex}} />
+                  style={{ backgroundColor: cssVariable}} />
                 <div>
-                  <div class="variable">{colorNameLookup(darkThemeHex)}</div>
-                  <div class="hex">{darkThemeHex}</div>
+                  <div class="variable">{colorNameLookup(darkSchemeValue)}</div>
+                  <div class="hex">{darkSchemeValue}</div>
                 </div>
               </div>
             </div>
@@ -65,20 +63,33 @@ You can also apply a theme to an element and all of its children by adding one o
 
 ```css
 .someClass {
-  --component-text-color: var(--text-primary);
-
-  background-color: var(--bg-primary);
-  color: var(--component-text-color);
+  --_border-color: var(--border-primary);
+  border: 1px solid var(--_border-color);
+}
+.someClass.error {
+  --_border-color: var(--border-error);
+}
+.someClass.warning {
+  --_border-color: var(--border-warning);
+}
+.someClass.dark {
+  /* apply the dark color scheme */
+  color-scheme: dark;
 }
 
-.someClass.error {
-  --component-text-color: var(--text-error);
+/* you can also create global helper classes for dark/light modes */
+.light-mode {
+  color-scheme: light;
+}
+.dark-mode {
+  color-scheme: dark;
 }
 ```
 
 <style>
   {`
     .list {
+      color-scheme: light;
       display: grid;
       gap: 12px;
     }
@@ -106,6 +117,10 @@ You can also apply a theme to an element and all of its children by adding one o
       gap: 6px;
       padding-block: 4px;
       padding-inline: 4px 12px;
+    }
+
+    .colorChip-dark {
+      color-scheme: dark;
     }
 
     .colorChip .color {

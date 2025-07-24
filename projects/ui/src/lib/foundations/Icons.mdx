@@ -7,7 +7,7 @@ import { svgIconStore } from '../icons';
 
 Icons sourced from [Untitled UI](https://www.untitledui.com/free-icons).
 
-<div class="sb-iconGrid theme-light">
+<div class="sb-iconGrid">
   {Object.entries(svgIconStore).map(([key, value]) => (
     <div class="item">
       <div class="icon" dangerouslySetInnerHTML={{ __html: value }} />
@@ -19,6 +19,7 @@ Icons sourced from [Untitled UI](https://www.untitledui.com/free-icons).
 <style>
   {`
     .sb-iconGrid {
+      color-scheme: light;
       columns: 3;
     }
 

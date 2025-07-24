@@ -12,10 +12,11 @@ import { DocsLayout } from './components/DocsLayout';
 const preview: Preview = {
   decorators: [
     withThemeByClassName({
-      defaultTheme: 'light',
+      defaultTheme: 'auto',
       themes: {
-        light: 'theme-light',
-        dark: 'theme-dark',
+        auto: '',
+        light: 'sb-light-mode',
+        dark: 'sb-dark-mode',
       },
     }),
   ],
