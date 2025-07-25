@@ -14,7 +14,7 @@ All variables are sourced from [Untitled UI](https://www.untitledui.com/componen
   {Object.values(colorPrimitives).map((item) => (
     <div key={item.id} style={{ marginBlock: 40 }}>
       <Heading>{item.name}</Heading>
-      <div class="docs-colorSwatch sb-unstyled theme-light">
+      <div class="docs-colorSwatch sb-unstyled">
         {Object.entries(item.values).map(([weight, hex]) => {
           const variable = `${item.id}-${weight}`;
           return (
@@ -35,6 +35,7 @@ All variables are sourced from [Untitled UI](https://www.untitledui.com/componen
 <style>
   {`
     .docs-colorSwatch {
+      color-scheme: light;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
       row-gap: 12px;

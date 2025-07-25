@@ -8,9 +8,6 @@ import { FilterItemComponent } from '../filter-item/filter-item.component';
 type ValueChangeArgs = { checked: boolean; value: string };
 
 @Component({
-  host: {
-    class: 'theme-dark',
-  },
   imports: [FilterItemComponent, UiButtonComponent],
   selector: 'app-filters',
   styleUrl: './filters.css',

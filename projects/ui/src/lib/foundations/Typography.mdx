@@ -19,7 +19,7 @@ Font is [Inter](https://fonts.google.com/specimen/Inter) and variables sourced f
         <code>font-family: {group.family}</code>
       </p>
 
-      <div class="list sb-unstyled theme-light">
+      <div class="list sb-unstyled">
         {Object.entries(group.values).map(([variantKey, variant]) => {
           const variable = `type-${group.id}-${variantKey}`
 
@@ -49,6 +49,7 @@ Font is [Inter](https://fonts.google.com/specimen/Inter) and variables sourced f
 <style>
   {`
     .list {
+      color-scheme: light;
       display: grid;
       gap: 12px;
     }

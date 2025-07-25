@@ -25,6 +25,10 @@
   text-align: start;
 }
 
+:host::-webkit-calendar-picker-indicator {
+  filter: opacity(0.7);
+}
+
 :host::placeholder {
   color: var(--text-placeholder);
 }
@@ -44,13 +48,4 @@
 
 :host.error {
   border-color: var(--border-error);
-}
-
-/*
-  Webkit browsers use a background image for the calendar icon. Since a color
-  can't be applied directly to a background image, use the filter property
-  to invert it when within a dark theme.
- */
-:host-context(.theme-dark) :host::-webkit-calendar-picker-indicator {
-  filter: invert(0.8);
 }
