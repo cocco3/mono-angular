@@ -6,8 +6,8 @@
   <div class="wrapper">
     @for (game of filteredGames(); track game.game.id) {
       <app-evo-list
+        [gameId]="game.game.id"
         [gameName]="game.game.name"
-        [bgColor]="game.game.color"
         [evolutions]="game.evos"
       />
     }

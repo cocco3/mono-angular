@@ -21,3 +21,31 @@
   --text-brand: #ffffff;
   --text-secondary: #dadada;
 }
+
+:host.game-base {
+  background-color: light-dark(#e2e6f5, #0c0e23);
+}
+
+:host.game-moonspell {
+  background-color: light-dark(#e7dbfa, #2f0972);
+}
+
+:host.game-foscari {
+  background-color: light-dark(#d8f1dd, #032e05);
+}
+
+:host.game-emergency-meeting {
+  background-color: light-dark(#f4d7d7, #3e0404);
+}
+
+:host.game-operation-guns {
+  background-color: light-dark(#eaeaea, #303030);
+}
+
+:host.game-emerald-diorama {
+  background-color: light-dark(#d5ede2, #47725d);
+}
+
+:host.game-castlevania {
+  background-color: light-dark(#f3e9cb, #554326);
+}

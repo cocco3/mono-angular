@@ -50,12 +50,12 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--bg-secondary);
+      background-color: var(--bg-tertiary);
     }
   }
 
   &:active {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-tertiary);
   }
 
   &::-webkit-details-marker {
