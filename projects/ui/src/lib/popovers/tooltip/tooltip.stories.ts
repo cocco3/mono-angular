@@ -67,7 +67,7 @@ export const ShowOnHover: Story = {
 
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
-        uiPopover="tooltip"
+        uiPopover
         #tooltip1="uiPopover"
         [anchor]="tooltip1Anchor"
         offset="${offset}"
@@ -92,7 +92,7 @@ export const ToggleOnClick: Story = {
 
       <ui-tooltip
         ${storybookArgsToTemplate(args)}
-        uiPopover="tooltip"
+        uiPopover
         #tooltip2="uiPopover"
         [anchor]="tooltip2Anchor"
         offset="${offset}"

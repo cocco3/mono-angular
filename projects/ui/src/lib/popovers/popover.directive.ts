@@ -14,7 +14,6 @@ import { UiPopover, type UiPopoverPlacement, uniqueId } from '@cocco3/utils';
   exportAs: 'uiPopover',
   host: {
     popover: 'manual',
-    '[role]': 'role()',
   },
   selector: '[uiPopover]',
 })
@@ -23,7 +22,7 @@ export class UiPopoverDirective implements OnDestroy, OnInit {
   private renderer = inject(Renderer2);
   private floating!: UiPopover;
 
-  role = input.required<'tooltip' | 'menu'>({ alias: 'uiPopover' });
+  // role = input.required<'tooltip' | 'menu'>({ alias: 'uiPopover' });
   anchor = input.required<HTMLElement>();
   placement = input.required<UiPopoverPlacement>();
   offset = input(0, { transform: numberAttribute });
@@ -58,24 +57,34 @@ export class UiPopoverDirective implements OnDestroy, OnInit {
   }
 
   private initAriaTooltip() {
-    let tooltipId = this.el.nativeElement.id;
+    let popoverId = this.el.nativeElement.id;
 
-    if (!tooltipId) {
-      tooltipId = uniqueId();
-      this.el.nativeElement.id = tooltipId;
+    if (!popoverId) {
+      popoverId = uniqueId();
+      this.el.nativeElement.id = popoverId;
     }
 
-    this.renderer.setAttribute(this.anchor(), 'aria-describedby', tooltipId);
+    this.renderer.setAttribute(this.anchor(), 'aria-describedby', popoverId);
   }
 
   private initAriaMenu() {
+    let popoverId = this.el.nativeElement.id;
+
+    if (!popoverId) {
+      popoverId = uniqueId();
+      this.el.nativeElement.id = popoverId;
+    }
+
     this.renderer.setAttribute(this.anchor(), 'aria-haspopup', 'menu');
+    this.renderer.setAttribute(this.anchor(), 'aria-controls', popoverId);
   }
 
   private initAria() {
-    if (this.role() === 'menu') {
+    const role = this.el.nativeElement.getAttribute('role');
+
+    if (role === 'menu') {
       this.initAriaMenu();
-    } else if (this.role() === 'tooltip') {
+    } else if (role === 'tooltip') {
       this.initAriaTooltip();
     }
   }

@@ -108,7 +108,7 @@ export const ToggleOnClick: Story = {
 
       <ui-menu
         ${storybookArgsToTemplate(args)}
-        uiPopover="menu"
+        uiPopover
         #menu1="uiPopover"
         [anchor]="menu1Anchor"
         offset="${offset}"
