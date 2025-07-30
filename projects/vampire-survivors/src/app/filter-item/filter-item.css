@@ -3,7 +3,7 @@
 }
 
 .label {
-  --_background: #222222;
+  --_background: light-dark(#dddddd, #222222);
   --_brightness: 0.6;
 
   aspect-ratio: 1;
@@ -25,12 +25,12 @@
 
   @media (hover: hover) {
     &:hover {
-      --_background: #333333;
+      --_background: light-dark(#cccccc, #333333);
     }
   }
 
   &:active {
-    --_background: #333333;
+    --_background: light-dark(#cccccc, #333333);
   }
 
   &:has(:focus-visible) {
@@ -41,7 +41,7 @@
   }
 
   &:has(:checked) {
-    border-color: #666666;
+    border-color: light-dark(#999999, #666666);
     --_brightness: 1;
   }
 }

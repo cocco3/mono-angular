@@ -4,13 +4,13 @@ import {
   UiEmptyComponent,
   UiSlotDirective,
 } from '@cocco3/angular-ui';
-import type { WeaponEvolution } from '../../data/types';
+import type { GameId, WeaponEvolution } from '../../data/types';
 import { EvolutionComponent } from '../evolution/evolution.component';
 import { ItemFilterService } from '../filters/filters.service';
 
 @Component({
   host: {
-    '[style.background-color]': 'bgColor()',
+    '[class]': 'cssClass()',
   },
   imports: [
     EvolutionComponent,
@@ -25,7 +25,7 @@ import { ItemFilterService } from '../filters/filters.service';
 export class EvolutionListComponent {
   private readonly itemFilter = inject(ItemFilterService);
 
-  bgColor = input.required<string>();
+  gameId = input.required<GameId>();
   gameName = input.required<string>();
   evolutions = input.required<WeaponEvolution[]>();
 
@@ -49,4 +49,8 @@ export class EvolutionListComponent {
   protected handleClearFilters() {
     this.itemFilter.clearFilters();
   }
+
+  protected cssClass = computed(() => ({
+    [`game-${this.gameId()}`]: !!this.gameId(),
+  }));
 }
