@@ -19,8 +19,8 @@ export class ItemFilterService {
 
   constructor() {
     this.route.queryParams.subscribe((params) => {
-      const games = this.getArrayParam(params['game']);
-      const passives = this.getArrayParam(params['passive']);
+      const games = this.queryParamToArray(params['game']);
+      const passives = this.queryParamToArray(params['passive']);
 
       this._games.set(games as GameId[]);
       this._passives.set(passives);
@@ -43,14 +43,17 @@ export class ItemFilterService {
     this.router.navigate([], {
       queryParamsHandling: 'merge',
       queryParams: {
-        game: values.game?.length ? values.game : null,
-        passive: values.passive?.length ? values.passive : null,
+        game: this.arrayToQueryParam(values.game),
+        passive: this.arrayToQueryParam(values.passive),
       },
     });
   }
 
-  private getArrayParam(param: string | string[] | null | undefined): string[] {
-    if (!param) return [];
-    return Array.isArray(param) ? param : [param];
+  private arrayToQueryParam(values: string[] | undefined) {
+    return values?.join(',') || null;
+  }
+
+  private queryParamToArray(param: string | null | undefined) {
+    return param ? param.split(',') : [];
   }
 }
