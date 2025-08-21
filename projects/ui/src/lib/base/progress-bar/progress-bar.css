@@ -1,0 +1,68 @@
+:host {
+  --gap: 2px;
+  --_progress-segments: 1;
+  --_progress-width: 52%;
+
+  display: block;
+  width: 100%;
+  height: var(--_progress-height);
+  border-radius: var(--_progress-radius);
+
+  background-color: var(--bg-quaternary);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  /* fill */
+  background-image: linear-gradient(
+    to right,
+    var(--_progress-fill) 0 var(--_progress-width),
+    transparent var(--_progress-width) 100%
+  );
+
+  /* segments */
+  mask: repeating-linear-gradient(
+    to right,
+    #000 0 calc((100% + var(--gap)) / var(--_progress-segments) - var(--gap)),
+    transparent 0 calc((100% + var(--gap)) / var(--_progress-segments))
+  );
+}
+
+:host.shape-round {
+  --_progress-radius: 999px;
+}
+
+:host.shape-square {
+  --_progress-radius: 0;
+}
+
+:host.size-small {
+  --_progress-height: 4px;
+}
+
+:host.size-medium {
+  --_progress-height: 8px;
+}
+
+:host.size-large {
+  --_progress-height: 12px;
+}
+
+:host.kind-neutral {
+  --_progress-fill: var(--fg-secondary);
+}
+
+:host.kind-info {
+  --_progress-fill: var(--fg-brand-secondary);
+}
+
+:host.kind-error {
+  --_progress-fill: var(--fg-error-secondary);
+}
+
+:host.kind-warning {
+  --_progress-fill: var(--fg-warning-secondary);
+}
+
+:host.kind-success {
+  --_progress-fill: var(--fg-success-secondary);
+}
