@@ -1,4 +1,5 @@
 import { Component, computed, input } from '@angular/core';
+import { clamp } from '@cocco3/utils';
 
 export const UiProgressBarKinds = [
   'neutral',
@@ -21,7 +22,7 @@ export type UiProgressBarShape = (typeof UiProgressBarShapes)[number];
     role: 'progressbar',
     'aria-valuemin': '0',
     '[attr.aria-valuemax]': 'max()',
-    '[attr.aria-valuenow]': 'value()',
+    '[attr.aria-valuenow]': 'clampedValue()',
     '[attr.aria-valuetext]': 'fillPercent()',
     '[style.--_progress-width]': 'fillPercent()',
     '[style.--_progress-segments]': 'segments()',
@@ -49,12 +50,17 @@ export class UiProgressBarComponent {
   /** Height of the bar. */
   size = input.required<UiProgressBarSize>();
 
+  protected clampedValue = computed(() => {
+    const min = 0;
+    return clamp(min, this.value(), this.max());
+  });
+
   private fillRatio = computed(() => {
-    return this.value() / this.max();
+    return this.clampedValue() / this.max();
   });
 
   protected fillPercent = computed(() => {
-    return `${Math.min(this.fillRatio() * 100, 100)}%`;
+    return `${this.fillRatio() * 100}%`;
   });
 
   protected cssClass = computed(() => ({

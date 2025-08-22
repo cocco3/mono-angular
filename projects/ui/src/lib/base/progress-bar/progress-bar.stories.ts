@@ -13,8 +13,8 @@ const meta: Meta<UiProgressBarComponent> = {
     kind: { options: UiProgressBarKinds, control: { type: 'radio' } },
     shape: { options: UiProgressBarShapes, control: { type: 'radio' } },
     size: { options: UiProgressBarSizes, control: { type: 'radio' } },
-    segments: { control: { type: 'number' } },
-    max: { control: { type: 'number' } },
+    segments: { control: { type: 'number', min: 1 } },
+    max: { control: { type: 'number', min: 1 } },
     value: { control: { type: 'number' } },
   },
   args: {
@@ -33,10 +33,6 @@ type Story = StoryObj<UiProgressBarComponent>;
 
 export const Default: Story = {};
 
-export const Segments: Story = {
-  args: { segments: 5 },
-};
-
 export const Kind: Story = {
   args: { kind: 'success' },
 };
@@ -52,4 +48,15 @@ export const Shape: Story = {
 
 export const Size: Story = {
   args: { size: 'large' },
+};
+
+export const Segments: Story = {
+  args: { segments: 5 },
+};
+
+/**
+ * Set segments and max to the same value for a progress stepper.
+ */
+export const Stepper: Story = {
+  args: { segments: 10, max: 10, value: 7 },
 };
