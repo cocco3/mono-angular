@@ -28,8 +28,8 @@ const meta: Meta<AlertStory> = {
 export default meta;
 type Story = StoryObj<AlertStory>;
 
-export const Default: Story = {
-  args: { kind: 'default' },
+export const Neutral: Story = {
+  args: { kind: 'neutral' },
 };
 
 export const Error: Story = {
@@ -42,4 +42,8 @@ export const Warning: Story = {
 
 export const Success: Story = {
   args: { kind: 'success' },
+};
+
+export const Info: Story = {
+  args: { kind: 'info' },
 };

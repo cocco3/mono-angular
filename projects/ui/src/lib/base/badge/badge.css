@@ -1,0 +1,69 @@
+:host {
+  align-items: center;
+  background-color: rgb(from var(--_badge-background) r g b / 50%);
+  border-color: var(--_badge-border);
+  border-radius: var(--_badge-radius);
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: var(--_badge-text);
+  display: inline-flex;
+  font: 500 var(--type-text-sm);
+  gap: 4px;
+  justify-content: center;
+  min-height: 28px;
+  padding-block: 2px;
+  padding-inline: 8px;
+  white-space: nowrap;
+}
+
+:host.corners-sharp {
+  --_badge-radius: 0;
+}
+
+:host.corners-rounded {
+  --_badge-radius: 8px;
+}
+
+:host.corners-pill {
+  --_badge-radius: 999px;
+}
+
+:host.kind-neutral {
+  --_badge-background: var(--bg-secondary);
+  --_badge-border: var(--border-primary);
+  --_badge-text: var(--text-secondary);
+}
+
+:host.kind-error {
+  --_badge-background: var(--bg-error-primary);
+  --_badge-border: var(--border-error-subtle);
+  --_badge-text: var(--text-error);
+}
+
+:host.kind-warning {
+  --_badge-background: var(--bg-warning-primary);
+  --_badge-border: var(--border-warning-subtle);
+  --_badge-text: var(--text-warning);
+}
+
+:host.kind-success {
+  --_badge-background: var(--bg-success-primary);
+  --_badge-border: var(--border-success-subtle);
+  --_badge-text: var(--text-success);
+}
+
+:host.kind-info {
+  --_badge-background: var(--bg-info-primary);
+  --_badge-border: var(--border-info-subtle);
+  --_badge-text: var(--text-info);
+}
+
+.text {
+  padding-inline: 2px;
+}
+
+.icon {
+  aspect-ratio: 1;
+  height: 0.75lh;
+}

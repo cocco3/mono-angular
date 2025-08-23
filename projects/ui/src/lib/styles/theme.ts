@@ -8,6 +8,7 @@ const {
   red: { values: red },
   yellow: { values: yellow },
   green: { values: green },
+  blue: { values: blue },
 } = colorPrimitives;
 
 export type Theme = typeof defaultThemeColors;
@@ -27,6 +28,7 @@ export const defaultThemeColors = {
       error: [red['600'], red['400']],
       warning: [yellow['600'], yellow['400']],
       success: [green['600'], green['400']],
+      info: [blue['600'], blue['400']],
     },
   },
   border: {
@@ -49,6 +51,9 @@ export const defaultThemeColors = {
 
       success: [green['500'], green['400']],
       'success-subtle': [green['300'], green['500']],
+
+      info: [blue['500'], blue['400']],
+      'info-subtle': [blue['300'], blue['500']],
     },
   },
   foreground: {
@@ -71,6 +76,9 @@ export const defaultThemeColors = {
 
       'success-primary': [green['600'], green['500']],
       'success-secondary': [green['500'], green['400']],
+
+      'info-primary': [blue['600'], blue['500']],
+      'info-secondary': [blue['500'], blue['400']],
     },
   },
   background: {
@@ -98,6 +106,10 @@ export const defaultThemeColors = {
       'success-primary': [green['50'], green['950']],
       'success-secondary': [green['100'], green['600']],
       'success-solid': [green['600'], green['600']],
+
+      'info-primary': [blue['50'], blue['950']],
+      'info-secondary': [blue['100'], blue['600']],
+      'info-solid': [blue['600'], blue['600']],
     },
   },
   button: {

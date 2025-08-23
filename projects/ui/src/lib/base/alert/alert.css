@@ -1,5 +1,5 @@
 :host {
-  background-color: var(--alert-bg);
+  background-color: rgb(from var(--_alert-bg) r g b / 30%);
   border-radius: 8px;
   box-sizing: border-box;
   color: var(--text-primary);
@@ -10,18 +10,22 @@
   width: 100%;
 }
 
-:host.kind-default {
-  --alert-bg: rgb(from var(--bg-quaternary) r g b / 30%);
+:host.kind-neutral {
+  --_alert-bg: var(--bg-quaternary);
 }
 
 :host.kind-error {
-  --alert-bg: rgb(from var(--bg-error-solid) r g b / 30%);
+  --_alert-bg: var(--bg-error-solid);
 }
 
 :host.kind-warning {
-  --alert-bg: rgb(from var(--bg-warning-solid) r g b / 30%);
+  --_alert-bg: var(--bg-warning-solid);
 }
 
 :host.kind-success {
-  --alert-bg: rgb(from var(--bg-success-solid) r g b / 30%);
+  --_alert-bg: var(--bg-success-solid);
+}
+
+:host.kind-info {
+  --_alert-bg: var(--bg-info-solid);
 }
