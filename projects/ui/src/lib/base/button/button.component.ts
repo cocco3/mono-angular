@@ -32,9 +32,7 @@ export type UiButtonShape = (typeof UiButtonShapes)[number];
 })
 export class UiButtonComponent {
   kind = input.required<UiButtonKind>();
-  /**
-   * Use `shape = 'circle' | 'square'` for an icon only button.
-   */
+  /** Use `shape = 'circle' | 'square'` for an icon only button. */
   shape = input<UiButtonShape>('normal');
   size = input.required<UiButtonSize>();
   type = input<UiButtonType>('button');

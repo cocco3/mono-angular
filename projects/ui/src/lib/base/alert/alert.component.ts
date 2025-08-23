@@ -1,6 +1,12 @@
 import { Component, computed, input } from '@angular/core';
 
-export const UiAlertKinds = ['default', 'error', 'warning', 'success'] as const;
+export const UiAlertKinds = [
+  'neutral',
+  'error',
+  'warning',
+  'success',
+  'info',
+] as const;
 export type UiAlertKind = (typeof UiAlertKinds)[number];
 
 @Component({

@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/angular';
 import {
   UiProgressBarComponent,
   UiProgressBarKinds,
-  UiProgressBarShapes,
+  UiProgressBarCorners,
   UiProgressBarSizes,
 } from './progress-bar.component';
 
@@ -11,7 +11,7 @@ const meta: Meta<UiProgressBarComponent> = {
   tags: ['autodocs'],
   argTypes: {
     kind: { options: UiProgressBarKinds, control: { type: 'radio' } },
-    shape: { options: UiProgressBarShapes, control: { type: 'radio' } },
+    corners: { options: UiProgressBarCorners, control: { type: 'radio' } },
     size: { options: UiProgressBarSizes, control: { type: 'radio' } },
     segments: { control: { type: 'number', min: 1 } },
     max: { control: { type: 'number', min: 1 } },
@@ -19,7 +19,7 @@ const meta: Meta<UiProgressBarComponent> = {
   },
   args: {
     kind: 'neutral',
-    shape: 'round',
+    corners: 'rounded',
     size: 'medium',
     segments: 1,
     max: 100,
@@ -42,8 +42,8 @@ export const Max: Story = {
   args: { max: 20, value: 7 },
 };
 
-export const Shape: Story = {
-  args: { shape: 'square' },
+export const Corners: Story = {
+  args: { corners: 'sharp' },
 };
 
 export const Size: Story = {

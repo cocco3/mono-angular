@@ -3,18 +3,18 @@ import { clamp } from '@cocco3/utils';
 
 export const UiProgressBarKinds = [
   'neutral',
-  'info',
   'error',
   'warning',
   'success',
+  'info',
 ] as const;
 export type UiProgressBarKind = (typeof UiProgressBarKinds)[number];
 
 export const UiProgressBarSizes = ['small', 'medium', 'large'] as const;
 export type UiProgressBarSize = (typeof UiProgressBarSizes)[number];
 
-export const UiProgressBarShapes = ['round', 'square'] as const;
-export type UiProgressBarShape = (typeof UiProgressBarShapes)[number];
+export const UiProgressBarCorners = ['sharp', 'rounded', 'pill'] as const;
+export type UiProgressBarCorner = (typeof UiProgressBarCorners)[number];
 
 @Component({
   host: {
@@ -44,15 +44,14 @@ export class UiProgressBarComponent {
   /** Color/hierachy of the fill color. */
   kind = input<UiProgressBarKind>('neutral');
 
-  /** Rounded or squared edges. */
-  shape = input<UiProgressBarShape>('round');
+  /** How rounded the corners should be. */
+  corners = input<UiProgressBarCorner>('rounded');
 
   /** Height of the bar. */
   size = input.required<UiProgressBarSize>();
 
   protected clampedValue = computed(() => {
-    const min = 0;
-    return clamp(min, this.value(), this.max());
+    return clamp(0, this.value(), this.max());
   });
 
   private fillRatio = computed(() => {
@@ -65,7 +64,7 @@ export class UiProgressBarComponent {
 
   protected cssClass = computed(() => ({
     [`kind-${this.kind()}`]: !!this.kind(),
-    [`shape-${this.shape()}`]: !!this.shape(),
+    [`corners-${this.corners()}`]: !!this.corners(),
     [`size-${this.size()}`]: !!this.size(),
   }));
 }
