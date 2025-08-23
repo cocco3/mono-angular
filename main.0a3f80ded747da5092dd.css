@@ -1,5 +1,5 @@
 /**
- * Auto-generated on Thu Jul 24 2025. Do not modify.
+ * Auto-generated on Sat Aug 23 2025. Do not modify.
  */
 :root {
   --text-primary: light-dark(#181d27, #f7f7f7);
@@ -12,6 +12,7 @@
   --text-error: light-dark(#d92d20, #f97066);
   --text-warning: light-dark(#dc6803, #fdb022);
   --text-success: light-dark(#079455, #47cd89);
+  --text-info: light-dark(#155eef, #528bff);
 
   --border-primary: light-dark(#d5d7da, #373a41);
   --border-secondary: light-dark(#e9eaeb, #22262f);
@@ -25,6 +26,8 @@
   --border-warning-subtle: light-dark(#fec84b, #f79009);
   --border-success: light-dark(#17b26a, #47cd89);
   --border-success-subtle: light-dark(#75e0a7, #17b26a);
+  --border-info: light-dark(#2970ff, #528bff);
+  --border-info-subtle: light-dark(#84adff, #2970ff);
 
   --fg-primary: light-dark(#181d27, #ffffff);
   --fg-secondary: light-dark(#414651, #cecfd2);
@@ -38,6 +41,8 @@
   --fg-warning-secondary: light-dark(#f79009, #fdb022);
   --fg-success-primary: light-dark(#079455, #17b26a);
   --fg-success-secondary: light-dark(#17b26a, #47cd89);
+  --fg-info-primary: light-dark(#155eef, #2970ff);
+  --fg-info-secondary: light-dark(#2970ff, #528bff);
 
   --bg-primary: light-dark(#ffffff, #0c0e12);
   --bg-secondary: light-dark(#fafafa, #13161b);
@@ -56,6 +61,9 @@
   --bg-success-primary: light-dark(#ecfdf3, #053321);
   --bg-success-secondary: light-dark(#dcfae6, #079455);
   --bg-success-solid: light-dark(#079455, #079455);
+  --bg-info-primary: light-dark(#eff4ff, #002266);
+  --bg-info-secondary: light-dark(#d1e0ff, #155eef);
+  --bg-info-solid: light-dark(#155eef, #155eef);
 
   --button-primary-default-bg: light-dark(#7f56d9, #6941c6);
   --button-primary-default-border: light-dark(transparent, transparent);
@@ -108,16 +116,5 @@ html {
 
   --type-mono-md: 16px/1.5 var(--font-family-mono);
   --type-mono-sm: 14px/1.43 var(--font-family-mono);
-}
-
-body {
-  font: var(--type-text-md);
-  margin: 0;
-  min-height: 100dvh;
-  padding: 0;
-}
-
-a {
-  color: var(--text-brand);
 }
 
