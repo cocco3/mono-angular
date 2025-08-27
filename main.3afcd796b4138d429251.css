@@ -1,7 +1,28 @@
 /**
- * Auto-generated on Sat Aug 23 2025. Do not modify.
+ * Auto-generated on Wed Aug 27 2025. Do not modify.
  */
 :root {
+  --font-family-display: Inter, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-family-text: Inter, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-family-mono:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+  --type-display-2xl: 72px/1.25 var(--font-family-display);
+  --type-display-xl: 60px/1.2 var(--font-family-display);
+  --type-display-lg: 48px/1.25 var(--font-family-display);
+  --type-display-md: 36px/1.22 var(--font-family-display);
+  --type-display-sm: 30px/1.27 var(--font-family-display);
+  --type-display-xs: 24px/1.33 var(--font-family-display);
+
+  --type-text-xl: 20px/1.5 var(--font-family-text);
+  --type-text-lg: 18px/1.56 var(--font-family-text);
+  --type-text-md: 16px/1.5 var(--font-family-text);
+  --type-text-sm: 14px/1.43 var(--font-family-text);
+  --type-text-xs: 12px/1.5 var(--font-family-text);
+
+  --type-mono-md: 16px/1.5 var(--font-family-mono);
+  --type-mono-sm: 14px/1.43 var(--font-family-mono);
+
   --text-primary: light-dark(#181d27, #f7f7f7);
   --text-secondary: light-dark(#414651, #cecfd2);
   --text-tertiary: light-dark(#535862, #94979c);
@@ -82,50 +103,16 @@
   --button-destructive-default-text: light-dark(#ffffff, #f7f7f7);
   --button-destructive-hover-bg: light-dark(#b42318, #d92d20);
 }
+
 html {
   color-scheme: light dark;
 }
+
 .light-mode {
   color-scheme: light;
 }
+
 .dark-mode {
   color-scheme: dark;
-}
-
-/**
- * Auto-generated on Thu Jul 24 2025. Do not modify.
- */
-:root {
-  --font-family-display: Inter, -apple-system, 'Helvetica Neue', sans-serif;
-  --font-family-text: Inter, -apple-system, 'Helvetica Neue', sans-serif;
-  --font-family-mono:
-    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-
-  --type-display-2xl: 72px/1.25 var(--font-family-display);
-  --type-display-xl: 60px/1.2 var(--font-family-display);
-  --type-display-lg: 48px/1.25 var(--font-family-display);
-  --type-display-md: 36px/1.22 var(--font-family-display);
-  --type-display-sm: 30px/1.27 var(--font-family-display);
-  --type-display-xs: 24px/1.33 var(--font-family-display);
-
-  --type-text-xl: 20px/1.5 var(--font-family-text);
-  --type-text-lg: 18px/1.56 var(--font-family-text);
-  --type-text-md: 16px/1.5 var(--font-family-text);
-  --type-text-sm: 14px/1.43 var(--font-family-text);
-  --type-text-xs: 12px/1.5 var(--font-family-text);
-
-  --type-mono-md: 16px/1.5 var(--font-family-mono);
-  --type-mono-sm: 14px/1.43 var(--font-family-mono);
-}
-
-body {
-  font: var(--type-text-md);
-  margin: 0;
-  min-height: 100dvh;
-  padding: 0;
-}
-
-a {
-  color: var(--text-brand);
 }
 
