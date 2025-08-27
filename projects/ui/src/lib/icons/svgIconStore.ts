@@ -1,5 +1,5 @@
 /**
- * Auto-generated on Fri Jul 25 2025. Do not modify.
+ * Auto-generated on Wed Aug 27 2025. Do not modify.
  */
 export const svgIconStore = {
   'alert-circle':

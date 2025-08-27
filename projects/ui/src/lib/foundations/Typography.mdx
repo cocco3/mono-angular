@@ -1,5 +1,5 @@
 import { Heading, Meta, Subheading } from '@storybook/addon-docs/blocks';
-import { typographyDictionary, defaultThemeTypography } from '../styles';
+import { typographyDictionary, defaultTheme } from '../styles';
 
 <Meta title="foundations/Typography" />
 
@@ -8,12 +8,12 @@ import { typographyDictionary, defaultThemeTypography } from '../styles';
 Font is [Inter](https://fonts.google.com/specimen/Inter) and variables sourced from [Untitled UI](https://www.untitledui.com/components/typography-styles).
 
 <div>
-  {Object.values(defaultThemeTypography).map((group) => (
-    <div key={group.id} style={{ marginBlock: 40 }}>
-      <Heading>{typographyDictionary[group.id].name}</Heading>
+  {Object.entries(defaultTheme.typography).map(([groupKey, group]) => (
+    <div key={groupKey} style={{ marginBlock: 40 }}>
+      <Heading>{typographyDictionary[groupKey].name}</Heading>
 
       <p>
-        {typographyDictionary[group.id].description}
+        {typographyDictionary[groupKey].description}
       </p>
       <p>
         <code>font-family: {group.family}</code>

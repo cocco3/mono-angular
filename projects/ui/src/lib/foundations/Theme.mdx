@@ -1,5 +1,5 @@
 import { Heading, Meta, Title } from '@storybook/addon-docs/blocks';
-import { defaultThemeColors, colorNameLookup } from '../styles';
+import { defaultTheme, colorNameLookup, colorDictionary } from '../styles';
 
 <Meta title="foundations/Theme" />
 
@@ -16,12 +16,13 @@ Themes support a light mode and dark mode. The color scheme will match your syst
 - For **dark-mode**, apply the `color-scheme: dark` property
 
 <div>
-  {Object.entries(defaultThemeColors).map(([key, item]) => (
-    <div key={key} style={{ marginBlock: 40 }}>
-      <Heading>{item.name}</Heading>
+  {Object.entries(defaultTheme.colors).map(([groupKey, group]) => (
+    <div key={groupKey} style={{ marginBlock: 40 }}>
+      <Heading>{colorDictionary[groupKey].name}</Heading>
+
       <div class="list sb-unstyled">
-        {Object.entries(item.values).map(([weight, hex]) => {
-          const variableName = `${item.id}-${weight}`
+        {Object.entries(group.values).map(([weight, hex]) => {
+          const variableName = `${group.id}-${weight}`
           const cssVariable=`var(--${variableName})`
           const lightSchemeValue = hex[0]
           const darkSchemeValue = hex[1]
