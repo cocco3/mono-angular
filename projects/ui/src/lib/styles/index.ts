@@ -1,4 +1,6 @@
 export * from './colorPrimitives';
-export * from './theme';
 export * from './utils';
-export * from './typography';
+export * from './types';
+
+export * from './defaultTheme';
+export * from './vampsTheme';

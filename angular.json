@@ -39,10 +39,7 @@
           "options": {
             "configDir": "projects/ui/.storybook",
             "browserTarget": "ui:build",
-            "styles": [
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css"
-            ],
+            "styles": ["projects/ui/src/css/theme-default.css"],
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -62,10 +59,7 @@
           "options": {
             "configDir": "projects/ui/.storybook",
             "browserTarget": "ui:build",
-            "styles": [
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css"
-            ],
+            "styles": ["projects/ui/src/css/theme-default.css"],
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -114,9 +108,8 @@
               }
             ],
             "styles": [
-              "projects/angular-invoice/src/styles.css",
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css"
+              "projects/ui/src/css/theme-default.css",
+              "projects/angular-invoice/src/styles.css"
             ],
             "scripts": [],
             "server": "projects/angular-invoice/src/main.server.ts",
@@ -174,9 +167,8 @@
               }
             ],
             "styles": [
-              "projects/angular-invoice/src/styles.css",
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css"
+              "projects/ui/src/css/theme-default.css",
+              "projects/angular-invoice/src/styles.css"
             ],
             "scripts": []
           }
@@ -255,9 +247,9 @@
               }
             ],
             "styles": [
-              "projects/countdown/src/styles.css",
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css"
+              "projects/ui/src/css/reset.css",
+              "projects/ui/src/css/theme-default.css",
+              "projects/countdown/src/styles.css"
             ],
             "scripts": []
           },
@@ -326,9 +318,9 @@
               }
             ],
             "styles": [
-              "projects/countdown/src/styles.css",
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css"
+              "projects/ui/src/css/reset.css",
+              "projects/ui/src/css/theme-default.css",
+              "projects/countdown/src/styles.css"
             ],
             "scripts": []
           }
@@ -349,8 +341,7 @@
             "configDir": "projects/countdown/.storybook",
             "browserTarget": "countdown:build",
             "styles": [
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css",
+              "projects/ui/src/css/theme-default.css",
               "projects/countdown/src/styles.css"
             ],
             "compodoc": true,
@@ -373,8 +364,7 @@
             "configDir": "projects/countdown/.storybook",
             "browserTarget": "countdown:build",
             "styles": [
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css",
+              "projects/ui/src/css/theme-default.css",
               "projects/countdown/src/styles.css"
             ],
             "compodoc": true,
@@ -415,8 +405,8 @@
               }
             ],
             "styles": [
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css",
+              "projects/ui/src/css/reset.css",
+              "projects/ui/src/css/theme-vamps.css",
               "projects/vampire-survivors/src/styles.css"
             ],
             "scripts": []
@@ -486,8 +476,8 @@
               }
             ],
             "styles": [
-              "projects/ui/src/css/theme.css",
-              "projects/ui/src/css/typography.css",
+              "projects/ui/src/css/reset.css",
+              "projects/ui/src/css/theme-vamps.css",
               "projects/vampire-survivors/src/styles.css"
             ],
             "scripts": []

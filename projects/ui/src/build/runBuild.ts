@@ -1,10 +1,8 @@
-import { buildThemeCss } from './styles/buildThemeCss';
-import { buildTypographyCss } from './styles/buildTypographyCss';
+import { buildThemesCss } from './styles/buildThemesCss';
 import { buildIcons } from './svgs/buildIcons';
 
 async function run() {
-  await buildThemeCss();
-  await buildTypographyCss();
+  await buildThemesCss();
   buildIcons();
 }
 
