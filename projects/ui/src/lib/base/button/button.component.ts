@@ -1,12 +1,7 @@
 import { Component, computed, contentChildren, input } from '@angular/core';
 import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
 
-export const UiButtonKinds = [
-  'primary',
-  'secondary',
-  'tertiary',
-  'destructive',
-] as const;
+export const UiButtonKinds = ['primary', 'secondary', 'destructive'] as const;
 export type UiButtonKind = (typeof UiButtonKinds)[number];
 
 export const UiButtonSizes = ['small', 'medium', 'large'] as const;
@@ -17,6 +12,9 @@ export type UiButtonType = (typeof UiButtonTypes)[number];
 
 export const UiButtonShapes = ['normal', 'pill', 'circle', 'square'] as const;
 export type UiButtonShape = (typeof UiButtonShapes)[number];
+
+export const UiButtonWeights = ['solid', 'outline', 'ghost'] as const;
+export type UiButtonWeight = (typeof UiButtonWeights)[number];
 
 /**
  * Usage: Add `ui-button` to any `<button>` element.
@@ -35,6 +33,7 @@ export class UiButtonComponent {
   /** Use `shape = 'circle' | 'square'` for an icon only button. */
   shape = input<UiButtonShape>('normal');
   size = input.required<UiButtonSize>();
+  weight = input<UiButtonWeight>('solid');
   type = input<UiButtonType>('button');
   loading = input(false);
 
@@ -46,5 +45,6 @@ export class UiButtonComponent {
     ['icon-only']: ['circle', 'square'].includes(this.shape()),
     [`shape-${this.shape()}`]: !!this.shape(),
     [`size-${this.size()}`]: !!this.size(),
+    [`weight-${this.weight()}`]: !!this.weight(),
   }));
 }

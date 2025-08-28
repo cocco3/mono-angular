@@ -7,6 +7,7 @@ import {
   type UiIconKind,
   UiIconKinds,
 } from '../icon/icon.component';
+import { UiButtonComponent } from '../button/button.component';
 
 type EmptyStory = UiEmptyComponent & {
   content?: string;
@@ -16,7 +17,11 @@ type EmptyStory = UiEmptyComponent & {
 const meta: Meta<EmptyStory> = {
   component: UiEmptyComponent,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [UiIconComponent, UiSlotDirective] })],
+  decorators: [
+    moduleMetadata({
+      imports: [UiIconComponent, UiButtonComponent, UiSlotDirective],
+    }),
+  ],
   argTypes: {
     image: {
       options: UiIconKinds,
@@ -60,8 +65,7 @@ export const WithImage: Story = {
 
 export const AdditionalContent: Story = {
   args: {
-    // glyph: 'assignment',
     content:
-      '<b>Hello world</b> The <i>quick</i> brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.',
+      '<p><b>Hello world</b> The <i>quick</i> brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p><button ui-button kind="primary" size="large" weight="solid" shape="normal">Add item</button>',
   },
 };

@@ -7,6 +7,7 @@ import {
   UiButtonShapes,
   UiButtonSizes,
   UiButtonTypes,
+  UiButtonWeights,
 } from './button.component';
 import {
   UiIconComponent,
@@ -32,6 +33,7 @@ const meta: Meta<ButtonStory> = {
     shape: { options: UiButtonShapes, control: { type: 'radio' } },
     size: { options: UiButtonSizes, control: { type: 'radio' } },
     type: { options: UiButtonTypes, control: { type: 'radio' } },
+    weight: { options: UiButtonWeights, control: { type: 'radio' } },
     start: {
       options: UiIconKinds,
       control: { type: 'select' },
@@ -49,6 +51,7 @@ const meta: Meta<ButtonStory> = {
     shape: 'normal',
     size: 'medium',
     type: 'button',
+    weight: 'solid',
   },
   parameters: {
     design: {
@@ -82,12 +85,31 @@ export const Secondary: Story = {
   args: { kind: 'secondary', size: 'medium', content: 'View item' },
 };
 
-export const Tertiary: Story = {
-  args: { kind: 'tertiary', size: 'medium', content: 'Cancel' },
+export const Destructive: Story = {
+  args: {
+    kind: 'destructive',
+    size: 'medium',
+    content: 'Delete',
+    start: 'trash',
+  },
 };
 
-export const Destructive: Story = {
-  args: { kind: 'destructive', size: 'medium', content: 'Delete' },
+export const Outline: Story = {
+  args: {
+    kind: 'secondary',
+    size: 'medium',
+    content: 'Cancel',
+    weight: 'outline',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    kind: 'secondary',
+    size: 'medium',
+    content: 'Cancel',
+    weight: 'ghost',
+  },
 };
 
 export const Disabled: Story = {

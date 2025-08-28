@@ -46,7 +46,7 @@ const meta: Meta<DialogStory> = {
       >
         <dialog #dialog ui-dialog ${storybookArgsToTemplate(args)}>
           ${content || ''}
-          <button ui-button uiSlot="cancel" kind="secondary" size="medium" (click)="dialog.close()">
+          <button ui-button uiSlot="cancel" kind="secondary" size="medium" weight="outline" (click)="dialog.close()">
             Cancel
           </button>
           <button ui-button uiSlot="submit" kind="${primaryButtonKind}" size="medium">

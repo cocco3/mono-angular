@@ -5,7 +5,7 @@ import { Component, output } from '@angular/core';
   template: `
     <style>
       :host {
-        background: darkolivegreen;
+        background: darkgreen;
         box-sizing: border-box;
         display: grid;
         height: 120vh;

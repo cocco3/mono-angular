@@ -111,25 +111,9 @@ export const defaultTheme: UiTheme = {
     button: {
       id: 'button',
       values: {
-        'primary-default-bg': [purple[600], purple[700]],
-        'primary-default-border': ['transparent', 'transparent'],
-        'primary-default-text': [base['white'], grayDark[50]],
-        'primary-hover-bg': [purple[700], purple[600]],
-
-        'secondary-default-bg': [base['white'], grayDark[950]],
-        'secondary-default-border': [grayLight[300], grayDark[700]],
-        'secondary-default-text': [grayLight[700], grayDark[50]],
-        'secondary-hover-bg': [grayLight[200], grayDark[700]],
-
-        'tertiary-default-bg': ['transparent', 'transparent'],
-        'tertiary-default-border': ['transparent', 'transparent'],
-        'tertiary-default-text': [grayLight[700], grayDark[50]],
-        'tertiary-hover-bg': [grayLight[200], grayDark[700]],
-
-        'destructive-default-bg': [red[600], red[700]],
-        'destructive-default-border': ['transparent', 'transparent'],
-        'destructive-default-text': [base['white'], grayDark[50]],
-        'destructive-hover-bg': [red[700], red[600]],
+        primary: [purple[600], purple[500]],
+        secondary: [grayLight[800], grayDark[100]],
+        destructive: [red[600], red[500]],
       },
     },
   },

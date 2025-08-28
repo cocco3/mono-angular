@@ -19,6 +19,7 @@ const themes = [
   {
     srcFiles: [
       './projects/ui/src/lib/styles/colorPrimitives.ts',
+      './projects/ui/src/lib/styles/defaultTheme.ts',
       './projects/ui/src/lib/styles/vampsTheme.ts',
     ],
     outFilePath: './projects/ui/src/css/theme-vamps.css',

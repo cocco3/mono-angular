@@ -88,22 +88,9 @@
   --bg-info-secondary: light-dark(#d1e0ff, #155eef);
   --bg-info-solid: light-dark(#155eef, #155eef);
 
-  --button-primary-default-bg: light-dark(#7f56d9, #6941c6);
-  --button-primary-default-border: light-dark(transparent, transparent);
-  --button-primary-default-text: light-dark(#ffffff, #f7f7f7);
-  --button-primary-hover-bg: light-dark(#6941c6, #7f56d9);
-  --button-secondary-default-bg: light-dark(#ffffff, #0c0e12);
-  --button-secondary-default-border: light-dark(#d5d7da, #373a41);
-  --button-secondary-default-text: light-dark(#414651, #f7f7f7);
-  --button-secondary-hover-bg: light-dark(#e9eaeb, #373a41);
-  --button-tertiary-default-bg: light-dark(transparent, transparent);
-  --button-tertiary-default-border: light-dark(transparent, transparent);
-  --button-tertiary-default-text: light-dark(#414651, #f7f7f7);
-  --button-tertiary-hover-bg: light-dark(#e9eaeb, #373a41);
-  --button-destructive-default-bg: light-dark(#d92d20, #b42318);
-  --button-destructive-default-border: light-dark(transparent, transparent);
-  --button-destructive-default-text: light-dark(#ffffff, #f7f7f7);
-  --button-destructive-hover-bg: light-dark(#b42318, #d92d20);
+  --button-primary: light-dark(#7f56d9, #9e77ed);
+  --button-secondary: light-dark(#252b37, #f0f0f1);
+  --button-destructive: light-dark(#d92d20, #f04438);
 }
 
 html {

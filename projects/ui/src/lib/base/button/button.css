@@ -1,19 +1,21 @@
 :host {
+  --_button-icon: 1.2em;
+
   align-items: center;
   background-color: var(--button-background-color);
   border: none;
   border-color: var(--button-border-color);
   border-style: solid;
   border-width: 1px;
-  border-radius: var(--button-border-radius);
+  border-radius: var(--_button-radius);
   box-sizing: border-box;
   color: var(--button-text-color);
   display: inline-flex;
-  gap: 8px;
+  gap: 0.4em;
   margin: 0;
   justify-content: center;
-  padding-block: 8px;
-  padding-inline: 16px;
+  padding-block: 0.333em;
+  padding-inline: 0.667em;
   text-decoration: none;
   transition-property: background-color;
   transition-duration: 200ms;
@@ -35,85 +37,87 @@
   }
 }
 
-:host:active {
+:host:enabled:active {
   background-color: var(--button-background-hover);
 }
 
 :host:disabled {
   cursor: not-allowed;
-  filter: grayscale(1);
+  filter: grayscale(0.4);
   opacity: 0.6;
 }
 
+:host.weight-solid {
+  --button-background-color: var(--_button-accent);
+  --button-background-hover: rgb(from var(--_button-accent) r g b / 85%);
+  --button-border-color: transparent;
+  --button-text-color: light-dark(white, black);
+}
+
+:host.weight-outline {
+  --button-background-color: transparent;
+  --button-background-hover: rgb(from var(--_button-accent) r g b / 10%);
+  --button-border-color: rgb(from var(--_button-accent) r g b / 30%);
+  --button-text-color: var(--_button-accent);
+}
+
+:host.weight-ghost {
+  --button-background-color: transparent;
+  --button-background-hover: rgb(from var(--_button-accent) r g b / 10%);
+  --button-border-color: transparent;
+  --button-text-color: var(--_button-accent);
+}
+
 :host.kind-primary {
-  --button-background-color: var(--button-primary-default-bg);
-  --button-border-color: var(--button-primary-default-border);
-  --button-text-color: var(--button-primary-default-text);
-  --button-background-hover: var(--button-primary-hover-bg);
+  --_button-accent: var(--button-primary);
 }
 
 :host.kind-secondary {
-  --button-background-color: var(--button-secondary-default-bg);
-  --button-border-color: var(--button-secondary-default-border);
-  --button-text-color: var(--button-secondary-default-text);
-  --button-background-hover: var(--button-secondary-hover-bg);
-}
-
-:host.kind-tertiary {
-  --button-background-color: var(--button-tertiary-default-bg);
-  --button-border-color: var(--button-tertiary-default-border);
-  --button-text-color: var(--button-tertiary-default-text);
-  --button-background-hover: var(--button-tertiary-hover-bg);
+  --_button-accent: var(--button-secondary);
 }
 
 :host.kind-destructive {
-  --button-background-color: var(--button-destructive-default-bg);
-  --button-border-color: var(--button-destructive-default-border);
-  --button-text-color: var(--button-destructive-default-text);
-  --button-background-hover: var(--button-destructive-hover-bg);
+  --_button-accent: var(--button-destructive);
 }
 
 :host.size-small {
-  --button-icon: 16px;
   font: 600 var(--type-text-xs);
   min-height: 36px;
-  padding-block: 4px;
-  padding-inline: 8px;
 }
 
 :host.size-medium {
-  --button-icon: 18px;
   font: 600 var(--type-text-sm);
   min-height: 40px;
-  padding-block: 8px;
-  padding-inline: 14px;
 }
 
 :host.size-large {
-  --button-icon: 20px;
   font: 600 var(--type-text-md);
   min-height: 44px;
-  padding-block: 8px;
-  padding-inline: 16px;
 }
 
 :host.shape-normal {
-  --button-border-radius: 8px;
+  --_button-radius: 8px;
 }
 
 :host.shape-pill {
-  --button-border-radius: 999px;
+  --_button-radius: 999px;
 }
 
 :host.shape-circle {
-  --button-border-radius: 50%;
+  --_button-radius: 50%;
 }
 
 :host.shape-square {
-  --button-border-radius: 8px;
+  --_button-radius: 8px;
+}
+
+.text {
+  padding-inline: 2px;
 }
 
 :host.icon-only {
+  --_button-icon: 1.6em;
+
   aspect-ratio: 1;
   padding: 0;
 
@@ -122,6 +126,7 @@
     clip-path: inset(50%);
     height: 1px;
     overflow: hidden;
+    padding-inline: 0;
     position: absolute;
     white-space: nowrap;
     width: 1px;
@@ -129,8 +134,8 @@
 }
 
 .icon {
-  height: var(--button-icon);
-  width: var(--button-icon);
+  height: var(--_button-icon);
+  width: var(--_button-icon);
 }
 
 /* loading */
@@ -141,9 +146,9 @@
   border-radius: 50%;
   border-style: solid;
   border-width: 2px;
-  height: var(--button-icon);
+  height: var(--_button-icon);
   transform: translateZ(0);
-  width: var(--button-icon);
+  width: var(--_button-icon);
 }
 
 @keyframes spin {
