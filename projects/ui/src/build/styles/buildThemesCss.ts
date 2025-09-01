@@ -4,6 +4,7 @@ import { fileCommentHeader, formatCode, shouldGenerateFile } from '../utils';
 import {
   transformColorVariables,
   transformFontFamilyVariables,
+  transformIconVariables,
   transformTypographyVariables,
 } from './transformVariables';
 
@@ -34,6 +35,8 @@ const cssTemplate = `
   {{TYPOGRAPHY}}
 
   {{COLORS}}
+
+  {{ICONS}}
 }
 
 html {
@@ -68,11 +71,13 @@ export const buildThemesCss = async () => {
     const fontVars = transformFontFamilyVariables(theme.theme.typography);
     const typographyVars = transformTypographyVariables(theme.theme.typography);
     const colorVars = transformColorVariables(theme.theme.colors);
+    const iconVars = transformIconVariables(theme.theme.icons);
 
     const css = cssTemplate
       .replace('{{FONTS}}', fontVars)
       .replace('{{TYPOGRAPHY}}', typographyVars)
-      .replace('{{COLORS}}', colorVars);
+      .replace('{{COLORS}}', colorVars)
+      .replace('{{ICONS}}', iconVars);
 
     const formattedCode = await formatCode(css, 'css');
 

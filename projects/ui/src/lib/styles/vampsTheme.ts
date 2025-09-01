@@ -3,6 +3,7 @@ import { type UiTheme } from './types';
 
 export const vampsTheme: UiTheme = {
   colors: defaultTheme.colors,
+  icons: defaultTheme.icons,
 
   typography: {
     display: {

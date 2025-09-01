@@ -7,11 +7,11 @@
 </div>
 
 @if (showDescription()) {
-  <div id="{{ descriptionId() }}" class="description">
+  <div [attr.id]="descriptionId()" class="description">
     {{ description() }}
   </div>
-} @else if (showError()) {
-  <div id="{{ descriptionId() }}" class="error">
+} @else if (invalid()) {
+  <div [attr.id]="descriptionId()" class="error">
     {{ error() }}
   </div>
 }

@@ -29,25 +29,27 @@
 :host:checked::after {
   border-block-end: 2px solid var(--bg-primary);
   border-inline-end: 2px solid var(--bg-primary);
+  box-sizing: border-box;
   content: '';
   display: block;
-  height: 10px;
+  height: 12px;
   margin-block-start: 1.5px;
   margin-inline: auto;
   transform: rotate(45deg);
-  width: 4px;
+  width: 6px;
 }
 
 :host:disabled {
   background-color: var(--bg-disabled);
   border-color: var(--border-disabled);
   cursor: not-allowed;
+  opacity: 1;
 }
 
 :host:disabled:checked::after {
   border-color: var(--border-disabled);
 }
 
-:host.error {
+:host.invalid {
   border-color: var(--border-error);
 }

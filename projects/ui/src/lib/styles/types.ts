@@ -55,7 +55,13 @@ export type ThemeTypographySets = {
   };
 };
 
+export type ThemeIcons = {
+  directory: string;
+  values: Record<string, { file: string; color?: string }>;
+};
+
 export type UiTheme = {
   colors: ThemeColorSets;
   typography: ThemeTypographySets;
+  icons: ThemeIcons;
 };
