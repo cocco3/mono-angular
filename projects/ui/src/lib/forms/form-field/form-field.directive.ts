@@ -2,7 +2,7 @@ import { Directive, ElementRef, inject, Renderer2 } from '@angular/core';
 
 @Directive({
   host: {
-    '[class.error]': 'hasError',
+    '[class.invalid]': 'invalid',
   },
 })
 export class UiFormFieldDirective<T extends HTMLElement> {
@@ -17,7 +17,7 @@ export class UiFormFieldDirective<T extends HTMLElement> {
     this._inline = value;
   }
 
-  protected hasError = false;
+  protected invalid = false;
 
   constructor({ inline }: { inline: boolean }) {
     this.inline = inline;
@@ -48,7 +48,7 @@ export class UiFormFieldDirective<T extends HTMLElement> {
     }
   }
 
-  setHasError(value: boolean) {
-    this.hasError = value;
+  setInvalid(value: boolean) {
+    this.invalid = value;
   }
 }

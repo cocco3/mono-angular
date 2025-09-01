@@ -42,14 +42,14 @@ export class UiFormFieldComponent implements AfterContentInit {
   protected showDescription = computed(
     () => !!this.description() && !this.error()
   );
-  protected showError = computed(() => !!this.error());
+  protected invalid = computed(() => !!this.error());
   protected inline = false;
 
   private formFieldChild = contentChild(UiFormFieldDirective);
 
   private setErrorProperties() {
     const formField = this.formFieldChild();
-    formField?.setHasError(this.showError());
+    formField?.setInvalid(this.invalid());
     formField?.setAreaDescribedById(this.descriptionId());
   }
 

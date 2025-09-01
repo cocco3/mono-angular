@@ -12,6 +12,8 @@ const {
   blue: { values: blue },
 } = colorPrimitives;
 
+const defaultIconColorCss = grayDark[500];
+
 export const defaultTheme: UiTheme = {
   colors: {
     text: {
@@ -149,6 +151,16 @@ export const defaultTheme: UiTheme = {
         md: { size: '16px', lineHeight: '1.5' },
         sm: { size: '14px', lineHeight: '1.43' },
       },
+    },
+  },
+
+  icons: {
+    directory: './projects/ui/src/lib/icons/svgs',
+    values: {
+      calendar: { file: 'calendar.svg', color: defaultIconColorCss },
+      clock: { file: 'clock.svg', color: defaultIconColorCss },
+      'chevron-down': { file: 'chevron-down.svg', color: defaultIconColorCss },
+      'chevron-up': { file: 'chevron-up.svg', color: defaultIconColorCss },
     },
   },
 };

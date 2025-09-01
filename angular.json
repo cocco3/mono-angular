@@ -39,7 +39,10 @@
           "options": {
             "configDir": "projects/ui/.storybook",
             "browserTarget": "ui:build",
-            "styles": ["projects/ui/src/css/theme-default.css"],
+            "styles": [
+              "projects/ui/src/css/reset.css",
+              "projects/ui/src/css/theme-default.css"
+            ],
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -59,7 +62,10 @@
           "options": {
             "configDir": "projects/ui/.storybook",
             "browserTarget": "ui:build",
-            "styles": ["projects/ui/src/css/theme-default.css"],
+            "styles": [
+              "projects/ui/src/css/reset.css",
+              "projects/ui/src/css/theme-default.css"
+            ],
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -108,6 +114,7 @@
               }
             ],
             "styles": [
+              "projects/ui/src/css/reset.css",
               "projects/ui/src/css/theme-default.css",
               "projects/angular-invoice/src/styles.css"
             ],
@@ -167,6 +174,7 @@
               }
             ],
             "styles": [
+              "projects/ui/src/css/reset.css",
               "projects/ui/src/css/theme-default.css",
               "projects/angular-invoice/src/styles.css"
             ],
@@ -341,6 +349,7 @@
             "configDir": "projects/countdown/.storybook",
             "browserTarget": "countdown:build",
             "styles": [
+              "projects/ui/src/css/reset.css",
               "projects/ui/src/css/theme-default.css",
               "projects/countdown/src/styles.css"
             ],
@@ -364,6 +373,7 @@
             "configDir": "projects/countdown/.storybook",
             "browserTarget": "countdown:build",
             "styles": [
+              "projects/ui/src/css/reset.css",
               "projects/ui/src/css/theme-default.css",
               "projects/countdown/src/styles.css"
             ],

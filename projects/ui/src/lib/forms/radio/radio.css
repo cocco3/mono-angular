@@ -23,6 +23,7 @@
 :host:checked::after {
   background-color: var(--bg-primary);
   border-radius: 9999px;
+  box-sizing: border-box;
   content: '';
   display: block;
   height: 8px;
@@ -35,12 +36,13 @@
   background-color: var(--bg-disabled);
   border-color: var(--border-disabled);
   cursor: not-allowed;
+  opacity: 1;
 }
 
 :host:disabled:checked::after {
   background-color: var(--border-disabled);
 }
 
-:host.error {
+:host.invalid {
   border-color: var(--border-error);
 }
