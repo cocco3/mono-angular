@@ -26,7 +26,7 @@ const meta: Meta<TooltipStory> = {
       table: { category: 'uiPopover', type: { detail: undefined } },
     },
     placement: {
-      options: Object.keys(UiPopoverPlacements),
+      options: UiPopoverPlacements,
       control: { type: 'select' },
       table: { category: 'uiPopover', type: { detail: undefined } },
     },

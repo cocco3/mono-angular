@@ -4,26 +4,28 @@ import {
   flip,
   offset,
   shift,
+  type Placement,
 } from '@floating-ui/dom';
 
-export const UiPopoverPlacements = {
-  'above-start': 'top-start',
-  'above-center': 'top',
-  'above-end': 'top-end',
+export const UiPopoverPlacements = [
+  'above-start',
+  'above-center',
+  'above-end',
 
-  'after-start': 'right-start',
-  'after-center': 'right',
-  'after-end': 'right-end',
+  'after-start',
+  'after-center',
+  'after-end',
 
-  'below-start': 'bottom-start',
-  'below-center': 'bottom',
-  'below-end': 'bottom-end',
+  'below-start',
+  'below-center',
+  'below-end',
 
-  'before-start': 'left-start',
-  'before-center': 'left',
-  'before-end': 'left-end',
-} as const;
-export type UiPopoverPlacement = keyof typeof UiPopoverPlacements;
+  'before-start',
+  'before-center',
+  'before-end',
+] as const;
+
+export type UiPopoverPlacement = (typeof UiPopoverPlacements)[number];
 
 type UiPopoverOptions = {
   offset: number;
@@ -61,13 +63,34 @@ export class UiPopover {
   }
 
   /**
+   * Maps to the floating-ui Placement values.
+   */
+  private placementMap: Record<UiPopoverPlacement, Placement> = {
+    'above-start': 'top-start',
+    'above-center': 'top',
+    'above-end': 'top-end',
+
+    'after-start': 'right-start',
+    'after-center': 'right',
+    'after-end': 'right-end',
+
+    'below-start': 'bottom-start',
+    'below-center': 'bottom',
+    'below-end': 'bottom-end',
+
+    'before-start': 'left-start',
+    'before-center': 'left',
+    'before-end': 'left-end',
+  };
+
+  /**
    * Calculate coordinates of floating element relative to anchor.
    *
    * @param callback Callback with x and y coordinates.
    * @returns A cleanup function when floatin element is hidden or removed.
    */
   public calcPosition(callback: (x: number, y: number) => void) {
-    const floatingPlacement = UiPopoverPlacements[this.options.placement];
+    const floatingPlacement = this.placementMap[this.options.placement];
 
     return autoUpdate(this.anchorEl, this.floatingEl, () => {
       computePosition(this.anchorEl, this.floatingEl, {
