@@ -6,7 +6,7 @@
       <app-countdown
         [date]="item.date"
         [name]="item.name"
-        [format]="format"
+        [format]="format()"
         (clicked)="handleCountdownClick()"
       />
     }
@@ -22,29 +22,7 @@
     </button>
   </div>
 } @else {
-  <ui-empty title="Looks like you don't have any countdowns!">
-    <ui-icon uiSlot="image" kind="calendar" size="80px" />
-    <div uiSlot="content">
-      <p>
-        Go to
-        <a href="https://calendar.google.com" target="_blank"
-          >Google Calendar</a
-        >
-        and add "<code>#countdown</code>" to the description of any existing
-        event, or click the button to create a new event.
-      </p>
-      <p>
-        <button
-          ui-button
-          kind="primary"
-          size="large"
-          (click)="createEventDialog.showDialog()"
-        >
-          Add Event
-        </button>
-      </p>
-    </div>
-  </ui-empty>
+  <app-events-empty (createClicked)="createEventDialog.showDialog()" />
 }
 
 <app-create-event-dialog #createEventDialog (success)="fetchItems()" />

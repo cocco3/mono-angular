@@ -4,8 +4,9 @@ export * from './lib/dates/formatTimeDiff';
 export * from './lib/dates/getDateParts';
 export * from './lib/dates/dateTime';
 
-export * from './lib/dom/resizeObserver';
-export * from './lib/dom/UiPopover';
+export * from './lib/browser/LocalStorage';
+export * from './lib/browser/resizeObserver';
+export * from './lib/browser/UiPopover';
 
 export * from './lib/storybook/argsToTemplate';
 
@@ -16,3 +17,4 @@ export * from './lib/id';
 export * from './lib/Logger';
 export * from './lib/math';
 export * from './lib/name';
+export * from './lib/sleep';

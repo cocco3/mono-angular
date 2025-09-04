@@ -36,7 +36,7 @@ const meta: Meta<EmptyStory> = {
     },
   },
   args: {
-    title: 'Nothing to see here',
+    heading: 'Nothing to see here',
     description: `After you have taken some action, this area will be populated with data.`,
   },
   render: ({ content, image, ...args }) => ({

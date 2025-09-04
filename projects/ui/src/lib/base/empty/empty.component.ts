@@ -7,7 +7,7 @@ import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
   templateUrl: './empty.html',
 })
 export class UiEmptyComponent {
-  title = input<string>();
+  heading = input<string>();
   description = input<string>();
 
   private slots = contentChildren(UiSlotDirective);

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject, Renderer2 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { UserSettingsService } from './services/UserSettingsService';
 
 @Component({
   imports: [RouterOutlet],
@@ -8,5 +9,24 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  private readonly renderer = inject(Renderer2);
+  private readonly userSettingsService = inject(UserSettingsService);
   protected title = 'CountdownApp';
+
+  private colorSchemeMap = (value: string) =>
+    ({
+      light: 'light',
+      dark: 'dark',
+      auto: 'light dark',
+    })[value];
+
+  constructor() {
+    effect(() => {
+      this.renderer.setStyle(
+        document.documentElement,
+        'color-scheme',
+        this.colorSchemeMap(this.userSettingsService.settings().theme)
+      );
+    });
+  }
 }

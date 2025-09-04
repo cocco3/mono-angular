@@ -41,8 +41,8 @@ export class GoogleCalendarService {
 
   createEvent({
     calendarId,
-    query,
     summary,
+    description,
     startDate,
     startTime,
     endDate,
@@ -50,8 +50,8 @@ export class GoogleCalendarService {
     timeZone,
   }: {
     calendarId: string;
-    query: string;
     summary: string;
+    description: string;
     startDate: string;
     startTime?: string;
     endDate: string;
@@ -70,7 +70,7 @@ export class GoogleCalendarService {
 
     const params = {
       summary,
-      description: query,
+      description,
       start,
       end,
     };

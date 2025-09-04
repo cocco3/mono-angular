@@ -14,6 +14,16 @@
     <ui-form-field [label]="'Name'" [error]="formErrors.name">
       <input ui-input type="text" formControlName="name" autocomplete="off" />
     </ui-form-field>
+
+    <ui-form-field [label]="'Description'" [error]="formErrors.description">
+      <textarea
+        ui-textarea
+        autosize
+        formControlName="description"
+        [style.min-height]="'1lh'"
+      ></textarea>
+    </ui-form-field>
+
     <div class="dateTime">
       <ui-form-field [label]="'Start Date'" [error]="formErrors.startDate">
         <input ui-input type="date" formControlName="startDate" #startDate />
@@ -22,6 +32,7 @@
         <input ui-input type="time" step="900" formControlName="startTime" />
       </ui-form-field>
     </div>
+
     <div class="dateTime">
       <ui-form-field [label]="'End Date'" [error]="formErrors.endDate">
         <input

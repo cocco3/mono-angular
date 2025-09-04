@@ -7,18 +7,14 @@ import {
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { compareAsc } from 'date-fns';
-import {
-  UiButtonComponent,
-  UiEmptyComponent,
-  UiIconComponent,
-  UiSlotDirective,
-} from '@cocco3/angular-ui';
+import { UiButtonComponent } from '@cocco3/angular-ui';
 import { GoogleCalendarService } from '../../services/GoogleCalendarService';
 import { UserSettingsService } from '../../services/UserSettingsService';
 import {
   CountdownComponent,
   type CountdownFormat,
 } from '../countdown/countdown.component';
+import { EventsEmptyComponent } from '../events-empty/events-empty.component';
 import { CreateEventDialogComponent } from '../create-event-dialog/create-event-dialog.component';
 
 type EventItem = {
@@ -31,20 +27,23 @@ type EventItem = {
   imports: [
     CountdownComponent,
     CreateEventDialogComponent,
+    EventsEmptyComponent,
     UiButtonComponent,
-    UiEmptyComponent,
-    UiSlotDirective,
-    UiIconComponent,
   ],
   selector: 'app-page-events',
   styleUrl: './page-events.css',
   templateUrl: './page-events.html',
 })
 export class PageEventsComponent implements OnInit {
-  private calendarService = inject(GoogleCalendarService);
-  private settings = inject(UserSettingsService);
-  private title = inject(Title);
-  protected format: CountdownFormat = 'detailed';
+  private readonly calendarService = inject(GoogleCalendarService);
+  private readonly title = inject(Title);
+
+  private readonly userSettingsService = inject(UserSettingsService);
+  private readonly userSettings = computed(() =>
+    this.userSettingsService.settings()
+  );
+
+  protected format = signal<CountdownFormat>(this.userSettings().defaultFormat);
 
   protected items = signal<EventItem[] | null>(null);
   protected hasItems = computed(() => {
@@ -53,18 +52,18 @@ export class PageEventsComponent implements OnInit {
   });
 
   protected handleCountdownClick() {
-    if (this.format === 'days') {
-      this.format = 'detailed';
+    if (this.format() === 'days') {
+      this.format.set('detailed');
     } else {
-      this.format = 'days';
+      this.format.set('days');
     }
   }
 
   protected fetchItems() {
     this.calendarService
       .getEvents({
-        calendarId: this.settings.defaultCalendarId,
-        query: this.settings.query,
+        calendarId: this.userSettings().defaultCalendarId,
+        query: this.userSettings().query,
       })
       .subscribe({
         next: (events) => {
