@@ -1,0 +1,21 @@
+:host {
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  display: block;
+}
+
+.header {
+  border-block-end: 1px solid var(--border-primary);
+  padding-block: 12px;
+  padding-inline: 24px;
+}
+
+.title {
+  font: 500 var(--type-display-xs);
+  margin: 0;
+}
+
+.content {
+  padding-block: 24px;
+  padding-inline: 24px;
+}

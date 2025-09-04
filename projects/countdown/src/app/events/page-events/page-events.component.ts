@@ -14,7 +14,10 @@ import {
   UiSlotDirective,
 } from '@cocco3/angular-ui';
 import { GoogleCalendarService } from '../../services/GoogleCalendarService';
-import { UserSettingsService } from '../../services/UserSettingsService';
+import {
+  type UserSettings,
+  UserSettingsService,
+} from '../../services/UserSettingsService';
 import {
   CountdownComponent,
   type CountdownFormat,
@@ -42,9 +45,11 @@ type EventItem = {
 })
 export class PageEventsComponent implements OnInit {
   private calendarService = inject(GoogleCalendarService);
-  private settings = inject(UserSettingsService);
+  private settingService = inject(UserSettingsService);
   private title = inject(Title);
   protected format: CountdownFormat = 'detailed';
+
+  readonly settings = signal<UserSettings>(this.settingService.get());
 
   protected items = signal<EventItem[] | null>(null);
   protected hasItems = computed(() => {
@@ -63,8 +68,8 @@ export class PageEventsComponent implements OnInit {
   protected fetchItems() {
     this.calendarService
       .getEvents({
-        calendarId: this.settings.defaultCalendarId,
-        query: this.settings.query,
+        calendarId: this.settings().defaultCalendarId,
+        query: this.settings().query,
       })
       .subscribe({
         next: (events) => {
