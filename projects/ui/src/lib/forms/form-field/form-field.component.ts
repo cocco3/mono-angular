@@ -50,7 +50,7 @@ export class UiFormFieldComponent implements AfterContentInit {
   private setErrorProperties() {
     const formField = this.formFieldChild();
     formField?.setInvalid(this.invalid());
-    formField?.setAreaDescribedById(this.descriptionId());
+    formField?.setAriaDescribedById(this.descriptionId());
   }
 
   constructor() {
