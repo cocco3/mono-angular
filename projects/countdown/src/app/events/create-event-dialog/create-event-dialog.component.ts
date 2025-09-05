@@ -58,20 +58,20 @@ export class CreateEventDialogComponent {
         .string()
         .trim()
         .refine((value) => value.trim().length > 0, {
-          message: 'Event name is required',
+          error: 'Event name is required',
         }),
       startDate: z
         .string()
         .trim()
         .refine((value) => value.trim().length > 0, {
-          message: 'Start date is required',
+          error: 'Start date is required',
         }),
       startTime: z.string().optional(),
       endDate: z
         .string()
         .trim()
         .refine((value) => value.trim().length > 0, {
-          message: 'End date is required',
+          error: 'End date is required',
         }),
       endTime: z.string().optional(),
     })
@@ -79,13 +79,13 @@ export class CreateEventDialogComponent {
       // validate times
       if (data.startTime && !data.endTime) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: 'custom',
           message: 'Provide an endTime with startTime',
           path: ['endTime'],
         });
       } else if (!data.startTime && data.endTime) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: 'custom',
           message: 'Provide a startTime with endTime',
           path: ['startTime'],
         });
@@ -108,7 +108,7 @@ export class CreateEventDialogComponent {
 
         if (end < start) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: 'custom',
             message: 'End time must be on or after start',
             path: ['endTime'],
           });
@@ -126,7 +126,7 @@ export class CreateEventDialogComponent {
 
       if (end < start) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: 'custom',
           message: 'End date must be on or after start date',
           path: ['endDate'],
         });
@@ -207,9 +207,9 @@ export class CreateEventDialogComponent {
           },
         });
     } else {
-      this.formErrors = validationResult.error.errors.reduce(
+      this.formErrors = validationResult.error.issues.reduce(
         (acc, error) => {
-          acc[error.path[0]] = error.message;
+          acc[error.path[0].toString()] = error.message;
           return acc;
         },
         {} as Record<string, string>
