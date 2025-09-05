@@ -136,9 +136,9 @@ export class CreateEventDialogComponent {
           },
         });
     } else {
-      this.formErrors = validationResult.error.errors.reduce(
+      this.formErrors = validationResult.error.issues.reduce(
         (acc, error) => {
-          acc[error.path[0]] = error.message;
+          acc[error.path[0].toString()] = error.message;
           return acc;
         },
         {} as Record<string, string>
