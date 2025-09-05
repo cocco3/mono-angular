@@ -33,7 +33,7 @@ export class UiFormFieldDirective<T extends HTMLElement> {
     }
   }
 
-  setAreaDescribedById(id: string | undefined) {
+  setAriaDescribedById(id: string | undefined) {
     if (id) {
       this.renderer.setAttribute(
         this.elementRef.nativeElement,
