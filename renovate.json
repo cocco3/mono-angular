@@ -45,7 +45,8 @@
         "storybook",
         "@storybook/*",
         "eslint-plugin-storybook",
-        "@chromatic-com/storybook"
+        "@chromatic-com/storybook",
+        "@compodoc/compodoc"
       ]
     },
     {
@@ -73,15 +74,9 @@
       "matchPackageNames": ["date-fns", "@date-fns/*"]
     },
     {
-      "groupName": "pdf tools",
-      "matchPackageNames": [
-        "blob-stream",
-        "jspdf",
-        "pdfkit",
-        "pdfmake",
-        "@types/blob-stream",
-        "@types/pdfmake"
-      ]
+      "groupName": "GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "matchPackagePatterns": ["^actions/.*", "^peaceiris/actions-gh-pages"]
     }
   ]
 }
