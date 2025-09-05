@@ -19,7 +19,7 @@ import { UserSettingsService } from '../../services/UserSettingsService';
 import { LoggerService } from '../../services/LoggerService';
 import {
   createEventSchema,
-  type CreateEventFormFields,
+  type CreateEventModel,
 } from './create-event-schema';
 
 @Component({
@@ -54,7 +54,7 @@ export class CreateEventDialogComponent {
   protected error = '';
   protected isSaving = false;
   protected createEventForm: FormGroup;
-  protected formErrors: Partial<CreateEventFormFields> = {};
+  protected formErrors: Partial<CreateEventModel> = {};
 
   private formSchema = computed(() =>
     createEventSchema({
@@ -136,9 +136,9 @@ export class CreateEventDialogComponent {
           },
         });
     } else {
-      this.formErrors = validationResult.error.errors.reduce(
+      this.formErrors = validationResult.error.issues.reduce(
         (acc, error) => {
-          acc[error.path[0]] = error.message;
+          acc[error.path[0].toString()] = error.message;
           return acc;
         },
         {} as Record<string, string>

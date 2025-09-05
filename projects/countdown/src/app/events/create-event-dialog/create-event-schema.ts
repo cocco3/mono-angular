@@ -1,7 +1,10 @@
 import { z } from 'zod';
 import { createDateTimeZoned } from '@cocco3/utils';
 
-export type CreateEventFormFields = {
+/**
+ * TODO: can this be extracted from the schema
+ */
+export type CreateEventModel = {
   name: string;
   description: string;
   startDate: string;
@@ -23,39 +26,39 @@ export function createEventSchema({
         .string()
         .trim()
         .refine((value) => value.length > 0, {
-          message: 'Event name is required',
+          error: 'Event name is required',
         }),
       description: z
         .string()
         .trim()
         .refine((value) => value.includes(query), {
-          message: `Description must include "${query}"`,
+          error: `Description must include "${query}"`,
         }),
       startDate: z
         .string()
         .trim()
         .refine((value) => value.length > 0, {
-          message: 'Start date is required',
+          error: 'Start date is required',
         }),
       startTime: z.string().optional(),
       endDate: z
         .string()
         .trim()
         .refine((value) => value.length > 0, {
-          message: 'End date is required',
+          error: 'End date is required',
         }),
       endTime: z.string().optional(),
     })
     .superRefine((data, ctx) => {
       if (data.startTime && !data.endTime) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: 'custom',
           message: 'Provide an endTime with startTime',
           path: ['endTime'],
         });
       } else if (!data.startTime && data.endTime) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: 'custom',
           message: 'Provide a startTime with endTime',
           path: ['startTime'],
         });
@@ -74,7 +77,7 @@ export function createEventSchema({
 
         if (end < start) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: 'custom',
             message: 'End time must be on or after start',
             path: ['endTime'],
           });
@@ -87,7 +90,7 @@ export function createEventSchema({
 
       if (!isNaN(start.getTime()) && !isNaN(end.getTime()) && end < start) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: 'custom',
           message: 'End date must be on or after start date',
           path: ['endDate'],
         });

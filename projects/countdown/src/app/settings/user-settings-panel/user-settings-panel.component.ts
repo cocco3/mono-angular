@@ -1,20 +1,16 @@
 import { Component, computed, inject } from '@angular/core';
+import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import {
   UiButtonComponent,
   UiFormFieldComponent,
   UiInputComponent,
   UiSelectComponent,
 } from '@cocco3/angular-ui';
+import { UserSettingsService } from '../../services/UserSettingsService';
 import {
-  type UserSettings,
-  UserSettingsService,
-} from '../../services/UserSettingsService';
-import {
-  type FormGroup,
-  NonNullableFormBuilder,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+  userSettingsSchema,
+  type UserSettingsModel,
+} from './user-settings-schema';
 import {
   UserSettingFormats,
   UserSettingThemes,
@@ -33,12 +29,15 @@ import {
   templateUrl: './user-settings-panel.html',
 })
 export class UserSettingsPanelComponent {
+  private readonly formBuilder = inject(NonNullableFormBuilder);
+
   private readonly userSettingsService = inject(UserSettingsService);
   private readonly userSettings = computed(() =>
     this.userSettingsService.settings()
   );
 
-  private readonly formBuilder = inject(NonNullableFormBuilder);
+  protected isSaving = false;
+  protected formErrors: Partial<UserSettingsModel> = {};
 
   protected themeOptions = UserSettingThemes.map((value) => {
     const text = {
@@ -57,43 +56,39 @@ export class UserSettingsPanelComponent {
     return { value, text };
   });
 
-  protected isSaving = false;
-
-  protected readonly form: FormGroup = this.formBuilder.group({
-    timeZone: this.formBuilder.control(this.userSettings().timeZone, {
-      validators: [Validators.required],
-    }),
-    query: this.formBuilder.control(this.userSettings().query, {
-      validators: [Validators.required],
-    }),
-    defaultCalendarId: this.formBuilder.control(
-      this.userSettings().defaultCalendarId,
-      {
-        validators: [Validators.required],
-      }
-    ),
-    defaultFormat: this.formBuilder.control(this.userSettings().defaultFormat, {
-      validators: [Validators.required],
-    }),
-    theme: this.formBuilder.control(this.userSettings().theme, {
-      validators: [Validators.required],
-    }),
+  protected form = this.formBuilder.group({
+    timeZone: this.userSettings().timeZone,
+    query: this.userSettings().query,
+    defaultCalendarId: this.userSettings().defaultCalendarId,
+    defaultFormat: this.userSettings().defaultFormat,
+    theme: this.userSettings().theme,
   });
 
-  protected async save(): Promise<void> {
-    this.isSaving = true;
-    const values = this.form.value as UserSettings; /* TODO: fix this */
+  protected async handleSubmit() {
+    const formData = this.form.value;
+    const validationResult = userSettingsSchema.safeParse(formData);
 
-    if (this.form.valid) {
+    if (validationResult.success) {
+      this.formErrors = {};
+      this.isSaving = true;
+
       await this.userSettingsService.save({
-        defaultCalendarId: values.defaultCalendarId!,
-        query: values.query!,
-        theme: values.theme!,
-        timeZone: values.timeZone!,
-        defaultFormat: values.defaultFormat!,
+        defaultCalendarId: validationResult.data.defaultCalendarId,
+        query: validationResult.data.query,
+        theme: validationResult.data.theme,
+        timeZone: validationResult.data.timeZone,
+        defaultFormat: validationResult.data.defaultFormat,
       });
       this.form.markAsPristine();
       this.isSaving = false;
+    } else {
+      this.formErrors = validationResult.error.issues.reduce(
+        (acc, error) => {
+          acc[error.path[0].toString()] = error.message;
+          return acc;
+        },
+        {} as Record<string, string>
+      );
     }
   }
 }

@@ -13,7 +13,7 @@ export class AppComponent {
   private readonly userSettingsService = inject(UserSettingsService);
   protected title = 'CountdownApp';
 
-  private colorSchemeMap = (value: string) =>
+  private getColorSchemeCss = (value: string) =>
     ({
       light: 'light',
       dark: 'dark',
@@ -25,7 +25,7 @@ export class AppComponent {
       this.renderer.setStyle(
         document.documentElement,
         'color-scheme',
-        this.colorSchemeMap(this.userSettingsService.settings().theme)
+        this.getColorSchemeCss(this.userSettingsService.settings().theme)
       );
     });
   }

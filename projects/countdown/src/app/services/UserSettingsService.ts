@@ -5,7 +5,7 @@ import {
 } from './LocalStorageService';
 import { sleep } from '@cocco3/utils';
 
-export type UserSettings = AppLocalStorage['settings'];
+type UserSettings = AppLocalStorage['settings'];
 
 const DEFAULT_SETTINGS: UserSettings = {
   query: '#countdown',

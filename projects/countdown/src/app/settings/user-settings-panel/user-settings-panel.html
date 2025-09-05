@@ -1,18 +1,18 @@
-<form class="form" [formGroup]="form" (ngSubmit)="save()">
+<form class="form" [formGroup]="form" (ngSubmit)="handleSubmit()">
   <div>
-    <ui-form-field [label]="'Query'">
+    <ui-form-field [label]="'Query'" [error]="formErrors.query">
       <input ui-input type="text" formControlName="query" />
     </ui-form-field>
   </div>
 
   <div>
-    <ui-form-field [label]="'Timezone'">
+    <ui-form-field [label]="'Timezone'" [error]="formErrors.timeZone">
       <input ui-input type="text" readonly formControlName="timeZone" />
     </ui-form-field>
   </div>
 
   <div>
-    <ui-form-field [label]="'Calendar'">
+    <ui-form-field [label]="'Calendar'" [error]="formErrors.defaultCalendarId">
       <input
         ui-input
         type="text"
@@ -23,7 +23,7 @@
   </div>
 
   <div>
-    <ui-form-field [label]="'Format'">
+    <ui-form-field [label]="'Format'" [error]="formErrors.defaultFormat">
       <select ui-select formControlName="defaultFormat">
         @for (option of formatOptions; track option.value) {
           <option [value]="option.value">{{ option.text }}</option>
@@ -33,7 +33,7 @@
   </div>
 
   <div>
-    <ui-form-field [label]="'Theme'">
+    <ui-form-field [label]="'Theme'" [error]="formErrors.theme">
       <select ui-select formControlName="theme">
         @for (option of themeOptions; track option.value) {
           <option [value]="option.value">{{ option.text }}</option>
