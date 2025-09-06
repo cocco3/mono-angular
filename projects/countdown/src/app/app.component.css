@@ -1,7 +1,6 @@
 :host {
-  background-color: var(--bg-tertiary);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
-  color-scheme: dark;
   display: block;
   font: var(--type-text-md);
   min-height: 100dvh;

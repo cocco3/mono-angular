@@ -1,0 +1,21 @@
+<ui-empty heading="Looks like you don't have any countdowns!">
+  <ui-icon uiSlot="image" kind="calendar" size="80px" />
+  <div uiSlot="content">
+    <p>
+      Go to
+      <a href="https://calendar.google.com" target="_blank">Google Calendar</a>
+      and add "<code>{{ query() }}</code
+      >" to the description of any existing event, or click the button to create
+      a new event.
+    </p>
+    <p>
+      You can also change your query word in
+      <a routerLink="/settings">settings</a>.
+    </p>
+    <p>
+      <button ui-button kind="primary" size="large" (click)="handleClick()">
+        Add Event
+      </button>
+    </p>
+  </div>
+</ui-empty>

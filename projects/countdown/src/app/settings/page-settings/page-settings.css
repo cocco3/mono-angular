@@ -2,35 +2,9 @@
   box-sizing: border-box;
 }
 
-.panel {
-  border: 1px solid var(--border-primary);
-  border-radius: 8px;
-}
-
-.panel + .panel {
-  margin-block-start: 48px;
-}
-
-.panel_header {
-  border-block-end: 1px solid var(--border-primary);
-  padding-block: 12px;
-  padding-inline: 24px;
-}
-
-.panel_title {
-  font: 500 var(--type-display-xs);
-  margin: 0;
-}
-
-.panel_body {
-  padding-block: 24px;
-  padding-inline: 24px;
-}
-
-.form {
+.container {
   display: grid;
-  gap: 24px;
-  max-width: 600px;
+  gap: 48px;
 }
 
 .app {
