@@ -63,16 +63,16 @@ export const Neutral: Story = {
   args: { kind: 'neutral', content: 'Not started' },
 };
 
-export const Error: Story = {
-  args: { kind: 'error', content: 'Overdue' },
+export const Negative: Story = {
+  args: { kind: 'negative', content: 'Overdue' },
 };
 
 export const Warning: Story = {
   args: { kind: 'warning', content: 'Due soon' },
 };
 
-export const Success: Story = {
-  args: { kind: 'success', content: 'Completed' },
+export const Positive: Story = {
+  args: { kind: 'positive', content: 'Completed' },
 };
 
 export const Info: Story = {

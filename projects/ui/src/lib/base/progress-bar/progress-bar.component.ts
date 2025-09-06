@@ -3,9 +3,9 @@ import { clamp } from '@cocco3/utils';
 
 export const UiProgressBarKinds = [
   'neutral',
-  'error',
+  'negative',
   'warning',
-  'success',
+  'positive',
   'info',
 ] as const;
 export type UiProgressBarKind = (typeof UiProgressBarKinds)[number];

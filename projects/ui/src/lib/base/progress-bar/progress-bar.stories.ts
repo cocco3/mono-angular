@@ -34,7 +34,7 @@ type Story = StoryObj<UiProgressBarComponent>;
 export const Default: Story = {};
 
 export const Kind: Story = {
-  args: { kind: 'success' },
+  args: { kind: 'positive' },
 };
 
 /** Optionally change the maximum to fit your use case. */
