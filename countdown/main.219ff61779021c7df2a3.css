@@ -133,6 +133,10 @@ html {
   color-scheme: dark;
 }
 
+:root {
+  --bg-primary: var(--bg-secondary);
+}
+
 body {
   font: var(--type-text-md);
   margin: 0;
