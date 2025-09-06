@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocalStorage } from '@cocco3/utils';
 
-export const UserSettingThemes = ['auto', 'light', 'dark'] as const;
+export const UserSettingThemes = ['system', 'light', 'dark'] as const;
 export type UserSettingTheme = (typeof UserSettingThemes)[number];
 
 export const UserSettingFormats = ['detailed', 'days'] as const;

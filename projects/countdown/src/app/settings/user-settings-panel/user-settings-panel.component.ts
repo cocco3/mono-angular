@@ -41,9 +41,9 @@ export class UserSettingsPanelComponent {
 
   protected themeOptions = UserSettingThemes.map((value) => {
     const text = {
+      system: 'System',
       light: 'Light',
       dark: 'Dark',
-      auto: 'Auto',
     }[value];
     return { value, text };
   });

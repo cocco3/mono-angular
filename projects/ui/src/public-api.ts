@@ -1,5 +1,6 @@
 export * from './lib/app/app-header/app-header.component';
 export * from './lib/app/app-header-button/app-header-button.component';
+export * from './lib/app/ColorSchemeDirective';
 
 export * from './lib/base/alert/alert.component';
 export * from './lib/base/avatar/avatar.component';

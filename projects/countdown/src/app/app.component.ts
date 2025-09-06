@@ -1,32 +1,30 @@
-import { Component, effect, inject, Renderer2 } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ColorSchemeDirective, type UiColorScheme } from '@cocco3/angular-ui';
 import { UserSettingsService } from './services/UserSettingsService';
 
 @Component({
+  hostDirectives: [
+    {
+      directive: ColorSchemeDirective,
+      inputs: ['uiColorScheme: colorScheme'],
+    },
+  ],
   imports: [RouterOutlet],
   selector: 'app-root',
   styleUrl: './app.component.css',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  private readonly renderer = inject(Renderer2);
-  private readonly userSettingsService = inject(UserSettingsService);
   protected title = 'CountdownApp';
-
-  private getColorSchemeCss = (value: string) =>
-    ({
-      light: 'light',
-      dark: 'dark',
-      auto: 'light dark',
-    })[value];
+  private readonly userSettingsService = inject(UserSettingsService);
+  protected colorScheme: UiColorScheme;
 
   constructor() {
+    this.colorScheme = this.userSettingsService.settings().theme;
+
     effect(() => {
-      this.renderer.setStyle(
-        document.documentElement,
-        'color-scheme',
-        this.getColorSchemeCss(this.userSettingsService.settings().theme)
-      );
+      this.colorScheme = this.userSettingsService.settings().theme;
     });
   }
 }

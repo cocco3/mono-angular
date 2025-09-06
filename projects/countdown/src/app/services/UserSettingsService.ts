@@ -12,7 +12,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   defaultCalendarId: 'primary',
   defaultFormat: 'detailed',
-  theme: 'auto',
+  theme: 'system',
 };
 
 @Injectable({
