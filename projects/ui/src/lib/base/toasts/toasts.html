@@ -1,0 +1,22 @@
+@for (toast of activeToasts(); track toast.id) {
+  <ui-alert
+    aria-live="assertive"
+    role="alert"
+    class="toast"
+    [class.visible]="toast.visible"
+    [dismissible]="toast.dismissible"
+    [heading]="toast.heading"
+    [kind]="toast.kind"
+    (transitionend)="handleTransitionEnd(toast.id, toast.visible)"
+    (dismissClicked)="handleDismissClick(toast.id)"
+  >
+    @switch (toast.type) {
+      @case ('message') {
+        {{ toast.message }}
+      }
+      @case ('template') {
+        <ng-container *ngTemplateOutlet="toast.template" />
+      }
+    }
+  </ui-alert>
+}

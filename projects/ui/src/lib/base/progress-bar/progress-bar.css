@@ -55,7 +55,7 @@
   --_progress-fill: var(--fg-secondary);
 }
 
-:host.kind-error {
+:host.kind-negative {
   --_progress-fill: var(--fg-error-secondary);
 }
 
@@ -63,7 +63,7 @@
   --_progress-fill: var(--fg-warning-secondary);
 }
 
-:host.kind-success {
+:host.kind-positive {
   --_progress-fill: var(--fg-success-secondary);
 }
 

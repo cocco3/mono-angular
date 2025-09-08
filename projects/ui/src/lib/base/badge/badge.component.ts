@@ -3,9 +3,9 @@ import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
 
 export const UiBadgeKinds = [
   'neutral',
-  'error',
+  'negative',
   'warning',
-  'success',
+  'positive',
   'info',
 ] as const;
 export type UiBadgeKind = (typeof UiBadgeKinds)[number];

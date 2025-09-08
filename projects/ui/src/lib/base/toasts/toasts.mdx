@@ -1,0 +1,181 @@
+import {
+  Meta,
+  Canvas,
+  Controls,
+  Description,
+  Primary,
+  Source,
+  Stories,
+  Title,
+} from '@storybook/addon-docs/blocks';
+import { ImportPath } from '../../../../.storybook/components/ImportPath';
+import * as ToastStories from './toasts.stories';
+import { defaultToastConfig } from './ToastConfig';
+
+<Meta of={ToastStories} docsOnly />
+
+<Title />
+<Description />
+<ImportPath />
+<Primary />
+<Controls />
+<Stories includePrimary={false} />
+
+## Provider
+
+Optional: Use `provideToastConfig` to set global defaults.
+
+If omitted, default settings are applied automatically:
+
+<Source code={`${JSON.stringify(defaultToastConfig, undefined, 2)}`} />
+
+#### app.config.ts
+
+```ts
+import { type ApplicationConfig } from '@angular/core';
+import { provideToastConfig } from '@cocco3/angular-ui';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideToastConfig({
+      dismissible: true,
+      duration: 3000,
+    }),
+  ],
+};
+```
+
+## Container
+
+Required: Add the toast container `UiToastsComponent` to your app root. This is where the individual toast messages will render.
+
+#### app.component.ts
+
+```ts
+import { Component } from '@angular/core';
+import { UiToastsComponent } from '@cocco3/angular-ui';
+
+@Component({
+  imports: [UiToastsComponent],
+  selector: 'app-root',
+  template: ` <ui-toasts placement="top-center" /> `,
+})
+export class AppComponent {}
+```
+
+## ToastService
+
+### showMessage()
+
+If your toast only needs to display a string message, use the `showMessage()` method.
+
+```ts
+showMessage(
+  message: string,
+  options: {
+    dismissible?: boolean;
+    duration?: number;
+    heading?: string;
+    id?: string;
+    kind: UiAlertKind;
+  }
+)
+```
+
+#### my-component.ts
+
+```ts
+import { Component } from '@angular/core';
+import { UiToastService } from '@cocco3/angular-ui';
+
+@Component({
+  selector: 'my-component',
+})
+export class MyComponent {
+  private readonly toastService = inject(UiToastService);
+
+  handleSuccess() {
+    this.toastService.showMessage(
+      'Your changes have been saved successfully.',
+      {
+        dismissible: true,
+        duration: 5000,
+        heading: 'Settings updated',
+        id: 'id-123',
+        kind: 'positive',
+      }
+    );
+  }
+}
+```
+
+### showTemplate()
+
+If your toast needs rich content and HTML, use the `showTemplate()` method.
+
+```ts
+showTemplate(
+  template: TemplateRef<unknown>,
+  options: {
+    dismissible?: boolean;
+    duration?: number;
+    heading?: string;
+    id?: string;
+    kind: UiAlertKind;
+  }
+)
+```
+
+#### my-component.ts
+
+```ts
+import { Component } from '@angular/core';
+import { UiToastService } from '@cocco3/angular-ui';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    <ng-template #customToastTemplate>
+      <div>
+        <strong>Hello world!</strong> This toast uses a <em>template</em> for
+        rich content.
+        <br />
+        <a href="#">View details</a>
+      </div>
+    </ng-template>
+  `,
+})
+export class MyComponent {
+  private readonly toastService = inject(UiToastService);
+
+  private readonly customToastTemplate = viewChild.required<
+    TemplateRef<unknown>
+  >('customToastTemplate');
+
+  handleSuccess() {
+    this.toastService.showTemplate(this.customToastTemplate(), {
+      dismissible: true,
+      duration: 5000,
+      heading: 'Settings updated',
+      id: 'id-123',
+      kind: 'positive',
+    });
+  }
+}
+```
+
+### dismiss()
+
+To manually dismiss an open toast message, use the `dismiss()` method with the ID of the toast. IDs can be set when you show the toast.
+
+```ts
+dismiss(id: string)
+```
+
+### clearAll()
+
+To clear all open toast messages, use the `clearAll()` method.
+
+```ts
+clearAll();
+```

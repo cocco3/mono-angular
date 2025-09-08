@@ -1,0 +1,51 @@
+:host {
+  --_toast-offset: 24px;
+
+  box-sizing: border-box;
+  display: grid;
+  gap: 16px;
+  margin-inline: auto;
+  max-width: 60ch;
+  position: fixed;
+  width: 90%;
+}
+
+:host.align-top {
+  top: 80px;
+}
+
+:host.align-bottom {
+  bottom: var(--_toast-offset);
+}
+
+:host.justify-start {
+  left: var(--_toast-offset);
+}
+
+:host.justify-center {
+  left: 0;
+  right: 0;
+}
+
+:host.justify-end {
+  right: var(--_toast-offset);
+}
+
+.toast {
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition-behavior: allow-discrete;
+  transition-duration: 200ms;
+  transition-property: display, opacity;
+  transition-timing-function: ease-out;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}

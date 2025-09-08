@@ -5,6 +5,7 @@ import {
   UiFormFieldComponent,
   UiInputComponent,
   UiSelectComponent,
+  UiToastService,
 } from '@cocco3/angular-ui';
 import { UserSettingsService } from '../../services/UserSettingsService';
 import {
@@ -30,6 +31,7 @@ import {
 })
 export class UserSettingsPanelComponent {
   private readonly formBuilder = inject(NonNullableFormBuilder);
+  private readonly toastService = inject(UiToastService);
 
   private readonly userSettingsService = inject(UserSettingsService);
   private readonly userSettings = computed(() =>
@@ -81,6 +83,14 @@ export class UserSettingsPanelComponent {
       });
       this.form.markAsPristine();
       this.isSaving = false;
+
+      this.toastService.showMessage(
+        'Your changes have been saved successfully.',
+        {
+          kind: 'positive',
+          heading: 'Settings updated',
+        }
+      );
     } else {
       this.formErrors = validationResult.error.issues.reduce(
         (acc, error) => {

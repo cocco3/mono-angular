@@ -35,7 +35,7 @@
   --_badge-text: var(--text-secondary);
 }
 
-:host.kind-error {
+:host.kind-negative {
   --_badge-background: var(--bg-error-primary);
   --_badge-border: var(--border-error-subtle);
   --_badge-text: var(--text-error);
@@ -47,7 +47,7 @@
   --_badge-text: var(--text-warning);
 }
 
-:host.kind-success {
+:host.kind-positive {
   --_badge-background: var(--bg-success-primary);
   --_badge-border: var(--border-success-subtle);
   --_badge-text: var(--text-success);
