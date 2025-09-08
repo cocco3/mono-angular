@@ -29,6 +29,14 @@ An [Angular](./ANGULAR.md) monorepo.
 
 ## Contributing
 
+### Upgrade Angular
+
+Follow the official [upgrade guide](https://angular.dev/update-guide).
+
+```shell
+ng update @angular/core@20 @angular/cli@20
+```
+
 ### Upgrade Storybook
 
 Follow these steps to [upgrade Storybook](https://storybook.js.org/docs/configure/upgrading).
