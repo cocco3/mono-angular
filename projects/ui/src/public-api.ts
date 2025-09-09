@@ -9,9 +9,9 @@ export * from './lib/base/empty/empty.component';
 export * from './lib/base/icon/icon.component';
 export * from './lib/base/progress-bar/progress-bar.component';
 
-export * from './lib/base/toasts/toasts.component';
 export { provideToastConfig } from './lib/base/toasts/ToastConfig';
 export * from './lib/base/toasts/ToastService';
+export * from './lib/base/toasts/toasts.component';
 
 export * from './lib/popovers/popover.directive';
 export * from './lib/popovers/dialog/dialog.component';

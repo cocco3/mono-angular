@@ -31,21 +31,28 @@
   right: var(--_toast-offset);
 }
 
-.toast {
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
-  transition-behavior: allow-discrete;
-  transition-duration: 200ms;
-  transition-property: display, opacity;
-  transition-timing-function: ease-out;
-
-  &.visible {
-    opacity: 1;
-    pointer-events: auto;
-
-    @starting-style {
-      opacity: 0;
-    }
+@keyframes toast-enter {
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes toast-leave {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.toast-enter {
+  animation: toast-enter 200ms ease-out forwards;
+}
+
+.toast-leave {
+  animation: toast-leave 200ms ease-out forwards;
 }

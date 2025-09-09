@@ -3,7 +3,7 @@ import { uniqueId } from '@cocco3/utils';
 import { type UiAlertKind } from '../alert/alert.component';
 import { injectToastConfig } from './ToastConfig';
 
-type ShowToastOptions = {
+export type UiToastOptions = {
   dismissible?: boolean;
   duration?: number;
   heading?: string;
@@ -16,7 +16,6 @@ type ToastBase = {
   heading?: string;
   id: string;
   kind: UiAlertKind;
-  visible: boolean;
 };
 
 type UiToastMessage = ToastBase & {
@@ -59,13 +58,15 @@ export class UiToastService {
     }
   }
 
-  showMessage(message: string, options: ShowToastOptions) {
+  /**
+   * Show a toast with a simple string message.
+   */
+  showMessage(message: string, options: UiToastOptions) {
     const toast: UiToastMessage = {
       dismissible: options.dismissible ?? this.toastConfig.dismissible,
       heading: options.heading,
       id: options.id || uniqueId(),
       kind: options.kind,
-      visible: true,
       type: 'message',
       message,
     };
@@ -75,13 +76,15 @@ export class UiToastService {
     this.toasts.update((list) => [...list, toast]);
   }
 
-  showTemplate(template: TemplateRef<unknown>, options: ShowToastOptions) {
+  /**
+   * Show a toast with a custom template.
+   */
+  showTemplate(template: TemplateRef<unknown>, options: UiToastOptions) {
     const toast: UiToastTemplate = {
       dismissible: options.dismissible ?? this.toastConfig.dismissible,
       heading: options.heading,
       id: options.id || uniqueId(),
       kind: options.kind,
-      visible: true,
       type: 'template',
       template,
     };
@@ -91,12 +94,11 @@ export class UiToastService {
     this.toasts.update((list) => [...list, toast]);
   }
 
+  /**
+   * Dismiss a toast by ID.
+   */
   dismiss(id: string) {
-    this.toasts.update((list) =>
-      list.map((toast) =>
-        toast.id === id ? { ...toast, visible: false } : toast
-      )
-    );
+    this.toasts.update((list) => list.filter((toast) => toast.id !== id));
 
     if (this.timeoutMap.has(id)) {
       clearTimeout(this.timeoutMap.get(id));
@@ -104,10 +106,9 @@ export class UiToastService {
     }
   }
 
-  remove(id: string) {
-    this.toasts.update((list) => list.filter((toast) => toast.id !== id));
-  }
-
+  /**
+   * Clear all toasts.
+   */
   clearAll() {
     this.toasts.set([]);
   }
