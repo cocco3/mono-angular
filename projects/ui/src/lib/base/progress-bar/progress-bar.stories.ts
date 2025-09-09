@@ -54,6 +54,10 @@ export const Segments: Story = {
   args: { segments: 5 },
 };
 
+export const Indeterminate: Story = {
+  args: { value: undefined },
+};
+
 /**
  * Set segments and max to the same value for a progress stepper.
  */
