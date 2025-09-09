@@ -47,7 +47,7 @@ export const appConfig: ApplicationConfig = {
 
 ## Container
 
-Required: Add the toast container `UiToastsComponent` to your app root. This is where the individual toast messages will render.
+Required: Add the toasts container `UiToastsComponent` to your app root. This is where the individual toast messages will render.
 
 #### app.component.ts
 
@@ -65,9 +65,9 @@ export class AppComponent {}
 
 ## ToastService
 
-### showMessage()
+### showMessage
 
-If your toast only needs to display a string message, use the `showMessage()` method.
+Show a toast with a simple string message.
 
 ```ts
 showMessage(
@@ -109,9 +109,9 @@ export class MyComponent {
 }
 ```
 
-### showTemplate()
+### showTemplate
 
-If your toast needs rich content and HTML, use the `showTemplate()` method.
+Show a toast with a custom template.
 
 ```ts
 showTemplate(
@@ -164,17 +164,17 @@ export class MyComponent {
 }
 ```
 
-### dismiss()
+### dismiss
 
-To manually dismiss an open toast message, use the `dismiss()` method with the ID of the toast. IDs can be set when you show the toast.
+Dismiss a toast by ID.
 
 ```ts
 dismiss(id: string)
 ```
 
-### clearAll()
+### clearAll
 
-To clear all open toast messages, use the `clearAll()` method.
+Clear all toasts.
 
 ```ts
 clearAll();

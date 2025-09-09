@@ -14,7 +14,7 @@ export const UiToastPlacements = [
 export type UiToastPlacement = (typeof UiToastPlacements)[number];
 
 /**
- * Application-level popup notifications that display above the content.
+ * Application-level popup notifications to display brief messages.
  */
 @Component({
   host: {
@@ -35,12 +35,6 @@ export class UiToastsComponent {
 
   protected handleDismissClick(id: string) {
     this.toastService.dismiss(id);
-  }
-
-  protected handleTransitionEnd(id: string, visible: boolean) {
-    if (!visible) {
-      this.toastService.remove(id);
-    }
   }
 
   protected cssClass = computed(() => ({

@@ -2,13 +2,12 @@
   <ui-alert
     aria-live="assertive"
     role="alert"
-    class="toast"
-    [class.visible]="toast.visible"
     [dismissible]="toast.dismissible"
     [heading]="toast.heading"
     [kind]="toast.kind"
-    (transitionend)="handleTransitionEnd(toast.id, toast.visible)"
     (dismissClicked)="handleDismissClick(toast.id)"
+    animate.enter="toast-enter"
+    animate.leave="toast-leave"
   >
     @switch (toast.type) {
       @case ('message') {
