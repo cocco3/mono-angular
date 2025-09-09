@@ -19,8 +19,4 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   styleUrls: ['./radio.css'],
   template: '',
 })
-export class UiRadioComponent extends UiFormFieldDirective<HTMLInputElement> {
-  constructor() {
-    super({ inline: true });
-  }
-}
+export class UiRadioComponent extends UiFormFieldDirective<HTMLInputElement> {}

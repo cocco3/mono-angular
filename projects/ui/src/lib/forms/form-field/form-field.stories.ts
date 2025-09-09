@@ -1,14 +1,16 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { storybookArgsToTemplate } from '@cocco3/utils';
 import { UiFormFieldComponent } from './form-field.component';
+import { UiFormFieldDirective } from './form-field.directive';
 import { UiInputComponent } from '../input/input.component';
-import { UiSelectComponent } from '../select/select.component';
 import { UiTextareaComponent } from '../textarea/textarea.component';
-import { UiRadioComponent } from '../radio/radio.component';
+import { UiSelectComponent } from '../select/select.component';
 import { UiCheckboxComponent } from '../checkbox/checkbox.component';
+import { UiRadioComponent } from '../radio/radio.component';
 
 const meta: Meta<UiFormFieldComponent> = {
   component: UiFormFieldComponent,
+  decorators: [moduleMetadata({ imports: [UiFormFieldDirective] })],
   tags: ['autodocs'],
   parameters: {
     design: {
@@ -29,13 +31,55 @@ export const Input: Story = {
   decorators: [moduleMetadata({ imports: [UiInputComponent] })],
   args: {
     label: 'Email',
-    description: 'This is a hint text to help user.',
+    description: 'Some description or hint to help the user.',
   },
   render: (args) => ({
     props: args,
     template: `
       <ui-form-field ${storybookArgsToTemplate(args)}>
         <input ui-input type="text" />
+      </ui-form-field>
+    `,
+  }),
+};
+
+/**
+ * Use with [textarea](/docs/forms-textarea--docs) component
+ */
+export const Textarea: Story = {
+  decorators: [moduleMetadata({ imports: [UiTextareaComponent] })],
+  args: {
+    label: 'Feedback',
+    description: 'Feedback is shared anonymously.',
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <ui-form-field ${storybookArgsToTemplate(args)}>
+        <textarea ui-textarea autosize></textarea>
+      </ui-form-field>
+    `,
+  }),
+};
+
+/**
+ * Use with [select](/docs/forms-select--docs) component
+ */
+export const Select: Story = {
+  decorators: [moduleMetadata({ imports: [UiSelectComponent] })],
+  args: {
+    label: 'Color',
+    description: 'Some description or hint to help the user.',
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <ui-form-field ${storybookArgsToTemplate(args)}>
+        <select ui-select>
+          <option>FireBrick</option>
+          <option selected>DeepSkyBlue</option>
+          <option>MediumSeaGreen</option>
+        </select>
       </ui-form-field>
     `,
   }),
@@ -79,53 +123,11 @@ export const Radio: Story = {
   }),
 };
 
-/**
- * Use with [select](/docs/forms-select--docs) component
- */
-export const Select: Story = {
-  decorators: [moduleMetadata({ imports: [UiSelectComponent] })],
-  args: {
-    label: 'Color',
-    description: 'This is a hint text to help user.',
-  },
-  render: (args) => ({
-    props: args,
-    template: `
-      <ui-form-field ${storybookArgsToTemplate(args)}>
-        <select ui-select>
-          <option>FireBrick</option>
-          <option selected>DeepSkyBlue</option>
-          <option>MediumSeaGreen</option>
-        </select>
-      </ui-form-field>
-    `,
-  }),
-};
-
-/**
- * Use with [textarea](/docs/forms-textarea--docs) component
- */
-export const Textarea: Story = {
-  decorators: [moduleMetadata({ imports: [UiTextareaComponent] })],
-  args: {
-    label: 'Feedback',
-    description: 'Feedback is shared anonymously.',
-  },
-  render: (args) => ({
-    props: args,
-    template: `
-      <ui-form-field ${storybookArgsToTemplate(args)}>
-        <textarea ui-textarea autosize></textarea>
-      </ui-form-field>
-    `,
-  }),
-};
-
 export const Error: Story = {
   decorators: [moduleMetadata({ imports: [UiInputComponent] })],
   args: {
     label: 'Email',
-    description: 'This is a hint text to help user.',
+    description: 'Some description or hint to help the user.',
     error: 'Email is required.',
   },
   render: (args) => ({

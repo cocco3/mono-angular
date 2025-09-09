@@ -16,8 +16,4 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   styleUrls: ['./select.css'],
   template: '<ng-content />',
 })
-export class UiSelectComponent extends UiFormFieldDirective<HTMLSelectElement> {
-  constructor() {
-    super({ inline: false });
-  }
-}
+export class UiSelectComponent extends UiFormFieldDirective<HTMLSelectElement> {}

@@ -1,4 +1,4 @@
-<label [attr.for]="resolvedInputId()" class="label">
+<label [attr.for]="inputId" class="label">
   {{ label() }}
 </label>
 
@@ -7,11 +7,15 @@
 </div>
 
 @if (showDescription()) {
-  <div [attr.id]="descriptionId()" class="description">
-    {{ description() }}
-  </div>
-} @else if (invalid()) {
-  <div [attr.id]="descriptionId()" class="error">
-    {{ error() }}
+  <div
+    [attr.id]="descriptionId()"
+    class="description"
+    [class.description-invalid]="invalid()"
+  >
+    @if (invalid()) {
+      <ui-icon kind="alert-triangle" class="description_icon" />
+    }
+
+    {{ error() || description() }}
   </div>
 }

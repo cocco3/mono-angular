@@ -36,10 +36,6 @@ export class UiTextareaComponent extends UiFormFieldDirective<HTMLTextAreaElemen
   /** Allow the textarea to grow/shrink as you type */
   autosize = input(false, { transform: booleanAttribute });
 
-  constructor() {
-    super({ inline: false });
-  }
-
   protected cssClass = computed(() => ({
     autosize: this.autosize(),
   }));
