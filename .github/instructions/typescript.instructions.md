@@ -16,4 +16,4 @@ Apply the [general coding guidelines](./general.instructions.md) to all code.
 - Use strict type checking
 - Prefer type inference when the type is obvious
 - Avoid the `any` type; use `unknown` when type is uncertain
-- When importing a type, use the `type` keyword (e.g. `import { type MyType } from './my-module';`)
+- When importing a type, use the `type` keyword (e.g. `import { type MyType } from './my-file';`)
