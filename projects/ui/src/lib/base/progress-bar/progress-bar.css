@@ -70,3 +70,27 @@
 :host.kind-info {
   --_progress-fill: var(--fg-info-secondary);
 }
+
+@keyframes progress-bar-indeterminate {
+  0% {
+    background-position: 130% 0%;
+  }
+  100% {
+    background-position: -30% 0%;
+  }
+}
+
+:host.indeterminate {
+  animation: progress-bar-indeterminate 1.5s linear infinite;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 30%,
+    var(--_progress-fill) 50%,
+    transparent 70%,
+    transparent 100%
+  );
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-size: 230% 100%;
+}

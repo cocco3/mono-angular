@@ -22,9 +22,10 @@ export type UiProgressBarCorner = (typeof UiProgressBarCorners)[number];
     role: 'progressbar',
     'aria-valuemin': '0',
     '[attr.aria-valuemax]': 'max()',
-    '[attr.aria-valuenow]': 'clampedValue()',
-    '[attr.aria-valuetext]': 'fillPercent()',
-    '[style.--_progress-width]': 'fillPercent()',
+    '[attr.aria-valuenow]': 'ariaValueNow()',
+    '[attr.aria-valuetext]': 'ariaValueText()',
+    '[style.--_progress-width]':
+      'isIndeterminate() ? undefined : fillPercent()',
     '[style.--_progress-segments]': 'segments()',
   },
   selector: 'ui-progress-bar',
@@ -38,8 +39,8 @@ export class UiProgressBarComponent {
   /** The maximum value. Defaults to 100. */
   max = input<number>(100);
 
-  /** Number between 0 and max. */
-  value = input.required<number>();
+  /** Number between 0 and max. If no value, will be considered indeterminate. */
+  value = input<number>();
 
   /** Color/hierachy of the fill color. */
   kind = input<UiProgressBarKind>('neutral');
@@ -50,8 +51,25 @@ export class UiProgressBarComponent {
   /** Height of the bar. */
   size = input.required<UiProgressBarSize>();
 
+  /** Optional. Label used for screen readers. Defaults to percentage for determinate, or "Loading" for indeterminate.  */
+  label = input<string>();
+
+  protected isIndeterminate = computed(() => this.value() === undefined);
+
+  protected ariaValueNow = computed(() => {
+    return this.isIndeterminate() ? undefined : this.clampedValue();
+  });
+
+  protected ariaValueText = computed(() => {
+    const hasCustomLabel = !!this.label();
+    const defaultLabel = this.isIndeterminate()
+      ? 'Loading'
+      : this.fillPercent();
+    return hasCustomLabel ? this.label() : defaultLabel;
+  });
+
   protected clampedValue = computed(() => {
-    return clamp(0, this.value(), this.max());
+    return clamp(0, this.value() || 0, this.max());
   });
 
   private fillRatio = computed(() => {
@@ -63,6 +81,7 @@ export class UiProgressBarComponent {
   });
 
   protected cssClass = computed(() => ({
+    ['indeterminate']: this.isIndeterminate(),
     [`kind-${this.kind()}`]: !!this.kind(),
     [`corners-${this.corners()}`]: !!this.corners(),
     [`size-${this.size()}`]: !!this.size(),
