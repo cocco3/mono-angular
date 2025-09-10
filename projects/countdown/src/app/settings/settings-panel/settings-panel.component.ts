@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-settings-panel',
-  styleUrls: ['./settings-panel.css'],
+  styleUrl: './settings-panel.css',
   templateUrl: './settings-panel.html',
 })
 export class SettingsPanelComponent {

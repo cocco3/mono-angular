@@ -8,7 +8,7 @@ export type UiLoadingSize = (typeof UiLoadingSizes)[number];
     '[class]': 'cssClass()',
   },
   selector: 'ui-loading',
-  styleUrls: ['./loading.css'],
+  styleUrl: './loading.css',
   templateUrl: './loading.html',
 })
 export class UiLoadingComponent {

@@ -3,7 +3,7 @@ import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
 
 @Component({
   selector: 'ui-empty',
-  styleUrls: ['./empty.css'],
+  styleUrl: './empty.css',
   templateUrl: './empty.html',
 })
 export class UiEmptyComponent {

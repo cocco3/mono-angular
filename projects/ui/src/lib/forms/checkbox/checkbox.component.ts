@@ -15,7 +15,7 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   ],
   exportAs: 'uiCheckbox',
   selector: `input[ui-checkbox]`,
-  styleUrls: ['./checkbox.css'],
+  styleUrl: './checkbox.css',
   template: '',
 })
 export class UiCheckboxComponent {

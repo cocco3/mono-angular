@@ -16,7 +16,7 @@ import { UiIconComponent } from '../../base/icon/icon.component';
   },
   imports: [UiIconComponent],
   selector: 'ui-form-field',
-  styleUrls: ['./form-field.css'],
+  styleUrl: './form-field.css',
   templateUrl: './form-field.html',
 })
 export class UiFormFieldComponent implements AfterContentInit {

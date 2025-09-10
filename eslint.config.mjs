@@ -27,6 +27,7 @@ export default tseslint.config(
       '@angular-eslint/prefer-output-readonly': 'error',
       '@angular-eslint/prefer-standalone': 'error',
 
+      '@angular-eslint/consistent-component-styles': 'error',
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {
