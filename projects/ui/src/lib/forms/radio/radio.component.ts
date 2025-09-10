@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 import { UiFormFieldDirective } from '../form-field/form-field.directive';
 
 /**
@@ -8,15 +8,16 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   host: {
     type: 'radio',
   },
-  exportAs: 'uiRadio',
-  providers: [
+  hostDirectives: [
     {
-      provide: UiFormFieldDirective,
-      useExisting: forwardRef(() => UiRadioComponent),
+      directive: UiFormFieldDirective,
     },
   ],
+  exportAs: 'uiRadio',
   selector: `input[ui-radio]`,
   styleUrls: ['./radio.css'],
   template: '',
 })
-export class UiRadioComponent extends UiFormFieldDirective<HTMLInputElement> {}
+export class UiRadioComponent {
+  public readonly elementRef = inject(ElementRef<HTMLInputElement>);
+}

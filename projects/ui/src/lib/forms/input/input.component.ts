@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 import { UiFormFieldDirective } from '../form-field/form-field.directive';
 
 export const UiInputTypes = [
@@ -15,14 +15,15 @@ export type UiInputType = (typeof UiInputTypes)[number];
  */
 @Component({
   exportAs: 'uiInput',
-  providers: [
+  hostDirectives: [
     {
-      provide: UiFormFieldDirective,
-      useExisting: forwardRef(() => UiInputComponent),
+      directive: UiFormFieldDirective,
     },
   ],
   selector: `input[ui-input]`,
   styleUrls: ['./input.css'],
   template: '',
 })
-export class UiInputComponent extends UiFormFieldDirective<HTMLInputElement> {}
+export class UiInputComponent {
+  public readonly elementRef = inject(ElementRef<HTMLInputElement>);
+}

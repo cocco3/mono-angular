@@ -11,7 +11,6 @@ import {
   UiFormFieldComponent,
   UiInputComponent,
   UiTextareaComponent,
-  UiTextareaAutosizeDirective,
 } from '@cocco3/angular-ui';
 import { getToday } from '@cocco3/utils';
 import { GoogleCalendarService } from '../../services/GoogleCalendarService';
@@ -31,7 +30,6 @@ import {
     UiFormFieldComponent,
     UiInputComponent,
     UiTextareaComponent,
-    UiTextareaAutosizeDirective,
   ],
   selector: 'app-create-event-dialog',
   styleUrls: ['./create-event-dialog.css'],

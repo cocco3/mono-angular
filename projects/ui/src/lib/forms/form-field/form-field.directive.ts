@@ -12,10 +12,11 @@ import { uniqueId } from '@cocco3/utils';
     '[class.invalid]': 'invalid',
     '[attr.id]': 'id',
   },
+  selector: 'input[uiFormField], select[uiFormField], textarea[uiFormField]',
 })
-export class UiFormFieldDirective<T extends HTMLElement> implements OnInit {
+export class UiFormFieldDirective implements OnInit {
   private renderer = inject(Renderer2);
-  public elementRef = inject(ElementRef<T>);
+  public elementRef = inject(ElementRef<HTMLElement>);
 
   private _inline = false;
   public get inline() {

@@ -1,7 +1,6 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { storybookArgsToTemplate } from '@cocco3/utils';
 import { UiFormFieldComponent } from './form-field.component';
-import { UiFormFieldDirective } from './form-field.directive';
 import { UiInputComponent } from '../input/input.component';
 import { UiTextareaComponent } from '../textarea/textarea.component';
 import { UiSelectComponent } from '../select/select.component';
@@ -10,7 +9,6 @@ import { UiRadioComponent } from '../radio/radio.component';
 
 const meta: Meta<UiFormFieldComponent> = {
   component: UiFormFieldComponent,
-  decorators: [moduleMetadata({ imports: [UiFormFieldDirective] })],
   tags: ['autodocs'],
   parameters: {
     design: {
