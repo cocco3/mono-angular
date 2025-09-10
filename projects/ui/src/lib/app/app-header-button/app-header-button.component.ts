@@ -6,7 +6,7 @@ import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
  */
 @Component({
   selector: 'a[ui-app-header-button]',
-  styleUrls: ['./app-header-button.css'],
+  styleUrl: './app-header-button.css',
   templateUrl: './app-header-button.html',
 })
 export class UiAppHeaderAnchorComponent {
@@ -22,7 +22,7 @@ export class UiAppHeaderAnchorComponent {
     type: 'button',
   },
   selector: 'button[ui-app-header-button]',
-  styleUrls: ['./app-header-button.css'],
+  styleUrl: './app-header-button.css',
   templateUrl: './app-header-button.html',
 })
 export class UiAppHeaderButtonComponent {

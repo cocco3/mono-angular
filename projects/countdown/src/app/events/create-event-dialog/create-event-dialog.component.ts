@@ -34,7 +34,7 @@ import {
     UiTextareaAutosizeDirective,
   ],
   selector: 'app-create-event-dialog',
-  styleUrls: ['./create-event-dialog.css'],
+  styleUrl: './create-event-dialog.css',
   templateUrl: './create-event-dialog.html',
 })
 export class CreateEventDialogComponent {

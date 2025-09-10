@@ -25,7 +25,7 @@ export type UiButtonWeight = (typeof UiButtonWeights)[number];
     '[attr.type]': 'type()',
   },
   selector: 'button[ui-button]',
-  styleUrls: ['./button.css'],
+  styleUrl: './button.css',
   templateUrl: './button.html',
 })
 export class UiButtonComponent {

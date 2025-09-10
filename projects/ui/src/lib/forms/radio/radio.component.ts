@@ -16,7 +16,7 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
     },
   ],
   selector: `input[ui-radio]`,
-  styleUrls: ['./radio.css'],
+  styleUrl: './radio.css',
   template: '',
 })
 export class UiRadioComponent extends UiFormFieldDirective<HTMLInputElement> {}

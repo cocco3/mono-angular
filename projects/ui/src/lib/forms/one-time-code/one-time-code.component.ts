@@ -25,7 +25,7 @@ export type UiOneTimeCodeTransform = (typeof UiOneTimeCodeTransforms)[number];
     '[style.--text-transform]': 'transform()',
   },
   selector: `input[ui-code]`,
-  styleUrls: ['./one-time-code.css'],
+  styleUrl: './one-time-code.css',
   template: '',
 })
 export class UiOneTimeCodeComponent {

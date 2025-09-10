@@ -22,7 +22,7 @@ export type UiToastPlacement = (typeof UiToastPlacements)[number];
   },
   imports: [NgTemplateOutlet, UiAlertComponent],
   selector: 'ui-toasts',
-  styleUrls: ['./toasts.css'],
+  styleUrl: './toasts.css',
   templateUrl: './toasts.html',
 })
 export class UiToastsComponent {

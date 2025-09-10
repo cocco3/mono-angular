@@ -14,7 +14,7 @@ export type UiAvatarFallback = (typeof UiAvatarFallbacks)[number];
   },
   imports: [UiIconComponent],
   selector: 'ui-avatar',
-  styleUrls: ['./avatar.css'],
+  styleUrl: './avatar.css',
   templateUrl: './avatar.html',
 })
 export class UiAvatarComponent {

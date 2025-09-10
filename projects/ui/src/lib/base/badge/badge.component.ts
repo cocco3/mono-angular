@@ -18,7 +18,7 @@ export type UiBadgeCorner = (typeof UiBadgeCorners)[number];
     '[class]': 'cssClass()',
   },
   selector: 'ui-badge',
-  styleUrls: ['./badge.css'],
+  styleUrl: './badge.css',
   templateUrl: './badge.html',
 })
 export class UiBadgeComponent {

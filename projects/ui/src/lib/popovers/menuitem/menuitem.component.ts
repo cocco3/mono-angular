@@ -9,7 +9,7 @@ import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
     role: 'menuitem',
   },
   selector: 'a[ui-menuitem]',
-  styleUrls: ['./menuitem.css'],
+  styleUrl: './menuitem.css',
   templateUrl: './menuitem.html',
 })
 export class UiMenuItemAnchorComponent {
@@ -28,7 +28,7 @@ export class UiMenuItemAnchorComponent {
     type: 'button',
   },
   selector: 'button[ui-menuitem]',
-  styleUrls: ['./menuitem.css'],
+  styleUrl: './menuitem.css',
   templateUrl: './menuitem.html',
 })
 export class UiMenuItemButtonComponent {
