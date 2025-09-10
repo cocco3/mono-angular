@@ -22,9 +22,7 @@ export default tseslint.config(
       // '@angular-eslint/sort-keys-in-type-decorator': 'error',
       // '@angular-eslint/no-uncalled-signals': 'error',
 
-      /** TODO: turn on after fixing form field directive */
-      '@angular-eslint/prefer-inject': 'off',
-
+      '@angular-eslint/prefer-inject': 'error',
       '@angular-eslint/prefer-output-emitter-ref': 'error',
       '@angular-eslint/prefer-output-readonly': 'error',
       '@angular-eslint/prefer-standalone': 'error',

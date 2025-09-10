@@ -1,11 +1,19 @@
-import { Directive, ElementRef, inject, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  inject,
+  type OnInit,
+  Renderer2,
+} from '@angular/core';
+import { uniqueId } from '@cocco3/utils';
 
 @Directive({
   host: {
     '[class.invalid]': 'invalid',
+    '[attr.id]': 'id',
   },
 })
-export class UiFormFieldDirective<T extends HTMLElement> {
+export class UiFormFieldDirective<T extends HTMLElement> implements OnInit {
   private renderer = inject(Renderer2);
   public elementRef = inject(ElementRef<T>);
 
@@ -13,24 +21,27 @@ export class UiFormFieldDirective<T extends HTMLElement> {
   public get inline() {
     return this._inline;
   }
-  private set inline(value) {
-    this._inline = value;
+
+  private _id = '';
+  public get id() {
+    return this._id;
   }
 
   protected invalid = false;
 
-  constructor({ inline }: { inline: boolean }) {
-    this.inline = inline;
+  private setInline() {
+    const element = this.elementRef.nativeElement;
+    this._inline = ['checkbox', 'radio'].includes(element.type.toLowerCase());
   }
 
-  setId(id: string) {
-    if (this.elementRef.nativeElement.id) {
-      console.warn(
-        `Input already has ID ${this.elementRef.nativeElement.id}. Input ID and <qai-field inputId="" /> cannot be used together.`
-      );
-    } else {
-      this.renderer.setAttribute(this.elementRef.nativeElement, 'id', id);
-    }
+  private setId() {
+    const element = this.elementRef.nativeElement;
+    this._id = element.id || uniqueId();
+  }
+
+  ngOnInit() {
+    this.setId();
+    this.setInline();
   }
 
   setAriaDescribedById(id: string | undefined) {

@@ -25,8 +25,4 @@ export type UiInputType = (typeof UiInputTypes)[number];
   styleUrls: ['./input.css'],
   template: '',
 })
-export class UiInputComponent extends UiFormFieldDirective<HTMLInputElement> {
-  constructor() {
-    super({ inline: false });
-  }
-}
+export class UiInputComponent extends UiFormFieldDirective<HTMLInputElement> {}
