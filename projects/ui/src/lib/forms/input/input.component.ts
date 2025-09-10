@@ -22,7 +22,7 @@ export type UiInputType = (typeof UiInputTypes)[number];
     },
   ],
   selector: `input[ui-input]`,
-  styleUrls: ['./input.css'],
+  styleUrl: './input.css',
   template: '',
 })
 export class UiInputComponent extends UiFormFieldDirective<HTMLInputElement> {}

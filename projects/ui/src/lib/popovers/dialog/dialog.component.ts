@@ -12,7 +12,7 @@ import { UiIconComponent } from '../../base/icon/icon.component';
 @Component({
   imports: [UiIconComponent],
   selector: 'dialog[ui-dialog]',
-  styleUrls: ['./dialog.css'],
+  styleUrl: './dialog.css',
   templateUrl: './dialog.html',
 })
 export class UiDialogComponent implements OnDestroy {

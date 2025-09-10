@@ -19,7 +19,7 @@ import { GoogleUserInfoService } from '../services/GoogleUserInfoService';
     UiIconComponent,
   ],
   selector: 'app-header',
-  styleUrls: ['./app-header.css'],
+  styleUrl: './app-header.css',
   templateUrl: './app-header.html',
 })
 export class AppHeaderComponent {

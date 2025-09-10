@@ -19,7 +19,7 @@ export type UiIconKind = keyof typeof svgIconStore;
     '[style.color]': 'color()',
   },
   selector: 'ui-icon',
-  styleUrls: ['./icon.css'],
+  styleUrl: './icon.css',
   template: '',
 })
 export class UiIconComponent {

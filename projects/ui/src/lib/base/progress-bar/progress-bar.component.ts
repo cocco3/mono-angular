@@ -29,7 +29,7 @@ export type UiProgressBarCorner = (typeof UiProgressBarCorners)[number];
     '[style.--_progress-segments]': 'segments()',
   },
   selector: 'ui-progress-bar',
-  styleUrls: ['./progress-bar.css'],
+  styleUrl: './progress-bar.css',
   template: '',
 })
 export class UiProgressBarComponent {
