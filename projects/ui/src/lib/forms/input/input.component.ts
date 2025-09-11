@@ -28,5 +28,5 @@ export type UiInputType = (typeof UiInputTypes)[number];
 export class UiInputComponent {
   public readonly elementRef = inject(ElementRef<HTMLInputElement>);
 
-  invalid = input(false);
+  invalid = input<boolean>(false);
 }

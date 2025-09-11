@@ -29,6 +29,13 @@ const meta: Meta<InputStory> = {
     autocapitalize: { control: { type: 'text' } },
     inputmode: { control: { type: 'text' } },
     maxlength: { control: { type: 'text' } },
+    elementRef: {
+      control: { disable: true },
+      table: {
+        type: { summary: 'ElementRef<HTMLInputElement>' },
+        defaultValue: { summary: '-' },
+      },
+    },
   },
   args: {
     type: 'text',

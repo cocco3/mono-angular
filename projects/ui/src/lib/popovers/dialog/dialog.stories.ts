@@ -23,12 +23,18 @@ const meta: Meta<DialogStory> = {
     }),
   ],
   argTypes: {
-    elementRef: { control: { disable: true } },
     close: { control: { disable: true } },
     show: { control: { disable: true } },
     showModal: { control: { disable: true } },
     afterClose: { control: { disable: true } },
     primaryButtonKind: { options: UiButtonKinds, control: { type: 'radio' } },
+    elementRef: {
+      control: { disable: true },
+      table: {
+        type: { summary: 'ElementRef<HTMLDialogElement>' },
+        defaultValue: { summary: '-' },
+      },
+    },
   },
   args: {
     primaryButtonKind: 'primary',
