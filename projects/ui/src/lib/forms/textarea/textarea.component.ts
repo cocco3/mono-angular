@@ -24,6 +24,7 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
     },
     {
       directive: UiFormFieldDirective,
+      inputs: ['invalid: invalid'],
     },
   ],
   selector: 'textarea[ui-textarea]',
@@ -35,6 +36,8 @@ export class UiTextareaComponent {
 
   /** Allow the textarea to grow/shrink as you type */
   autosize = input(false, { transform: booleanAttribute });
+
+  invalid = input(false);
 
   protected cssClass = computed(() => ({
     autosize: this.autosize(),

@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject } from '@angular/core';
+import { Component, ElementRef, inject, input } from '@angular/core';
 import { UiFormFieldDirective } from '../form-field/form-field.directive';
 
 export const UiInputTypes = [
@@ -18,6 +18,7 @@ export type UiInputType = (typeof UiInputTypes)[number];
   hostDirectives: [
     {
       directive: UiFormFieldDirective,
+      inputs: ['invalid: invalid'],
     },
   ],
   selector: `input[ui-input]`,
@@ -26,4 +27,6 @@ export type UiInputType = (typeof UiInputTypes)[number];
 })
 export class UiInputComponent {
   public readonly elementRef = inject(ElementRef<HTMLInputElement>);
+
+  invalid = input(false);
 }

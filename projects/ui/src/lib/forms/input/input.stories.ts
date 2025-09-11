@@ -41,7 +41,6 @@ const meta: Meta<InputStory> = {
       url: 'https://www.figma.com/design/YbdR1kLiOU262EEicORFYh/%E2%9D%96-PREVIEW-%E2%9D%96-Untitled-UI-%E2%80%93-PRO-VARIABLES-(v7.0)?node-id=1090-57817&t=zIQCmerxWCcvw2xE-0',
     },
   },
-
   render: ({ inputmode, maxlength, size, ...args }) => ({
     props: args,
     template: `
@@ -70,6 +69,10 @@ export const Disabled: Story = {
 
 export const Readonly: Story = {
   args: { value: 'Hello world', readonly: true },
+};
+
+export const Invalid: Story = {
+  args: { value: 'Hello world', invalid: true },
 };
 
 export const Password: Story = {

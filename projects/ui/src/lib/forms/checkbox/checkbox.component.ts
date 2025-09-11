@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject } from '@angular/core';
+import { Component, ElementRef, inject, input } from '@angular/core';
 import { UiFormFieldDirective } from '../form-field/form-field.directive';
 
 /**
@@ -11,6 +11,7 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   hostDirectives: [
     {
       directive: UiFormFieldDirective,
+      inputs: ['invalid: invalid'],
     },
   ],
   exportAs: 'uiCheckbox',
@@ -20,4 +21,6 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
 })
 export class UiCheckboxComponent {
   public readonly elementRef = inject(ElementRef<HTMLInputElement>);
+
+  invalid = input(false);
 }

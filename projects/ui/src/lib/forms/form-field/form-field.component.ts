@@ -58,7 +58,7 @@ export class UiFormFieldComponent implements AfterContentInit {
     const formField = this.formFieldChild();
     if (formField) {
       this.inline = formField.inline;
-      this.inputId = formField.id;
+      this.inputId = formField.inputId;
     } else {
       console.error('No form field child found.');
     }
