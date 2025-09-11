@@ -29,7 +29,7 @@ export type UiAlertKind = (typeof UiAlertKinds)[number];
   templateUrl: './alert.html',
 })
 export class UiAlertComponent implements OnInit {
-  dismissible = input(false);
+  dismissible = input<boolean>(false);
   heading = input<string>();
   kind = input.required<UiAlertKind>();
 

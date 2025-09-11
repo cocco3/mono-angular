@@ -19,6 +19,13 @@ const meta: Meta<TextareaStory> = {
     disabled: { control: { type: 'boolean' } },
     name: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
+    elementRef: {
+      control: { disable: true },
+      table: {
+        type: { summary: 'ElementRef<HTMLTextAreaElement>' },
+        defaultValue: { summary: '-' },
+      },
+    },
   },
   args: {
     value: `Ipsum consequat ipsum quis elit eiusmod do minim ad enim commodo ipsum on4t. Exercitation veniam elit ut do elit nostrud aliqua nostrud tempor dolore exercitation magna. Labore aliquip sed labore dolore ex nisi adipiscing commodo minim tempor minim.`,

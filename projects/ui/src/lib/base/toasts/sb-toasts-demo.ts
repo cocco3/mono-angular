@@ -41,7 +41,7 @@ export class SbToastsDemoComponent {
     TemplateRef<unknown>
   >('customToastTemplate');
 
-  dismissible = input(false);
+  dismissible = input<boolean>(false);
   duration = input<number>();
   heading = input<string>();
   kind = input.required<UiAlertKind>();
