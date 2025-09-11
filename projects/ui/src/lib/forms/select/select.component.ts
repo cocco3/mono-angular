@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, ElementRef, inject, input } from '@angular/core';
 import { UiFormFieldDirective } from '../form-field/form-field.directive';
 
 /**
@@ -6,14 +6,18 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
  */
 @Component({
   exportAs: 'uiSelect',
-  providers: [
+  hostDirectives: [
     {
-      provide: UiFormFieldDirective,
-      useExisting: forwardRef(() => UiSelectComponent),
+      directive: UiFormFieldDirective,
+      inputs: ['invalid: invalid'],
     },
   ],
   selector: `select[ui-select]`,
   styleUrl: './select.css',
   template: '<ng-content />',
 })
-export class UiSelectComponent extends UiFormFieldDirective<HTMLSelectElement> {}
+export class UiSelectComponent {
+  public readonly elementRef = inject(ElementRef<HTMLSelectElement>);
+
+  invalid = input(false);
+}

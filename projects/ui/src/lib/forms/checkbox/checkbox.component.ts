@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, ElementRef, inject, input } from '@angular/core';
 import { UiFormFieldDirective } from '../form-field/form-field.directive';
 
 /**
@@ -8,15 +8,19 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   host: {
     type: 'checkbox',
   },
-  exportAs: 'uiCheckbox',
-  providers: [
+  hostDirectives: [
     {
-      provide: UiFormFieldDirective,
-      useExisting: forwardRef(() => UiCheckboxComponent),
+      directive: UiFormFieldDirective,
+      inputs: ['invalid: invalid'],
     },
   ],
+  exportAs: 'uiCheckbox',
   selector: `input[ui-checkbox]`,
   styleUrl: './checkbox.css',
   template: '',
 })
-export class UiCheckboxComponent extends UiFormFieldDirective<HTMLInputElement> {}
+export class UiCheckboxComponent {
+  public readonly elementRef = inject(ElementRef<HTMLInputElement>);
+
+  invalid = input(false);
+}

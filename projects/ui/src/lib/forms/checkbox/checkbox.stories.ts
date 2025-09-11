@@ -21,13 +21,15 @@ const meta: Meta<CheckboxStory> = {
     name: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
   },
+  args: {
+    value: 'Hello world',
+  },
   parameters: {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/design/YbdR1kLiOU262EEicORFYh/%E2%9D%96-PREVIEW-%E2%9D%96-Untitled-UI-%E2%80%93-PRO-VARIABLES-(v7.0)?node-id=1097-63652&t=zIQCmerxWCcvw2xE-0',
     },
   },
-
   render: (args) => ({
     props: args,
     template: `
@@ -41,20 +43,23 @@ export default meta;
 type Story = StoryObj<CheckboxStory>;
 
 export const Default: Story = {
-  args: { value: 'Hello world', name: 'cb-default' },
+  args: { name: 'cb-default' },
 };
 
 export const Checked: Story = {
-  args: { value: 'Hello world', checked: true, name: 'cb-checked' },
+  args: { checked: true, name: 'cb-checked' },
 };
 
 export const Disabled: Story = {
-  args: { value: 'Hello world', disabled: true, name: 'cb-disabled' },
+  args: { disabled: true, name: 'cb-disabled' },
+};
+
+export const Invalid: Story = {
+  args: { invalid: true, name: 'cb-invalid' },
 };
 
 export const CheckedDisabled: Story = {
   args: {
-    value: 'Hello world',
     checked: true,
     disabled: true,
     name: 'cb-checked-disabled',

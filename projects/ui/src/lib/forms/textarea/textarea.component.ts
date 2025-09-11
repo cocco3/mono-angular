@@ -2,7 +2,8 @@ import {
   booleanAttribute,
   Component,
   computed,
-  forwardRef,
+  ElementRef,
+  inject,
   input,
 } from '@angular/core';
 import { UiTextareaAutosizeDirective } from './textarea-autosize.directive';
@@ -21,20 +22,22 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
       directive: UiTextareaAutosizeDirective,
       inputs: ['uiAutosize: autosize'],
     },
-  ],
-  providers: [
     {
-      provide: UiFormFieldDirective,
-      useExisting: forwardRef(() => UiTextareaComponent),
+      directive: UiFormFieldDirective,
+      inputs: ['invalid: invalid'],
     },
   ],
   selector: 'textarea[ui-textarea]',
   styleUrl: './textarea.css',
   template: '<ng-content />',
 })
-export class UiTextareaComponent extends UiFormFieldDirective<HTMLTextAreaElement> {
+export class UiTextareaComponent {
+  public readonly elementRef = inject(ElementRef<HTMLTextAreaElement>);
+
   /** Allow the textarea to grow/shrink as you type */
   autosize = input(false, { transform: booleanAttribute });
+
+  invalid = input(false);
 
   protected cssClass = computed(() => ({
     autosize: this.autosize(),

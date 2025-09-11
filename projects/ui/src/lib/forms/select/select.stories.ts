@@ -25,7 +25,6 @@ const meta: Meta<SelectStory> = {
       url: 'https://www.figma.com/design/YbdR1kLiOU262EEicORFYh/%E2%9D%96-PREVIEW-%E2%9D%96-Untitled-UI-%E2%80%93-PRO-VARIABLES-(v7.0)?node-id=3281-377673&t=zIQCmerxWCcvw2xE-0',
     },
   },
-
   render: (args) => ({
     props: args,
     template: `
@@ -46,4 +45,8 @@ export const Default: Story = {};
 
 export const Disabled: Story = {
   args: { disabled: true },
+};
+
+export const Invalid: Story = {
+  args: { invalid: true },
 };
