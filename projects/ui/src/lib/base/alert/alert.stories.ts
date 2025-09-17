@@ -42,7 +42,7 @@ export const Negative: Story = {
   args: {
     kind: 'negative',
     heading: 'Upload failed',
-    content: `The file could not be uploaded. Please try again.'`,
+    content: `The file could not be uploaded. Please try again.`,
   },
 };
 
