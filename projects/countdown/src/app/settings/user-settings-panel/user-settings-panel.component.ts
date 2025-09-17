@@ -13,7 +13,9 @@ import {
   type UserSettingsModel,
 } from './user-settings-schema';
 import {
+  type UserSettingFormat,
   UserSettingFormats,
+  type UserSettingTheme,
   UserSettingThemes,
 } from '../../services/LocalStorageService';
 
@@ -41,21 +43,25 @@ export class UserSettingsPanelComponent {
   protected isSaving = false;
   protected formErrors: Partial<UserSettingsModel> = {};
 
+  private _themeMap = {
+    auto: 'Auto',
+    light: 'Light',
+    dark: 'Dark',
+  } as const satisfies Record<UserSettingTheme, string>;
+
   protected themeOptions = UserSettingThemes.map((value) => {
-    const text = {
-      light: 'Light',
-      dark: 'Dark',
-      auto: 'Auto',
-    }[value];
-    return { value, text };
+    const label = this._themeMap[value];
+    return { value, label };
   });
 
+  private _formatMap = {
+    detailed: 'Detailed',
+    days: 'Days',
+  } as const satisfies Record<UserSettingFormat, string>;
+
   protected formatOptions = UserSettingFormats.map((value) => {
-    const text = {
-      detailed: 'Detailed',
-      days: 'Days',
-    }[value];
-    return { value, text };
+    const label = this._formatMap[value];
+    return { value, label };
   });
 
   protected form = this.formBuilder.group({
