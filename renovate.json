@@ -76,7 +76,7 @@
     {
       "groupName": "GitHub Actions",
       "matchManagers": ["github-actions"],
-      "matchPackagePatterns": ["^actions/.*", "^peaceiris/actions-gh-pages"]
+      "matchPackageNames": ["/^actions/.*/", "/^peaceiris/actions-gh-pages/"]
     }
   ]
 }
