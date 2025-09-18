@@ -10,7 +10,9 @@ type RadioStory = UiRadioComponent & {
 };
 
 /**
- * Use with [form-field](/story/forms-form-field--radio) component
+ * For an individual radio button, use with [form-field](/story/forms-form-field--radio) component.
+ *
+ * For a group of radio buttons, use [selection-group](/story/forms-selection-group--radio) component.
  */
 const meta: Meta<RadioStory> = {
   component: UiRadioComponent,

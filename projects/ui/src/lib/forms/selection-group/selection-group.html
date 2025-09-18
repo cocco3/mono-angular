@@ -1,0 +1,45 @@
+<fieldset
+  class="fieldset"
+  [attr.aria-describedby]="hasDescription() ? descriptionId : undefined"
+  [attr.aria-invalid]="invalid() || undefined"
+>
+  <legend class="label">
+    {{ label() }}
+  </legend>
+
+  <div class="group">
+    @for (option of options(); track option.value) {
+      <ui-form-field [label]="option.label" [description]="option.description">
+        @if (kind() === 'checkbox') {
+          <input
+            ui-checkbox
+            [value]="option.value"
+            [name]="groupName()"
+            [checked]="isChecked(option.value)"
+            [disabled]="disabled"
+            (change)="onCheckboxChange(option.value, $event.target.checked)"
+          />
+        } @else {
+          <input
+            ui-radio
+            [value]="option.value"
+            [name]="groupName()"
+            [checked]="isChecked(option.value)"
+            [disabled]="disabled"
+            (change)="onRadioChange(option.value)"
+          />
+        }
+      </ui-form-field>
+    }
+  </div>
+</fieldset>
+
+@if (hasDescription()) {
+  <ui-field-description
+    class="description"
+    [attr.id]="descriptionId"
+    [invalid]="invalid()"
+  >
+    {{ error() || description() }}
+  </ui-field-description>
+}

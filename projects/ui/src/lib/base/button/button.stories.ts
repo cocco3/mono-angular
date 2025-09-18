@@ -103,6 +103,10 @@ export const Outline: Story = {
   },
 };
 
+/**
+ * Use ghost button when user is expected to take an action.
+ * Use a link when a user is expected to be taken to a different page.
+ */
 export const Ghost: Story = {
   args: {
     kind: 'secondary',

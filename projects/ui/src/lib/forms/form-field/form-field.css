@@ -11,44 +11,28 @@
   font: 500 var(--type-text-sm);
 }
 
-.description {
-  align-items: flex-start;
-  color: var(--text-tertiary);
-  display: flex;
-  flex-direction: row;
-  font: 400 var(--type-text-sm);
-  gap: 0.8ch;
-}
-
-.description-invalid {
-  color: var(--text-error);
-}
-
-.description_icon {
-  flex-shrink: 0;
-  height: 1lh;
-  width: 0.9em;
-}
-
 :host.inline {
   align-items: center;
-  gap: 0 8px;
+  gap: 0;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
-}
 
-:host.inline .input {
-  align-self: start;
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
+  & .input {
+    align-self: start;
+    display: flex;
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
 
-:host.inline .label {
-  grid-column: 2;
-  grid-row: 1;
-}
+  & .label {
+    grid-column: 2;
+    grid-row: 1;
+    padding-inline-start: 8px;
+  }
 
-:host.inline .description {
-  grid-column: 2;
-  grid-row: 2;
+  & .description {
+    grid-column: 2;
+    grid-row: 2;
+    padding-inline-start: 8px;
+  }
 }
