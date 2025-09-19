@@ -3,9 +3,9 @@
 </span>
 
 <div class="links">
-  <a [href]="posterUrl" target="_blank" (click)="handleGuideClick()">
-    PNG Guide
-  </a>
-
-  <a [href]="issuesUrl" target="_blank"> Report an issue </a>
+  @for (link of links; track link.url) {
+    <a [href]="link.url" target="_blank" (click)="link.click()">
+      {{ link.label }}
+    </a>
+  }
 </div>
