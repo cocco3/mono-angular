@@ -1,8 +1,9 @@
 # Contributing
 
 1. [Local environment setup](./Setup.md)
-2. [Linting and formatting](./Linting.md)
-3. [Managing dependencies](./Dependencies.md)
+1. [Linting and formatting](./Linting.md)
+1. [Managing dependencies](./Dependencies.md)
+1. [Browser support](./BrowserSupport.md)
 
 ## Application development
 
