@@ -1,0 +1,13 @@
+# browserslist docs:
+# https://github.com/browserslist/browserslist
+
+# update database
+# https://github.com/browserslist/update-db
+# `npx update-browserslist-db@latest`
+
+# to test, run the following:
+# `npx browserslist`
+
+defaults and fully supports es6
+last 3 Safari major versions
+last 3 iOS major versions
