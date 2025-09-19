@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 
 type TrackEvent =
   | { name: 'wiki_clicked'; data: { item: string } }
-  | { name: 'guide_clicked' };
+  | { name: 'issues_clicked' }
+  | { name: 'guide_clicked' }
+  | { name: 'planner_clicked' };
 
 @Injectable({
   providedIn: 'root',
