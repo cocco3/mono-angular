@@ -10,7 +10,9 @@ type CheckboxStory = UiCheckboxComponent & {
 };
 
 /**
- * Use with [form-field](/story/forms-form-field--checkbox) component
+ * For an individual checkbox, use with [form-field](/story/forms-form-field--checkbox) component.
+ *
+ * For a group of checkboxes, use [selection-group](/story/forms-selection-group--checkbox) component.
  */
 const meta: Meta<CheckboxStory> = {
   component: UiCheckboxComponent,

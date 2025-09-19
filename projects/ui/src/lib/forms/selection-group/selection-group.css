@@ -1,0 +1,36 @@
+:host.dir-row {
+  --_direction: row;
+  --_gap: 20px;
+}
+
+:host.dir-column {
+  --_direction: column;
+  --_gap: 12px;
+}
+
+.fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  label {
+    font-weight: 400;
+  }
+}
+
+.label {
+  color: var(--text-secondary);
+  font: 500 var(--type-text-sm);
+  padding: 0;
+  margin-block-end: 8px;
+}
+
+.group {
+  display: inline-flex;
+  flex-direction: var(--_direction);
+  gap: var(--_gap);
+}
+
+.description {
+  margin-block-start: 8px;
+}

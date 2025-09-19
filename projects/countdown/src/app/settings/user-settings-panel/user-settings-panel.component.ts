@@ -4,7 +4,7 @@ import {
   UiButtonComponent,
   UiFormFieldComponent,
   UiInputComponent,
-  UiSelectComponent,
+  UiSelectionGroupComponent,
   UiToastService,
 } from '@cocco3/angular-ui';
 import { UserSettingsService } from '../../services/UserSettingsService';
@@ -25,7 +25,7 @@ import {
     UiButtonComponent,
     UiFormFieldComponent,
     UiInputComponent,
-    UiSelectComponent,
+    UiSelectionGroupComponent,
   ],
   selector: 'app-user-settings-panel',
   styleUrl: './user-settings-panel.css',
@@ -55,13 +55,22 @@ export class UserSettingsPanelComponent {
   });
 
   private _formatMap = {
-    detailed: 'Detailed',
-    days: 'Days',
-  } as const satisfies Record<UserSettingFormat, string>;
+    detailed: {
+      label: 'Detailed',
+      description: 'Show countdown as years/months/days',
+    },
+    days: {
+      label: 'Days',
+      description: 'Show countdown as total days',
+    },
+  } as const satisfies Record<
+    UserSettingFormat,
+    { label: string; description: string }
+  >;
 
   protected formatOptions = UserSettingFormats.map((value) => {
-    const label = this._formatMap[value];
-    return { value, label };
+    const item = this._formatMap[value];
+    return { value, label: item.label, description: item.description };
   });
 
   protected form = this.formBuilder.group({

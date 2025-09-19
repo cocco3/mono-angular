@@ -6,16 +6,12 @@
   <ng-content />
 </div>
 
-@if (showDescription()) {
-  <div
-    [attr.id]="descriptionId()"
+@if (hasDescription()) {
+  <ui-field-description
     class="description"
-    [class.description-invalid]="invalid()"
+    [attr.id]="descriptionId"
+    [invalid]="invalid()"
   >
-    @if (invalid()) {
-      <ui-icon kind="alert-triangle" class="description_icon" />
-    }
-
     {{ error() || description() }}
-  </div>
+  </ui-field-description>
 }

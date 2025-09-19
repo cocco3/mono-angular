@@ -4,7 +4,6 @@ import {
   inject,
   Input,
   type OnInit,
-  Renderer2,
 } from '@angular/core';
 import { uniqueId } from '@cocco3/utils';
 
@@ -12,21 +11,17 @@ import { uniqueId } from '@cocco3/utils';
   host: {
     '[class.invalid]': 'invalid',
     '[attr.id]': 'inputId',
+    '[attr.aria-describedby]': 'descriptionId || undefined',
+    '[attr.aria-invalid]': 'invalid || undefined',
   },
   selector: 'input[uiFormField], select[uiFormField], textarea[uiFormField]',
 })
 export class UiFormFieldDirective implements OnInit {
-  private renderer = inject(Renderer2);
   public elementRef = inject(ElementRef<HTMLElement>);
 
-  private _invalid = false;
-  @Input()
-  get invalid() {
-    return this._invalid;
-  }
-  set invalid(value: boolean) {
-    this._invalid = value;
-  }
+  protected descriptionId: string | undefined;
+
+  @Input() invalid = false;
 
   private _inline = false;
   public get inline() {
@@ -54,21 +49,10 @@ export class UiFormFieldDirective implements OnInit {
   }
 
   setAriaDescribedById(id: string | undefined) {
-    if (id) {
-      this.renderer.setAttribute(
-        this.elementRef.nativeElement,
-        'aria-describedby',
-        id
-      );
-    } else {
-      this.renderer.removeAttribute(
-        this.elementRef.nativeElement,
-        'aria-describedby'
-      );
-    }
+    this.descriptionId = id;
   }
 
   setInvalid(value: boolean) {
-    this._invalid = value;
+    this.invalid = value;
   }
 }

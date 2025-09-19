@@ -6,10 +6,10 @@ const config: StorybookConfig = {
     '../src/lib/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
   addons: [
-    '@chromatic-com/storybook',
+    '@storybook/addon-docs',
     '@storybook/addon-themes',
     '@storybook/addon-designs',
-    '@storybook/addon-docs',
+    '@chromatic-com/storybook',
   ],
   framework: {
     name: '@storybook/angular',

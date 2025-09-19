@@ -1,46 +1,34 @@
 <form class="form" [formGroup]="form" (ngSubmit)="handleSubmit()">
-  <div>
-    <ui-form-field [label]="'Query'" [error]="formErrors.query">
-      <input ui-input type="text" formControlName="query" />
-    </ui-form-field>
-  </div>
+  <ui-form-field [label]="'Query'" [error]="formErrors.query">
+    <input ui-input type="text" formControlName="query" />
+  </ui-form-field>
 
-  <div>
-    <ui-form-field [label]="'Timezone'" [error]="formErrors.timeZone">
-      <input ui-input type="text" readonly formControlName="timeZone" />
-    </ui-form-field>
-  </div>
+  <ui-form-field [label]="'Timezone'" [error]="formErrors.timeZone">
+    <input ui-input type="text" readonly formControlName="timeZone" />
+  </ui-form-field>
 
-  <div>
-    <ui-form-field [label]="'Calendar'" [error]="formErrors.defaultCalendarId">
-      <input
-        ui-input
-        type="text"
-        readonly
-        formControlName="defaultCalendarId"
-      />
-    </ui-form-field>
-  </div>
+  <ui-form-field [label]="'Calendar'" [error]="formErrors.defaultCalendarId">
+    <input ui-input type="text" readonly formControlName="defaultCalendarId" />
+  </ui-form-field>
 
-  <div>
-    <ui-form-field [label]="'Format'" [error]="formErrors.defaultFormat">
-      <select ui-select formControlName="defaultFormat">
-        @for (option of formatOptions; track option.value) {
-          <option [value]="option.value">{{ option.label }}</option>
-        }
-      </select>
-    </ui-form-field>
-  </div>
+  <ui-selection-group
+    kind="radio"
+    groupName="format"
+    formControlName="defaultFormat"
+    [label]="'Format'"
+    [options]="formatOptions"
+    [error]="formErrors.defaultFormat"
+  />
 
-  <div>
-    <ui-form-field [label]="'Theme'" [error]="formErrors.theme">
-      <select ui-select formControlName="theme">
-        @for (option of themeOptions; track option.value) {
-          <option [value]="option.value">{{ option.label }}</option>
-        }
-      </select>
-    </ui-form-field>
-  </div>
+  <ui-selection-group
+    kind="radio"
+    groupName="theme"
+    formControlName="theme"
+    direction="row"
+    [label]="'Theme'"
+    [options]="themeOptions"
+    [error]="formErrors.theme"
+  />
 
   <p>
     <button
