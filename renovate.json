@@ -75,6 +75,15 @@
       "matchPackageNames": ["date-fns", "@date-fns/*"]
     },
     {
+      "groupName": "PostCSS",
+      "matchPackageNames": [
+        "postcss",
+        "postcss-*",
+        "@csstools/postcss-media-minmax",
+        "caniuse-lite"
+      ]
+    },
+    {
       "groupName": "GitHub Actions",
       "matchManagers": ["github-actions"],
       "matchPackageNames": ["/^actions/.*/", "/^peaceiris/actions-gh-pages/"]
