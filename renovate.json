@@ -77,6 +77,16 @@
       "groupName": "GitHub Actions",
       "matchManagers": ["github-actions"],
       "matchPackageNames": ["/^actions/.*/", "/^peaceiris/actions-gh-pages/"]
+    },
+    {
+      "groupName": "Browserslist data",
+      "matchPackageNames": ["caniuse-lite"],
+      "matchDepTypes": [
+        "dependencies",
+        "devDependencies",
+        "peerDependencies",
+        "optionalDependencies"
+      ]
     }
   ]
 }
