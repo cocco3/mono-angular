@@ -2,7 +2,7 @@ import { z } from 'zod';
 import {
   UserSettingFormats,
   UserSettingThemes,
-} from '../../services/LocalStorageService';
+} from '../../services/UserSettingsService';
 
 export const userSettingsSchema = z.object({
   query: z

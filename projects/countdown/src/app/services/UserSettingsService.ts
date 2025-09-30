@@ -1,9 +1,15 @@
 import { inject, Injectable, signal } from '@angular/core';
+import { sleep } from '@cocco3/utils';
 import {
   type AppLocalStorage,
   LocalStorageService,
 } from './LocalStorageService';
-import { sleep } from '@cocco3/utils';
+
+export const UserSettingThemes = ['auto', 'light', 'dark'] as const;
+export type UserSettingTheme = (typeof UserSettingThemes)[number];
+
+export const UserSettingFormats = ['detailed', 'days'] as const;
+export type UserSettingFormat = (typeof UserSettingFormats)[number];
 
 type UserSettings = AppLocalStorage['settings'];
 
