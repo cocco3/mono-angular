@@ -49,7 +49,7 @@
     "@storybook/angular": "^9.1.4",
     "@types/express": "^5.0.3",
     "@types/fs-extra": "^11.0.4",
-    "@types/google.accounts": "^0.0.17",
+    "@types/google.accounts": "^0.0.18",
     "@types/jasmine": "^5.1.9",
     "@types/node": "^22.16.0",
     "@types/react": "^19.1.8",
