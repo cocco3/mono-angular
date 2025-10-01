@@ -7,17 +7,17 @@ import {
   UiSelectionGroupComponent,
   UiToastService,
 } from '@cocco3/angular-ui';
-import { UserSettingsService } from '../../services/UserSettingsService';
+import {
+  type UserSettingFormat,
+  UserSettingFormats,
+  UserSettingsService,
+  type UserSettingTheme,
+  UserSettingThemes,
+} from '../../services/UserSettingsService';
 import {
   userSettingsSchema,
   type UserSettingsModel,
 } from './user-settings-schema';
-import {
-  type UserSettingFormat,
-  UserSettingFormats,
-  type UserSettingTheme,
-  UserSettingThemes,
-} from '../../services/LocalStorageService';
 
 @Component({
   imports: [
