@@ -12,12 +12,19 @@
     (submit)="handleSubmit()"
   >
     <ui-form-field [label]="'Name'" [error]="formErrors.name">
-      <input ui-input type="text" formControlName="name" autocomplete="off" />
+      <input
+        ui-input
+        type="text"
+        required
+        formControlName="name"
+        autocomplete="off"
+      />
     </ui-form-field>
 
     <ui-form-field [label]="'Description'" [error]="formErrors.description">
       <textarea
         ui-textarea
+        required
         autosize
         formControlName="description"
         [style.min-height]="'1lh'"
@@ -26,7 +33,13 @@
 
     <div class="dateTime">
       <ui-form-field [label]="'Start Date'" [error]="formErrors.startDate">
-        <input ui-input type="date" formControlName="startDate" #startDate />
+        <input
+          ui-input
+          type="date"
+          required
+          formControlName="startDate"
+          #startDate
+        />
       </ui-form-field>
       <ui-form-field [label]="'Start Time'" [error]="formErrors.startTime">
         <input ui-input type="time" step="900" formControlName="startTime" />
@@ -38,6 +51,7 @@
         <input
           ui-input
           type="date"
+          required
           formControlName="endDate"
           [min]="startDate.elementRef.nativeElement.value"
         />

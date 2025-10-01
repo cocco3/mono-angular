@@ -79,6 +79,13 @@ export const Radio: Story = {
   },
 };
 
+export const Required: Story = {
+  args: {
+    ...Radio.args,
+    required: true,
+  },
+};
+
 export const Error: Story = {
   args: {
     ...Radio.args,

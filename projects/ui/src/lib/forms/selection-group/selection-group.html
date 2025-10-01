@@ -2,9 +2,13 @@
   class="fieldset"
   [attr.aria-describedby]="hasDescription() ? descriptionId : undefined"
   [attr.aria-invalid]="invalid() || undefined"
+  [attr.aria-required]="required() || undefined"
 >
   <legend class="label">
     {{ label() }}
+    @if (required()) {
+      <span aria-hidden="true" class="required">*</span>
+    }
   </legend>
 
   <div class="group">
