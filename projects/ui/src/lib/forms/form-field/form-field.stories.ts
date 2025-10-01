@@ -7,9 +7,16 @@ import { UiSelectComponent } from '../select/select.component';
 import { UiCheckboxComponent } from '../checkbox/checkbox.component';
 import { UiRadioComponent } from '../radio/radio.component';
 
-const meta: Meta<UiFormFieldComponent> = {
+type FormFieldStory = UiFormFieldComponent & {
+  required?: boolean;
+};
+
+const meta: Meta<FormFieldStory> = {
   component: UiFormFieldComponent,
   tags: ['autodocs'],
+  argTypes: {
+    required: { control: { type: 'boolean' } },
+  },
   parameters: {
     design: {
       type: 'figma',
@@ -20,7 +27,7 @@ const meta: Meta<UiFormFieldComponent> = {
 
 export default meta;
 
-type Story = StoryObj<UiFormFieldComponent>;
+type Story = StoryObj<FormFieldStory>;
 
 /**
  * Use with [input](/docs/forms-input--docs) component
@@ -31,11 +38,11 @@ export const Input: Story = {
     label: 'Email',
     description: 'Some description or hint to help the user.',
   },
-  render: (args) => ({
+  render: ({ required, ...args }) => ({
     props: args,
     template: `
       <ui-form-field ${storybookArgsToTemplate(args)}>
-        <input ui-input type="text" />
+        <input ui-input type="text" ${required ? 'required' : ''} />
       </ui-form-field>
     `,
   }),
@@ -50,11 +57,11 @@ export const Textarea: Story = {
     label: 'Feedback',
     description: 'Feedback is shared anonymously.',
   },
-  render: (args) => ({
+  render: ({ required, ...args }) => ({
     props: args,
     template: `
       <ui-form-field ${storybookArgsToTemplate(args)}>
-        <textarea ui-textarea autosize></textarea>
+        <textarea ui-textarea autosize ${required ? 'required' : ''}></textarea>
       </ui-form-field>
     `,
   }),
@@ -69,11 +76,11 @@ export const Select: Story = {
     label: 'Color',
     description: 'Some description or hint to help the user.',
   },
-  render: (args) => ({
+  render: ({ required, ...args }) => ({
     props: args,
     template: `
       <ui-form-field ${storybookArgsToTemplate(args)}>
-        <select ui-select>
+        <select ui-select ${required ? 'required' : ''}>
           <option>FireBrick</option>
           <option selected>DeepSkyBlue</option>
           <option>MediumSeaGreen</option>
@@ -92,11 +99,11 @@ export const Checkbox: Story = {
     label: 'Remember me',
     description: 'Save my login details for next time.',
   },
-  render: (args) => ({
+  render: ({ required, ...args }) => ({
     props: args,
     template: `
       <ui-form-field ${storybookArgsToTemplate(args)}>
-        <input ui-checkbox />
+        <input ui-checkbox ${required ? 'required' : ''} />
       </ui-form-field>
     `,
   }),
@@ -111,14 +118,24 @@ export const Radio: Story = {
     label: 'Remember me',
     description: 'Save my login details for next time.',
   },
-  render: (args) => ({
+  render: ({ required, ...args }) => ({
     props: args,
     template: `
       <ui-form-field ${storybookArgsToTemplate(args)}>
-        <input ui-radio />
+        <input ui-radio ${required ? 'required' : ''} />
       </ui-form-field>
     `,
   }),
+};
+
+export const Required: Story = {
+  decorators: [moduleMetadata({ imports: [UiInputComponent] })],
+  args: {
+    label: 'Email',
+    description: 'Some description or hint to help the user.',
+    required: true,
+  },
+  render: Input.render,
 };
 
 export const Error: Story = {
@@ -128,12 +145,5 @@ export const Error: Story = {
     description: 'Some description or hint to help the user.',
     error: 'Email is required.',
   },
-  render: (args) => ({
-    props: args,
-    template: `
-      <ui-form-field ${storybookArgsToTemplate(args)}>
-        <input ui-input type="text" />
-      </ui-form-field>
-    `,
-  }),
+  render: Input.render,
 };

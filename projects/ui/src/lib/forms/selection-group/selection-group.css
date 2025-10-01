@@ -25,6 +25,10 @@
   margin-block-end: 8px;
 }
 
+.required {
+  color: var(--fg-error-secondary);
+}
+
 .group {
   display: inline-flex;
   flex-direction: var(--_direction);

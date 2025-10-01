@@ -47,6 +47,9 @@ export class UiSelectionGroupComponent implements ControlValueAccessor {
   /** Label to display for the group. */
   label = input.required<string>();
 
+  /** Show a required indidcator. */
+  required = input<boolean>(false);
+
   /** Display a description or helper text. Not shown if an error is supplied. */
   description = input<string>();
 

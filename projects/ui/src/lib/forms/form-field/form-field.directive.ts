@@ -33,19 +33,30 @@ export class UiFormFieldDirective implements OnInit {
     return this._inputId;
   }
 
+  private _isRequired = false;
+  public get isRequired() {
+    return this._isRequired;
+  }
+
   private setInline() {
     const element = this.elementRef.nativeElement;
     this._inline = ['checkbox', 'radio'].includes(element.type.toLowerCase());
   }
 
-  private setId() {
+  private setInputId() {
     const element = this.elementRef.nativeElement;
     this._inputId = element.id || uniqueId();
   }
 
+  private setIsRequired() {
+    const element = this.elementRef.nativeElement;
+    this._isRequired = !!element.required || false;
+  }
+
   ngOnInit() {
-    this.setId();
     this.setInline();
+    this.setInputId();
+    this.setIsRequired();
   }
 
   setAriaDescribedById(id: string | undefined) {

@@ -1,5 +1,8 @@
 <label [attr.for]="inputId" class="label">
   {{ label() }}
+  @if (isRequired) {
+    <span aria-hidden="true" class="required">*</span>
+  }
 </label>
 
 <div class="input">

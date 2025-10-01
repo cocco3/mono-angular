@@ -11,7 +11,6 @@ type InputStory = UiInputComponent & {
 
   autocapitalize?: string;
   inputmode?: string;
-  size?: string;
   maxlength?: string;
 };
 
@@ -29,7 +28,6 @@ const meta: Meta<InputStory> = {
     value: { control: { type: 'text' } },
     autocapitalize: { control: { type: 'text' } },
     inputmode: { control: { type: 'text' } },
-    size: { control: { type: 'text' } },
     maxlength: { control: { type: 'text' } },
   },
   args: {
@@ -41,7 +39,7 @@ const meta: Meta<InputStory> = {
       url: 'https://www.figma.com/design/YbdR1kLiOU262EEicORFYh/%E2%9D%96-PREVIEW-%E2%9D%96-Untitled-UI-%E2%80%93-PRO-VARIABLES-(v7.0)?node-id=1090-57817&t=zIQCmerxWCcvw2xE-0',
     },
   },
-  render: ({ inputmode, maxlength, size, ...args }) => ({
+  render: ({ inputmode, maxlength, ...args }) => ({
     props: args,
     template: `
       <input
@@ -49,7 +47,6 @@ const meta: Meta<InputStory> = {
         ${storybookArgsToTemplate(args)}
         ${inputmode ? `[attr.inputmode]="'${inputmode}'"` : ''}
         ${maxlength ? `[attr.maxlength]="'${maxlength}'"` : ''}
-        ${size ? `[attr.size]="'${size}'"` : ''}
       />
     `,
   }),
@@ -102,11 +99,14 @@ export const Time: Story = {
   args: { value: '10:23', type: 'time' },
 };
 
+/**
+ * Example numeric code. Consider using the [one-time-code](/docs/forms-one-time-code--docs)
+ * component for MFA and one time passcodes.
+ */
 export const Code: Story = {
   args: {
     value: '123456',
     type: 'text',
-    size: '6',
     maxlength: '6',
     inputmode: 'numeric',
   },

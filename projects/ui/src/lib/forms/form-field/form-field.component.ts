@@ -39,6 +39,7 @@ export class UiFormFieldComponent implements AfterContentInit {
 
   protected inline = false;
   protected inputId = '';
+  protected isRequired = false;
 
   private setErrorProperties() {
     const formField = this.formFieldChild();
@@ -59,6 +60,7 @@ export class UiFormFieldComponent implements AfterContentInit {
     if (formField) {
       this.inline = formField.inline;
       this.inputId = formField.inputId;
+      this.isRequired = formField.isRequired;
     } else {
       console.error('No form field child found.');
     }

@@ -11,6 +11,10 @@
   font: 500 var(--type-text-sm);
 }
 
+.required {
+  color: var(--fg-error-secondary);
+}
+
 :host.inline {
   align-items: center;
   gap: 0;
