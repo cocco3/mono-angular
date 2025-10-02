@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@date-fns/tz": "^1.2.0",
-    "@floating-ui/dom": "^1.7.2",
+    "@floating-ui/dom": "^1.7.4",
     "@storybook/angular": "^9.1.4",
     "date-fns": "^4.1.0",
     "prettier": "^3.6.2"
