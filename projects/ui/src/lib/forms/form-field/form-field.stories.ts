@@ -61,7 +61,7 @@ export const Textarea: Story = {
     props: args,
     template: `
       <ui-form-field ${storybookArgsToTemplate(args)}>
-        <textarea ui-textarea autosize ${required ? 'required' : ''}></textarea>
+        <textarea ui-textarea ${required ? 'required' : ''}></textarea>
       </ui-form-field>
     `,
   }),

@@ -28,7 +28,7 @@ export class UiTextareaComponent {
   public readonly elementRef = inject(ElementRef<HTMLTextAreaElement>);
 
   /** Allow the textarea to grow/shrink as you type */
-  autosize = input<boolean>(false);
+  autosize = input<boolean>(true);
 
   invalid = input<boolean>(false);
 

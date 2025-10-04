@@ -57,9 +57,8 @@ export const Invalid: Story = {
 };
 
 /**
- * Uses CSS `field-sizing` in browsers that support it.
- * If not, uses input event handler to set the height.
+ * Disable textarea autosizing as you type.
  */
-export const AutoSize: Story = {
-  args: { autosize: true },
+export const NoAutoSize: Story = {
+  args: { autosize: false },
 };
