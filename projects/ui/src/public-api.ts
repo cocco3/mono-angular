@@ -33,5 +33,8 @@ export * from './lib/layout/slot.directive';
 export * from './lib/layout/ui-wrapper/ui-wrapper.component';
 export * from './lib/layout/card-title/card-title';
 
+export * from './lib/providers/analytics/Analytics';
 export * from './lib/providers/analytics/analytics.provider';
-export * from './lib/providers/analytics/AnalyticsService';
+
+export * from './lib/providers/logger/Logger';
+export * from './lib/providers/logger/logger.provider';

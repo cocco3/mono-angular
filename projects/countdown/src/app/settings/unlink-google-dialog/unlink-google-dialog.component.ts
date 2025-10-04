@@ -4,9 +4,9 @@ import {
   UiAlertComponent,
   UiButtonComponent,
   UiDialogComponent,
+  Logger,
 } from '@cocco3/angular-ui';
 import { GoogleAuthService } from '../../services/GoogleAuthService';
-import { LoggerService } from '../../services/LoggerService';
 
 @Component({
   imports: [UiButtonComponent, UiDialogComponent, UiAlertComponent],
@@ -14,11 +14,11 @@ import { LoggerService } from '../../services/LoggerService';
   templateUrl: './unlink-google-dialog.html',
 })
 export class UnlinkGoogleDialogComponent {
-  private logger = inject(LoggerService);
-  private auth = inject(GoogleAuthService);
-  private router = inject(Router);
+  private readonly logger = inject(Logger);
+  private readonly auth = inject(GoogleAuthService);
+  private readonly router = inject(Router);
 
-  private dialog = viewChild<UiDialogComponent>('dialog');
+  private readonly dialog = viewChild<UiDialogComponent>('dialog');
 
   protected error = '';
   protected isSaving = false;

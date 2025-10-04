@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { AnalyticsService } from '@cocco3/angular-ui';
+import { Analytics } from '@cocco3/angular-ui';
 
 export type AnalyticsEvents =
   | { name: 'wiki_clicked'; data: { item: string } }
@@ -7,6 +7,6 @@ export type AnalyticsEvents =
   | { name: 'guide_clicked' }
   | { name: 'planner_clicked' };
 
-export function injectAnalytics(): AnalyticsService<AnalyticsEvents> {
-  return inject(AnalyticsService<AnalyticsEvents>);
+export function injectAnalytics(): Analytics<AnalyticsEvents> {
+  return inject(Analytics<AnalyticsEvents>);
 }

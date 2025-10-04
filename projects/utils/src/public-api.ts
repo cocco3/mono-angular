@@ -14,7 +14,6 @@ export * from './lib/code';
 export * from './lib/currency';
 export * from './lib/groupBy';
 export * from './lib/id';
-export * from './lib/Logger';
 export * from './lib/math';
 export * from './lib/name';
 export * from './lib/sleep';
