@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { formatIsoDate } from '@cocco3/utils';
 import { EnvironmentService } from '../EnvironmentService';
-import { AnalyticsService } from '../analytics/AnalyticsService';
+import { injectAnalytics } from '../analytics';
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +10,7 @@ import { AnalyticsService } from '../analytics/AnalyticsService';
 })
 export class AppFooterComponent {
   private readonly env = inject(EnvironmentService);
-  private readonly analytics = inject(AnalyticsService);
+  private readonly analytics = injectAnalytics();
 
   protected links = [
     {

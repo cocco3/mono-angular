@@ -1,7 +1,7 @@
 /**
  * https://www.rybbit.io/docs/track-events#typescript-support
  */
-type Rybbit = {
+export type Rybbit = {
   /**
    * Tracks a page view
    */

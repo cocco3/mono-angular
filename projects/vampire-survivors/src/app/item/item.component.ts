@@ -1,7 +1,7 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { UiCardTitleAnchorComponent } from '@cocco3/angular-ui';
+import { injectAnalytics } from '../analytics';
 import type { GameId, EvoCondition, ItemKind } from '../../data/types';
-import { AnalyticsService } from '../analytics/AnalyticsService';
 
 export const ItemSizes = ['small', 'medium', 'large'] as const;
 export type ItemSize = (typeof ItemSizes)[number];
@@ -16,7 +16,7 @@ export type ItemSize = (typeof ItemSizes)[number];
   templateUrl: './item.html',
 })
 export class ItemComponent {
-  private readonly analytics = inject(AnalyticsService);
+  private readonly analytics = injectAnalytics();
 
   gameId = input.required<GameId>();
   kind = input.required<ItemKind>();
