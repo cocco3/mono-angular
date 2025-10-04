@@ -1,17 +1,17 @@
 import { makeEnvironmentProviders } from '@angular/core';
 import {
-  AnalyticsService,
+  Analytics,
   type AnalyticsConfig,
   type BaseTrackEvent,
-} from './AnalyticsService';
+} from './Analytics';
 
 export function provideAnalytics<
   TTrackEvent extends BaseTrackEvent = BaseTrackEvent,
 >(config: AnalyticsConfig) {
   return makeEnvironmentProviders([
     {
-      provide: AnalyticsService,
-      useFactory: () => new AnalyticsService<TTrackEvent>(config),
+      provide: Analytics,
+      useFactory: () => new Analytics<TTrackEvent>(config),
     },
   ]);
 }

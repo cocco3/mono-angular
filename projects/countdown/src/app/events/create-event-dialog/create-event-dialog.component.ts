@@ -11,11 +11,11 @@ import {
   UiFormFieldComponent,
   UiInputComponent,
   UiTextareaComponent,
+  Logger,
 } from '@cocco3/angular-ui';
 import { getToday } from '@cocco3/utils';
 import { GoogleCalendarService } from '../../services/GoogleCalendarService';
 import { UserSettingsService } from '../../services/UserSettingsService';
-import { LoggerService } from '../../services/LoggerService';
 import {
   createEventSchema,
   type CreateEventModel,
@@ -36,9 +36,9 @@ import {
   templateUrl: './create-event-dialog.html',
 })
 export class CreateEventDialogComponent {
-  private formBuilder = inject(NonNullableFormBuilder);
-  private calendarService = inject(GoogleCalendarService);
-  private logger = inject(LoggerService);
+  private readonly formBuilder = inject(NonNullableFormBuilder);
+  private readonly calendarService = inject(GoogleCalendarService);
+  private readonly logger = inject(Logger);
 
   private readonly userSettingsService = inject(UserSettingsService);
   private readonly userSettings = computed(() =>

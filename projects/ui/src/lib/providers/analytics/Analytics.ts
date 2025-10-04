@@ -13,9 +13,9 @@ export type AnalyticsConfig = {
   enabled: boolean;
 };
 
-export class AnalyticsService<
-  TTrackEvent extends BaseTrackEvent = BaseTrackEvent,
-> {
+export class Analytics<TTrackEvent extends BaseTrackEvent = BaseTrackEvent> {
+  private _enabled = false;
+
   private get rybbit(): Rybbit | null {
     return typeof window !== 'undefined' && window.rybbit
       ? window.rybbit
@@ -42,43 +42,45 @@ export class AnalyticsService<
     document.head.appendChild(script);
   }
 
-  constructor(private readonly config: AnalyticsConfig) {
+  constructor(config: AnalyticsConfig) {
+    this._enabled = config.enabled;
+
     if (!config.enabled) return;
     this.appendRybbitScript(config.siteId, config.apiKey);
   }
 
   /** Tracks a custom event */
   trackEvent(event: TTrackEvent) {
-    if (!this.config.enabled || !this.rybbit) return;
+    if (!this._enabled || !this.rybbit) return;
     this.rybbit.event(event.name, event.data);
   }
 
   /** Tracks a page view  */
   trackPageview() {
-    if (!this.config.enabled || !this.rybbit) return;
+    if (!this._enabled || !this.rybbit) return;
     this.rybbit.pageview();
   }
 
   /** Sets a custom user ID in localstroage for tracking logged-in users */
   identifyUser(userId: string) {
-    if (!this.config.enabled || !this.rybbit) return;
+    if (!this._enabled || !this.rybbit) return;
     this.rybbit.identify(userId);
   }
 
   /** Clears the stored user ID from localstorage */
   clearUserId() {
-    if (!this.config.enabled || !this.rybbit) return;
+    if (!this._enabled || !this.rybbit) return;
     this.rybbit.clearUserId();
   }
 
   /** Gets the currently set user ID from localstorage */
   getUserId(): string | null {
-    if (!this.config.enabled || !this.rybbit) return null;
+    if (!this._enabled || !this.rybbit) return null;
     return this.rybbit.getUserId();
   }
 
   trackOutbound(url: string, text?: string, target?: string) {
-    if (!this.config.enabled || !this.rybbit) return;
+    if (!this._enabled || !this.rybbit) return;
     this.rybbit.trackOutbound(url, text, target);
   }
 }
