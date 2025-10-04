@@ -19,5 +19,5 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
 export class UiSelectComponent {
   public readonly elementRef = inject(ElementRef<HTMLSelectElement>);
 
-  invalid = input(false);
+  invalid = input<boolean>(false);
 }

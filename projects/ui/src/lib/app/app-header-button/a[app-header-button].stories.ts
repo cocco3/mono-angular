@@ -25,13 +25,13 @@ const meta: Meta<AppHeaderAnchorStory> = {
       options: UiIconKinds,
       control: { type: 'select' },
       table: { category: 'Slots', type: { detail: undefined } },
-      description: `uiSlot='start'`,
+      description: 'Add `[uiSlot="start"]` on any start element.',
     },
     end: {
       options: UiIconKinds,
       control: { type: 'select' },
       table: { category: 'Slots', type: { detail: undefined } },
-      description: `uiSlot='end'`,
+      description: 'Add `[uiSlot="end"]` on any end element.',
     },
   },
   render: ({ content, start, end, ...args }) => ({

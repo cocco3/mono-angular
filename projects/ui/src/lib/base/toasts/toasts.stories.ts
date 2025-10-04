@@ -17,20 +17,20 @@ const meta: Meta<StoryArgs> = {
     placement: { options: UiToastPlacements, control: 'radio' },
     dismissible: {
       control: { type: 'boolean' },
-      table: { category: 'Alert', type: { detail: undefined } },
+      table: { category: 'Demo - Alert', type: { detail: undefined } },
     },
     duration: {
       control: { type: 'number' },
-      table: { category: 'Alert', type: { detail: undefined } },
+      table: { category: 'Demo - Alert', type: { detail: undefined } },
     },
     heading: {
       control: { type: 'text' },
-      table: { category: 'Alert', type: { detail: undefined } },
+      table: { category: 'Demo - Alert', type: { detail: undefined } },
     },
     kind: {
       options: UiAlertKinds,
       control: { type: 'radio' },
-      table: { category: 'Alert', type: { detail: undefined } },
+      table: { category: 'Demo - Alert', type: { detail: undefined } },
     },
   },
   args: {

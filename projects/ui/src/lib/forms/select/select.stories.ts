@@ -18,6 +18,13 @@ const meta: Meta<SelectStory> = {
     disabled: { control: { type: 'boolean' } },
     name: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
+    elementRef: {
+      control: { disable: true },
+      table: {
+        type: { summary: 'ElementRef<HTMLSelectElement>' },
+        defaultValue: { summary: '-' },
+      },
+    },
   },
   parameters: {
     design: {

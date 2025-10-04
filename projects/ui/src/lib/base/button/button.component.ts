@@ -35,7 +35,7 @@ export class UiButtonComponent {
   size = input.required<UiButtonSize>();
   weight = input<UiButtonWeight>('solid');
   type = input<UiButtonType>('button');
-  loading = input(false);
+  loading = input<boolean>(false);
 
   private slots = contentChildren(UiSlotDirective);
   protected hasSlots = useSlots(this.slots, ['start', 'end']);

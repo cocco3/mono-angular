@@ -30,7 +30,7 @@ export type UiOneTimeCodeTransform = (typeof UiOneTimeCodeTransforms)[number];
 })
 export class UiOneTimeCodeComponent {
   /** Add the "one-time-code" autocomplete. */
-  enableAutocomplete = input(true);
+  enableAutocomplete = input<boolean>(true);
 
   /** Add an inputmode to assist with virtual keyboards. */
   kind = input<UiOneTimeCodeKind>('alphanumeric');

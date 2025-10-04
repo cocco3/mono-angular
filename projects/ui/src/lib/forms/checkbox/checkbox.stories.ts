@@ -22,6 +22,13 @@ const meta: Meta<CheckboxStory> = {
     disabled: { control: { type: 'boolean' } },
     name: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
+    elementRef: {
+      control: { disable: true },
+      table: {
+        type: { summary: 'ElementRef<HTMLInputElement>' },
+        defaultValue: { summary: '-' },
+      },
+    },
   },
   args: {
     value: 'Hello world',

@@ -22,5 +22,5 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
 export class UiRadioComponent {
   public readonly elementRef = inject(ElementRef<HTMLInputElement>);
 
-  invalid = input(false);
+  invalid = input<boolean>(false);
 }
