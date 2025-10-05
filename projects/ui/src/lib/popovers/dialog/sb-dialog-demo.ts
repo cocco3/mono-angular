@@ -1,6 +1,8 @@
 import { Component, output } from '@angular/core';
+import { UiButtonComponent } from '../../base/button/button.component';
 
 @Component({
+  imports: [UiButtonComponent],
   selector: 'sb-dialog-demo',
   template: `
     <style>
@@ -17,8 +19,20 @@ import { Component, output } from '@angular/core';
       }
     </style>
     <div class="inner">
-      <button (click)="handleShowDialogClick()">Show dialog</button>
-      <button (click)="handleShowModalClick()">
+      <button
+        (click)="handleShowDialogClick()"
+        ui-button
+        kind="secondary"
+        size="medium"
+      >
+        Show dialog
+      </button>
+      <button
+        ui-button
+        (click)="handleShowModalClick()"
+        kind="secondary"
+        size="medium"
+      >
         Show modal (with backdrop)
       </button>
       <ng-content />

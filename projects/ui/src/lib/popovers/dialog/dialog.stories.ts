@@ -85,3 +85,13 @@ export const Destructive: Story = {
     primaryButtonKind: 'destructive',
   },
 };
+
+export const LongContent: Story = {
+  args: {
+    heading: 'Confirm sign up',
+    description: 'You will not be charged.',
+    content: `<div style="min-height: 110vh; background: light-dark(lightblue, darkslateblue);">
+        Long content. Dialog will scroll.
+      </div>`,
+  },
+};

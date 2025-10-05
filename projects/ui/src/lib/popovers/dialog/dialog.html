@@ -10,9 +10,12 @@
       <div class="description">{{ description() }}</div>
     }
   </div>
-  <ng-content />
 
-  <div class="buttons">
+  <div class="content">
+    <ng-content />
+  </div>
+
+  <div class="footer">
     <ng-content select="[uiSlot='cancel']" />
     <ng-content select="[uiSlot='submit']" />
   </div>
