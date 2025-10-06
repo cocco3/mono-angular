@@ -25,7 +25,7 @@ body {
 }
 
 /**
- * Auto-generated on Mon Sep 01 2025. Do not modify.
+ * Auto-generated on Mon Oct 06 2025. Do not modify.
  */
 :root {
   --font-family-display: Inter, -apple-system, 'Helvetica Neue', sans-serif;
@@ -66,15 +66,20 @@ body {
   --border-tertiary: light-dark(#f5f5f5, #22262f);
   --border-disabled: light-dark(#d5d7da, #373a41);
   --border-brand: light-dark(#9e77ed, #b692f6);
-  --border-brand-subtle: light-dark(#d6bbfb, #9e77ed);
+  --border-brand-secondary: light-dark(#d6bbfb, #9e77ed);
+  --border-brand-tertiary: light-dark(#e9d7fe, #7f56d9);
   --border-error: light-dark(#f04438, #f97066);
-  --border-error-subtle: light-dark(#fda29b, #f04438);
+  --border-error-secondary: light-dark(#fda29b, #f04438);
+  --border-error-tertiary: light-dark(#fecdca, #d92d20);
   --border-warning: light-dark(#f79009, #fdb022);
-  --border-warning-subtle: light-dark(#fec84b, #f79009);
+  --border-warning-secondary: light-dark(#fec84b, #f79009);
+  --border-warning-tertiary: light-dark(#fedf89, #dc6803);
   --border-success: light-dark(#17b26a, #47cd89);
-  --border-success-subtle: light-dark(#75e0a7, #17b26a);
+  --border-success-secondary: light-dark(#75e0a7, #17b26a);
+  --border-success-tertiary: light-dark(#abefc6, #079455);
   --border-info: light-dark(#2970ff, #528bff);
-  --border-info-subtle: light-dark(#84adff, #2970ff);
+  --border-info-secondary: light-dark(#84adff, #2970ff);
+  --border-info-tertiary: light-dark(#b2ccff, #155eef);
 
   --fg-primary: light-dark(#181d27, #ffffff);
   --fg-secondary: light-dark(#414651, #cecfd2);
