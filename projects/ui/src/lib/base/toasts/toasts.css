@@ -11,7 +11,7 @@
 }
 
 :host.align-top {
-  top: 80px;
+  top: var(--_toast-offset);
 }
 
 :host.align-bottom {

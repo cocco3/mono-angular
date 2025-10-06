@@ -37,25 +37,25 @@
 
 :host.kind-negative {
   --_badge-background: var(--bg-error-primary);
-  --_badge-border: var(--border-error-subtle);
+  --_badge-border: var(--border-error-secondary);
   --_badge-text: var(--text-error);
 }
 
 :host.kind-warning {
   --_badge-background: var(--bg-warning-primary);
-  --_badge-border: var(--border-warning-subtle);
+  --_badge-border: var(--border-warning-secondary);
   --_badge-text: var(--text-warning);
 }
 
 :host.kind-positive {
   --_badge-background: var(--bg-success-primary);
-  --_badge-border: var(--border-success-subtle);
+  --_badge-border: var(--border-success-secondary);
   --_badge-text: var(--text-success);
 }
 
 :host.kind-info {
   --_badge-background: var(--bg-info-primary);
-  --_badge-border: var(--border-info-subtle);
+  --_badge-border: var(--border-info-secondary);
   --_badge-text: var(--text-info);
 }
 

@@ -19,6 +19,7 @@ export type UiToastPlacement = (typeof UiToastPlacements)[number];
 @Component({
   host: {
     '[class]': 'cssClass()',
+    '[style.--_toast-offset]': 'offset()',
   },
   imports: [NgTemplateOutlet, UiAlertComponent],
   selector: 'ui-toasts',
@@ -32,6 +33,9 @@ export class UiToastsComponent {
 
   /** Alignment and justification of toast messages. */
   placement = input.required<UiToastPlacement>();
+
+  /** Offset from edge of screen. */
+  offset = input<string>('24px');
 
   protected handleDismissClick(id: string) {
     this.toastService.dismiss(id);

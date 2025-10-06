@@ -38,6 +38,7 @@ const meta: Meta<StoryArgs> = {
     dismissible: false,
     heading: 'Heading',
     kind: 'info',
+    offset: '3rem',
   },
   render: ({ dismissible, duration, heading, kind, ...args }) => ({
     props: args,

@@ -1,5 +1,8 @@
 :host {
-  background-color: rgb(from var(--_alert-bg) r g b / 30%);
+  background-color: color-mix(in srgb, var(--_alert-bg) 30%, var(--bg-primary));
+  border-color: var(--_alert-border);
+  border-style: solid;
+  border-width: 1px;
   border-radius: 8px;
   box-sizing: border-box;
   color: var(--text-primary);
@@ -13,22 +16,27 @@
 
 :host.kind-neutral {
   --_alert-bg: var(--bg-quaternary);
+  --_alert-border: var(--border-primary);
 }
 
 :host.kind-negative {
-  --_alert-bg: var(--bg-error-solid);
+  --_alert-bg: var(--bg-error-secondary);
+  --_alert-border: var(--border-error-tertiary);
 }
 
 :host.kind-warning {
-  --_alert-bg: var(--bg-warning-solid);
+  --_alert-bg: var(--bg-warning-secondary);
+  --_alert-border: var(--border-warning-tertiary);
 }
 
 :host.kind-positive {
-  --_alert-bg: var(--bg-success-solid);
+  --_alert-bg: var(--bg-success-secondary);
+  --_alert-border: var(--border-success-tertiary);
 }
 
 :host.kind-info {
-  --_alert-bg: var(--bg-info-solid);
+  --_alert-bg: var(--bg-info-secondary);
+  --_alert-border: var(--border-info-tertiary);
 }
 
 :host:has(.dismiss) {

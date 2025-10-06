@@ -41,19 +41,24 @@ export const defaultTheme: UiTheme = {
         disabled: [grayLight['300'], grayDark['700']],
 
         brand: [purple['500'], purple['400']],
-        'brand-subtle': [purple['300'], purple['500']],
+        'brand-secondary': [purple['300'], purple['500']],
+        'brand-tertiary': [purple['200'], purple['600']],
 
         error: [red['500'], red['400']],
-        'error-subtle': [red['300'], red['500']],
+        'error-secondary': [red['300'], red['500']],
+        'error-tertiary': [red['200'], red['600']],
 
         warning: [yellow['500'], yellow['400']],
-        'warning-subtle': [yellow['300'], yellow['500']],
+        'warning-secondary': [yellow['300'], yellow['500']],
+        'warning-tertiary': [yellow['200'], yellow['600']],
 
         success: [green['500'], green['400']],
-        'success-subtle': [green['300'], green['500']],
+        'success-secondary': [green['300'], green['500']],
+        'success-tertiary': [green['200'], green['600']],
 
         info: [blue['500'], blue['400']],
-        'info-subtle': [blue['300'], blue['500']],
+        'info-secondary': [blue['300'], blue['500']],
+        'info-tertiary': [blue['200'], blue['600']],
       },
     },
     foreground: {
