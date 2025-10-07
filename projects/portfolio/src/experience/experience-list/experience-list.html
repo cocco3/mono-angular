@@ -1,0 +1,8 @@
+<ui-item-grid gap="20px" minItemWidth="100%">
+  @for (item of experience; track item.company.name) {
+    <app-experience-item
+      [company]="item.company"
+      [positions]="item.positions"
+    />
+  }
+</ui-item-grid>

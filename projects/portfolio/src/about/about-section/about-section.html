@@ -1,0 +1,26 @@
+<div id="about" class="outer wrapper">
+  <div class="about_row">
+    <div class="photo">
+      <img class="photo_img" src="/joe-cocco.jpeg" alt="" />
+
+      <div class="social">
+        @for (item of socialLinks; track item.href) {
+          <a
+            app-social-link
+            target="_blank"
+            [attr.href]="item.href"
+            [icon]="item.icon"
+            [attr.aria-label]="item.label"
+          ></a>
+        }
+      </div>
+    </div>
+
+    <div class="about_list">
+      <h1 class="name">{{ info.name }}</h1>
+      <app-label icon="briefcase" [value]="info.title" />
+      <app-label icon="marker-pin" [value]="info.location" />
+      <div class="description">{{ info.about }}</div>
+    </div>
+  </div>
+</div>

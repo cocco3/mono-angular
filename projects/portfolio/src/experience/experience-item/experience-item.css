@@ -1,0 +1,25 @@
+.company {
+  font: 600 var(--type-text-xl);
+  margin-block: 0;
+}
+
+@media (width < 600px) {
+  .position {
+    margin-block-start: 12px;
+  }
+}
+
+@media (width >= 600px) {
+  .row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .positionDate {
+    border-inline-start: 1px solid var(--border-secondary);
+    display: inline;
+    margin-inline-start: 12px;
+    padding-inline-start: 12px;
+  }
+}

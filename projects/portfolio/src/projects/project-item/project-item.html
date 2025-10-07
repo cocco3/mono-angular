@@ -1,0 +1,32 @@
+<div class="img" [style.background]="background()"></div>
+
+<div class="body">
+  <div class="header">
+    <h3 class="title">
+      <a class="titleLink" [href]="projectUrl()" target="_blank">
+        {{ name() }}
+      </a>
+    </h3>
+
+    <a
+      class="gitLink"
+      [href]="githubUrl()"
+      target="_blank"
+      [attr.aria-label]="githubLinkLabel()"
+    >
+      <ui-icon kind="github" />
+    </a>
+  </div>
+
+  <div class="description">
+    {{ description() }}
+  </div>
+
+  <ul class="tags">
+    @for (tag of tech(); track tag) {
+      <li>
+        <app-tag>{{ tag }}</app-tag>
+      </li>
+    }
+  </ul>
+</div>

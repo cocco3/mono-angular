@@ -1,0 +1,10 @@
+[build]
+  base = "/"
+  publish = "dist/portfolio/browser"
+  command = "npm run ci:env && npm run build portfolio"
+  ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF projects/portfolio"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

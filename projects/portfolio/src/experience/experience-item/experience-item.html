@@ -1,0 +1,21 @@
+<div>
+  <div class="row">
+    <h3 class="company">{{ company().name }}</h3>
+    <b>{{ company().dates }}</b>
+  </div>
+
+  @for (position of positions(); track position.title) {
+    <div class="position">
+      <div class="row">
+        <em>
+          <span>{{ position.title }}</span>
+
+          @if (!!position.dates) {
+            <div class="positionDate">{{ position.dates }}</div>
+          }
+        </em>
+        <div>{{ position.location }}</div>
+      </div>
+    </div>
+  }
+</div>

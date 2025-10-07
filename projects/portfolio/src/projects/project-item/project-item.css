@@ -1,0 +1,85 @@
+:host {
+  display: flex;
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.img {
+  min-height: 100px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-block-end: 4px;
+}
+
+.title {
+  color: var(--text-primary);
+  font: 600 var(--type-display-xs);
+  margin-block: 0;
+}
+
+.titleLink {
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition-property: text-decoration-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+
+  @media (hover: hover) {
+    &:any-link:hover {
+      cursor: pointer;
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+.gitLink {
+  display: inline-block;
+  color: var(--text-secondary);
+  height: 24px;
+  transition-property: color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  width: 24px;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.description {
+  color: var(--text-secondary);
+  flex-grow: 1;
+  font: 400 var(--type-text-md);
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  margin-block-start: 20px;
+  padding: 0;
+
+  & li {
+    display: inline-flex;
+  }
+}

@@ -1,0 +1,22 @@
+:host {
+  align-items: center;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--text-tertiary);
+  display: inline-flex;
+  padding: 6px;
+  transition-property: color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  width: 40px;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+
+  & svg {
+    height: 100%;
+    width: 100%;
+  }
+}

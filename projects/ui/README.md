@@ -13,3 +13,7 @@ npm run sb:start -- ui
 # build storybook
 npm run sb:build -- ui
 ```
+
+## Deploy
+
+Auto deployed via GitHub pages ([config](../../.github/workflows/deploy-storybook.yml))
