@@ -11,7 +11,4 @@ import { ContentService } from '../../content/ContentService';
 export class AppVideosGrid {
   private readonly content = inject(ContentService);
   protected videos = this.content.videos;
-
-  protected id = 'videos';
-  protected heading = 'Videos';
 }
