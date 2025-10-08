@@ -1,0 +1,14 @@
+:host {
+  align-items: flex-start;
+  color: var(--text-primary);
+  display: flex;
+  font: 400 var(--type-text-lg);
+  gap: 0.66ch;
+}
+
+.icon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  height: 1lh;
+  width: 0.9em;
+}

@@ -1,0 +1,10 @@
+:host {
+  align-items: center;
+  border: 1px solid var(--border-secondary);
+  border-radius: 20px;
+  display: inline-flex;
+  font: 400 var(--type-text-xs);
+  justify-content: center;
+  min-width: fit-content;
+  padding-inline: 6px;
+}

@@ -13,3 +13,7 @@ npm start vampire-survivors
 # build application
 npm run build vampire-survivors
 ```
+
+## Deploy
+
+Auto deployed via Netlify ([config](./netlify.toml))

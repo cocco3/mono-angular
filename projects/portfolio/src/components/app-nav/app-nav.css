@@ -1,0 +1,30 @@
+:host {
+  border-radius: 8px;
+  padding-block: 8px;
+  padding-inline: 8px;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+
+  &:enabled:hover,
+  &:any-link:hover {
+    background-color: #db7c5d;
+    color: #0f1e2a;
+    cursor: pointer;
+  }
+
+  @media (width <= 420px) {
+    font: 500 var(--type-text-md);
+  }
+
+  @media (width > 420px) {
+    font: 500 var(--type-text-lg);
+  }
+}
+
+@supports (scroll-target-group: auto) {
+  :host:target-current {
+    background-color: #db7c5d;
+    color: #0f1e2a;
+  }
+}

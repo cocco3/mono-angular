@@ -1,0 +1,13 @@
+.outer {
+  backdrop-filter: blur(4px);
+  background-color: oklch(from var(--bg-primary) calc(l - 0.05) c h / 0.8);
+  position: sticky;
+  top: 0;
+}
+
+.inner {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  padding-block: 16px;
+}

@@ -19,3 +19,7 @@ npm run sb:start -- countdown
 # build storybook
 npm run sb:build -- countdown
 ```
+
+## Deploy
+
+Auto deployed via Netlify ([config](./netlify.toml))

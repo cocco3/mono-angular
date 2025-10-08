@@ -32,6 +32,9 @@ export * from './lib/forms/one-time-code/one-time-code.component';
 export * from './lib/layout/slot.directive';
 export * from './lib/layout/ui-wrapper/ui-wrapper.component';
 export * from './lib/layout/card-title/card-title';
+export * from './lib/layout/item-grid/item-grid.component';
+
+export * from './lib/pipes/SafeResourceUrlPipe';
 
 export * from './lib/providers/analytics/Analytics';
 export * from './lib/providers/analytics/analytics.provider';

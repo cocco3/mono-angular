@@ -1,0 +1,14 @@
+<ui-item-grid gap="24px" minItemWidth="320px">
+  @for (video of videos; track video.name) {
+    <iframe
+      class="video"
+      width="560"
+      height="315"
+      [attr.src]="video.url | safeResourceUrl"
+      [attr.title]="video.name"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    ></iframe>
+  }
+</ui-item-grid>
