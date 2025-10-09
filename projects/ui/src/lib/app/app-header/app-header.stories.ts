@@ -1,7 +1,7 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { storybookArgsToTemplate } from '@cocco3/utils';
 import { UiAppHeaderComponent } from './app-header.component';
-import { UiSlotDirective } from '../../layout/slot.directive';
+import { UiSlotDirective } from '../../layout/slot/slot.directive';
 import { UiAppHeaderAnchorComponent } from '../app-header-button/app-header-button.component';
 import { UiIconComponent } from '../../base/icon/icon.component';
 

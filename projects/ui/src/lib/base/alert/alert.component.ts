@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { UiButtonComponent } from '../button/button.component';
 import { UiIconComponent } from '../icon/icon.component';
-import { UiSlotDirective } from '../../layout/slot.directive';
+import { UiSlotDirective } from '../../layout/slot/slot.directive';
 
 export const UiAlertKinds = [
   'neutral',

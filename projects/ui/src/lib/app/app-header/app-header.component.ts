@@ -1,6 +1,6 @@
 import { Component, contentChildren, input } from '@angular/core';
 import { UiWrapperComponent } from '../../layout/ui-wrapper/ui-wrapper.component';
-import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
+import { UiSlotDirective, useSlots } from '../../layout/slot/slot.directive';
 
 @Component({
   selector: 'ui-app-header',

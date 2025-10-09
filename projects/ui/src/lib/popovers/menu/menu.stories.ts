@@ -10,7 +10,7 @@ import {
   UiMenuItemButtonComponent,
 } from '../menuitem/menuitem.component';
 import { UiIconComponent } from '../../base/icon/icon.component';
-import { UiSlotDirective } from '../../layout/slot.directive';
+import { UiSlotDirective } from '../../layout/slot/slot.directive';
 import { UiPopoverDirective } from '../popover.directive';
 
 type MenuStory = UiMenuComponent & {

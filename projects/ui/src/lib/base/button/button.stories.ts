@@ -14,7 +14,7 @@ import {
   type UiIconKind,
   UiIconKinds,
 } from '../icon/icon.component';
-import { UiSlotDirective } from '../../layout/slot.directive';
+import { UiSlotDirective } from '../../layout/slot/slot.directive';
 
 type ButtonStory = UiButtonComponent & {
   content: string;

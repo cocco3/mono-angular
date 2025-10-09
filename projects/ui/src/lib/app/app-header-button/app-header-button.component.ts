@@ -1,5 +1,5 @@
 import { Component, contentChildren } from '@angular/core';
-import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
+import { UiSlotDirective, useSlots } from '../../layout/slot/slot.directive';
 
 /**
  * Usage: Add `ui-app-header-button` to any `<a>` element.
