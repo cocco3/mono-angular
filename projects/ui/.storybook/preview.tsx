@@ -55,6 +55,7 @@ const preview: Preview = {
           'base',
           'popovers',
           'forms',
+          'media',
           ['form-field', '*'],
           'layout',
         ],

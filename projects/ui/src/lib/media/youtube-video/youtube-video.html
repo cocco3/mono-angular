@@ -1,0 +1,23 @@
+<div class="container">
+  @if (showTitle) {
+    <div class="title">
+      {{ videoTitle() }}
+    </div>
+  }
+
+  <lite-youtube
+    (click)="handleClick()"
+    nocookie
+    [attr.videoid]="videoId()"
+    [attr.videotitle]="videoTitle()"
+  >
+    <a
+      class="play-icon"
+      [attr.href]="videoUrl()"
+      target="_blank"
+      rel="noopener"
+    >
+      Watch on YouTube: {{ videoTitle() }}
+    </a>
+  </lite-youtube>
+</div>

@@ -1,0 +1,59 @@
+.container {
+  display: grid;
+}
+
+.title {
+  font: var(--type-text-md);
+  grid-column: 1;
+  grid-row: 1;
+  height: fit-content;
+  padding-block: 8px;
+  padding-inline: 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.play-icon {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+
+  /* right-facing triangle "Play" icon */
+  &::before {
+    display: block;
+    content: '';
+    border: solid transparent;
+    border-width: 2em 0 2em 3em;
+    border-left-color: red;
+  }
+
+  &:hover::before {
+    border-left-color: #fff;
+  }
+
+  &:focus {
+    outline: 2px solid red;
+  }
+}
+
+lite-youtube {
+  border-radius: 6px;
+  grid-column: 1;
+  grid-row: 1;
+
+  &::part(playButton) {
+    transition: 100ms scale ease-out;
+    transform-origin: 0 0;
+  }
+
+  &:hover::part(playButton) {
+    scale: 1.2;
+  }
+}
