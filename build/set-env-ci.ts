@@ -20,7 +20,8 @@ function setBuildDate(content: string) {
  */
 function setProcessEnv(content: string) {
   return content.replace(/\{\{\s*([A-Za-z0-9_]+)\s*\}\}/g, (_, variable) => {
-    return `${process.env[variable]}`;
+    const value = process.env[variable];
+    return value !== undefined ? value : '';
   });
 }
 
@@ -51,8 +52,10 @@ function processEnvironmentFiles(paths: string[]) {
   });
 }
 
-processEnvironmentFiles([
-  'projects/countdown/src/environments/environment.prod.ts',
-  'projects/vampire-survivors/src/environments/environment.prod.ts',
-  'projects/portfolio/src/environments/environment.prod.ts',
-]);
+function findEnvFiles() {
+  return fs.globSync('**/projects/**/environment.prod.ts');
+}
+
+const envFiles = findEnvFiles();
+
+processEnvironmentFiles(envFiles);
