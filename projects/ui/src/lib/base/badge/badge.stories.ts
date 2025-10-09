@@ -10,7 +10,7 @@ import {
   UiIconKinds,
   type UiIconKind,
 } from '../icon/icon.component';
-import { UiSlotDirective } from '../../layout/slot.directive';
+import { UiSlotDirective } from '../../layout/slot/slot.directive';
 
 type BadgeStory = UiBadgeComponent & {
   content: string;

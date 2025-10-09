@@ -7,7 +7,7 @@ import {
   UiButtonKinds,
   type UiButtonKind,
 } from '../../base/button/button.component';
-import { UiSlotDirective } from '../../layout/slot.directive';
+import { UiSlotDirective } from '../../layout/slot/slot.directive';
 
 type DialogStory = UiDialogComponent & {
   content?: string | undefined;

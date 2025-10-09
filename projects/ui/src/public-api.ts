@@ -29,7 +29,7 @@ export * from './lib/forms/textarea/textarea.component';
 export * from './lib/forms/textarea/textarea-autosize.directive';
 export * from './lib/forms/one-time-code/one-time-code.component';
 
-export * from './lib/layout/slot.directive';
+export * from './lib/layout/slot/slot.directive';
 export * from './lib/layout/ui-wrapper/ui-wrapper.component';
 export * from './lib/layout/card-title/card-title';
 export * from './lib/layout/item-grid/item-grid.component';

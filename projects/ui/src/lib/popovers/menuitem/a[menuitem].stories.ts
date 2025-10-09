@@ -6,7 +6,7 @@ import {
   type UiIconKind,
   UiIconKinds,
 } from '../../base/icon/icon.component';
-import { UiSlotDirective } from '../../layout/slot.directive';
+import { UiSlotDirective } from '../../layout/slot/slot.directive';
 
 type MenuItemStory = UiMenuItemAnchorComponent & {
   content: string;

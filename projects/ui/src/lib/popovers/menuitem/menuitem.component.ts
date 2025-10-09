@@ -1,5 +1,5 @@
 import { Component, contentChildren, input } from '@angular/core';
-import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
+import { UiSlotDirective, useSlots } from '../../layout/slot/slot.directive';
 
 /**
  * Add `[ui-menuitem]` attribute on any anchor element.

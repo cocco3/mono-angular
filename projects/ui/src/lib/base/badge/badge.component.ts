@@ -1,5 +1,5 @@
 import { Component, computed, contentChildren, input } from '@angular/core';
-import { UiSlotDirective, useSlots } from '../../layout/slot.directive';
+import { UiSlotDirective, useSlots } from '../../layout/slot/slot.directive';
 
 export const UiBadgeKinds = [
   'neutral',
