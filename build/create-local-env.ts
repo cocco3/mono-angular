@@ -41,8 +41,10 @@ function processEnvironmentFiles(paths: string[]) {
   });
 }
 
-processEnvironmentFiles([
-  'projects/countdown/src/environments/environment.ts',
-  'projects/vampire-survivors/src/environments/environment.ts',
-  'projects/portfolio/src/environments/environment.ts',
-]);
+function findEnvFiles() {
+  return fs.globSync('**/projects/**/environment.ts');
+}
+
+const envFiles = findEnvFiles();
+
+processEnvironmentFiles(envFiles);
