@@ -1,15 +1,21 @@
 <app-header />
 
-<app-about-section />
+<div id="about" appObserveSection="about">
+  <app-about-section />
+</div>
 
-<app-page-section id="experience" heading="Work Experience">
+<app-page-section
+  id="experience"
+  heading="Work Experience"
+  appObserveSection="experience"
+>
   <app-experience-list />
 </app-page-section>
 
-<app-page-section id="projects" heading="Projects">
+<app-page-section id="projects" heading="Projects" appObserveSection="projects">
   <app-projects-grid />
 </app-page-section>
 
-<app-page-section id="videos" heading="Videos">
+<app-page-section id="videos" heading="Videos" appObserveSection="videos">
   <app-videos-grid />
 </app-page-section>

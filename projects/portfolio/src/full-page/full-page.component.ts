@@ -5,6 +5,7 @@ import { AppAboutSection } from '../about/about-section/about-section.component'
 import { AppExperienceList } from '../experience/experience-list/experience-list.component';
 import { AppProjectsGrid } from '../projects/projects-grid/projects-grid.component';
 import { AppVideosGrid } from '../videos/videos-grid/videos-grid.component';
+import { ObserveSectionDirective } from '../components/app-nav-list/SectionObserverDirective';
 
 @Component({
   selector: 'app-full-page',
@@ -15,6 +16,7 @@ import { AppVideosGrid } from '../videos/videos-grid/videos-grid.component';
     AppExperienceList,
     AppProjectsGrid,
     AppVideosGrid,
+    ObserveSectionDirective,
   ],
   templateUrl: './full-page.html',
 })

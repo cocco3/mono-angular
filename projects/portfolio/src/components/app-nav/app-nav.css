@@ -13,6 +13,11 @@
     cursor: pointer;
   }
 
+  &.active {
+    background-color: #db7c5d;
+    color: #0f1e2a;
+  }
+
   @media (width <= 420px) {
     font: 500 var(--type-text-md);
   }
