@@ -1,23 +1,17 @@
-<app-header />
+<header app-header></header>
 
-<app-about-section />
+<main>
+  <app-about-section />
 
-<app-page-section
-  id="experience"
-  heading="Work Experience"
-  appSectionScrollSpy="experience"
->
-  <app-experience-list />
-</app-page-section>
+  <section app-page-section sectionId="experience" heading="Work Experience">
+    <app-experience-list />
+  </section>
 
-<app-page-section
-  id="projects"
-  heading="Projects"
-  appSectionScrollSpy="projects"
->
-  <app-projects-grid />
-</app-page-section>
+  <section app-page-section sectionId="projects" heading="Projects">
+    <app-projects-grid />
+  </section>
 
-<app-page-section id="videos" heading="Videos" appSectionScrollSpy="videos">
-  <app-videos-grid />
-</app-page-section>
+  <section app-page-section sectionId="videos" heading="Videos">
+    <app-videos-grid />
+  </section>
+</main>
