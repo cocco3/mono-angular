@@ -25,8 +25,12 @@ export class AppAboutSection {
   private readonly content = inject(ContentService);
   protected info = this.content.info;
 
+  protected sectionId = 'about';
+  protected headingId = `heading-${this.sectionId}`;
+
   protected socialLinks: SocialLink[] = [
     { label: 'GitHub', href: this.info.github, icon: 'github' },
+    // { label: 'CodePen', href: this.info.codePen, icon: 'codepen' },
     { label: 'LinkedIn', href: this.info.linkedIn, icon: 'linked-in' },
     { label: 'Email', href: `mailto:${this.info.email}`, icon: 'mail' },
   ];

@@ -1,23 +1,16 @@
-<div class="container">
-  @if (showTitle) {
-    <div class="title">
-      {{ videoTitle() }}
-    </div>
-  }
+@if (showTitle) {
+  <h3 [attr.id]="headingId" class="title">
+    {{ videoTitle() }}
+  </h3>
+}
 
-  <lite-youtube
-    (click)="handleClick()"
-    nocookie
-    [attr.videoid]="videoId()"
-    [attr.videotitle]="videoTitle()"
-  >
-    <a
-      class="play-icon"
-      [attr.href]="videoUrl()"
-      target="_blank"
-      rel="noopener"
-    >
-      Watch on YouTube: {{ videoTitle() }}
-    </a>
-  </lite-youtube>
-</div>
+<lite-youtube
+  (click)="handleClick()"
+  nocookie
+  [attr.videoid]="videoId()"
+  [attr.videotitle]="videoTitle()"
+>
+  <a class="play-icon" [attr.href]="videoUrl()" target="_blank" rel="noopener">
+    Watch on YouTube: {{ videoTitle() }}
+  </a>
+</lite-youtube>

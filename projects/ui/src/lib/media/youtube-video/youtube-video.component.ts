@@ -5,6 +5,7 @@ import {
   input,
 } from '@angular/core';
 import '@justinribeiro/lite-youtube';
+import { uniqueId } from '@cocco3/utils';
 
 /**
  * A lightweight YouTube embed component using the `lite-youtube` web component.
@@ -15,14 +16,19 @@ import '@justinribeiro/lite-youtube';
  * @link https://github.com/justinribeiro/lite-youtube?tab=readme-ov-file
  */
 @Component({
+  host: {
+    '[attr.aria-labelledby]': 'headingId',
+  },
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  selector: 'ui-youtube-video',
+  selector: 'article[ui-youtube-video]',
   styleUrl: './youtube-video.css',
   templateUrl: './youtube-video.html',
 })
 export class UiYouTubeVideoComponent {
   videoId = input.required<string>();
   videoTitle = input.required<string>();
+
+  protected headingId = uniqueId();
 
   protected videoUrl = computed(
     () => `https://www.youtube.com/embed/${this.videoId()}`

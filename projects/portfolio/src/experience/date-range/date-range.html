@@ -1,0 +1,13 @@
+<time [attr.datetime]="start()">
+  {{ start() | date: format() }}
+</time>
+
+<span>–</span>
+
+@if (!!end()) {
+  <time [attr.datetime]="end()">
+    {{ end() | date: format() }}
+  </time>
+} @else {
+  <span>Present</span>
+}
