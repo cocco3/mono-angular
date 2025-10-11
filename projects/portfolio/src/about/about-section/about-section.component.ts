@@ -3,6 +3,7 @@ import { type UiIconKind } from '@cocco3/angular-ui';
 import { ContentService } from '../../content/ContentService';
 import { AppLabelComponent } from '../label/label.component';
 import { AppSocialLinkComponent } from '../social-link/social-link.component';
+import { SectionScrollSpyDirective } from '../../scroll-spy/section-scroll-spy.directive';
 
 type SocialLink = {
   label: string;
@@ -11,7 +12,11 @@ type SocialLink = {
 };
 
 @Component({
-  imports: [AppLabelComponent, AppSocialLinkComponent],
+  imports: [
+    AppLabelComponent,
+    AppSocialLinkComponent,
+    SectionScrollSpyDirective,
+  ],
   selector: 'app-about-section',
   styleUrl: './about-section.css',
   templateUrl: './about-section.html',

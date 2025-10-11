@@ -6,11 +6,18 @@
   transition-duration: 200ms;
   transition-timing-function: ease-out;
 
-  &:enabled:hover,
-  &:any-link:hover {
+  @media (pointer: fine) {
+    &:enabled:hover,
+    &:any-link:hover {
+      background-color: #db7c5d;
+      color: #0f1e2a;
+      cursor: pointer;
+    }
+  }
+
+  &.active {
     background-color: #db7c5d;
     color: #0f1e2a;
-    cursor: pointer;
   }
 
   @media (width <= 420px) {

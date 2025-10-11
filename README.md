@@ -6,7 +6,7 @@ An [Angular](./ANGULAR.md) monorepo.
 
 - [CountdownApp](./projects/countdown) - A countdown app integrated with Google Calendar ([app](https://cocco-countdown.netlify.app))
 - [Vampire Survivors](./projects/vampire-survivors) - Weapon evolution chart for the video game Vampire Surivors. ([app](https://vamps-evolutions.netlify.app))
-- [Portfolio](./projects/portfolio) - Portfolio site showcasing professional experience and personal projects. ([app](joecocco.com))
+- [Portfolio](./projects/portfolio) - Portfolio site showcasing professional experience and personal projects. ([app](https://joecocco.com))
 
 ## Libraries
 

@@ -2,7 +2,13 @@
   <ul class="nav_list">
     @for (item of items(); track item.id) {
       <li>
-        <a app-nav [routerLink]="'/'" [fragment]="item.id">
+        <a
+          app-nav
+          [routerLink]="'/'"
+          [fragment]="item.id"
+          [active]="item.id === activeId()"
+          [appNavScrollSpy]="item.id"
+        >
           {{ item.label }}
         </a>
       </li>
