@@ -302,6 +302,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputMode": "static",
             "outputPath": "dist/vampire-survivors",
             "index": "projects/vampire-survivors/src/index.html",
             "browser": "projects/vampire-survivors/src/main.ts",
@@ -414,6 +415,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputMode": "static",
             "browser": "projects/portfolio/src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "projects/portfolio/tsconfig.app.json",
