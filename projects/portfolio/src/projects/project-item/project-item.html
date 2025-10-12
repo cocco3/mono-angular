@@ -2,7 +2,7 @@
 
 <div class="body">
   <div class="header">
-    <h3 class="title">
+    <h3 class="title" [attr.id]="headingId">
       <a class="titleLink" [href]="projectUrl()" target="_blank">
         {{ name() }}
       </a>
@@ -18,11 +18,11 @@
     </a>
   </div>
 
-  <div class="description">
+  <p class="description">
     {{ description() }}
-  </div>
+  </p>
 
-  <ul class="tags">
+  <ul class="tags" aria-label="Tech used">
     @for (tag of tech(); track tag) {
       <li>
         <app-tag>{{ tag }}</app-tag>

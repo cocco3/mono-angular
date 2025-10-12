@@ -21,7 +21,7 @@
 .about_list {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 60ch;
 }
 
 .name {
@@ -31,7 +31,7 @@
 
 .description {
   margin-block: 1rem;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .social {
@@ -39,8 +39,10 @@
   flex-direction: row;
   gap: 4px;
   justify-content: center;
-  margin-block-start: 8px;
+  list-style: none;
+  margin-block: 8px 0;
   margin-inline: auto;
+  padding: 0;
 }
 
 @media (width < 520px) {
@@ -49,6 +51,7 @@
   }
 
   .photo_img {
+    margin-inline: auto;
     width: 140px;
   }
 

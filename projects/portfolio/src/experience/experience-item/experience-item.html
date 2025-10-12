@@ -1,21 +1,32 @@
-<div>
-  <div class="row">
-    <h3 class="company">{{ company().name }}</h3>
-    <b>{{ company().dates }}</b>
-  </div>
+<div class="row">
+  <h3 class="company" [attr.id]="headingId">
+    {{ company().name }}
+  </h3>
 
-  @for (position of positions(); track position.title) {
-    <div class="position">
-      <div class="row">
-        <em>
-          <span>{{ position.title }}</span>
-
-          @if (!!position.dates) {
-            <div class="positionDate">{{ position.dates }}</div>
-          }
-        </em>
-        <div>{{ position.location }}</div>
-      </div>
-    </div>
-  }
+  <app-date-range
+    class="companyDates"
+    label="Dates at company"
+    [start]="company().start"
+    [end]="company().end"
+  />
 </div>
+
+@for (position of positions(); track position.title) {
+  <div class="position">
+    <div class="row">
+      <em>
+        <span>{{ position.title }}</span>
+
+        @if (!!position.start) {
+          <app-date-range
+            class="positionDates"
+            label="Dates in position"
+            [start]="position.start"
+            [end]="position.end"
+          />
+        }
+      </em>
+      <div>{{ position.location }}</div>
+    </div>
+  </div>
+}

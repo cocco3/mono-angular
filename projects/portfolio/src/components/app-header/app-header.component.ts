@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AppNavListComponent } from '../app-nav-list/app-nav-list.component';
+import { AppNavListComponent } from '../app-nav/app-nav.component';
 
 @Component({
-  selector: 'app-header',
+  selector: 'header[app-header]',
   imports: [AppNavListComponent],
   templateUrl: './app-header.html',
   styleUrl: './app-header.css',

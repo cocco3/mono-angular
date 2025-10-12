@@ -5,13 +5,15 @@ type Experience = {
 
 type Company = {
   name: string;
-  dates: string;
+  start: string;
+  end?: string;
 };
 
 type Position = {
   title: string;
   location: string;
-  dates?: string;
+  start?: string;
+  end?: string;
   points: string[];
   tech?: string[];
 };
@@ -20,7 +22,7 @@ const experience: Experience[] = [
   {
     company: {
       name: 'Quantified AI',
-      dates: 'Oct 2024 – Present',
+      start: '2024-10',
     },
     positions: [
       {
@@ -33,7 +35,8 @@ const experience: Experience[] = [
   {
     company: {
       name: 'Honor Education',
-      dates: 'May 2022 – Sep 2024',
+      start: '2022-05',
+      end: '2024-09',
     },
     positions: [
       {
@@ -46,31 +49,36 @@ const experience: Experience[] = [
   {
     company: {
       name: 'DocuSign',
-      dates: 'Apr 2013 – May 2022',
+      start: '2013-04',
+      end: '2022-05',
     },
     positions: [
       {
         title: 'Director, Engineering',
         location: 'San Francisco, CA',
-        dates: 'Feb 2020 – May 2022',
+        start: '2020-02',
+        end: '2022-05',
         points: ['point 1,', 'point 2'],
       },
       {
         title: 'Senior Engineering Manager',
         location: 'San Francisco, CA',
-        dates: 'May 2017 – Feb 2020',
+        start: '2017-05',
+        end: '2020-02',
         points: ['point 1,', 'point 2'],
       },
       {
         title: 'Engineering Manager',
         location: 'San Francisco, CA',
-        dates: 'Aug 2015 – May 2017',
+        start: '2015-08',
+        end: '2017-05',
         points: ['point 1,', 'point 2'],
       },
       {
         title: 'Senior Software Engineer',
         location: 'San Francisco, CA',
-        dates: 'Apr 2013 – Aug 2015',
+        start: '2013-04',
+        end: '2015-08',
         points: ['point 1,', 'point 2'],
       },
     ],
@@ -78,7 +86,8 @@ const experience: Experience[] = [
   {
     company: {
       name: 'Cartavi (acquired by DocuSign)',
-      dates: 'Jan 2010 – Apr 2013',
+      start: '2010-01',
+      end: '2013-04',
     },
     positions: [
       {
@@ -92,7 +101,8 @@ const experience: Experience[] = [
   {
     company: {
       name: 'Guaranteed Rate',
-      dates: 'Feb 2011 – Oct 2012',
+      start: '2011-02',
+      end: '2012-10',
     },
     positions: [
       {
@@ -106,7 +116,8 @@ const experience: Experience[] = [
   {
     company: {
       name: 'West Monroe Partners',
-      dates: 'Jul 2007 – Feb 2011',
+      start: '2007-07',
+      end: '2011-02',
     },
     positions: [
       {

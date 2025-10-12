@@ -1,5 +1,9 @@
 <ui-item-grid gap="24px" minItemWidth="320px">
   @for (video of videos; track video.name) {
-    <ui-youtube-video [videoId]="video.videoId" [videoTitle]="video.name" />
+    <article
+      ui-youtube-video
+      [videoId]="video.videoId"
+      [videoTitle]="video.name"
+    ></article>
   }
 </ui-item-grid>

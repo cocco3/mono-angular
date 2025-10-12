@@ -3,9 +3,16 @@
   margin-block: 0;
 }
 
+.companyDates {
+  font-weight: 700;
+}
+
 @media (width < 600px) {
   .position {
     margin-block-start: 12px;
+  }
+  .positionDates {
+    display: flex;
   }
 }
 
@@ -16,9 +23,8 @@
     flex-direction: row;
     justify-content: space-between;
   }
-  .positionDate {
+  .positionDates {
     border-inline-start: 1px solid var(--border-secondary);
-    display: inline;
     margin-inline-start: 12px;
     padding-inline-start: 12px;
   }
