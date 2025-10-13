@@ -3,7 +3,7 @@ import { Analytics } from '@cocco3/angular-ui';
 
 export type AnalyticsEvents =
   | { name: 'wiki_clicked'; data: { item: string } }
-  | { name: 'filter_item_clicked'; data: { item: string; checked: boolean } }
+  | { name: 'filters_changed'; data: { game?: string; passive?: string } }
   | { name: 'issues_clicked' }
   | { name: 'guide_clicked' }
   | { name: 'planner_clicked' };
