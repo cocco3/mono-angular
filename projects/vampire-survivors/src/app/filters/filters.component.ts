@@ -4,6 +4,7 @@ import { ItemFilterService } from './filters.service';
 import { DataService } from '../../data/DataService';
 import type { GameId } from '../../data/types';
 import { FilterItemComponent } from '../filter-item/filter-item.component';
+import { injectAnalytics } from '../analytics';
 
 type ValueChangeArgs = { checked: boolean; value: string };
 
@@ -16,6 +17,7 @@ type ValueChangeArgs = { checked: boolean; value: string };
 export class FiltersComponent {
   private readonly data = inject(DataService);
   private readonly itemFilter = inject(ItemFilterService);
+  private readonly analytics = injectAnalytics();
 
   protected selectedGames = this.itemFilter.games$;
   protected selectedPassives = this.itemFilter.passives$;
@@ -44,6 +46,11 @@ export class FiltersComponent {
       game: next,
       passive: this.selectedPassives(),
     });
+
+    this.analytics.trackEvent({
+      name: 'filters_changed',
+      data: { game: value },
+    });
   }
 
   protected handlePassiveChange({ checked, value }: ValueChangeArgs) {
@@ -56,6 +63,11 @@ export class FiltersComponent {
     this.itemFilter.updateFilters({
       game: this.selectedGames(),
       passive: next,
+    });
+
+    this.analytics.trackEvent({
+      name: 'filters_changed',
+      data: { passive: value },
     });
   }
 }
