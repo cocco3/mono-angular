@@ -6,11 +6,12 @@ import {
 } from '@angular/forms';
 import {
   UiAlertComponent,
-  UiButtonComponent,
   UiDialogComponent,
+  UiDialogButtonComponent,
   UiFormFieldComponent,
   UiInputComponent,
   UiTextareaComponent,
+  UiSlotDirective,
   Logger,
 } from '@cocco3/angular-ui';
 import { getToday } from '@cocco3/utils';
@@ -25,11 +26,12 @@ import {
   imports: [
     ReactiveFormsModule,
     UiAlertComponent,
-    UiButtonComponent,
     UiDialogComponent,
+    UiDialogButtonComponent,
     UiFormFieldComponent,
     UiInputComponent,
     UiTextareaComponent,
+    UiSlotDirective,
   ],
   selector: 'app-create-event-dialog',
   styleUrl: './create-event-dialog.css',
@@ -91,6 +93,7 @@ export class CreateEventDialogComponent {
   }
 
   public showDialog() {
+    this.resetForm();
     this.dialog()?.showModal();
   }
 

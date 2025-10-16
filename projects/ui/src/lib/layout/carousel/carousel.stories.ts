@@ -31,10 +31,18 @@ const meta: Meta<StoryArgs> = {
 
     return {
       props: { items, args },
+      styles: [
+        `
+        .item {
+          background: light-dark(lightblue, steelblue);
+          padding: 20px;
+        }
+      `,
+      ],
       template: `
         <ui-carousel ${storybookArgsToTemplate(args)}>
           @for(item of items; track item.id) {
-            <div uiCarouselItem style="background: var(--bg-brand-secondary); padding: 20px;">
+            <div uiCarouselItem class="item">
               {{ item.label }}
             </div>
           }

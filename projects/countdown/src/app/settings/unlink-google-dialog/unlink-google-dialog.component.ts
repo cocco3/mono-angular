@@ -2,14 +2,20 @@ import { Component, inject, viewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   UiAlertComponent,
-  UiButtonComponent,
+  UiDialogButtonComponent,
   UiDialogComponent,
+  UiSlotDirective,
   Logger,
 } from '@cocco3/angular-ui';
 import { GoogleAuthService } from '../../services/GoogleAuthService';
 
 @Component({
-  imports: [UiButtonComponent, UiDialogComponent, UiAlertComponent],
+  imports: [
+    UiDialogButtonComponent,
+    UiDialogComponent,
+    UiAlertComponent,
+    UiSlotDirective,
+  ],
   selector: 'app-unlink-google-dialog',
   templateUrl: './unlink-google-dialog.html',
 })

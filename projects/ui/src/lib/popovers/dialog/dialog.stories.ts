@@ -8,6 +8,7 @@ import {
   type UiButtonKind,
 } from '../../base/button/button.component';
 import { UiSlotDirective } from '../../layout/slot/slot.directive';
+import { UiDialogButtonComponent } from './dialog-button.component';
 
 type DialogStory = UiDialogComponent & {
   content?: string | undefined;
@@ -19,7 +20,12 @@ const meta: Meta<DialogStory> = {
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({
-      imports: [SbDialogDemoComponent, UiButtonComponent, UiSlotDirective],
+      imports: [
+        SbDialogDemoComponent,
+        UiButtonComponent,
+        UiDialogButtonComponent,
+        UiSlotDirective,
+      ],
     }),
   ],
   argTypes: {
@@ -52,10 +58,10 @@ const meta: Meta<DialogStory> = {
       >
         <dialog #dialog ui-dialog ${storybookArgsToTemplate(args)}>
           ${content || ''}
-          <button ui-button uiSlot="cancel" kind="secondary" size="medium" weight="outline" (click)="dialog.close()">
+          <button ui-dialog-button="cancel" uiSlot="cancel">
             Cancel
           </button>
-          <button ui-button uiSlot="submit" kind="${primaryButtonKind}" size="medium">
+          <button ui-dialog-button="submit" uiSlot="submit" type="submit" kind="${primaryButtonKind}">
             Save
           </button>
         </dialog>
@@ -94,4 +100,32 @@ export const LongContent: Story = {
         Long content. Dialog will scroll.
       </div>`,
   },
+};
+
+export const CustomButtons: Story = {
+  render: ({ content, primaryButtonKind, ...args }) => ({
+    props: args,
+    styles: [
+      `
+      .btn {
+        background: light-dark(lightblue, steelblue);
+        border: none;
+        padding: 8px;
+      }
+      `,
+    ],
+    template: `
+      <sb-dialog-demo
+        (showDialogClicked)="dialog.show()"
+        (showModalClicked)="dialog.showModal()"
+      >
+        <dialog #dialog ui-dialog ${storybookArgsToTemplate(args)}>
+          ${content || ''}
+          <button (click)="dialog.close()" class="btn">
+            Close the dialog
+          </button>
+        </dialog>
+      </sb-dialog-demo>
+    `,
+  }),
 };

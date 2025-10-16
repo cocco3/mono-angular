@@ -1,5 +1,6 @@
 import {
   Component,
+  contentChildren,
   ElementRef,
   inject,
   input,
@@ -8,21 +9,34 @@ import {
   type OnDestroy,
 } from '@angular/core';
 import { UiIconComponent } from '../../base/icon/icon.component';
+import { DialogContext } from './dialog-context';
+import { UiSlotDirective, useSlots } from '../../layout/slot/slot.directive';
 
 @Component({
   imports: [UiIconComponent],
+  providers: [DialogContext],
   selector: 'dialog[ui-dialog]',
   styleUrl: './dialog.css',
   templateUrl: './dialog.html',
 })
 export class UiDialogComponent implements OnDestroy {
-  public elementRef = inject(ElementRef<HTMLDialogElement>);
-  private renderer = inject(Renderer2);
+  public readonly elementRef: ElementRef<HTMLDialogElement> = inject(
+    ElementRef<HTMLDialogElement>
+  );
+  private readonly renderer = inject(Renderer2);
+  private readonly context = inject(DialogContext);
+
+  private readonly slots = contentChildren(UiSlotDirective);
+  protected hasSlots = useSlots(this.slots, ['cancel', 'submit']);
 
   heading = input<string>();
   description = input<string>();
 
   readonly afterClose = output();
+
+  constructor() {
+    this.context.registerClose(() => this.close());
+  }
 
   private get isOpen() {
     return this.elementRef.nativeElement.open;

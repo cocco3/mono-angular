@@ -6,7 +6,6 @@ import {
   UiButtonKinds,
   UiButtonShapes,
   UiButtonSizes,
-  UiButtonTypes,
   UiButtonWeights,
 } from './button.component';
 import {
@@ -32,7 +31,6 @@ const meta: Meta<ButtonStory> = {
     kind: { options: UiButtonKinds, control: { type: 'radio' } },
     shape: { options: UiButtonShapes, control: { type: 'radio' } },
     size: { options: UiButtonSizes, control: { type: 'radio' } },
-    type: { options: UiButtonTypes, control: { type: 'radio' } },
     weight: { options: UiButtonWeights, control: { type: 'radio' } },
     start: {
       options: UiIconKinds,
@@ -50,7 +48,6 @@ const meta: Meta<ButtonStory> = {
   args: {
     shape: 'normal',
     size: 'medium',
-    type: 'button',
     weight: 'solid',
   },
   parameters: {

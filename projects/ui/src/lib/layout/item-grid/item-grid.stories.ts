@@ -31,10 +31,18 @@ const meta: Meta<ItemGridStory> = {
 
     return {
       props: { items, args },
+      styles: [
+        `
+        .item {
+          background: light-dark(lightblue, steelblue);
+          padding: 20px;
+        }
+      `,
+      ],
       template: `
         <ui-item-grid ${storybookArgsToTemplate(args)}>
           @for(item of items; track item.id) {
-            <div style="background: var(--bg-brand-secondary); padding: 20px;">
+            <div class="item">
               {{ item.label }}
             </div>
           }
