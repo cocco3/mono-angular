@@ -197,6 +197,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4400
+          },
           "configurations": {
             "production": {
               "buildTarget": "countdown:build:production"
@@ -358,6 +361,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4500
+          },
           "configurations": {
             "production": {
               "buildTarget": "vampire-survivors:build:production"
@@ -464,6 +470,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4600
+          },
           "configurations": {
             "production": {
               "buildTarget": "portfolio:build:production"
