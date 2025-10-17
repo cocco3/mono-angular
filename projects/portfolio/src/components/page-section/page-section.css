@@ -7,3 +7,16 @@
   scroll-margin-block-start: 72px;
   width: clamp(0px, 100%, var(--inner-wrap, 1000px));
 }
+
+.header {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-block-end: 16px;
+}
+
+.heading {
+  font: 600 var(--type-display-md);
+  margin-block: 0;
+}
