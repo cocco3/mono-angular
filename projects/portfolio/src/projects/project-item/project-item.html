@@ -1,4 +1,8 @@
-<div class="img" [style.background]="background()"></div>
+@if (bannerSrc()) {
+  <img class="img" alt="" [attr.src]="bannerSrc()" />
+} @else {
+  <div class="img" [style.background]="background"></div>
+}
 
 <div class="body">
   <div class="header">

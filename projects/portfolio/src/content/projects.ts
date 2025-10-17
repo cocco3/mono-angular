@@ -4,6 +4,7 @@ type Project = {
   tech: string[];
   url: string;
   githubUrl: string;
+  bannerSrc?: string;
 };
 
 const projects: Project[] = [
