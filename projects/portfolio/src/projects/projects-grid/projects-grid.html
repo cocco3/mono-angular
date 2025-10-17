@@ -1,5 +1,5 @@
 <ui-item-grid gap="24px" minItemWidth="320px">
-  @for (project of projects; track project.name; let i = $index) {
+  @for (project of projects; track project.name) {
     <article
       app-project-item
       [name]="project.name"
@@ -7,7 +7,7 @@
       [description]="project.description"
       [githubUrl]="project.githubUrl"
       [projectUrl]="project.url"
-      [background]="getGradient(i)"
+      [bannerSrc]="project.bannerSrc"
     ></article>
   }
 </ui-item-grid>
