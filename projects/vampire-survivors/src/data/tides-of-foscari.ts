@@ -5,7 +5,7 @@ const Eskizzibur: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Eskizzibur',
-  image: 'eskizzibur.png',
+  image: 'tides-of-foscari/eskizzibur.png',
   wiki: 'https://vampire.survivors.wiki/w/Eskizzibur',
 };
 
@@ -13,7 +13,7 @@ const Legionnaire: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Legionnaire',
-  image: 'legionnaire.png',
+  image: 'tides-of-foscari/legionnaire.png',
   wiki: 'https://vampire.survivors.wiki/w/Legionnaire',
 };
 
@@ -21,7 +21,7 @@ const PrismaticMissile: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Prismatic Missile',
-  image: 'prismatic-missile.png',
+  image: 'tides-of-foscari/prismatic-missile.png',
   wiki: 'https://vampire.survivors.wiki/w/Prismatic_Missile',
 };
 
@@ -29,7 +29,7 @@ const Luminaire: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Luminaire',
-  image: 'luminaire.png',
+  image: 'tides-of-foscari/luminaire.png',
   wiki: 'https://vampire.survivors.wiki/w/Luminaire',
 };
 
@@ -37,7 +37,7 @@ const ShadowServant: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Shadow Servant',
-  image: 'shadow-servant.png',
+  image: 'tides-of-foscari/shadow-servant.png',
   wiki: 'https://vampire.survivors.wiki/w/Shadow_Servant',
 };
 
@@ -45,7 +45,7 @@ const Ophion: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Ophion',
-  image: 'ophion.png',
+  image: 'tides-of-foscari/ophion.png',
   wiki: 'https://vampire.survivors.wiki/w/Ophion',
 };
 
@@ -53,7 +53,7 @@ const FlashArrow: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Flash Arrow',
-  image: 'flash-arrow.png',
+  image: 'tides-of-foscari/flash-arrow.png',
   wiki: 'https://vampire.survivors.wiki/w/Flash_Arrow',
 };
 
@@ -61,7 +61,7 @@ const Millionaire: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'Millionaire',
-  image: 'millionaire.png',
+  image: 'tides-of-foscari/millionaire.png',
   wiki: 'https://vampire.survivors.wiki/w/Millionaire',
 };
 
@@ -69,7 +69,7 @@ const SpellString: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'SpellString',
-  image: 'spellstring.png',
+  image: 'tides-of-foscari/spellstring.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellString',
 };
 
@@ -77,7 +77,7 @@ const SpellStream: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'SpellStream',
-  image: 'spellstream.png',
+  image: 'tides-of-foscari/spellstream.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellStream',
 };
 
@@ -85,7 +85,7 @@ const SpellStrike: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'SpellStrike',
-  image: 'spellstrike.png',
+  image: 'tides-of-foscari/spellstrike.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellStrike',
 };
 
@@ -93,7 +93,7 @@ const SpellStrom: Item = {
   kind: 'weapon',
   gameId: 'foscari',
   name: 'SpellStrom',
-  image: 'spellstrom.png',
+  image: 'tides-of-foscari/spellstrom.png',
   wiki: 'https://vampire.survivors.wiki/w/SpellStrom',
 };
 

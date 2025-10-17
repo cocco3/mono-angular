@@ -31,7 +31,7 @@ const Whip: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Whip',
-  image: 'whip.webp',
+  image: 'base-game/whip.webp',
   wiki: 'https://vampire.survivors.wiki/w/Whip',
 };
 
@@ -39,7 +39,7 @@ const BloodyTear: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Bloody Tear',
-  image: 'bloody-tear.png',
+  image: 'base-game/bloody-tear.png',
   wiki: 'https://vampire.survivors.wiki/w/Bloody_Tear',
 };
 
@@ -47,7 +47,7 @@ const MagicWand: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Magic Wand',
-  image: 'magic-wand.png',
+  image: 'base-game/magic-wand.png',
   wiki: 'https://vampire.survivors.wiki/w/Magic_Wand',
 };
 
@@ -55,7 +55,7 @@ const HolyWand: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Holy Wand',
-  image: 'holy-wand.png',
+  image: 'base-game/holy-wand.png',
   wiki: 'https://vampire.survivors.wiki/w/Holy_Wand',
 };
 
@@ -63,7 +63,7 @@ const Knife: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Knife',
-  image: 'knife.png',
+  image: 'base-game/knife.png',
   wiki: 'https://vampire.survivors.wiki/w/Knife',
 };
 
@@ -71,7 +71,7 @@ const ThousandEdge: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Thousand Edge',
-  image: 'thousand-edge.png',
+  image: 'base-game/thousand-edge.png',
   wiki: 'https://vampire.survivors.wiki/w/Thousand_Edge',
 };
 
@@ -79,7 +79,7 @@ const Axe: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Axe',
-  image: 'axe.png',
+  image: 'base-game/axe.png',
   wiki: 'https://vampire.survivors.wiki/w/Axe',
 };
 
@@ -87,7 +87,7 @@ const DeathSpiral: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Death Spiral',
-  image: 'death-spiral.png',
+  image: 'base-game/death-spiral.png',
   wiki: 'https://vampire.survivors.wiki/w/Death_Spiral',
 };
 
@@ -95,7 +95,7 @@ const Cross: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Cross',
-  image: 'cross.png',
+  image: 'base-game/cross.png',
   wiki: 'https://vampire.survivors.wiki/w/Cross',
 };
 
@@ -103,7 +103,7 @@ const HeavenSword: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Heaven Sword',
-  image: 'heaven-sword.png',
+  image: 'base-game/heaven-sword.png',
   wiki: 'https://vampire.survivors.wiki/w/Heaven_Sword',
 };
 
@@ -111,7 +111,7 @@ const KingBible: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'King Bible',
-  image: 'king-bible.png',
+  image: 'base-game/king-bible.png',
   wiki: 'https://vampire.survivors.wiki/w/King_Bible',
 };
 
@@ -119,7 +119,7 @@ const UnholyVespers: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Unholy Vespers',
-  image: 'unholy-vespers.png',
+  image: 'base-game/unholy-vespers.png',
   wiki: 'https://vampire.survivors.wiki/w/Unholy_Vespers',
 };
 
@@ -127,7 +127,7 @@ const FireWand: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Fire Wand',
-  image: 'fire-wand.png',
+  image: 'base-game/fire-wand.png',
   wiki: 'https://vampire.survivors.wiki/w/Fire_Wand',
 };
 
@@ -135,7 +135,7 @@ const Hellfire: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Hellfire',
-  image: 'hellfire.png',
+  image: 'base-game/hellfire.png',
   wiki: 'https://vampire.survivors.wiki/w/Hellfire',
 };
 
@@ -143,7 +143,7 @@ const Garlic: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Garlic',
-  image: 'garlic.png',
+  image: 'base-game/garlic.png',
   wiki: 'https://vampire.survivors.wiki/w/Garlic',
 };
 
@@ -151,7 +151,7 @@ const SoulEater: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Soul Eater',
-  image: 'soul-eater.png',
+  image: 'base-game/soul-eater.png',
   wiki: 'https://vampire.survivors.wiki/w/Soul_Eater',
 };
 
@@ -159,7 +159,7 @@ const SantaWater: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Santa Water',
-  image: 'santa-water.png',
+  image: 'base-game/santa-water.png',
   wiki: 'https://vampire.survivors.wiki/w/Santa_Water',
 };
 
@@ -167,7 +167,7 @@ const LaBorra: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'La Borra',
-  image: 'la-borra.png',
+  image: 'base-game/la-borra.png',
   wiki: 'https://vampire.survivors.wiki/w/La_Borra',
 };
 
@@ -175,7 +175,7 @@ const Runetracer: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Runetracer',
-  image: 'runetracer.png',
+  image: 'base-game/runetracer.png',
   wiki: 'https://vampire.survivors.wiki/w/Runetracer',
 };
 
@@ -183,7 +183,7 @@ const NoFuture: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'NO FUTURE',
-  image: 'no-future.png',
+  image: 'base-game/no-future.png',
   wiki: 'https://vampire.survivors.wiki/w/NO_FUTURE',
 };
 
@@ -191,7 +191,7 @@ const LightningRing: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Lightning Ring',
-  image: 'lightning-ring.png',
+  image: 'base-game/lightning-ring.png',
   wiki: 'https://vampire.survivors.wiki/w/Lightning_Ring',
 };
 
@@ -199,7 +199,7 @@ const ThunderLoop: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Thunder Loop',
-  image: 'thunder-loop.png',
+  image: 'base-game/thunder-loop.png',
   wiki: 'https://vampire.survivors.wiki/w/Thunder_Loop',
 };
 
@@ -207,7 +207,7 @@ const Pentagram: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Pentagram',
-  image: 'pentagram.png',
+  image: 'base-game/pentagram.png',
   wiki: 'https://vampire.survivors.wiki/w/Pentagram',
 };
 
@@ -215,7 +215,7 @@ const GorgeousMoon: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Gorgeous Moon',
-  image: 'gorgeous-moon.png',
+  image: 'base-game/gorgeous-moon.png',
   wiki: 'https://vampire.survivors.wiki/w/Gorgeous_Moon',
 };
 
@@ -223,7 +223,7 @@ const GattiAmari: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Gatti Amari',
-  image: 'gatti-amari.png',
+  image: 'base-game/gatti-amari.png',
   wiki: 'https://vampire.survivors.wiki/w/Gatti_Amari',
 };
 
@@ -231,7 +231,7 @@ const ViciousHunger: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Vicious Hunger',
-  image: 'vicious-hunger.png',
+  image: 'base-game/vicious-hunger.png',
   wiki: 'https://vampire.survivors.wiki/w/Vicious_Hunger',
 };
 
@@ -239,7 +239,7 @@ const SongOfMana: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Song of Mana',
-  image: 'song-of-mana.png',
+  image: 'base-game/song-of-mana.png',
   wiki: 'https://vampire.survivors.wiki/w/Song_of_Mana',
 };
 
@@ -247,7 +247,7 @@ const Mannajja: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Mannajja',
-  image: 'mannajja.png',
+  image: 'base-game/mannajja.png',
   wiki: 'https://vampire.survivors.wiki/w/Mannajja',
 };
 
@@ -255,7 +255,7 @@ const ShadowPinion: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Shadow Pinion',
-  image: 'shadow-pinion.png',
+  image: 'base-game/shadow-pinion.png',
   wiki: 'https://vampire.survivors.wiki/w/Shadow_Pinion',
 };
 
@@ -263,7 +263,7 @@ const ValkyrieTurner: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Valkyrie Turner',
-  image: 'valkyrie-turner.png',
+  image: 'base-game/valkyrie-turner.png',
   wiki: 'https://vampire.survivors.wiki/w/Valkyrie_Turner',
 };
 
@@ -271,7 +271,7 @@ const Peachone: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Peachone',
-  image: 'peachone.png',
+  image: 'base-game/peachone.png',
   wiki: 'https://vampire.survivors.wiki/w/Peachone',
 };
 
@@ -279,7 +279,7 @@ const EbonyWings: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Ebony Wings',
-  image: 'ebony-wings.png',
+  image: 'base-game/ebony-wings.png',
   wiki: 'https://vampire.survivors.wiki/w/Ebony_Wings',
 };
 
@@ -287,7 +287,7 @@ const Vandalier: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Vandalier',
-  image: 'vandalier.png',
+  image: 'base-game/vandalier.png',
   wiki: 'https://vampire.survivors.wiki/w/Vandalier',
 };
 
@@ -295,7 +295,7 @@ const VentoSacro: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Vento Sacro',
-  image: 'vento-sacro.png',
+  image: 'base-game/vento-sacro.png',
   wiki: 'https://vampire.survivors.wiki/w/Vento_Sacro',
 };
 
@@ -303,7 +303,7 @@ const Fuwalafuwaloo: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Fuwalafuwaloo',
-  image: 'fuwalafuwaloo.png',
+  image: 'base-game/fuwalafuwaloo.png',
   wiki: 'https://vampire.survivors.wiki/w/Fuwalafuwaloo',
 };
 
@@ -311,7 +311,7 @@ const GlassFandango: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Glass Fandango',
-  image: 'glass-fandango.png',
+  image: 'base-game/glass-fandango.png',
   wiki: 'https://vampire.survivors.wiki/w/Glass_Fandango',
 };
 
@@ -319,7 +319,7 @@ const CelestialVoulge: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Celestial Voulge',
-  image: 'celestial-voulge.png',
+  image: 'base-game/celestial-voulge.png',
   wiki: 'https://vampire.survivors.wiki/w/Celestial_Voulge',
 };
 
@@ -327,7 +327,7 @@ const Phas3r: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Phas3r',
-  image: 'phas3r.png',
+  image: 'base-game/phas3r.png',
   wiki: 'https://vampire.survivors.wiki/w/Phas3r',
 };
 
@@ -335,7 +335,7 @@ const Photonstorm: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Photonstorm',
-  image: 'photonstorm.png',
+  image: 'base-game/photonstorm.png',
   wiki: 'https://vampire.survivors.wiki/w/Photonstorm',
 };
 
@@ -343,7 +343,7 @@ const PakoBattiliar: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Pako Battiliar',
-  image: 'pako-battiliar.webp',
+  image: 'base-game/pako-battiliar.webp',
   wiki: 'https://vampire.survivors.wiki/w/Pako_Battiliar',
 };
 
@@ -351,7 +351,7 @@ const MazoFamiliar: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Mazo Familiar',
-  image: 'mazo-familiar.png',
+  image: 'base-game/mazo-familiar.png',
   wiki: 'https://vampire.survivors.wiki/w/Mazo_Familiar',
 };
 
@@ -359,7 +359,7 @@ const SantaJavelin: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Santa Javelin',
-  image: 'santa-javelin.png',
+  image: 'base-game/santa-javelin.png',
   wiki: 'https://vampire.survivors.wiki/w/Santa_Javelin',
 };
 
@@ -367,7 +367,7 @@ const SeraphicCry: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Seraphic Cry',
-  image: 'seraphic-cry.png',
+  image: 'base-game/seraphic-cry.png',
   wiki: 'https://vampire.survivors.wiki/w/Seraphic_Cry',
 };
 
@@ -375,7 +375,7 @@ const Bracelet: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Bracelet',
-  image: 'bracelet.png',
+  image: 'base-game/bracelet.png',
   wiki: 'https://vampire.survivors.wiki/w/Bracelet',
 };
 
@@ -383,7 +383,7 @@ const BiBracelet: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Bi-Bracelet',
-  image: 'bi-bracelet.png',
+  image: 'base-game/bi-bracelet.png',
   wiki: 'https://vampire.survivors.wiki/w/Bi-Bracelet',
 };
 
@@ -391,7 +391,7 @@ const TriBracelet: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Tri-Bracelet',
-  image: 'tri-bracelet.png',
+  image: 'base-game/tri-bracelet.png',
   wiki: 'https://vampire.survivors.wiki/w/Tri-Bracelet',
 };
 
@@ -399,7 +399,7 @@ const VictorySword: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Victory Sword',
-  image: 'victory-sword.png',
+  image: 'base-game/victory-sword.png',
   wiki: 'https://vampire.survivors.wiki/w/Victory_Sword',
 };
 
@@ -407,7 +407,7 @@ const SoleSolution: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Sole Solution',
-  image: 'sole-solution.png',
+  image: 'base-game/sole-solution.png',
   wiki: 'https://vampire.survivors.wiki/w/Sole_Solution',
 };
 
@@ -415,7 +415,7 @@ const FlamesOfMisspell: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Flames of Misspell',
-  image: 'flames-of-misspell.png',
+  image: 'base-game/flames-of-misspell.png',
   wiki: 'https://vampire.survivors.wiki/w/Flames_of_Misspell',
 };
 
@@ -423,7 +423,7 @@ const AshesOfMuspell: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Ashes of Muspell',
-  image: 'ashes-of-muspell.png',
+  image: 'base-game/ashes-of-muspell.png',
   wiki: 'https://vampire.survivors.wiki/w/Ashes_of_Muspell',
 };
 
@@ -431,7 +431,7 @@ const PhieraDerTuphello: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Phiera Der Tuphello',
-  image: 'phiera-der-tuphello.png',
+  image: 'base-game/phiera-der-tuphello.png',
   wiki: 'https://vampire.survivors.wiki/w/Phiera_Der_Tuphello',
 };
 
@@ -439,7 +439,7 @@ const EightTheSparrow: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Eight The Sparrow',
-  image: 'eight-the-sparrow.png',
+  image: 'base-game/eight-the-sparrow.png',
   wiki: 'https://vampire.survivors.wiki/w/Eight_The_Sparrow',
 };
 
@@ -447,7 +447,7 @@ const Phieraggi: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Phieraggi',
-  image: 'phieraggi.png',
+  image: 'base-game/phieraggi.png',
   wiki: 'https://vampire.survivors.wiki/w/Phieraggi',
 };
 
@@ -455,7 +455,7 @@ const ClockLancet: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Clock Lancet',
-  image: 'clock-lancet.png',
+  image: 'base-game/clock-lancet.png',
   wiki: 'https://vampire.survivors.wiki/w/Clock_Lancet',
 };
 
@@ -463,7 +463,7 @@ const InfiniteCorridor: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Infinite Corridor',
-  image: 'infinite-corridor.png',
+  image: 'base-game/infinite-corridor.png',
   wiki: 'https://vampire.survivors.wiki/w/Infinite_Corridor',
 };
 
@@ -471,7 +471,7 @@ const Laurel: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Laurel',
-  image: 'laurel.png',
+  image: 'base-game/laurel.png',
   wiki: 'https://vampire.survivors.wiki/w/Laurel',
 };
 
@@ -479,7 +479,7 @@ const CrimsonShroud: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Crimson Shroud',
-  image: 'crimson-shroud.png',
+  image: 'base-game/crimson-shroud.png',
   wiki: 'https://vampire.survivors.wiki/w/Crimson_Shroud',
 };
 
@@ -487,7 +487,7 @@ const Bone: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Bone',
-  image: 'bone.png',
+  image: 'base-game/bone.png',
   wiki: 'https://vampire.survivors.wiki/w/Bone',
 };
 
@@ -495,7 +495,7 @@ const AnimaOfMortaccio: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Anima of Mortaccio',
-  image: 'anima-of-mortaccio.png',
+  image: 'base-game/anima-of-mortaccio.png',
   wiki: 'https://vampire.survivors.wiki/w/Anima_of_Mortaccio',
 };
 
@@ -503,7 +503,7 @@ const CherryBomb: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Cherry Bomb',
-  image: 'cherry-bomb.png',
+  image: 'base-game/cherry-bomb.png',
   wiki: 'https://vampire.survivors.wiki/w/Cherry_Bomb',
 };
 
@@ -511,7 +511,7 @@ const YattaDaikarin: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Yatta Daikarin',
-  image: 'yatta-daikarin.png',
+  image: 'base-game/yatta-daikarin.png',
   wiki: 'https://vampire.survivors.wiki/w/Yatta_Daikarin',
 };
 
@@ -519,7 +519,7 @@ const CelestialDusting: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Celestial Dusting',
-  image: 'celestial-dusting.png',
+  image: 'base-game/celestial-dusting.png',
   wiki: 'https://vampire.survivors.wiki/w/Celestial_Dusting',
 };
 
@@ -527,7 +527,7 @@ const ProfusioneDAmore: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: `Profusione D'Amore`,
-  image: 'profusione-d-amore.png',
+  image: 'base-game/profusione-d-amore.png',
   wiki: `https://vampire.survivors.wiki/w/Profusione_D'Amore`,
 };
 
@@ -535,7 +535,7 @@ const GazeOfGaea: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Gaze of Gaea',
-  image: 'gaze-of-gaea.png',
+  image: 'base-game/gaze-of-gaea.png',
   wiki: 'https://vampire.survivors.wiki/w/Gaze_of_Gaea',
 };
 
@@ -543,7 +543,7 @@ const EmbraceOfGaea: Item = {
   kind: 'weapon',
   gameId: 'base',
   name: 'Embrace of Gaea',
-  image: 'embrace-of-gaea.png',
+  image: 'base-game/embrace-of-gaea.png',
   wiki: 'https://vampire.survivors.wiki/w/Embrace_of_Gaea',
 };
 
