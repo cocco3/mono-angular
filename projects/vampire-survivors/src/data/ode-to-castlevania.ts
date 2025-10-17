@@ -25,7 +25,7 @@ const Alchemy_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Alchemy Whip',
-  image: 'Alchemy_Whip.png',
+  image: 'ode-to-castlevania/Alchemy_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Alchemy_Whip',
 };
 
@@ -33,7 +33,7 @@ const Vampire_Killer: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Vampire Killer',
-  image: 'Vampire_Killer.png',
+  image: 'ode-to-castlevania/Vampire_Killer.png',
   wiki: 'https://vampire.survivors.wiki/w/Vampire_Killer',
 };
 
@@ -41,7 +41,7 @@ const Wind_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Wind Whip',
-  image: 'Wind_Whip.png',
+  image: 'ode-to-castlevania/Wind_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Wind_Whip',
 };
 
@@ -49,7 +49,7 @@ const Spirit_Tornado_Tip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Spirit Tornado Tip',
-  image: 'Spirit_Tornado_Tip.png',
+  image: 'ode-to-castlevania/Spirit_Tornado_Tip.png',
   wiki: 'https://vampire.survivors.wiki/w/Spirit_Tornado_Tip',
 };
 
@@ -57,7 +57,7 @@ const Platinum_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Platinum Whip',
-  image: 'Platinum_Whip.png',
+  image: 'ode-to-castlevania/Platinum_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Platinum_Whip',
 };
 
@@ -65,7 +65,7 @@ const Cross_Crasher_Tip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Cross Crasher Tip',
-  image: 'Cross_Crasher_Tip.png',
+  image: 'ode-to-castlevania/Cross_Crasher_Tip.png',
   wiki: 'https://vampire.survivors.wiki/w/Cross_Crasher_Tip',
 };
 
@@ -73,7 +73,7 @@ const Dragon_Water_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Dragon Water Whip',
-  image: 'Dragon_Water_Whip.png',
+  image: 'ode-to-castlevania/Dragon_Water_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Dragon_Water_Whip',
 };
 
@@ -81,7 +81,7 @@ const Hydrostormer_Tip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Hydrostormer Tip',
-  image: 'Hydrostormer_Tip.png',
+  image: 'ode-to-castlevania/Hydrostormer_Tip.png',
   wiki: 'https://vampire.survivors.wiki/w/Hydrostormer_Tip',
 };
 
@@ -89,7 +89,7 @@ const Sonic_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Sonic Whip',
-  image: 'Sonic_Whip.png',
+  image: 'ode-to-castlevania/Sonic_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Sonic_Whip',
 };
 
@@ -97,7 +97,7 @@ const Crissaegrim_Tip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Crissaegrim Tip',
-  image: 'Crissaegrim_Tip.png',
+  image: 'ode-to-castlevania/Crissaegrim_Tip.png',
   wiki: 'https://vampire.survivors.wiki/w/Crissaegrim_Tip',
 };
 
@@ -105,7 +105,7 @@ const Jet_Black_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Jet Black Whip',
-  image: 'Jet_Black_Whip.png',
+  image: 'ode-to-castlevania/Jet_Black_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Jet_Black_Whip',
 };
 
@@ -113,7 +113,7 @@ const Mormegil_Tip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Mormegil Tip',
-  image: 'Mormegil_Tip.png',
+  image: 'ode-to-castlevania/Mormegil_Tip.png',
   wiki: 'https://vampire.survivors.wiki/w/Mormegil_Tip',
 };
 
@@ -121,7 +121,7 @@ const Vibhuti_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Vibhuti Whip',
-  image: 'Vibhuti_Whip.png',
+  image: 'ode-to-castlevania/Vibhuti_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Vibhuti_Whip',
 };
 
@@ -129,7 +129,7 @@ const Daybreaker_Tip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Daybreaker Tip',
-  image: 'Daybreaker_Tip.png',
+  image: 'ode-to-castlevania/Daybreaker_Tip.png',
   wiki: 'https://vampire.survivors.wiki/w/Daybreaker_Tip',
 };
 
@@ -137,7 +137,7 @@ const Vanitas_Whip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Vanitas Whip',
-  image: 'Vanitas_Whip.png',
+  image: 'ode-to-castlevania/Vanitas_Whip.png',
   wiki: 'https://vampire.survivors.wiki/w/Vanitas_Whip',
 };
 
@@ -145,7 +145,7 @@ const Aurablaster_Tip: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Aurablaster Tip',
-  image: 'Aurablaster_Tip.png',
+  image: 'ode-to-castlevania/Aurablaster_Tip.png',
   wiki: 'https://vampire.survivors.wiki/w/Aurablaster_Tip',
 };
 
@@ -153,7 +153,7 @@ const Shuriken: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Shuriken',
-  image: 'Shuriken.png',
+  image: 'ode-to-castlevania/Shuriken.png',
   wiki: 'https://vampire.survivors.wiki/w/Shuriken',
 };
 
@@ -161,7 +161,7 @@ const Yagyu_Shuriken: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Yagyu Shuriken',
-  image: 'Yagyu_Shuriken.png',
+  image: 'ode-to-castlevania/Yagyu_Shuriken.png',
   wiki: 'https://vampire.survivors.wiki/w/Yagyu_Shuriken',
 };
 
@@ -169,7 +169,7 @@ const Curved_Knife: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Curved Knife',
-  image: 'Curved_Knife.png',
+  image: 'ode-to-castlevania/Curved_Knife.png',
   wiki: 'https://vampire.survivors.wiki/w/Curved_Knife',
 };
 
@@ -177,7 +177,7 @@ const Bwaka_Knife: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Bwaka Knife',
-  image: 'Bwaka_Knife.png',
+  image: 'ode-to-castlevania/Bwaka_Knife.png',
   wiki: 'https://vampire.survivors.wiki/w/Bwaka_Knife',
 };
 
@@ -185,7 +185,7 @@ const Javelin: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Javelin',
-  image: 'Javelin.png',
+  image: 'ode-to-castlevania/Javelin.png',
   wiki: 'https://vampire.survivors.wiki/w/Javelin',
 };
 
@@ -193,7 +193,7 @@ const Long_Inus: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Long Inus',
-  image: 'Long_Inus.png',
+  image: 'ode-to-castlevania/Long_Inus.png',
   wiki: 'https://vampire.survivors.wiki/w/Long_Inus',
 };
 
@@ -201,7 +201,7 @@ const Discus: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Discus',
-  image: 'Discus.png',
+  image: 'ode-to-castlevania/Discus.png',
   wiki: 'https://vampire.survivors.wiki/w/Discus',
 };
 
@@ -209,7 +209,7 @@ const Stellar_Blade: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Stellar Blade',
-  image: 'Stellar_Blade.png',
+  image: 'ode-to-castlevania/Stellar_Blade.png',
   wiki: 'https://vampire.survivors.wiki/w/Stellar_Blade',
 };
 
@@ -217,7 +217,7 @@ const Iron_Ball: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Iron Ball',
-  image: 'Iron_Ball.png',
+  image: 'ode-to-castlevania/Iron_Ball.png',
   wiki: 'https://vampire.survivors.wiki/w/Iron_Ball',
 };
 
@@ -225,7 +225,7 @@ const Wrecking_Ball: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Wrecking Ball',
-  image: 'Wrecking_Ball.png',
+  image: 'ode-to-castlevania/Wrecking_Ball.png',
   wiki: 'https://vampire.survivors.wiki/w/Wrecking_Ball',
 };
 
@@ -233,7 +233,7 @@ const Silver_Revolver: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Silver Revolver',
-  image: 'Silver_Revolver.png',
+  image: 'ode-to-castlevania/Silver_Revolver.png',
   wiki: 'https://vampire.survivors.wiki/w/Silver_Revolver',
 };
 
@@ -241,7 +241,7 @@ const Jewel_Gun: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Jewel Gun',
-  image: 'Jewel_Gun.png',
+  image: 'ode-to-castlevania/Jewel_Gun.png',
   wiki: 'https://vampire.survivors.wiki/w/Jewel_Gun',
 };
 
@@ -249,7 +249,7 @@ const Hand_Grenade: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Hand Grenade',
-  image: 'Hand_Grenade.png',
+  image: 'ode-to-castlevania/Hand_Grenade.png',
   wiki: 'https://vampire.survivors.wiki/w/Hand_Grenade',
 };
 
@@ -257,7 +257,7 @@ const The_RPG: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'The RPG',
-  image: 'The_RPG.png',
+  image: 'ode-to-castlevania/The_RPG.png',
   wiki: 'https://vampire.survivors.wiki/w/The_RPG',
 };
 
@@ -265,7 +265,7 @@ const Wine_Glass: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Wine Glass',
-  image: 'Wine_Glass.png',
+  image: 'ode-to-castlevania/Wine_Glass.png',
   wiki: 'https://vampire.survivors.wiki/w/Wine_Glass',
 };
 
@@ -273,7 +273,7 @@ const Meal_Ticket: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Meal Ticket',
-  image: 'Meal_Ticket.png',
+  image: 'ode-to-castlevania/Meal_Ticket.png',
   wiki: 'https://vampire.survivors.wiki/w/Meal_Ticket',
 };
 
@@ -281,7 +281,7 @@ const Raging_Fire: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Raging Fire',
-  image: 'Raging_Fire.png',
+  image: 'ode-to-castlevania/Raging_Fire.png',
   wiki: 'https://vampire.survivors.wiki/w/Raging_Fire',
 };
 
@@ -289,7 +289,7 @@ const Salamender: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Salamender',
-  image: 'Salamender.png',
+  image: 'ode-to-castlevania/Salamender.png',
   wiki: 'https://vampire.survivors.wiki/w/Salamender',
 };
 
@@ -297,7 +297,7 @@ const Ice_Fang: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Ice Fang',
-  image: 'Ice_Fang.png',
+  image: 'ode-to-castlevania/Ice_Fang.png',
   wiki: 'https://vampire.survivors.wiki/w/Ice_Fang',
 };
 
@@ -305,7 +305,7 @@ const Cocytus: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Cocytus',
-  image: 'Cocytus.png',
+  image: 'ode-to-castlevania/Cocytus.png',
   wiki: 'https://vampire.survivors.wiki/w/Cocytus',
 };
 
@@ -313,7 +313,7 @@ const Gale_Force: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Gale Force',
-  image: 'Gale_Force.png',
+  image: 'ode-to-castlevania/Gale_Force.png',
   wiki: 'https://vampire.survivors.wiki/w/Gale_Force',
 };
 
@@ -321,7 +321,7 @@ const Pneuma_Tempestas: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Pneuma Tempestas',
-  image: 'Pneuma_Tempestas.png',
+  image: 'ode-to-castlevania/Pneuma_Tempestas.png',
   wiki: 'https://vampire.survivors.wiki/w/Pneuma_Tempestas',
 };
 
@@ -329,7 +329,7 @@ const Rock_Riot: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Rock Riot',
-  image: 'Rock_Riot.png',
+  image: 'ode-to-castlevania/Rock_Riot.png',
   wiki: 'https://vampire.survivors.wiki/w/Rock_Riot',
 };
 
@@ -337,7 +337,7 @@ const Gemma_Torpor: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Gemma Torpor',
-  image: 'Gemma_Torpor.png',
+  image: 'ode-to-castlevania/Gemma_Torpor.png',
   wiki: 'https://vampire.survivors.wiki/w/Gemma_Torpor',
 };
 
@@ -345,7 +345,7 @@ const Fulgur: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Fulgur',
-  image: 'Fulgur.png',
+  image: 'ode-to-castlevania/Fulgur.png',
   wiki: 'https://vampire.survivors.wiki/w/Fulgur',
 };
 
@@ -353,7 +353,7 @@ const Tenebris_Tonitrus: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Tenebris Tonitrus',
-  image: 'Tenebris_Tonitrus.png',
+  image: 'ode-to-castlevania/Tenebris_Tonitrus.png',
   wiki: 'https://vampire.survivors.wiki/w/Tenebris_Tonitrus',
 };
 
@@ -361,7 +361,7 @@ const Keremet_Bubbles: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Keremet Bubbles',
-  image: 'Keremet_Bubbles.png',
+  image: 'ode-to-castlevania/Keremet_Bubbles.png',
   wiki: 'https://vampire.survivors.wiki/w/Keremet_Bubbles',
 };
 
@@ -369,7 +369,7 @@ const Keremet_Morbus: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Keremet Morbus',
-  image: 'Keremet_Morbus.png',
+  image: 'ode-to-castlevania/Keremet_Morbus.png',
   wiki: 'https://vampire.survivors.wiki/w/Keremet_Morbus',
 };
 
@@ -377,7 +377,7 @@ const Hex: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Hex',
-  image: 'Hex.png',
+  image: 'ode-to-castlevania/Hex.png',
   wiki: 'https://vampire.survivors.wiki/w/Hex',
 };
 
@@ -385,7 +385,7 @@ const Nightmare: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Nightmare',
-  image: 'Nightmare.png',
+  image: 'ode-to-castlevania/Nightmare.png',
   wiki: 'https://vampire.survivors.wiki/w/Nightmare',
 };
 
@@ -393,7 +393,7 @@ const Refectio: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Refectio',
-  image: 'Refectio.png',
+  image: 'ode-to-castlevania/Refectio.png',
   wiki: 'https://vampire.survivors.wiki/w/Refectio',
 };
 
@@ -401,7 +401,7 @@ const Sanctuary: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Sanctuary',
-  image: 'Sanctuary.png',
+  image: 'ode-to-castlevania/Sanctuary.png',
   wiki: 'https://vampire.survivors.wiki/w/Sanctuary',
 };
 
@@ -409,7 +409,7 @@ const Mace: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Mace',
-  image: 'Mace.png',
+  image: 'ode-to-castlevania/Mace.png',
   wiki: 'https://vampire.survivors.wiki/w/Mace',
 };
 
@@ -417,7 +417,7 @@ const Stamazza: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Stamazza',
-  image: 'Stamazza.png',
+  image: 'ode-to-castlevania/Stamazza.png',
   wiki: 'https://vampire.survivors.wiki/w/Stamazza',
 };
 
@@ -425,7 +425,7 @@ const Star_Flail: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Star Flail',
-  image: 'Star_Flail.png',
+  image: 'ode-to-castlevania/Star_Flail.png',
   wiki: 'https://vampire.survivors.wiki/w/Star_Flail',
 };
 
@@ -433,7 +433,7 @@ const Moon_Rod: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Moon Rod',
-  image: 'Moon_Rod.png',
+  image: 'ode-to-castlevania/Moon_Rod.png',
   wiki: 'https://vampire.survivors.wiki/w/Moon_Rod',
 };
 
@@ -441,7 +441,7 @@ const Alucard_Spear: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Alucard Spear',
-  image: 'Alucard_Spear.png',
+  image: 'ode-to-castlevania/Alucard_Spear.png',
   wiki: 'https://vampire.survivors.wiki/w/Alucard_Spear',
 };
 
@@ -449,7 +449,7 @@ const Thunderbolt_Spear: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Thunderbolt Spear',
-  image: 'Thunderbolt_Spear.png',
+  image: 'ode-to-castlevania/Thunderbolt_Spear.png',
   wiki: 'https://vampire.survivors.wiki/w/Thunderbolt_Spear',
 };
 
@@ -457,7 +457,7 @@ const Trident: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Trident',
-  image: 'Trident.png',
+  image: 'ode-to-castlevania/Trident.png',
   wiki: 'https://vampire.survivors.wiki/w/Trident',
 };
 
@@ -465,7 +465,7 @@ const Gungnir_Souris: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Gungnir-Souris',
-  image: 'Gungnir-Souris.png',
+  image: 'ode-to-castlevania/Gungnir-Souris.png',
   wiki: 'https://vampire.survivors.wiki/w/Gungnir-Souris',
 };
 
@@ -473,7 +473,7 @@ const Iron_Shield: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Iron Shield',
-  image: 'Iron_Shield.png',
+  image: 'ode-to-castlevania/Iron_Shield.png',
   wiki: 'https://vampire.survivors.wiki/w/Iron_Shield',
 };
 
@@ -481,7 +481,7 @@ const Dark_Iron_Shield: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Dark Iron Shield',
-  image: 'Dark_Iron_Shield.png',
+  image: 'ode-to-castlevania/Dark_Iron_Shield.png',
   wiki: 'https://vampire.survivors.wiki/w/Dark_Iron_Shield',
 };
 
@@ -489,7 +489,7 @@ const Guardians_Targe: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: `Guardian's Targe`,
-  image: 'Guardians_Targe.png',
+  image: 'ode-to-castlevania/Guardians_Targe.png',
   wiki: 'https://vampire.survivors.wiki/w/Guardian%27s_Targe',
 };
 
@@ -497,7 +497,7 @@ const Sacred_Beasts_Tower_Shield: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Sacred Beasts Tower Shield',
-  image: 'Sacred_Beasts_Tower_Shield.png',
+  image: 'ode-to-castlevania/Sacred_Beasts_Tower_Shield.png',
   wiki: 'https://vampire.survivors.wiki/w/Sacred_Beasts_Tower_Shield',
 };
 
@@ -505,7 +505,7 @@ const Tyrfing: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Tyrfing',
-  image: 'Tyrfing.png',
+  image: 'ode-to-castlevania/Tyrfing.png',
   wiki: 'https://vampire.survivors.wiki/w/Tyrfing',
 };
 
@@ -513,7 +513,7 @@ const Rune_Sword: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Rune Sword',
-  image: 'Rune_Sword.png',
+  image: 'ode-to-castlevania/Rune_Sword.png',
   wiki: 'https://vampire.survivors.wiki/w/Rune_Sword',
 };
 
@@ -521,7 +521,7 @@ const Alucart_Sworb: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Alucart Sworb',
-  image: 'Alucart_Sworb.png',
+  image: 'ode-to-castlevania/Alucart_Sworb.png',
   wiki: 'https://vampire.survivors.wiki/w/Alucart_Sworb',
 };
 
@@ -529,7 +529,7 @@ const Alucard_Swords: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Alucard Swords',
-  image: 'Alucard_Swords.png',
+  image: 'ode-to-castlevania/Alucard_Swords.png',
   wiki: 'https://vampire.survivors.wiki/w/Alucard_Swords',
 };
 
@@ -537,7 +537,7 @@ const Alucard_Shield: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Alucard Shield',
-  image: 'Alucard_Shield.png',
+  image: 'ode-to-castlevania/Alucard_Shield.png',
   wiki: 'https://vampire.survivors.wiki/w/Alucard_Shield',
 };
 
@@ -545,7 +545,7 @@ const Confodere: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Confodere',
-  image: 'Confodere.png',
+  image: 'ode-to-castlevania/Confodere.png',
   wiki: 'https://vampire.survivors.wiki/w/Confodere',
 };
 
@@ -553,7 +553,7 @@ const Vol_Confodere: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Vol Confodere',
-  image: 'Vol_Confodere.png',
+  image: 'ode-to-castlevania/Vol_Confodere.png',
   wiki: 'https://vampire.survivors.wiki/w/Vol_Confodere',
 };
 
@@ -561,7 +561,7 @@ const Melio_Confodere: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Melio Confodere',
-  image: 'Melio_Confodere.png',
+  image: 'ode-to-castlevania/Melio_Confodere.png',
   wiki: 'https://vampire.survivors.wiki/w/Melio_Confodere',
 };
 
@@ -569,7 +569,7 @@ const Globus: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Globus',
-  image: 'Globus.png',
+  image: 'ode-to-castlevania/Globus.png',
   wiki: 'https://vampire.survivors.wiki/w/Globus',
 };
 
@@ -577,7 +577,7 @@ const Nitesco: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Nitesco',
-  image: 'Nitesco.png',
+  image: 'ode-to-castlevania/Nitesco.png',
   wiki: 'https://vampire.survivors.wiki/w/Nitesco',
 };
 
@@ -585,7 +585,7 @@ const Optical_Shot: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Optical Shot',
-  image: 'Optical_Shot.png',
+  image: 'ode-to-castlevania/Optical_Shot.png',
   wiki: 'https://vampire.survivors.wiki/w/Optical_Shot',
 };
 
@@ -593,7 +593,7 @@ const Acerbatus: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Acerbatus',
-  image: 'Acerbatus.png',
+  image: 'ode-to-castlevania/Acerbatus.png',
   wiki: 'https://vampire.survivors.wiki/w/Acerbatus',
 };
 
@@ -601,7 +601,7 @@ const Dextro_Custos: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Dextro Custos',
-  image: 'Dextro_Custos.png',
+  image: 'ode-to-castlevania/Dextro_Custos.png',
   wiki: 'https://vampire.survivors.wiki/w/Dextro_Custos',
 };
 
@@ -609,7 +609,7 @@ const Sinestro_Custos: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Sinestro Custos',
-  image: 'Sinestro_Custos.png',
+  image: 'ode-to-castlevania/Sinestro_Custos.png',
   wiki: 'https://vampire.survivors.wiki/w/Sinestro_Custos',
 };
 
@@ -617,7 +617,7 @@ const Centralis_Custos: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Centralis Custos',
-  image: 'Centralis_Custos.png',
+  image: 'ode-to-castlevania/Centralis_Custos.png',
   wiki: 'https://vampire.survivors.wiki/w/Centralis_Custos',
 };
 
@@ -625,7 +625,7 @@ const Trinum_Custodem: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Trinum Custodem',
-  image: 'Trinum_Custodem.png',
+  image: 'ode-to-castlevania/Trinum_Custodem.png',
   wiki: 'https://vampire.survivors.wiki/w/Trinum_Custodem',
 };
 
@@ -633,7 +633,7 @@ const Dominus_Anger: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Dominus Anger',
-  image: 'Dominus_Anger.png',
+  image: 'ode-to-castlevania/Dominus_Anger.png',
   wiki: 'https://vampire.survivors.wiki/w/Dominus_Anger',
 };
 
@@ -641,7 +641,7 @@ const Dominus_Hatred: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Dominus Hatred',
-  image: 'Dominus_Hatred.png',
+  image: 'ode-to-castlevania/Dominus_Hatred.png',
   wiki: 'https://vampire.survivors.wiki/w/Dominus_Hatred',
 };
 
@@ -649,7 +649,7 @@ const Dominus_Agony: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Dominus Agony',
-  image: 'Dominus_Agony.png',
+  image: 'ode-to-castlevania/Dominus_Agony.png',
   wiki: 'https://vampire.survivors.wiki/w/Dominus_Agony',
 };
 
@@ -657,7 +657,7 @@ const Power_of_Sire: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Power of Sire',
-  image: 'Power_of_Sire.png',
+  image: 'ode-to-castlevania/Power_of_Sire.png',
   wiki: 'https://vampire.survivors.wiki/w/Power_of_Sire',
 };
 
@@ -665,7 +665,7 @@ const Sonic_Dash: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Sonic Dash',
-  image: 'Sonic_Dash.png',
+  image: 'ode-to-castlevania/Sonic_Dash.png',
   wiki: 'https://vampire.survivors.wiki/w/Sonic_Dash',
 };
 
@@ -673,7 +673,7 @@ const Rapidus_Fio: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Rapidus Fio',
-  image: 'Rapidus_Fio.png',
+  image: 'ode-to-castlevania/Rapidus_Fio.png',
   wiki: 'https://vampire.survivors.wiki/w/Rapidus_Fio',
 };
 
@@ -681,7 +681,7 @@ const Luminatio: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Luminatio',
-  image: 'Luminatio.png',
+  image: 'ode-to-castlevania/Luminatio.png',
   wiki: 'https://vampire.survivors.wiki/w/Luminatio',
 };
 
@@ -689,7 +689,7 @@ const Vol_Luminatio: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Vol Luminatio',
-  image: 'Vol_Luminatio.png',
+  image: 'ode-to-castlevania/Vol_Luminatio.png',
   wiki: 'https://vampire.survivors.wiki/w/Vol_Luminatio',
 };
 
@@ -697,7 +697,7 @@ const Umbra: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Umbra',
-  image: 'Umbra.png',
+  image: 'ode-to-castlevania/Umbra.png',
   wiki: 'https://vampire.survivors.wiki/w/Umbra',
 };
 
@@ -705,7 +705,7 @@ const Vol_Umbra: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Vol Umbra',
-  image: 'Vol_Umbra.png',
+  image: 'ode-to-castlevania/Vol_Umbra.png',
   wiki: 'https://vampire.survivors.wiki/w/Vol_Umbra',
 };
 
@@ -713,7 +713,7 @@ const Universitas: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Universitas',
-  image: 'Universitas.png',
+  image: 'ode-to-castlevania/Universitas.png',
   wiki: 'https://vampire.survivors.wiki/w/Universitas',
 };
 
@@ -721,7 +721,7 @@ const Endo_Gears: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Endo Gears',
-  image: 'Endo_Gears.png',
+  image: 'ode-to-castlevania/Endo_Gears.png',
   wiki: 'https://vampire.survivors.wiki/w/Endo_Gears',
 };
 
@@ -729,7 +729,7 @@ const Peri_Pendulum: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Peri Pendulum',
-  image: 'Peri_Pendulum.png',
+  image: 'ode-to-castlevania/Peri_Pendulum.png',
   wiki: 'https://vampire.survivors.wiki/w/Peri_Pendulum',
 };
 
@@ -737,7 +737,7 @@ const Myo_Lift: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Myo Lift',
-  image: 'Myo_Lift.png',
+  image: 'ode-to-castlevania/Myo_Lift.png',
   wiki: 'https://vampire.survivors.wiki/w/Myo_Lift',
 };
 
@@ -745,7 +745,7 @@ const Epi_Head: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Epi Head',
-  image: 'Epi_Head.png',
+  image: 'ode-to-castlevania/Epi_Head.png',
   wiki: 'https://vampire.survivors.wiki/w/Epi_Head',
 };
 
@@ -753,7 +753,7 @@ const Clock_Tower: Item = {
   kind: 'weapon',
   gameId: 'castlevania',
   name: 'Clock Tower',
-  image: 'Clock_Tower.png',
+  image: 'ode-to-castlevania/Clock_Tower.png',
   wiki: 'https://vampire.survivors.wiki/w/Clock_Tower',
 };
 

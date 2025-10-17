@@ -15,7 +15,7 @@ const Fleuret: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Fleuret',
-  image: 'Fleuret.png',
+  image: 'emerald-diorama/Fleuret.png',
   wiki: 'https://vampire.survivors.wiki/w/Fleuret',
 };
 
@@ -23,7 +23,7 @@ const Dress_Sword: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Dress Sword',
-  image: 'Dress_Sword.png',
+  image: 'emerald-diorama/Dress_Sword.png',
   wiki: 'https://vampire.survivors.wiki/w/Dress_Sword',
 };
 
@@ -31,7 +31,7 @@ const Espada_Ropera: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Espada Ropera',
-  image: 'Espada_Ropera.png',
+  image: 'emerald-diorama/Espada_Ropera.png',
   wiki: 'https://vampire.survivors.wiki/w/Espada_Ropera',
 };
 
@@ -39,7 +39,7 @@ const Super_Missile: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Super Missile',
-  image: 'Super_Missile.png',
+  image: 'emerald-diorama/Super_Missile.png',
   wiki: 'https://vampire.survivors.wiki/w/Super_Missile',
 };
 
@@ -47,7 +47,7 @@ const Hydra_Cannon: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Hydra Cannon',
-  image: 'Hydra_Cannon.png',
+  image: 'emerald-diorama/Hydra_Cannon.png',
   wiki: 'https://vampire.survivors.wiki/w/Hydra_Cannon',
 };
 
@@ -55,7 +55,7 @@ const Hyperion_Bazooka: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Hyperion Bazooka',
-  image: 'Hyperion_Bazooka.png',
+  image: 'emerald-diorama/Hyperion_Bazooka.png',
   wiki: 'https://vampire.survivors.wiki/w/Hyperion_Bazooka',
 };
 
@@ -63,7 +63,7 @@ const Punch: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Punch',
-  image: 'Punch.png',
+  image: 'emerald-diorama/Punch.png',
   wiki: 'https://vampire.survivors.wiki/w/Punch',
 };
 
@@ -71,7 +71,7 @@ const Pressure_Point: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Pressure Point',
-  image: 'Pressure_Point.png',
+  image: 'emerald-diorama/Pressure_Point.png',
   wiki: 'https://vampire.survivors.wiki/w/Pressure_Point',
 };
 
@@ -79,7 +79,7 @@ const Gilded_Hand: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Gilded Hand',
-  image: 'Gilded_Hand.png',
+  image: 'emerald-diorama/Gilded_Hand.png',
   wiki: 'https://vampire.survivors.wiki/w/Gilded_Hand',
 };
 
@@ -87,7 +87,7 @@ const Saber_Machine_Gun: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Saber Machine Gun',
-  image: 'Saber_Machine_Gun.png',
+  image: 'emerald-diorama/Saber_Machine_Gun.png',
   wiki: 'https://vampire.survivors.wiki/w/Saber_Machine_Gun',
 };
 
@@ -95,7 +95,7 @@ const Hecaton_Machine_Gun: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Hecaton Machine Gun',
-  image: 'Hecaton_Machine_Gun.png',
+  image: 'emerald-diorama/Hecaton_Machine_Gun.png',
   wiki: 'https://vampire.survivors.wiki/w/Hecaton_Machine_Gun',
 };
 
@@ -103,7 +103,7 @@ const Divergence: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Divergence',
-  image: 'Divergence.png',
+  image: 'emerald-diorama/Divergence.png',
   wiki: 'https://vampire.survivors.wiki/w/Divergence',
 };
 
@@ -111,7 +111,7 @@ const Town_Sword: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Town Sword',
-  image: 'Town_Sword.png',
+  image: 'emerald-diorama/Town_Sword.png',
   wiki: 'https://vampire.survivors.wiki/w/Town_Sword',
 };
 
@@ -119,7 +119,7 @@ const Lordstar: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Lordstar',
-  image: 'Lordstar.png',
+  image: 'emerald-diorama/Lordstar.png',
   wiki: 'https://vampire.survivors.wiki/w/Lordstar',
 };
 
@@ -127,7 +127,7 @@ const Dayblade: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Dayblade',
-  image: 'Dayblade.png',
+  image: 'emerald-diorama/Dayblade.png',
   wiki: 'https://vampire.survivors.wiki/w/Dayblade',
 };
 
@@ -135,7 +135,7 @@ const Glaive: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Glaive',
-  image: 'Glaive.png',
+  image: 'emerald-diorama/Glaive.png',
   wiki: 'https://vampire.survivors.wiki/w/Glaive',
 };
 
@@ -143,7 +143,7 @@ const Feather_Spear: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Feather Spear',
-  image: 'Feather_Spear.png',
+  image: 'emerald-diorama/Feather_Spear.png',
   wiki: 'https://vampire.survivors.wiki/w/Feather_Spear',
 };
 
@@ -151,7 +151,7 @@ const Lohengrin: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Lohengrin',
-  image: 'Lohengrin.png',
+  image: 'emerald-diorama/Lohengrin.png',
   wiki: 'https://vampire.survivors.wiki/w/Lohengrin',
 };
 
@@ -159,7 +159,7 @@ const Flamberge: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Flamberge',
-  image: 'Flamberge.png',
+  image: 'emerald-diorama/Flamberge.png',
   wiki: 'https://vampire.survivors.wiki/w/Flamberge',
 };
 
@@ -167,7 +167,7 @@ const Zweihander: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Zweihander',
-  image: 'Zweihander.png',
+  image: 'emerald-diorama/Zweihander.png',
   wiki: 'https://vampire.survivors.wiki/w/Zweihander',
 };
 
@@ -175,7 +175,7 @@ const Galatyn: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Galatyn',
-  image: 'Galatyn.png',
+  image: 'emerald-diorama/Galatyn.png',
   wiki: 'https://vampire.survivors.wiki/w/Galatyn',
 };
 
@@ -183,7 +183,7 @@ const Splashers: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Splashers',
-  image: 'Splashers.png',
+  image: 'emerald-diorama/Splashers.png',
   wiki: 'https://vampire.survivors.wiki/w/Splashers',
 };
 
@@ -191,7 +191,7 @@ const Pursuant_Blades: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Pursuant Blades',
-  image: 'Pursuant_Blades.png',
+  image: 'emerald-diorama/Pursuant_Blades.png',
   wiki: 'https://vampire.survivors.wiki/w/Pursuant_Blades',
 };
 
@@ -199,7 +199,7 @@ const Twin_Dragon: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Twin Dragon',
-  image: 'Twin_Dragon.png',
+  image: 'emerald-diorama/Twin_Dragon.png',
   wiki: 'https://vampire.survivors.wiki/w/Twin_Dragon',
 };
 
@@ -207,7 +207,7 @@ const Gekkabijin: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Gekkabijin',
-  image: 'Gekkabijin.png',
+  image: 'emerald-diorama/Gekkabijin.png',
   wiki: 'https://vampire.survivors.wiki/w/Gekkabijin',
 };
 
@@ -215,7 +215,7 @@ const Kick: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Kick',
-  image: 'Kick.png',
+  image: 'emerald-diorama/Kick.png',
   wiki: 'https://vampire.survivors.wiki/w/Kick',
 };
 
@@ -223,7 +223,7 @@ const Triangle_Kick: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Triangle Kick',
-  image: 'Triangle_Kick.png',
+  image: 'emerald-diorama/Triangle_Kick.png',
   wiki: 'https://vampire.survivors.wiki/w/Triangle_Kick',
 };
 
@@ -231,7 +231,7 @@ const Eagle_Gun: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Eagle Gun',
-  image: 'Eagle_Gun.png',
+  image: 'emerald-diorama/Eagle_Gun.png',
   wiki: 'https://vampire.survivors.wiki/w/Eagle_Gun',
 };
 
@@ -239,7 +239,7 @@ const Pendragon: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Pendragon',
-  image: 'Pendragon.png',
+  image: 'emerald-diorama/Pendragon.png',
   wiki: 'https://vampire.survivors.wiki/w/Pendragon',
 };
 
@@ -247,7 +247,7 @@ const Sanguine_Star: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Sanguine Star',
-  image: 'Sanguine_Star.png',
+  image: 'emerald-diorama/Sanguine_Star.png',
   wiki: 'https://vampire.survivors.wiki/w/Sanguine_Star',
 };
 
@@ -255,7 +255,7 @@ const Blood_Chalice: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Blood Chalice',
-  image: 'Blood_Chalice.png',
+  image: 'emerald-diorama/Blood_Chalice.png',
   wiki: 'https://vampire.survivors.wiki/w/Blood_Chalice',
 };
 
@@ -263,7 +263,7 @@ const Khukuri: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Khukuri Chalice',
-  image: 'Khukuri.png',
+  image: 'emerald-diorama/Khukuri.png',
   wiki: 'https://vampire.survivors.wiki/w/Khukuri',
 };
 
@@ -271,7 +271,7 @@ const Jetstream: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Jetstream',
-  image: 'Jetstream.png',
+  image: 'emerald-diorama/Jetstream.png',
   wiki: 'https://vampire.survivors.wiki/w/Jetstream',
 };
 
@@ -279,7 +279,7 @@ const Bullova: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Bullova',
-  image: 'Bullova.png',
+  image: 'emerald-diorama/Bullova.png',
   wiki: 'https://vampire.survivors.wiki/w/Bullova',
 };
 
@@ -287,7 +287,7 @@ const Falconwind: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Falconwind',
-  image: 'Falconwind.png',
+  image: 'emerald-diorama/Falconwind.png',
   wiki: 'https://vampire.survivors.wiki/w/Falconwind',
 };
 
@@ -295,7 +295,7 @@ const Emerald_Rapture: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Emerald Rapture',
-  image: 'Emerald_Rapture.png',
+  image: 'emerald-diorama/Emerald_Rapture.png',
   wiki: 'https://vampire.survivors.wiki/w/Emerald_Rapture',
 };
 
@@ -303,7 +303,7 @@ const Emerald_Wave: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Emerald Wave',
-  image: 'Emerald_Wave.png',
+  image: 'emerald-diorama/Emerald_Wave.png',
   wiki: 'https://vampire.survivors.wiki/w/Emerald_Wave',
 };
 
@@ -311,7 +311,7 @@ const Spirit_Rings: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Spirit Rings',
-  image: 'Spirit_Rings.png',
+  image: 'emerald-diorama/Spirit_Rings.png',
   wiki: 'https://vampire.survivors.wiki/w/Spirit_Rings',
 };
 
@@ -319,7 +319,7 @@ const Rings_of_Calamity: Item = {
   kind: 'weapon',
   gameId: 'emerald-diorama',
   name: 'Rings of Calamity',
-  image: 'Rings_of_Calamity.png',
+  image: 'emerald-diorama/Rings_of_Calamity.png',
   wiki: 'https://vampire.survivors.wiki/w/Rings_of_Calamity',
 };
 
