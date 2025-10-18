@@ -20,7 +20,9 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   template: '',
 })
 export class UiCheckboxComponent {
-  public readonly elementRef = inject(ElementRef<HTMLInputElement>);
+  public readonly el: ElementRef<HTMLInputElement> = inject(
+    ElementRef<HTMLInputElement>
+  );
 
   invalid = input<boolean>(false);
 }

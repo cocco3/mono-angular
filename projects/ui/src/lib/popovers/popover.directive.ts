@@ -19,8 +19,10 @@ import { UiPopover, type UiPopoverPlacement, uniqueId } from '@cocco3/utils';
   selector: '[uiPopover]',
 })
 export class UiPopoverDirective implements OnDestroy, OnInit {
-  private el = inject(ElementRef<HTMLElement>);
-  private renderer = inject(Renderer2);
+  private readonly el: ElementRef<HTMLElement> = inject(
+    ElementRef<HTMLElement>
+  );
+  private readonly renderer = inject(Renderer2);
   private floating!: UiPopover;
 
   role = input.required<'tooltip' | 'menu'>({ alias: 'uiPopover' });
