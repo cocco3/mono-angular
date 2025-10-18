@@ -15,6 +15,7 @@ export * from './lib/base/toasts/toasts.component';
 
 export * from './lib/popovers/popover.directive';
 export * from './lib/popovers/dialog/dialog.component';
+export * from './lib/popovers/dialog/dialog-button.component';
 export * from './lib/popovers/menu/menu.component';
 export * from './lib/popovers/menuitem/menuitem.component';
 export * from './lib/popovers/tooltip/tooltip.component';

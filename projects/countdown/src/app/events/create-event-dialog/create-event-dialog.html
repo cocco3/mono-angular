@@ -3,7 +3,6 @@
   ui-dialog
   heading="Add Event"
   description="Leave both times empty for an all day event."
-  (afterClose)="resetForm()"
 >
   <form
     id="createEventForm"
@@ -67,21 +66,11 @@
     </p>
   }
 
+  <button ui-dialog-button="cancel" uiSlot="cancel">Cancel</button>
+
   <button
-    ui-button
-    uiSlot="cancel"
-    kind="secondary"
-    size="medium"
-    weight="outline"
-    (click)="dialog.close()"
-  >
-    Cancel
-  </button>
-  <button
-    ui-button
+    ui-dialog-button="submit"
     uiSlot="submit"
-    kind="primary"
-    size="medium"
     type="submit"
     form="createEventForm"
     [disabled]="isSaving"

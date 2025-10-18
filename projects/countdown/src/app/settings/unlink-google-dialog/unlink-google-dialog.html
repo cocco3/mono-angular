@@ -8,21 +8,12 @@
     <ui-alert kind="negative">{{ error }}</ui-alert>
   }
 
+  <button ui-dialog-button="cancel" uiSlot="cancel">Cancel</button>
+
   <button
-    ui-button
-    uiSlot="cancel"
-    kind="secondary"
-    size="medium"
-    (click)="dialog.close()"
-  >
-    Cancel
-  </button>
-  <button
-    ui-button
+    ui-dialog-button="submit"
     uiSlot="submit"
     kind="destructive"
-    size="medium"
-    type="button"
     (click)="revokeGoogleConsent()"
     [disabled]="isSaving"
     [loading]="isSaving"
