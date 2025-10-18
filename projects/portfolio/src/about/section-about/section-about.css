@@ -25,7 +25,7 @@
 }
 
 .name {
-  font: 600 var(--type-display-md);
+  font: 600 var(--type-display-lg);
   margin-block: 4px;
 }
 

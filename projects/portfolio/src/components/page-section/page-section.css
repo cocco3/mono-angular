@@ -7,8 +7,3 @@
   scroll-margin-block-start: 72px;
   width: clamp(0px, 100%, var(--inner-wrap, 1000px));
 }
-
-.title {
-  font: 600 var(--type-display-md);
-  margin-block: 0 16px;
-}
