@@ -20,7 +20,7 @@ import { UiSlotDirective, useSlots } from '../../layout/slot/slot.directive';
   templateUrl: './dialog.html',
 })
 export class UiDialogComponent implements OnDestroy {
-  public readonly elementRef: ElementRef<HTMLDialogElement> = inject(
+  public readonly el: ElementRef<HTMLDialogElement> = inject(
     ElementRef<HTMLDialogElement>
   );
   private readonly renderer = inject(Renderer2);
@@ -39,7 +39,7 @@ export class UiDialogComponent implements OnDestroy {
   }
 
   private get isOpen() {
-    return this.elementRef.nativeElement.open;
+    return this.el.nativeElement.open;
   }
 
   private toggleBodyOverflow(hidden: boolean) {
@@ -57,7 +57,7 @@ export class UiDialogComponent implements OnDestroy {
   showModal() {
     if (this.isOpen) return;
 
-    this.elementRef.nativeElement.showModal();
+    this.el.nativeElement.showModal();
     this.toggleBodyOverflow(true);
   }
 
@@ -68,21 +68,21 @@ export class UiDialogComponent implements OnDestroy {
   show() {
     if (this.isOpen) return;
 
-    this.elementRef.nativeElement.show();
+    this.el.nativeElement.show();
   }
 
   /**
    * Close the dialog.
    */
   close() {
-    this.elementRef.nativeElement.close();
+    this.el.nativeElement.close();
     this.toggleBodyOverflow(false);
     this.afterClose.emit();
   }
 
   ngOnDestroy() {
     if (this.isOpen) {
-      this.elementRef.nativeElement.close();
+      this.el.nativeElement.close();
       this.toggleBodyOverflow(false);
     }
   }

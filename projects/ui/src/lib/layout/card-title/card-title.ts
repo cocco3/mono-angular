@@ -17,10 +17,12 @@ export abstract class UiCardTitleBase {
   template: '<ng-content/>',
 })
 export class UiCardTitleButtonComponent extends UiCardTitleBase {
-  public readonly elementRef = inject(ElementRef<HTMLButtonElement>);
+  public readonly el: ElementRef<HTMLButtonElement> = inject(
+    ElementRef<HTMLButtonElement>
+  );
 
   override isClickable() {
-    return !this.elementRef.nativeElement.disabled;
+    return !this.el.nativeElement.disabled;
   }
 }
 
@@ -37,9 +39,11 @@ export class UiCardTitleButtonComponent extends UiCardTitleBase {
   template: '<ng-content/>',
 })
 export class UiCardTitleAnchorComponent extends UiCardTitleBase {
-  public readonly elementRef = inject(ElementRef<HTMLAnchorElement>);
+  public readonly el: ElementRef<HTMLAnchorElement> = inject(
+    ElementRef<HTMLAnchorElement>
+  );
 
   override isClickable() {
-    return !!this.elementRef.nativeElement.href;
+    return !!this.el.nativeElement.href;
   }
 }

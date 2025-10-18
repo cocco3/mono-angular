@@ -15,9 +15,11 @@ import { SectionScrollSpyService } from './section-scroll-spy.service';
   selector: '[appSectionScrollSpy]',
 })
 export class SectionScrollSpyDirective implements OnDestroy {
-  private el = inject(ElementRef<HTMLElement>);
-  private scrollSpy = inject(WindowScrollSpyService);
-  private header = inject(SectionScrollSpyService);
+  private readonly el: ElementRef<HTMLElement> = inject(
+    ElementRef<HTMLElement>
+  );
+  private readonly scrollSpy = inject(WindowScrollSpyService);
+  private readonly header = inject(SectionScrollSpyService);
   private cleanupEffect: EffectRef;
 
   sectionId = input.required<string>({ alias: 'appSectionScrollSpy' });

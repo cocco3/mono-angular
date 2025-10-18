@@ -29,7 +29,7 @@ const meta: Meta<InputStory> = {
     autocapitalize: { control: { type: 'text' } },
     inputmode: { control: { type: 'text' } },
     maxlength: { control: { type: 'text' } },
-    elementRef: {
+    el: {
       control: { disable: true },
       table: {
         type: { summary: 'ElementRef<HTMLInputElement>' },

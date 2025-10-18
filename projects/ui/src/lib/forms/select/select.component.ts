@@ -17,7 +17,9 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   template: '<ng-content />',
 })
 export class UiSelectComponent {
-  public readonly elementRef = inject(ElementRef<HTMLSelectElement>);
+  public readonly el: ElementRef<HTMLSelectElement> = inject(
+    ElementRef<HTMLSelectElement>
+  );
 
   invalid = input<boolean>(false);
 }
