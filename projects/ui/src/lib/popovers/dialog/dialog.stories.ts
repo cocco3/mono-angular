@@ -34,7 +34,7 @@ const meta: Meta<DialogStory> = {
     showModal: { control: { disable: true } },
     afterClose: { control: { disable: true } },
     primaryButtonKind: { options: UiButtonKinds, control: { type: 'radio' } },
-    elementRef: {
+    el: {
       control: { disable: true },
       table: {
         type: { summary: 'ElementRef<HTMLDialogElement>' },

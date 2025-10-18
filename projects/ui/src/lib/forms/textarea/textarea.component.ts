@@ -25,7 +25,9 @@ import { UiFormFieldDirective } from '../form-field/form-field.directive';
   template: '<ng-content />',
 })
 export class UiTextareaComponent {
-  public readonly elementRef = inject(ElementRef<HTMLTextAreaElement>);
+  public readonly el: ElementRef<HTMLTextAreaElement> = inject(
+    ElementRef<HTMLTextAreaElement>
+  );
 
   /** Allow the textarea to grow/shrink as you type */
   autosize = input<boolean>(true);

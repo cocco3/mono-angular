@@ -22,7 +22,7 @@ const meta: Meta<CheckboxStory> = {
     disabled: { control: { type: 'boolean' } },
     name: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
-    elementRef: {
+    el: {
       control: { disable: true },
       table: {
         type: { summary: 'ElementRef<HTMLInputElement>' },

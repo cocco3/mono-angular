@@ -23,8 +23,10 @@ import { resizeObserver } from '@cocco3/utils';
   selector: 'textarea[uiAutosize]',
 })
 export class UiTextareaAutosizeDirective implements OnInit, OnDestroy {
-  private renderer = inject(Renderer2);
-  private textareaRef = inject(ElementRef<HTMLTextAreaElement>);
+  private readonly renderer = inject(Renderer2);
+  private readonly el: ElementRef<HTMLTextAreaElement> = inject(
+    ElementRef<HTMLTextAreaElement>
+  );
 
   uiAutosize = input(false, { transform: booleanAttribute });
 
@@ -34,7 +36,7 @@ export class UiTextareaAutosizeDirective implements OnInit, OnDestroy {
   ngOnInit() {
     if (!this.uiAutosize()) return;
 
-    const textarea = this.textareaRef.nativeElement;
+    const textarea = this.el.nativeElement;
 
     const isFieldSizingSupported = this.doesBrowserSupportCssFieldSizing();
 
@@ -65,11 +67,11 @@ export class UiTextareaAutosizeDirective implements OnInit, OnDestroy {
   }
 
   private calcHeight() {
-    const textarea = this.textareaRef.nativeElement;
+    const textarea = this.el.nativeElement;
 
     const styles = getComputedStyle(textarea);
 
-    const scrollHeight = parseFloat(textarea.scrollHeight);
+    const scrollHeight = textarea.scrollHeight;
 
     const topBorderWidth = parseFloat(
       styles.borderBlockStartWidth || styles.borderTopWidth
@@ -85,7 +87,7 @@ export class UiTextareaAutosizeDirective implements OnInit, OnDestroy {
   }
 
   private adjustHeight() {
-    const textarea = this.textareaRef.nativeElement;
+    const textarea = this.el.nativeElement;
 
     // reset first
     this.renderer.setStyle(textarea, 'height', 'auto');
