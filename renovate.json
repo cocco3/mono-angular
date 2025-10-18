@@ -55,7 +55,7 @@
     },
     {
       "groupName": "testing",
-      "matchPackageNames": ["jasmin-core", "@types/jasmine", "karma*"]
+      "matchPackageNames": ["jasmine-core", "@types/jasmine", "karma*"]
     },
     {
       "groupName": "git hooks",
