@@ -16,7 +16,7 @@
  */
 
 /**
- * @license Angular v20.3.4
+ * @license Angular v20.3.6
  * (c) 2010-2025 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -25,6 +25,26 @@
  * @license Angular v<unknown>
  * (c) 2010-2025 Google LLC. https://angular.io/
  * License: MIT
+ */
+
+/**
+ * @license React
+ * react-dom.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * react-jsx-runtime.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 /**
