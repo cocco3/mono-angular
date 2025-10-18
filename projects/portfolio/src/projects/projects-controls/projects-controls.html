@@ -1,0 +1,17 @@
+<button
+  class="button"
+  [class.active]="view() === 'grid'"
+  (click)="handleViewChange('grid')"
+  aria-label="Display as grid"
+>
+  <ui-icon kind="grid" />
+</button>
+
+<button
+  class="button"
+  [class.active]="view() === 'carousel'"
+  (click)="handleViewChange('carousel')"
+  aria-label="Display as carousel"
+>
+  <ui-icon kind="carousel-horizontal" />
+</button>

@@ -1,13 +1,30 @@
-<ui-item-grid gap="24px" minItemWidth="320px">
-  @for (project of projects; track project.name) {
-    <article
-      app-project-item
-      [name]="project.name"
-      [tech]="project.tech"
-      [description]="project.description"
-      [githubUrl]="project.githubUrl"
-      [projectUrl]="project.url"
-      [bannerSrc]="project.bannerSrc"
-    ></article>
-  }
-</ui-item-grid>
+@if (view() === 'grid') {
+  <ui-item-grid gap="24px" minItemWidth="320px">
+    @for (project of projects; track project.name) {
+      <article
+        app-project-item
+        [name]="project.name"
+        [tech]="project.tech"
+        [description]="project.description"
+        [githubUrl]="project.githubUrl"
+        [projectUrl]="project.url"
+        [bannerSrc]="project.bannerSrc"
+      ></article>
+    }
+  </ui-item-grid>
+} @else {
+  <ui-carousel gap="24px" minItemWidth="320px" [forceStop]="true">
+    @for (project of projects; track project.name) {
+      <article
+        uiCarouselItem
+        app-project-item
+        [name]="project.name"
+        [tech]="project.tech"
+        [description]="project.description"
+        [githubUrl]="project.githubUrl"
+        [projectUrl]="project.url"
+        [bannerSrc]="project.bannerSrc"
+      ></article>
+    }
+  </ui-carousel>
+}

@@ -1,0 +1,53 @@
+:host {
+  anchor-name: --carousel;
+  box-sizing: border-box;
+  container-type: inline-size scroll-state;
+  display: grid;
+  gap: var(--grid-gap);
+  grid-auto-columns: minmax(min(100%, var(--min-item-width)), 1fr);
+  grid-auto-flow: column;
+  margin-inline: 32px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+  scroll-padding: 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-gutter: stable;
+
+  &::scroll-button(*) {
+    aspect-ratio: 1;
+    background: none;
+    box-sizing: border-box;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    inline-size: 40px;
+    place-content: center;
+    place-items: center;
+    position-anchor: --carousel;
+    position-visibility: always;
+    position: fixed;
+    transition-duration: 100ms;
+    transition-property: scale;
+    transition-timing-function: ease-out;
+  }
+
+  &::scroll-button(*):enabled:hover {
+    scale: 1.2;
+  }
+
+  &::scroll-button(*):disabled {
+    cursor: not-allowed;
+    opacity: 0.25;
+  }
+
+  &::scroll-button(inline-start) {
+    position-area: inline-start center;
+    content: var(--icon-chevron-left);
+  }
+
+  &::scroll-button(inline-end) {
+    position-area: inline-end center;
+    content: var(--icon-chevron-right);
+  }
+}

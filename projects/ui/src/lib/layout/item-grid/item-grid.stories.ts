@@ -34,7 +34,7 @@ const meta: Meta<ItemGridStory> = {
       template: `
         <ui-item-grid ${storybookArgsToTemplate(args)}>
           @for(item of items; track item.id) {
-            <div style="background: var(--bg-brand-secondary); padding: 4px;">
+            <div style="background: var(--bg-brand-secondary); padding: 20px;">
               {{ item.label }}
             </div>
           }

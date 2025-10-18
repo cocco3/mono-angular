@@ -165,6 +165,11 @@ export const defaultTheme: UiTheme = {
       calendar: { file: 'calendar.svg', color: defaultIconColorCss },
       clock: { file: 'clock.svg', color: defaultIconColorCss },
       'chevron-down': { file: 'chevron-down.svg', color: defaultIconColorCss },
+      'chevron-left': { file: 'chevron-left.svg', color: defaultIconColorCss },
+      'chevron-right': {
+        file: 'chevron-right.svg',
+        color: defaultIconColorCss,
+      },
       'chevron-up': { file: 'chevron-up.svg', color: defaultIconColorCss },
     },
   },

@@ -34,6 +34,8 @@ export * from './lib/layout/ui-wrapper/ui-wrapper.component';
 export * from './lib/layout/card-title/card-title';
 export * from './lib/layout/item-grid/item-grid.component';
 export * from './lib/layout/scroll-margin.directive';
+export * from './lib/layout/carousel/carousel.component';
+export * from './lib/layout/carousel/carousel-item.directive';
 
 export * from './lib/media/youtube-video/youtube-video.component';
 

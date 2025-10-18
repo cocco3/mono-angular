@@ -431,7 +431,11 @@
                 "input": "projects/portfolio/public"
               }
             ],
-            "styles": ["projects/portfolio/src/styles.css"]
+            "styles": [
+              "projects/ui/src/css/reset.css",
+              "projects/ui/src/css/theme-default.css",
+              "projects/portfolio/src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
