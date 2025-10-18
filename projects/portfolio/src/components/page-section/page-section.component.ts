@@ -1,5 +1,6 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, contentChild, input } from '@angular/core';
 import { SectionScrollSpyDirective } from '../../scroll-spy/section-scroll-spy.directive';
+import { AppSectionHeading } from '../section-heading/section-heading.component';
 
 /**
  * A section of a page, with a heading and content.
@@ -18,11 +19,12 @@ import { SectionScrollSpyDirective } from '../../scroll-spy/section-scroll-spy.d
   ],
   selector: 'section[app-page-section]',
   styleUrl: './page-section.css',
-  templateUrl: './page-section.html',
+  template: '<ng-content />',
 })
 export class AppPageSection {
-  sectionId = input.required<string>();
-  heading = input.required<string>();
+  private readonly heading = contentChild(AppSectionHeading);
 
-  protected headingId = computed(() => `heading-${this.sectionId()}`);
+  sectionId = input.required<string>();
+
+  protected headingId = computed(() => this.heading()?.el.nativeElement.id);
 }

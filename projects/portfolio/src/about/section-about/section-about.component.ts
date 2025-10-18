@@ -17,11 +17,11 @@ type SocialLink = {
     AppSocialLinkComponent,
     SectionScrollSpyDirective,
   ],
-  selector: 'app-about-section',
-  styleUrl: './about-section.css',
-  templateUrl: './about-section.html',
+  selector: 'app-section-about',
+  styleUrl: './section-about.css',
+  templateUrl: './section-about.html',
 })
-export class AppAboutSection {
+export class AppSectionAbout {
   private readonly content = inject(ContentService);
   protected info = this.content.info;
 

@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { AppHeaderComponent } from '../components/app-header/app-header.component';
-import { AppPageSection } from '../components/page-section/page-section.component';
-import { AppAboutSection } from '../about/about-section/about-section.component';
-import { AppExperienceList } from '../experience/experience-list/experience-list.component';
-import { AppProjectsGrid } from '../projects/projects-grid/projects-grid.component';
-import { AppVideosGrid } from '../videos/videos-grid/videos-grid.component';
+import { AppSectionAbout } from '../about/section-about/section-about.component';
+import { AppSectionProjects } from '../projects/section-projects/section-projects.component';
+import { AppVideosProjects } from '../videos/section-videos/section-videos.component';
+import { AppSectionExperience } from '../experience/section-experience/section-experience.component';
 
 @Component({
   selector: 'app-full-page',
   imports: [
     AppHeaderComponent,
-    AppPageSection,
-    AppAboutSection,
-    AppExperienceList,
-    AppProjectsGrid,
-    AppVideosGrid,
+    AppSectionAbout,
+    AppSectionExperience,
+    AppSectionProjects,
+    AppVideosProjects,
   ],
   templateUrl: './full-page.html',
 })
