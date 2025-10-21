@@ -51,7 +51,7 @@
           type="date"
           required
           formControlName="endDate"
-          [min]="startDate.elementRef.nativeElement.value"
+          [min]="startDate.el.nativeElement.value"
         />
       </ui-form-field>
       <ui-form-field [label]="'End Time'" [error]="formErrors.endTime">
