@@ -55,7 +55,7 @@ export class SectionScrollSpyDirective implements OnDestroy {
       const isTallSection = sectionHeight > viewportHeight;
       const isVisibleEnough = visibilityRatio > (isTallSection ? 0.25 : 0.5);
 
-      const isNearTop = scrollY <= 200;
+      const isNearTop = scrollY <= 150;
       const sectionInTopBuffer = sectionTop >= 0 && sectionTop <= 200;
 
       const isActive = isNearTop
