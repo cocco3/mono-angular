@@ -5,12 +5,6 @@
   ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF projects/portfolio"
 
 [[redirects]]
-  from = "https://cocco-countdown.netlify.app/*"
-  to = "https://countdown.smallbytes.dev/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
