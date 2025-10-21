@@ -5,6 +5,12 @@
   ignore = "git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF projects/vampire-survivors"
 
 [[redirects]]
+  from = "https://vamps-evolutions.netlify.app/*"
+  to = "https://vampire-survivors.smallbytes.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
