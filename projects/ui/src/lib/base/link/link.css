@@ -1,0 +1,40 @@
+:host {
+  align-items: center;
+  background: none;
+  box-sizing: border-box;
+  border: none;
+  color: inherit;
+  display: inline-flex;
+  font: 400 var(--type-text-md);
+  gap: 0.66ch;
+  padding: 0;
+  text-align: start;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition-duration: 200ms;
+  transition-property: text-decoration-color;
+  transition-timing-function: ease-out;
+}
+
+@media (hover: hover) {
+  :host:enabled:hover,
+  :host:any-link:hover {
+    cursor: pointer;
+    text-decoration-color: currentColor;
+  }
+}
+
+:host:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  height: 1em;
+  width: 1em;
+}

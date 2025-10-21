@@ -7,6 +7,7 @@ export * from './lib/base/badge/badge.component';
 export * from './lib/base/button/button.component';
 export * from './lib/base/empty/empty.component';
 export * from './lib/base/icon/icon.component';
+export * from './lib/base/link/link.component';
 export * from './lib/base/progress-bar/progress-bar.component';
 
 export { provideToastConfig } from './lib/base/toasts/ToastConfig';

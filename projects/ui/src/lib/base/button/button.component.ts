@@ -21,21 +21,20 @@ export const UiButtonWeights = ['solid', 'outline', 'ghost'] as const;
 export type UiButtonWeight = (typeof UiButtonWeights)[number];
 
 /**
- * Usage: Add `ui-button` to any `<button>` element.
+ * Usage: Add `ui-button` to any `<button>` or `<a>` element.
  */
 @Component({
   host: {
     '[class]': 'cssClass()',
     '[attr.type]': 'attrType()',
   },
-  selector: 'button[ui-button]',
+  selector: 'button[ui-button], a[ui-button]',
   styleUrl: './button.css',
   templateUrl: './button.html',
 })
 export class UiButtonComponent {
-  private readonly el: ElementRef<HTMLButtonElement> = inject(
-    ElementRef<HTMLButtonElement>
-  );
+  private readonly el: ElementRef<HTMLButtonElement | HTMLAnchorElement> =
+    inject(ElementRef<HTMLButtonElement | HTMLAnchorElement>);
 
   kind = input.required<UiButtonKind>();
   /** Use `shape = 'circle' | 'square'` for an icon only button. */
@@ -47,9 +46,12 @@ export class UiButtonComponent {
   private slots = contentChildren(UiSlotDirective);
   protected hasSlots = useSlots(this.slots, ['start', 'end']);
 
-  /** default type to 'button' */
+  /** for buttons, default the type to 'button' */
   protected attrType = computed(() => {
-    return this.el.nativeElement.getAttribute('type') || 'button';
+    const nativeEl = this.el.nativeElement;
+    return nativeEl.tagName === 'BUTTON'
+      ? nativeEl.getAttribute('type') || 'button'
+      : null;
   });
 
   protected cssClass = computed(() => ({
