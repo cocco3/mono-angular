@@ -6,6 +6,9 @@ import {
   signal,
 } from '@angular/core';
 
+/**
+ * Keep track of the window scroll Y offset as the page scrolls.
+ */
 @Injectable({
   providedIn: 'root',
 })
