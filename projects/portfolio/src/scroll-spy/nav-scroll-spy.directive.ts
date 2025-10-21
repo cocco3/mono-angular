@@ -2,6 +2,12 @@ import { Directive, inject, input } from '@angular/core';
 import { SectionScrollSpyService } from './section-scroll-spy.service';
 import { WindowScrollSpyService } from './window-scroll-spy.service';
 
+/**
+ * When the header nav is clicked, disable the scroll spay while the page
+ * scrolls to the section. This prevents nav items from getting highlighted
+ * while the page is scrolling. After an appropriate timeout, re-enable the
+ * scroll spy.
+ */
 @Directive({
   host: {
     '(click)': 'handleClick()',

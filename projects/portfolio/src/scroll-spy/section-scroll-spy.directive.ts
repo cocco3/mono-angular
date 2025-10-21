@@ -11,6 +11,9 @@ import {
 import { WindowScrollSpyService } from './window-scroll-spy.service';
 import { SectionScrollSpyService } from './section-scroll-spy.service';
 
+/**
+ * Calculate if the section meets criteria to be marked as active.
+ */
 @Directive({
   selector: '[appSectionScrollSpy]',
 })
@@ -47,17 +50,19 @@ export class SectionScrollSpyDirective implements OnDestroy {
       const visibilityRatio = visibleHeight / sectionHeight;
 
       const isLastSection = sectionTop + sectionHeight >= documentHeight - 5;
-
       const sectionTopInView =
         rect.top >= 0 && rect.top <= viewportHeight * 0.5;
-
       const isTallSection = sectionHeight > viewportHeight;
       const isVisibleEnough = visibilityRatio > (isTallSection ? 0.25 : 0.5);
 
-      const isActive =
-        sectionTopInView ||
-        isVisibleEnough ||
-        (isLastSection && scrollY + viewportHeight >= documentHeight - 5);
+      const isNearTop = scrollY <= 150;
+      const sectionInTopBuffer = sectionTop >= 0 && sectionTop <= 200;
+
+      const isActive = isNearTop
+        ? sectionInTopBuffer
+        : sectionTopInView ||
+          isVisibleEnough ||
+          (isLastSection && scrollY + viewportHeight >= documentHeight - 5);
 
       if (isActive) {
         this.header.activeId.set(this.sectionId());
