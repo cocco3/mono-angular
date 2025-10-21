@@ -6,6 +6,8 @@ https://cocco3.github.io/mono-angular
 
 ## Contributing
 
+Read the [contributing docs](/docs/CONTRIBUTING.md).
+
 ```bash
 # start storybook dev server
 npm run sb:start -- ui
