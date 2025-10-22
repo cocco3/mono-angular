@@ -6,12 +6,11 @@ https://joecocco.com
 
 ## Contributing
 
+Read the [contributing docs](/docs/CONTRIBUTING.md).
+
 ```bash
 # start application dev server
 npm start portfolio
-
-# build application
-npm run build portfolio
 ```
 
 ## Deploy

@@ -20,7 +20,7 @@ const projects: Project[] = [
     name: 'CountdownApp',
     description: `Countdowns integrated with Google Calendar.`,
     tech: ['angular', 'typescript', 'google api', 'netlify'],
-    url: 'https://cocco-countdown.netlify.app',
+    url: 'https://countdown.smallbytes.dev',
     githubUrl:
       'https://github.com/cocco3/mono-angular/tree/main/projects/countdown',
   },
@@ -28,7 +28,7 @@ const projects: Project[] = [
     name: 'Vampire Survivors',
     description: `Weapon evolution chart for the video game Vampire Surivors.`,
     tech: ['angular', 'typescript', 'netlify'],
-    url: 'https://vamps-evolutions.netlify.app/',
+    url: 'https://vampire-survivors.smallbytes.dev',
     githubUrl:
       'https://github.com/cocco3/mono-angular/tree/main/projects/vampire-survivors',
   },

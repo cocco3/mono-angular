@@ -2,16 +2,17 @@
 
 Weapon evolution chart for the video game [Vampire Surivors](https://poncle.games/vampire-survivors).
 
-https://vamps-evolutions.netlify.app
+https://vampire-survivors.smallbytes.dev
+
+![Screenshot of vampire survivors evolution chart](./docs/vampire-survivors.png)
 
 ## Contributing
+
+Read the [contributing docs](/docs/CONTRIBUTING.md).
 
 ```bash
 # start application dev server
 npm start vampire-survivors
-
-# build application
-npm run build vampire-survivors
 ```
 
 ## Deploy

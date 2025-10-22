@@ -1,3 +1,8 @@
 export const logError = (value: string, error?: Error) => {
-  console.error(`\x1b[31m${value}\x1b[0m`, error);
+  const red = (v: string) => `\x1b[31m${v}\x1b[0m`;
+  if (error) {
+    console.error(red(value), error);
+  } else {
+    console.error(red(value));
+  }
 };
