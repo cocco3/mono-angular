@@ -4,6 +4,7 @@
       ui-youtube-video
       [videoId]="video.videoId"
       [videoTitle]="video.name"
+      (afterLoad)="handleLoaded(video.videoId, video.name)"
     ></article>
   }
 </ui-item-grid>

@@ -13,6 +13,15 @@ export type AnalyticsConfig = {
   enabled: boolean;
 };
 
+/**
+ * Analytics must be injected at least once to initialize the service
+ * If an app is only using auto tracking without custom events,
+ *  inject the service in the App component.
+ *
+ * ```
+ * private readonly _analytics = inject(Analytics);
+ * ```
+ */
 export class Analytics<TTrackEvent extends BaseTrackEvent = BaseTrackEvent> {
   private _enabled = false;
 
