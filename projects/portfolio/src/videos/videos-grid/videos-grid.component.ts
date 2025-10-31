@@ -4,6 +4,7 @@ import {
   UiYouTubeVideoComponent,
 } from '@cocco3/angular-ui';
 import { ContentService } from '../../content/ContentService';
+import { injectAnalytics } from '../../analytics';
 
 @Component({
   imports: [UiItemGridComponent, UiYouTubeVideoComponent],
@@ -11,6 +12,11 @@ import { ContentService } from '../../content/ContentService';
   templateUrl: './videos-grid.html',
 })
 export class AppVideosGrid {
+  private readonly analytics = injectAnalytics();
   private readonly content = inject(ContentService);
   protected videos = this.content.videos;
+
+  protected handleLoaded(id: string, name: string) {
+    this.analytics.trackEvent({ name: 'video_viewed', data: { id, name } });
+  }
 }

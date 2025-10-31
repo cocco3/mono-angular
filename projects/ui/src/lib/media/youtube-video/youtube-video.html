@@ -9,6 +9,7 @@
   nocookie
   [attr.videoid]="videoId()"
   [attr.videotitle]="videoTitle()"
+  (liteYoutubeIframeLoaded)="handleIframeLoaded()"
 >
   <a class="play-icon" [attr.href]="videoUrl()" target="_blank" rel="noopener">
     Watch on YouTube: {{ videoTitle() }}

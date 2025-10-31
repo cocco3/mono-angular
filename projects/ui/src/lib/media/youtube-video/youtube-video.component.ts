@@ -3,6 +3,7 @@ import {
   computed,
   CUSTOM_ELEMENTS_SCHEMA,
   input,
+  output,
 } from '@angular/core';
 import '@justinribeiro/lite-youtube';
 import { uniqueId } from '@cocco3/utils';
@@ -27,6 +28,7 @@ import { uniqueId } from '@cocco3/utils';
 export class UiYouTubeVideoComponent {
   videoId = input.required<string>();
   videoTitle = input.required<string>();
+  readonly afterLoad = output<{ id: string; name: string }>();
 
   protected headingId = uniqueId();
 
@@ -37,5 +39,9 @@ export class UiYouTubeVideoComponent {
 
   protected handleClick() {
     this.showTitle = false;
+  }
+
+  protected handleIframeLoaded() {
+    this.afterLoad.emit({ id: this.videoId(), name: this.videoTitle() });
   }
 }
