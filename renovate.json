@@ -10,6 +10,7 @@
     "schedule:monthly"
   ],
   "separateMajorMinor": true,
+  "commitBody": "[skip netlify]",
   "packageRules": [
     {
       "groupName": "node",
