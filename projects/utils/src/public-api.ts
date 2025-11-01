@@ -17,3 +17,4 @@ export * from './lib/id';
 export * from './lib/math';
 export * from './lib/name';
 export * from './lib/sleep';
+export * from './lib/string';
