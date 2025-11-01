@@ -28,7 +28,7 @@
     "@angular/platform-server": "^20.3.6",
     "@angular/router": "^20.3.6",
     "@angular/ssr": "^20.3.6",
-    "@date-fns/tz": "^1.2.0",
+    "@date-fns/tz": "^1.4.1",
     "@floating-ui/dom": "^1.7.4",
     "@justinribeiro/lite-youtube": "^1.9.0",
     "date-fns": "^4.1.0",
