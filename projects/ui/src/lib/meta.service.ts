@@ -1,6 +1,7 @@
 import { DOCUMENT, inject, Injectable, RendererFactory2 } from '@angular/core';
 import { Location } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import { startsWithAny } from '@cocco3/utils';
 
 type MetaData = {
   title: string;
@@ -10,10 +11,14 @@ type MetaData = {
   ogType?: string;
 };
 
+/**
+ * SEO metadata service for managing title, description, canonical URLs,
+ * and {@link https://ogp.me/ Open Graph} tags.
+ */
 @Injectable({
   providedIn: 'root',
 })
-export class UIMetaUpdaterService {
+export class UiMetaService {
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
   private readonly document = inject(DOCUMENT);
@@ -23,7 +28,7 @@ export class UIMetaUpdaterService {
   );
   private readonly location = inject(Location);
 
-  updateMeta(data: MetaData) {
+  updateTags(data: MetaData) {
     const {
       title,
       description,
@@ -48,7 +53,11 @@ export class UIMetaUpdaterService {
     this.setCanonicalTag(resolvedUrl);
 
     if (ogImage) {
-      this.metaService.updateTag({ property: 'og:image', content: ogImage });
+      const resolvedImageUrl = this.resolveImageUrl(ogImage);
+      this.metaService.updateTag({
+        property: 'og:image',
+        content: resolvedImageUrl,
+      });
     }
   }
 
@@ -56,6 +65,22 @@ export class UIMetaUpdaterService {
     const baseUrl = this.document.location.origin;
     const path = this.location.path();
     return `${baseUrl}${path}`;
+  }
+
+  private resolveImageUrl(image: string) {
+    const isAbsolute = startsWithAny(image, ['http://', 'https://']);
+
+    if (isAbsolute) {
+      return image;
+    }
+
+    const removeLeadingForwardSlashes = (str: string) => {
+      return str.replace(/^\/+/, '');
+    };
+
+    const origin = this.document.location.origin;
+    const cleanedPath = removeLeadingForwardSlashes(image);
+    return `${origin}/${cleanedPath}`;
   }
 
   private setCanonicalTag(url: string) {
