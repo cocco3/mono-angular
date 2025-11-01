@@ -49,4 +49,4 @@ export * from './lib/providers/analytics/analytics.provider';
 export * from './lib/providers/logger/Logger';
 export * from './lib/providers/logger/logger.provider';
 
-export * from './lib/meta-updater.service';
+export * from './lib/meta.service';
