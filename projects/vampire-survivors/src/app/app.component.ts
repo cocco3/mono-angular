@@ -1,45 +1,21 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DataService } from '../data/DataService';
-import { AppFooterComponent } from './app-footer/app-footer';
-import { EvolutionListComponent } from './evo-list/evo-list.component';
-import { FiltersComponent } from './filters/filters.component';
-import { ItemFilterService } from './filters/filters.service';
+import { UiMetaService } from '@cocco3/angular-ui';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    EvolutionListComponent,
-    FiltersComponent,
-    AppFooterComponent,
-  ],
-  templateUrl: './app.component.html',
+  imports: [RouterOutlet],
   styleUrl: './app.component.css',
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'vampire-survivors';
+  private readonly metaService = inject(UiMetaService);
 
-  private readonly data = inject(DataService);
-  private readonly itemFilter = inject(ItemFilterService);
-
-  protected filteredGames = computed(() => {
-    const allGames = this.data.getAllEvolutions();
-    const selectedGames = this.itemFilter.games$();
-    const selectedPassives = this.itemFilter.passives$();
-
-    if (selectedGames.length) {
-      return allGames.filter((x) => selectedGames.includes(x.game.id));
-    }
-
-    if (selectedPassives.length) {
-      return allGames.filter((x) =>
-        x.evos.some((y) =>
-          y.items.some((z) => selectedPassives.includes(z.item.name))
-        )
-      );
-    }
-
-    return allGames;
-  });
+  constructor() {
+    this.metaService.updateTags({
+      title: 'Vampire Survivors Evolutions',
+      description: 'Vampire survivors evolution chart.',
+      ogImage: 'og_image.png',
+    });
+  }
 }

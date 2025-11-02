@@ -1,17 +1,1 @@
 <router-outlet />
-
-<div class="page">
-  <app-filters />
-
-  <div class="wrapper">
-    @for (game of filteredGames(); track game.game.id) {
-      <app-evo-list
-        [gameId]="game.game.id"
-        [gameName]="game.game.name"
-        [evolutions]="game.evos"
-      />
-    }
-  </div>
-
-  <app-footer />
-</div>
