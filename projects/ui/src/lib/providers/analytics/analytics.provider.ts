@@ -1,4 +1,10 @@
-import { makeEnvironmentProviders } from '@angular/core';
+import {
+  EnvironmentInjector,
+  inject,
+  makeEnvironmentProviders,
+  provideEnvironmentInitializer,
+} from '@angular/core';
+
 import {
   Analytics,
   type AnalyticsConfig,
@@ -13,5 +19,14 @@ export function provideAnalytics<
       provide: Analytics,
       useFactory: () => new Analytics<TTrackEvent>(config),
     },
+
+    /**
+     * Ensures instantiation of a service that performs side effects.
+     * Necessary if the service is not injected elsewhere in the app.
+     */
+    provideEnvironmentInitializer(() => {
+      const injector = inject(EnvironmentInjector);
+      injector.get(Analytics);
+    }),
   ]);
 }
