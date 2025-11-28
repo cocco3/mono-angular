@@ -15,7 +15,8 @@
     "sb:start": "ts-node build/run-storybook.ts start",
     "sb:build": "ts-node build/run-storybook.ts build",
     "sb:update": "npx storybook@latest upgrade --config-dir=projects/ui/.storybook",
-    "angular:update": "ts-node build/update-angular.ts"
+    "angular:update": "ts-node build/update-angular.ts",
+    "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -48,11 +49,11 @@
     "@storybook/addon-docs": "^9.1.13",
     "@storybook/addon-themes": "^9.1.13",
     "@storybook/angular": "^9.1.13",
-    "@types/express": "^5.0.5",
+    "@types/express": "^5.0.1",
     "@types/fs-extra": "^11.0.4",
     "@types/google.accounts": "^0.0.18",
     "@types/jasmine": "^5.1.9",
-    "@types/node": "^22.16.0",
+    "@types/node": "^22.19.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "angular-eslint": "^20.2.0",

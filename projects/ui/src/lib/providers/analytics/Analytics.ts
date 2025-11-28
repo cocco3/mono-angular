@@ -55,7 +55,10 @@ export class Analytics<TTrackEvent extends BaseTrackEvent = BaseTrackEvent> {
     this._enabled = config.enabled;
 
     if (!config.enabled) return;
-    this.appendRybbitScript(config.siteId, config.apiKey);
+
+    if (typeof document !== 'undefined') {
+      this.appendRybbitScript(config.siteId, config.apiKey);
+    }
   }
 
   /** Tracks a custom event */

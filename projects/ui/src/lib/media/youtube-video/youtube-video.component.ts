@@ -5,8 +5,8 @@ import {
   input,
   output,
 } from '@angular/core';
-import '@justinribeiro/lite-youtube';
 import { uniqueId } from '@cocco3/utils';
+import { injectIsBrowser } from '../../injectIsBrowser';
 
 /**
  * A lightweight YouTube embed component using the `lite-youtube` web component.
@@ -26,6 +26,14 @@ import { uniqueId } from '@cocco3/utils';
   templateUrl: './youtube-video.html',
 })
 export class UiYouTubeVideoComponent {
+  private readonly isBrowser = injectIsBrowser();
+
+  constructor() {
+    if (!this.isBrowser) return;
+
+    import('@justinribeiro/lite-youtube');
+  }
+
   videoId = input.required<string>();
   videoTitle = input.required<string>();
   readonly afterLoad = output<{ id: string; name: string }>();
