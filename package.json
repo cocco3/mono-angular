@@ -46,6 +46,7 @@
     "@angular/compiler-cli": "^20.3.6",
     "@chromatic-com/storybook": "^4.1.1",
     "@compodoc/compodoc": "^1.1.30",
+    "@netlify/angular-runtime": "^3.0.1",
     "@storybook/addon-designs": "^10.0.2",
     "@storybook/addon-docs": "^9.1.13",
     "@storybook/addon-themes": "^9.1.13",
