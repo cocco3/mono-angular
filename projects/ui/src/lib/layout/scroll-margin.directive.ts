@@ -2,6 +2,7 @@ import { Directive, inject } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { type Event, Router, Scroll } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { injectIsBrowser } from '../injectIsBrowser';
 
 /**
  * Fixes issue where scroll-margin-top is ignored when navigating to an anchor.
@@ -12,10 +13,13 @@ import { filter } from 'rxjs/operators';
   selector: '[uiScrollMargin]',
 })
 export class UiScrollMarginDirective {
+  private readonly isBrowser = injectIsBrowser();
   private readonly router = inject(Router);
   private readonly viewportScroller = inject(ViewportScroller);
 
   constructor() {
+    if (!this.isBrowser) return;
+
     this.router.events
       .pipe(filter((event: Event): event is Scroll => event instanceof Scroll))
       .subscribe((e) => {

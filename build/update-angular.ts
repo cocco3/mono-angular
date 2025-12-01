@@ -12,37 +12,10 @@
 
 import * as fs from 'fs-extra';
 import * as path from 'node:path';
-import { spawn } from 'child_process';
+import { runCmd } from './runCmd';
 import { logError } from './logError';
 
 const targetVersion = process.argv[2] || 'latest';
-
-async function runNgUpdateAtRoot() {
-  return new Promise<void>((resolve, reject) => {
-    console.log('Running ng update at repo root...');
-
-    const ngUpdateCmd = [
-      'ng',
-      'update',
-      `@angular/core@${targetVersion}`,
-      `@angular/cli@${targetVersion}`,
-    ];
-
-    const child = spawn('npx', ngUpdateCmd, {
-      cwd: process.cwd(),
-      stdio: 'inherit',
-      shell: true,
-    });
-
-    child.on('close', (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`ng update failed at root (exit code ${code})`));
-      }
-    });
-  });
-}
 
 function getRootAngularVersions() {
   const rootPkg = fs.readJsonSync(path.join(process.cwd(), 'package.json'));
@@ -111,7 +84,15 @@ async function updateAllAngularPackages(
 }
 
 async function main() {
-  await runNgUpdateAtRoot();
+  console.log('Running ng update at repo root…');
+
+  await runCmd('npx', [
+    'ng',
+    'update',
+    `@angular/core@${targetVersion}`,
+    `@angular/cli@${targetVersion}`,
+  ]);
+
   const angularPackageVersions = getRootAngularVersions();
   await updateAllAngularPackages(angularPackageVersions);
 }
