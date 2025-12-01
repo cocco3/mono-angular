@@ -77,7 +77,7 @@
     "typescript": "~5.8.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "./node_modules/.bin/nano-staged"
+    "pre-commit": "./pre-commit.sh"
   },
   "nano-staged": {
     "*.{js,ts}": [
