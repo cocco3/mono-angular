@@ -20,7 +20,8 @@
     "module": "ES2022",
     "paths": {
       "@cocco3/angular-ui": ["./projects/ui/src/public-api.ts"],
-      "@cocco3/utils": ["./projects/utils/src/public-api.ts"]
+      "@cocco3/utils": ["./projects/utils/src/public-api.ts"],
+      "@cocco3/styles": ["./projects/styles/src/public-api.ts"]
     }
   },
   "angularCompilerOptions": {

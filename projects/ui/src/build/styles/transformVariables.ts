@@ -4,7 +4,7 @@ import type {
   ThemeTypographySets,
   ThemeColorSets,
   ThemeIcons,
-} from '../../lib/styles';
+} from '@cocco3/styles';
 
 /*********************************
  * colors

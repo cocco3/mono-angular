@@ -1,5 +1,5 @@
 import * as fs from 'fs-extra';
-import { defaultTheme, vampsTheme } from '../../lib/styles';
+import { defaultTheme, vampsTheme } from '@cocco3/styles';
 import { fileCommentHeader, formatCode, shouldGenerateFile } from '../utils';
 import {
   transformColorVariables,
