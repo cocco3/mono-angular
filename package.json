@@ -52,7 +52,7 @@
     "@types/fs-extra": "^11.0.4",
     "@types/google.accounts": "^0.0.18",
     "@types/jasmine": "^5.1.9",
-    "@types/node": "^22.16.0",
+    "@types/node": "^22.19.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "angular-eslint": "^20.2.0",
