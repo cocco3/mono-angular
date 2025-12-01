@@ -22,7 +22,7 @@ const preview: Preview = {
   ],
 
   parameters: {
-    backgrounds: { disable: true },
+    backgrounds: { options: [] },
 
     controls: {
       expanded: true,

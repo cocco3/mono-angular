@@ -8,9 +8,14 @@
     "allowJs": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node"
+    "moduleResolution": "bundler"
   },
   "exclude": ["../src/test.ts", "../src/**/*.spec.ts"],
-  "include": ["../src/**/*", "../src/**/*.stories.*", "preview.tsx"],
+  "include": [
+    "../src/**/*.stories.*",
+    "../src/**/*.mdx",
+    "../src/lib/styles/index.ts",
+    "preview.tsx"
+  ],
   "files": ["./typings.d.ts"]
 }
