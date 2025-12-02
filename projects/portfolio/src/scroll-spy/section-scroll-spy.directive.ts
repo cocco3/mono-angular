@@ -1,13 +1,14 @@
 import {
   Directive,
-  ElementRef,
-  type OnDestroy,
-  inject,
   effect,
-  type EffectRef,
-  linkedSignal,
+  ElementRef,
+  inject,
   input,
+  linkedSignal,
+  type EffectRef,
+  type OnDestroy,
 } from '@angular/core';
+import { injectIsBrowser } from '@cocco3/angular-ui';
 import { WindowScrollSpyService } from './window-scroll-spy.service';
 import { SectionScrollSpyService } from './section-scroll-spy.service';
 
@@ -18,24 +19,26 @@ import { SectionScrollSpyService } from './section-scroll-spy.service';
   selector: '[appSectionScrollSpy]',
 })
 export class SectionScrollSpyDirective implements OnDestroy {
-  private readonly el: ElementRef<HTMLElement> = inject(
-    ElementRef<HTMLElement>
-  );
+  private readonly isBrowser = injectIsBrowser();
+  private readonly el = inject<ElementRef<unknown>>(ElementRef);
   private readonly scrollSpy = inject(WindowScrollSpyService);
   private readonly header = inject(SectionScrollSpyService);
-  private cleanupEffect: EffectRef;
+  private cleanupEffect: EffectRef | undefined;
 
   sectionId = input.required<string>({ alias: 'appSectionScrollSpy' });
 
-  protected scrollY = linkedSignal(() => {
-    return this.scrollSpy.scrollY();
-  });
+  protected scrollY = linkedSignal(() => this.scrollSpy.scrollY());
 
   constructor() {
+    if (!this.isBrowser) return;
+
     this.cleanupEffect = effect(() => {
-      const scrollY = this.scrollSpy.scrollY();
       const section = this.el.nativeElement;
+      if (!(section instanceof HTMLElement)) return;
+
+      const scrollY = this.scrollSpy.scrollY();
       const rect = section.getBoundingClientRect();
+
       const sectionTop = rect.top + window.pageYOffset;
       const sectionHeight = section.offsetHeight;
       const viewportHeight = window.innerHeight;
@@ -71,6 +74,6 @@ export class SectionScrollSpyDirective implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.cleanupEffect.destroy();
+    this.cleanupEffect?.destroy();
   }
 }

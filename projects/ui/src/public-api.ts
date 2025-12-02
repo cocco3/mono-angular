@@ -50,3 +50,4 @@ export * from './lib/providers/logger/Logger';
 export * from './lib/providers/logger/logger.provider';
 
 export * from './lib/meta.service';
+export * from './lib/injectIsBrowser';
