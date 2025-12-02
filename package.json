@@ -11,7 +11,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "assets:build": "ts-node ./projects/ui/src/build/runBuild.ts",
+    "assets:build": "ts-node build/assets/build-assets.ts",
     "sb:start": "ts-node build/run-storybook.ts start",
     "sb:build": "ts-node build/run-storybook.ts build",
     "sb:update": "npx storybook@latest upgrade --config-dir=projects/ui/.storybook",

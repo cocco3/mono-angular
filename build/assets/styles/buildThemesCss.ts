@@ -11,19 +11,19 @@ import {
 const themes = [
   {
     srcFiles: [
-      './projects/ui/src/lib/styles/colorPrimitives.ts',
-      './projects/ui/src/lib/styles/defaultTheme.ts',
+      'projects/styles/src/lib/colorPrimitives.ts',
+      'projects/styles/src/lib/defaultTheme.ts',
     ],
-    outFilePath: './projects/ui/src/css/theme-default.css',
+    outFilePath: './projects/styles/src/css/theme-default.css',
     theme: defaultTheme,
   },
   {
     srcFiles: [
-      './projects/ui/src/lib/styles/colorPrimitives.ts',
-      './projects/ui/src/lib/styles/defaultTheme.ts',
-      './projects/ui/src/lib/styles/vampsTheme.ts',
+      './projects/styles/src/lib/styles/colorPrimitives.ts',
+      './projects/styles/src/lib/styles/defaultTheme.ts',
+      './projects/styles/src/lib/styles/vampsTheme.ts',
     ],
-    outFilePath: './projects/ui/src/css/theme-vamps.css',
+    outFilePath: './projects/styles/src/css/theme-vamps.css',
     theme: vampsTheme,
   },
 ];

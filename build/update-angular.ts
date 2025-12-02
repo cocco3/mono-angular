@@ -105,7 +105,7 @@ async function updateAllAngularPackages(
       );
     }
   } catch (err) {
-    logError('Error updating child package.json files:', err);
+    logError('Error updating child package.json files:');
     throw err;
   }
 }
