@@ -18,6 +18,8 @@ Set up the pre-commit hooks by running the following. This only has to be done o
 npm run init:git-hooks
 ```
 
+This initializes the repo to run the [pre-commit.sh](../pre-commit.sh) script which loads node and runs `nano-staged`.
+
 With this setup, during a commit it auto-fixes what it can. All remaining issues must be resolved manually before the commit can succeed.
 
 ## Auto format on save
