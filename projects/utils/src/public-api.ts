@@ -4,6 +4,7 @@ export * from './lib/dates/formatTimeDiff';
 export * from './lib/dates/getDateParts';
 export * from './lib/dates/dateTime';
 
+export * from './lib/browser/isPlatformBrowser';
 export * from './lib/browser/LocalStorage';
 export * from './lib/browser/resizeObserver';
 export * from './lib/browser/UiPopover';

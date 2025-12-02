@@ -1,3 +1,4 @@
+import { isPlatformBrowser } from '@cocco3/utils';
 import { type Rybbit } from './rybbit';
 
 export type BaseTrackEvent = { name: string; data?: Record<string, unknown> };
@@ -55,7 +56,10 @@ export class Analytics<TTrackEvent extends BaseTrackEvent = BaseTrackEvent> {
     this._enabled = config.enabled;
 
     if (!config.enabled) return;
-    this.appendRybbitScript(config.siteId, config.apiKey);
+
+    if (isPlatformBrowser()) {
+      this.appendRybbitScript(config.siteId, config.apiKey);
+    }
   }
 
   /** Tracks a custom event */
