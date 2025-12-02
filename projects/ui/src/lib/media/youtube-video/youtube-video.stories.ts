@@ -1,4 +1,8 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import {
+  componentWrapperDecorator,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 import { UiYouTubeVideoComponent } from './youtube-video.component';
 
 const meta: Meta<UiYouTubeVideoComponent> = {
@@ -8,6 +12,11 @@ const meta: Meta<UiYouTubeVideoComponent> = {
     videoId: '_ITiwPMUzho',
     videoTitle: 'LoFi Programming Beats',
   },
+  decorators: [
+    componentWrapperDecorator(
+      (story) => `<div style="max-width: 500px;">${story}</div>`
+    ),
+  ],
 };
 
 export default meta;
