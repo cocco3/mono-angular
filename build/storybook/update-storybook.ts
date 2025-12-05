@@ -3,9 +3,9 @@
  *   ts-node build/update-storybook.ts [version]
  */
 
-import { runCommand } from './runCommand';
-import { logError } from './logError';
-import { findStorybookProjects } from './find-storybook';
+import { runCommand } from '../runCommand';
+import { logError } from '../logError';
+import { findStorybookProjects } from './findStorybookProjects';
 
 async function main() {
   const version = process.argv[2] ?? 'latest';

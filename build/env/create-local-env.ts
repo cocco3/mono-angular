@@ -5,7 +5,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { logError } from './logError';
+import { logError } from '../logError';
 
 function processEnvironmentFiles(paths: string[]) {
   paths.forEach((filePath) => {

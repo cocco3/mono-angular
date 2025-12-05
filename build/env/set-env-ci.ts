@@ -6,7 +6,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { logError } from './logError';
+import { logError } from '../logError';
 
 /**
  * Replace all instances of `__BUILD_DATE__` with the current date

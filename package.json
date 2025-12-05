@@ -2,8 +2,8 @@
   "name": "mono-angular",
   "version": "0.0.0",
   "scripts": {
-    "ci:env": "ts-node ./build/set-env-ci.ts",
-    "init:env-local": "ts-node ./build/create-local-env.ts",
+    "ci:env": "ts-node ./build/env/set-env-ci.ts",
+    "init:env-local": "ts-node ./build/env/create-local-env.ts",
     "init:git-hooks": "simple-git-hooks",
     "init": "npm run init:git-hooks && npm run init:env-local",
     "ng": "ng",
@@ -12,9 +12,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "assets:build": "ts-node ./projects/ui/src/build/runBuild.ts",
-    "sb:start": "ts-node build/run-storybook.ts start",
-    "sb:build": "ts-node build/run-storybook.ts build",
-    "sb:update": "ts-node build/update-storybook.ts",
+    "sb:start": "ts-node build/storybook/run-storybook.ts start",
+    "sb:build": "ts-node build/storybook/run-storybook.ts build",
+    "sb:update": "ts-node build/storybook/update-storybook.ts",
     "angular:update": "ts-node build/update-angular.ts"
   },
   "private": true,

@@ -1,9 +1,9 @@
 import { join } from 'node:path';
-import { logError } from './logError';
-import { runCommand } from './runCommand';
-import { findStorybookProjects } from './find-storybook';
+import { logError } from '../logError';
+import { runCommand } from '../runCommand';
+import { findStorybookProjects } from './findStorybookProjects';
 
-function validateArgs() {
+function parseArgs() {
   const [mode, project] = process.argv.slice(2);
 
   const target = {
@@ -35,7 +35,7 @@ ${storybookProjects.map((p) => `- ${p.projectName}`).join('\n')}`
 }
 
 async function main() {
-  const { target, project } = validateArgs();
+  const { target, project } = parseArgs();
 
   await runCommand('ng', ['run', `${project}:${target}`]);
 }
