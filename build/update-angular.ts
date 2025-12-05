@@ -10,42 +10,13 @@
  *   If omitted, 'latest' is used.
  */
 
-import * as fs from 'fs-extra';
-import * as path from 'node:path';
-import { spawn } from 'child_process';
+import { globSync, readJsonSync, readJson, writeJson } from 'fs-extra';
+import { join } from 'node:path';
 import { logError } from './logError';
-
-const targetVersion = process.argv[2] || 'latest';
-
-async function runNgUpdateAtRoot() {
-  return new Promise<void>((resolve, reject) => {
-    console.log('Running ng update at repo root...');
-
-    const ngUpdateCmd = [
-      'ng',
-      'update',
-      `@angular/core@${targetVersion}`,
-      `@angular/cli@${targetVersion}`,
-    ];
-
-    const child = spawn('npx', ngUpdateCmd, {
-      cwd: process.cwd(),
-      stdio: 'inherit',
-      shell: true,
-    });
-
-    child.on('close', (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`ng update failed at root (exit code ${code})`));
-      }
-    });
-  });
-}
+import { runCommand } from './runCommand';
 
 function getRootAngularVersions() {
-  const rootPkg = fs.readJsonSync(path.join(process.cwd(), 'package.json'));
+  const rootPkg = readJsonSync(join(process.cwd(), 'package.json'));
   const versions: Record<string, string> = {};
 
   const collectAngularDeps = (deps?: Record<string, string>) => {
@@ -67,7 +38,7 @@ async function updateAngularVersionsInPackageJson(
   pkgJsonPath: string,
   angularPackageVersions: Record<string, string>
 ) {
-  const json = await fs.readJson(pkgJsonPath);
+  const json = await readJson(pkgJsonPath);
   let changed = false;
   for (const depType of ['dependencies', 'peerDependencies']) {
     if (!json[depType]) continue;
@@ -81,7 +52,7 @@ async function updateAngularVersionsInPackageJson(
     }
   }
   if (changed) {
-    await fs.writeJson(pkgJsonPath, json, { spaces: 2 });
+    await writeJson(pkgJsonPath, json, { spaces: 2 });
   }
 }
 
@@ -90,7 +61,7 @@ async function updateAllAngularPackages(
 ) {
   try {
     // Find all package.json files except the root one
-    const files = fs.globSync('**/package.json', {
+    const files = globSync('**/package.json', {
       cwd: process.cwd(),
       exclude: ['**/node_modules/**', 'dist/**', 'package.json'],
     });
@@ -111,9 +82,21 @@ async function updateAllAngularPackages(
 }
 
 async function main() {
-  await runNgUpdateAtRoot();
+  console.log('Running ng update at repo root...');
+
+  const version = process.argv[2] || 'latest';
+
+  await runCommand('npx', [
+    'ng',
+    'update',
+    `@angular/core@${version}`,
+    `@angular/cli@${version}`,
+  ]);
+
   const angularPackageVersions = getRootAngularVersions();
   await updateAllAngularPackages(angularPackageVersions);
+
+  console.log('\n✔︎ Angular update completed.');
 }
 
 main().catch((err) => {
