@@ -1,43 +1,46 @@
-import { execSync } from 'child_process';
-import { readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { logError } from './logError';
+import { runCommand } from './runCommand';
+import { findStorybookProjects } from './find-storybook';
 
-const [mode, project] = process.argv.slice(2);
+function validateArgs() {
+  const [mode, project] = process.argv.slice(2);
 
-const target = {
-  start: 'storybook',
-  build: 'build-storybook',
-}[mode];
+  const target = {
+    start: 'storybook',
+    build: 'build-storybook',
+  }[mode];
 
-if (!target) {
-  logError(`Invalid mode "${mode}". Use "start" or "build".`);
-  process.exit(1);
-}
+  if (!target) {
+    throw new Error(`Invalid mode "${mode}". Use "start" or "build".`);
+  }
 
-const projectsDir = join(process.cwd(), 'projects');
-const validProjects = readdirSync(projectsDir).filter((name) => {
-  const fullPath = join(projectsDir, name);
-  return (
-    statSync(fullPath).isDirectory() && existsSync(join(fullPath, '.storybook'))
-  );
-});
+  const projectsDir = join(process.cwd(), 'projects');
+  const storybookProjects = findStorybookProjects(projectsDir);
 
-if (!project || !validProjects.includes(project)) {
-  logError(
-    `Error: cannot determine project "${project}".
+  const foundProject = storybookProjects.some((p) => p.projectName === project);
 
-Run "npm run sb:${mode} -- [project]"
+  if (!foundProject) {
+    throw new Error(
+      `Error: cannot determine project "${project}".
+
+Run "npm run sb:${mode} [project]"
 
 Available projects:
-${validProjects.map((p) => `- ${p}`).join('\n')}`
-  );
-  process.exit(1);
+${storybookProjects.map((p) => `- ${p.projectName}`).join('\n')}`
+    );
+  }
+
+  return { target, project };
 }
 
-try {
-  execSync(`ng run ${project}:${target}`, { stdio: 'inherit' });
-} catch (_error) {
-  logError(`Failed to run "${target}" for project "${project}"`);
-  process.exit(1);
+async function main() {
+  const { target, project } = validateArgs();
+
+  await runCommand('ng', ['run', `${project}:${target}`]);
 }
+
+main().catch((err) => {
+  logError(err);
+  process.exit(1);
+});

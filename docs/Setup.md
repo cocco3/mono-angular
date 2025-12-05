@@ -28,5 +28,5 @@
    > npm start [project]
 
    # storybook
-   > npm run sb:start -- [project]
+   > npm run sb:start [project]
    ```

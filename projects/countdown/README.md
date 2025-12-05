@@ -21,7 +21,7 @@ Read the [contributing docs](/docs/CONTRIBUTING.md).
 npm start countdown
 
 # start storybook dev server
-npm run sb:start -- countdown
+npm run sb:start countdown
 ```
 
 ## Deploy

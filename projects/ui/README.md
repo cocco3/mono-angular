@@ -10,10 +10,10 @@ Read the [contributing docs](/docs/CONTRIBUTING.md).
 
 ```bash
 # start storybook dev server
-npm run sb:start -- ui
+npm run sb:start ui
 
 # build storybook
-npm run sb:build -- ui
+npm run sb:build ui
 ```
 
 ## Deploy

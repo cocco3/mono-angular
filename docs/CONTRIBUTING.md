@@ -17,5 +17,5 @@ npm start [project]
 Start the local storybook dev server.
 
 ```shell
-npm run sb:start -- [project]
+npm run sb:start [project]
 ```
