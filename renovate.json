@@ -41,7 +41,6 @@
     },
     {
       "groupName": "storybook",
-      "matchUpdateTypes": ["minor", "patch"],
       "matchPackageNames": [
         "storybook",
         "@storybook/*",
