@@ -9,14 +9,24 @@ export function runCommand(
     stdio: 'inherit',
   }
 ) {
-  return new Promise<void>((resolve, reject) => {
+  return new Promise<string>((resolve, reject) => {
     const child = spawn(command, args, options);
+
+    let output = '';
+
+    child.stdout?.on('data', (data) => {
+      output += data.toString();
+    });
+
+    child.stderr?.on('data', (data) => {
+      process.stderr.write(data);
+    });
 
     child.on('error', reject);
 
     child.on('close', (code) => {
       if (code === 0) {
-        resolve();
+        resolve(output.trim());
       } else {
         reject(
           new Error(`${command} ${args.join(' ')} exited with code ${code}`)

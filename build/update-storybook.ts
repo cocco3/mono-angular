@@ -1,16 +1,18 @@
 /**
  *  Usage:
- *   ts-node build/update-storybook.ts [version]
+ *   ts-node build/update-storybook.ts ['major' | 'minor' | 'patch' | 'latest']
  */
 
 import { runCommand } from './runCommand';
 import { logError } from './logError';
 import { findStorybookProjects } from './find-storybook';
+import { type BumpType, resolveTargetVersion } from './resolveTargetVersion';
 
 async function main() {
-  const version = process.argv[2] ?? 'latest';
-  const root = process.cwd();
+  const bumpType: BumpType = (process.argv[2] as BumpType) || 'latest';
+  const targetVersion = resolveTargetVersion('storybook', bumpType);
 
+  const root = process.cwd();
   const storybookProjects = findStorybookProjects(root);
 
   if (storybookProjects.length === 0) {
@@ -18,7 +20,7 @@ async function main() {
   }
 
   await runCommand('npx', [
-    `storybook@${version}`,
+    `storybook@${targetVersion}`,
     'upgrade',
     '--config-dir',
     ...storybookProjects.map((p) => p.configPath),

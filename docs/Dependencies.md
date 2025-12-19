@@ -11,18 +11,22 @@ Documentation for managinge dependencies and keeping them up to date.
 
 ## Manually upgrade Angular
 
-Follow the official [Angular upgrade guide](https://angular.dev/update-guide).
+Run the following command to run the [update-angular.ts](../build/update-angular.ts) script.
 
 ```shell
 npm run angular:update
 ```
 
+Read more at the [official Angular upgrade guide](https://angular.dev/update-guide).
+
 ## Manually upgrade Storybook
 
-Follow these steps to [upgrade Storybook](https://storybook.js.org/docs/configure/upgrading).
+Run the following command to run the [update-storybook.ts](../build/update-storybook.ts) script.
 
 ```shell
-npm run sb:update
+npm run sb:update <'major' | 'minor' | 'patch' | 'latest'>
 ```
+
+Read more at the [upgrading Storybook official docs](https://storybook.js.org/docs/configure/upgrading).
 
 For major version upgrades, be sure to check the [custom DocsLayout](./projects/ui/.storybook/components/DocsLayout.tsx) still works as expected.
