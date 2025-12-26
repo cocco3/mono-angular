@@ -67,7 +67,7 @@ export class CreateEventDialogComponent {
     const defaultDate = getToday();
 
     this.createEventForm = this.formBuilder.group({
-      name: '',
+      eventName: '',
       description: this.userSettings().query,
       startDate: defaultDate,
       startTime: '',
@@ -115,7 +115,7 @@ export class CreateEventDialogComponent {
       this.calendarService
         .createEvent({
           calendarId: this.userSettings().defaultCalendarId,
-          summary: validationResult.data.name,
+          summary: validationResult.data.eventName,
           description: validationResult.data.description,
           startDate: validationResult.data.startDate,
           startTime: validationResult.data.startTime,

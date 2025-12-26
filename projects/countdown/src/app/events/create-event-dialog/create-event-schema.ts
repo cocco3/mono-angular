@@ -5,7 +5,7 @@ import { createDateTimeZoned } from '@cocco3/utils';
  * TODO: can this be extracted from the schema
  */
 export type CreateEventModel = {
-  name: string;
+  eventName: string;
   description: string;
   startDate: string;
   startTime?: string;
@@ -22,7 +22,7 @@ export function createEventSchema({
 }) {
   return z
     .object({
-      name: z
+      eventName: z
         .string()
         .trim()
         .refine((value) => value.length > 0, {

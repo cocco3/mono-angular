@@ -10,12 +10,12 @@
     [formGroup]="createEventForm"
     (submit)="handleSubmit()"
   >
-    <ui-form-field [label]="'Name'" [error]="formErrors.name">
+    <ui-form-field [label]="'Event name'" [error]="formErrors.eventName">
       <input
         ui-input
         type="text"
         required
-        formControlName="name"
+        formControlName="eventName"
         autocomplete="off"
       />
     </ui-form-field>
