@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideLogger, provideToastConfig } from '@cocco3/angular-ui';
+import { asMilliseconds } from '@cocco3/utils';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { authInterceptor } from './services/AuthInterceptor';
@@ -22,7 +23,7 @@ export const appConfig: ApplicationConfig = {
 
     provideToastConfig({
       dismissible: true,
-      duration: 5000,
+      duration: asMilliseconds(5000),
     }),
   ],
 };

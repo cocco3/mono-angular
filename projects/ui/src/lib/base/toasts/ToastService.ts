@@ -1,11 +1,11 @@
 import { Injectable, signal, type TemplateRef } from '@angular/core';
-import { uniqueId } from '@cocco3/utils';
+import { type Milliseconds, uniqueId } from '@cocco3/utils';
 import { type UiAlertKind } from '../alert/alert.component';
 import { injectToastConfig } from './ToastConfig';
 
 export type UiToastOptions = {
   dismissible?: boolean;
-  duration?: number;
+  duration?: Milliseconds;
   heading?: string;
   id?: string;
   kind: UiAlertKind;
@@ -13,6 +13,7 @@ export type UiToastOptions = {
 
 type ToastBase = {
   dismissible: boolean;
+  duration?: Milliseconds;
   heading?: string;
   id: string;
   kind: UiAlertKind;
@@ -64,6 +65,7 @@ export class UiToastService {
   showMessage(message: string, options: UiToastOptions) {
     const toast: UiToastMessage = {
       dismissible: options.dismissible ?? this.toastConfig.dismissible,
+      duration: options.duration,
       heading: options.heading,
       id: options.id || uniqueId(),
       kind: options.kind,
@@ -82,6 +84,7 @@ export class UiToastService {
   showTemplate(template: TemplateRef<unknown>, options: UiToastOptions) {
     const toast: UiToastTemplate = {
       dismissible: options.dismissible ?? this.toastConfig.dismissible,
+      duration: options.duration,
       heading: options.heading,
       id: options.id || uniqueId(),
       kind: options.kind,

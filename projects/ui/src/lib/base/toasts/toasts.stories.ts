@@ -1,5 +1,5 @@
 import { type Meta, type StoryObj, moduleMetadata } from '@storybook/angular';
-import { storybookArgsToTemplate } from '@cocco3/utils';
+import { storybookArgsToTemplate, asMilliseconds } from '@cocco3/utils';
 import { UiToastsComponent, UiToastPlacements } from './toasts.component';
 import { SbToastsDemoComponent } from './sb-toasts-demo';
 import { type UiAlertComponent, UiAlertKinds } from '../alert/alert.component';
@@ -18,19 +18,23 @@ const meta: Meta<StoryArgs> = {
     dismissible: {
       control: { type: 'boolean' },
       table: { category: 'Demo - Alert', type: { detail: undefined } },
+      description: '`boolean`',
     },
     duration: {
       control: { type: 'number' },
       table: { category: 'Demo - Alert', type: { detail: undefined } },
+      description: '`Milliseconds`',
     },
     heading: {
       control: { type: 'text' },
       table: { category: 'Demo - Alert', type: { detail: undefined } },
+      description: '`string`',
     },
     kind: {
       options: UiAlertKinds,
       control: { type: 'radio' },
       table: { category: 'Demo - Alert', type: { detail: undefined } },
+      description: '`UiAlertKind`',
     },
   },
   args: {
@@ -60,6 +64,10 @@ export const Dismissible: Story = {
   args: { dismissible: true },
 };
 
+export const Placement: Story = {
+  args: { placement: 'bottom-end' },
+};
+
 export const Duration: Story = {
-  args: { duration: 3000 },
+  args: { duration: asMilliseconds(3000) },
 };

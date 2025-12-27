@@ -1,21 +1,29 @@
-@if (dismissible()) {
-  <button
-    class="dismiss"
-    ui-button
-    [shape]="'square'"
-    [size]="'small'"
-    [type]="'button'"
-    [weight]="'ghost'"
-    [kind]="'secondary'"
-    (click)="handleDismissClick()"
-  >
-    <ui-icon kind="x-close" uiSlot="start" />
-    Dismiss
-  </button>
-}
+<div class="container">
+  @if (dismissible()) {
+    <button
+      class="dismiss"
+      ui-button
+      [shape]="'square'"
+      [size]="'small'"
+      [type]="'button'"
+      [weight]="'ghost'"
+      [kind]="'secondary'"
+      (click)="handleDismissClick()"
+    >
+      <ui-icon kind="x-close" uiSlot="start" />
+      Dismiss
+    </button>
+  }
 
-@if (heading()) {
-  <div class="heading">{{ heading() }}</div>
-}
+  @if (heading()) {
+    <div class="heading">{{ heading() }}</div>
+  }
 
-<ng-content />
+  <ng-content />
+</div>
+
+@if (progress()) {
+  <div class="progress">
+    <div class="progress_bar" [style.width.%]="progress()"></div>
+  </div>
+}
