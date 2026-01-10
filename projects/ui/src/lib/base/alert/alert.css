@@ -8,8 +8,6 @@
   color: var(--text-primary);
   display: block;
   font: 400 var(--type-text-md);
-  padding-block: 12px;
-  padding-inline: 16px;
   position: relative;
   width: 100%;
 }
@@ -39,11 +37,17 @@
   --_alert-border: var(--border-info-tertiary);
 }
 
-:host:has(.dismiss) {
+.container {
+  box-sizing: border-box;
+  padding-block: 12px;
+  padding-inline: 16px;
+}
+
+.container:has(.dismiss) {
   padding-inline-end: 28px;
 }
 
-:host .dismiss {
+.container .dismiss {
   min-height: 24px;
   position: absolute;
   right: 4px;
@@ -54,4 +58,24 @@
   color: var(--text-secondary);
   font: 500 var(--type-text-sm);
   margin-block-end: 4px;
+}
+
+.progress {
+  border-end-end-radius: 7px;
+  border-end-start-radius: 7px;
+  overflow: hidden;
+}
+
+/**
+ *  1. Using a linear gradient to effectively get a 4px tall bar that also
+ *      works well with the rounded corners of the container.
+ */
+.progress_bar {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--_alert-border) 50%
+  ); /* 1 */
+  height: 8px;
+  display: block;
 }

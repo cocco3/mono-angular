@@ -5,6 +5,7 @@ import {
   type TemplateRef,
   input,
 } from '@angular/core';
+import { type Milliseconds } from '@cocco3/utils';
 import { UiToastService } from './ToastService';
 import { type UiAlertKind } from '../alert/alert.component';
 
@@ -42,7 +43,7 @@ export class SbToastsDemoComponent {
   >('customToastTemplate');
 
   dismissible = input<boolean>(false);
-  duration = input<number>();
+  duration = input<Milliseconds>();
   heading = input<string>();
   kind = input.required<UiAlertKind>();
 

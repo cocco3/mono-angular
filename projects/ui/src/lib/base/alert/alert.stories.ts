@@ -1,5 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { storybookArgsToTemplate } from '@cocco3/utils';
+import { storybookArgsToTemplate, asMilliseconds } from '@cocco3/utils';
 import { UiAlertComponent, UiAlertKinds } from './alert.component';
 
 type AlertStory = UiAlertComponent & {
@@ -67,5 +67,18 @@ export const Info: Story = {
     kind: 'info',
     heading: 'New feature',
     content: 'Try our updated dashboard with enhanced filtering.',
+  },
+};
+
+/**
+ * Show a progress bar coundtdown for the duration (in ms).
+ * You are still responsible to take some action after the duration ends. It will not auto-dismiss.
+ */
+export const Duration: Story = {
+  args: {
+    kind: 'positive',
+    heading: 'Profile updated',
+    content: 'Your changes have been saved successfully.',
+    duration: asMilliseconds(5000),
   },
 };

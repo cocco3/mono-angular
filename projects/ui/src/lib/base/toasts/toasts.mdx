@@ -34,12 +34,13 @@ If omitted, default settings are applied automatically:
 ```ts
 import { type ApplicationConfig } from '@angular/core';
 import { provideToastConfig } from '@cocco3/angular-ui';
+import { asMilliseconds } from '@cocco3/utils';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideToastConfig({
       dismissible: true,
-      duration: 3000,
+      duration: asMilliseconds(3000),
     }),
   ],
 };
