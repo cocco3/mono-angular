@@ -22,8 +22,8 @@
   <ng-content />
 </div>
 
-@if (progress()) {
+@if (duration()) {
   <div class="progress">
-    <div class="progress_bar" [style.width.%]="progress()"></div>
+    <div class="progress_bar" [style.animation-duration.ms]="duration()"></div>
   </div>
 }

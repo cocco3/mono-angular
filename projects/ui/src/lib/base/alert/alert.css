@@ -78,4 +78,18 @@
   ); /* 1 */
   height: 8px;
   display: block;
+
+  animation-name: countdown;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  transform-origin: left;
+}
+
+@keyframes countdown {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
 }
