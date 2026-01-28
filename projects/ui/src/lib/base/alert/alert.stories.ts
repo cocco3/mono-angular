@@ -11,6 +11,7 @@ const meta: Meta<AlertStory> = {
   tags: ['autodocs'],
   argTypes: {
     dismissClicked: { control: { disable: true } },
+    duration: { control: { type: 'number' } },
     kind: { options: UiAlertKinds, control: { type: 'radio' } },
   },
   args: {
