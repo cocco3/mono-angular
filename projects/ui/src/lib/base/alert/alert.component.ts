@@ -30,11 +30,16 @@ export type UiAlertKind = (typeof UiAlertKinds)[number];
   templateUrl: './alert.html',
 })
 export class UiAlertComponent implements OnInit {
+  /** Show an X to dismiss the alert. */
   dismissible = input<boolean>(false);
+
+  /** An optional title. */
   heading = input<string>();
+
+  /** Color/hierarchy of the alert. */
   kind = input.required<UiAlertKind>();
 
-  // Show a progress bar countdown for the duration (in ms)
+  /** Show a progress bar countdown for the duration (in ms) */
   duration = input<Milliseconds>();
 
   // eslint-disable-next-line @angular-eslint/prefer-output-emitter-ref

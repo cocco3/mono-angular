@@ -6,7 +6,8 @@
   border-radius: 8px;
   box-sizing: border-box;
   color: var(--text-primary);
-  display: block;
+  display: flex;
+  flex-direction: column;
   font: 400 var(--type-text-md);
   position: relative;
   width: 100%;
@@ -37,8 +38,19 @@
   --_alert-border: var(--border-info-tertiary);
 }
 
+:host .dismiss {
+  min-height: 24px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
 .container {
-  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
   padding-block: 12px;
   padding-inline: 16px;
 }
@@ -47,22 +59,23 @@
   padding-inline-end: 28px;
 }
 
-.container .dismiss {
-  min-height: 24px;
-  position: absolute;
-  right: 4px;
-  top: 4px;
-}
-
 .heading {
   color: var(--text-secondary);
   font: 500 var(--type-text-sm);
-  margin-block-end: 4px;
+}
+
+.content {
+  margin-inline-end: -6px;
+  overflow-wrap: anywhere;
+  overflow-y: auto;
+  padding-inline-end: 16px;
+  scrollbar-gutter: stable;
 }
 
 .progress {
   border-end-end-radius: 7px;
   border-end-start-radius: 7px;
+  flex-shrink: 0;
   overflow: hidden;
 }
 

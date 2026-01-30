@@ -19,7 +19,9 @@
     <div class="heading">{{ heading() }}</div>
   }
 
-  <ng-content />
+  <div class="content" tabindex="0">
+    <ng-content />
+  </div>
 </div>
 
 @if (duration()) {

@@ -9,12 +9,11 @@ import { uniqueId } from '@cocco3/utils';
 import { injectIsBrowser } from '../../injectIsBrowser';
 
 /**
- * A lightweight YouTube embed component using the `lite-youtube` web component.
+ * A lightweight YouTube embed component using the
+ * [lite-youtube web component](https://github.com/justinribeiro/lite-youtube?tab=readme-ov-file).
  *
  * Displays a thumbnail that loads the YouTube video on click,
  * reducing page load compared to iframes.
- *
- * @link https://github.com/justinribeiro/lite-youtube?tab=readme-ov-file
  */
 @Component({
   host: {

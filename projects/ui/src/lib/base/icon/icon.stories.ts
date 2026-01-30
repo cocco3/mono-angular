@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { UiIconComponent, UiIconKinds } from './icon.component';
 
+/**
+ * See all icons in the [Icons page](/docs/foundations-icons--docs).
+ */
 const meta: Meta<UiIconComponent> = {
   component: UiIconComponent,
   tags: ['autodocs'],

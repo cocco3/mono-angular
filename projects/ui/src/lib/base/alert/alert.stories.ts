@@ -1,4 +1,8 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import {
+  type Meta,
+  type StoryObj,
+  componentWrapperDecorator,
+} from '@storybook/angular';
 import { storybookArgsToTemplate, asMilliseconds } from '@cocco3/utils';
 import { UiAlertComponent, UiAlertKinds } from './alert.component';
 
@@ -82,4 +86,26 @@ export const Duration: Story = {
     content: 'Your changes have been saved successfully.',
     duration: asMilliseconds(5000),
   },
+};
+
+export const MaxHeight: Story = {
+  decorators: [
+    componentWrapperDecorator(
+      (story) => `<div style="max-width: 360px;">${story}</div>`
+    ),
+  ],
+  args: {
+    kind: 'positive',
+    heading: 'Profile updated',
+    content:
+      'The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.',
+  },
+  render: ({ content, ...args }) => ({
+    props: args,
+    template: `
+      <ui-alert ${storybookArgsToTemplate(args)} [style.max-height.px]="150">
+        ${content}
+      </ui-alert>
+    `,
+  }),
 };
