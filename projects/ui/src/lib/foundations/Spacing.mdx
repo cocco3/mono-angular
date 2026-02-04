@@ -1,0 +1,55 @@
+import { Heading, Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="foundations/Spacing" />
+
+# Spacing
+
+Semantic spacing values for standard and compact themes.
+Components use these variables (e.g., `spacing-md`) which point to primitive values based on the theme.
+
+<div>
+  <div className='sb-unstyled' style={{ display: 'grid', gridTemplateColumns: '150px 1fr 1fr', gap: '16px', alignItems: 'center', color: 'black' }}>
+    <div style={{ fontWeight: 'bold' }}>Semantic</div>
+    <div style={{ fontWeight: 'bold' }}>Standard</div>
+    <div style={{ fontWeight: 'bold' }}>Compact</div>
+
+    {[
+      { name: 'xs', standard: '4px', compact: '2px' },
+      { name: 'sm', standard: '8px', compact: '4px' },
+      { name: 'md', standard: '16px', compact: '8px' },
+      { name: 'lg', standard: '24px', compact: '12px' },
+      { name: 'xl', standard: '32px', compact: '16px' },
+    ].map((item) => (
+      <>
+        <div key={`${item.name}-name`}>spacing-{item.name}</div>
+        <div key={`${item.name}-standard`} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ height: '12px', width: item.standard, backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border-primary)' }} />
+          {item.standard}
+        </div>
+        <div key={`${item.name}-compact`} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ height: '12px', width: item.compact, backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border-primary)' }} />
+          {item.compact}
+        </div>
+      </>
+    ))}
+
+  </div>
+</div>
+
+```css
+.spacing-standard {
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+.spacing-compact {
+  --spacing-xs: 2px;
+  --spacing-sm: 4px;
+  --spacing-md: 8px;
+  --spacing-lg: 12px;
+  --spacing-xl: 16px;
+}
+```
