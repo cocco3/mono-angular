@@ -5,9 +5,7 @@ import { UiSlotDirective, useSlots } from '../../layout/slot/slot.directive';
  * Add `[ui-menuitem]` attribute on any anchor element.
  */
 @Component({
-  host: {
-    role: 'menuitem',
-  },
+  host: { role: 'menuitem' },
   selector: 'a[ui-menuitem]',
   styleUrl: './menuitem.css',
   templateUrl: './menuitem.html',

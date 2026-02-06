@@ -2,8 +2,17 @@
   align-items: center;
   color: var(--text-secondary);
   display: inline-grid;
-  gap: 16px;
   justify-items: center;
+}
+
+:host.dir-row {
+  gap: 1.2ch;
+  grid-auto-flow: column;
+}
+
+:host.dir-column {
+  gap: 1ch;
+  grid-auto-flow: row;
 }
 
 :host.size-xsmall {
