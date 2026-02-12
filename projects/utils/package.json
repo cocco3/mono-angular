@@ -2,11 +2,11 @@
   "name": "utils",
   "version": "0.0.1",
   "peerDependencies": {
-    "@date-fns/tz": "^1.2.0",
-    "@floating-ui/dom": "^1.7.4",
-    "@storybook/angular": "^9.1.4",
+    "@date-fns/tz": "^1.4.1",
+    "@floating-ui/dom": "^1.7.5",
+    "@storybook/angular": "10.2.8",
     "date-fns": "^4.1.0",
-    "prettier": "^3.6.2"
+    "prettier": "^3.8.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"
