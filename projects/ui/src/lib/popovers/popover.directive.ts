@@ -14,7 +14,7 @@ import { UiPopover, type UiPopoverPlacement, uniqueId } from '@cocco3/utils';
   exportAs: 'uiPopover',
   host: {
     popover: 'manual',
-    '[role]': 'role()',
+    '[attr.role]': 'role()',
   },
   selector: '[uiPopover]',
 })
