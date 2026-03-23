@@ -7,7 +7,9 @@ export const ImportPath = () => {
   const componentName = context.componentStories()[0].component?.name;
   const path = `import { ${componentName} } from '${pkg.name}'`;
 
-  return <Source language="typescript" code={path} />;
+  return componentName ? (
+    <Source language="typescript" code={path} />
+  ) : undefined;
 };
 
 export default ImportPath;
