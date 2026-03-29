@@ -49,7 +49,7 @@ export class UiButtonComponent {
   /** for buttons, default the type to 'button' */
   protected attrType = computed(() => {
     const nativeEl = this.el.nativeElement;
-    return nativeEl.tagName === 'BUTTON'
+    return nativeEl.tagName.toLowerCase() === 'button'
       ? nativeEl.getAttribute('type') || 'button'
       : null;
   });

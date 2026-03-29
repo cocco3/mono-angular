@@ -1,0 +1,32 @@
+:host {
+  align-items: flex-start;
+  cursor: pointer;
+  display: flex;
+  list-style: none;
+  user-select: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:focus-within {
+    outline-offset: -2px;
+  }
+
+  .icon {
+    align-items: center;
+    color: rgb(from currentColor r g b / 80%);
+    display: inline-flex;
+    flex-shrink: 0;
+    height: 1lh;
+    justify-content: center;
+    margin-inline-end: 0.2em;
+    transform-origin: center center;
+    transition: transform 0.2s ease;
+    width: 0.9em;
+
+    details[open]:not(.is-closing) & {
+      transform: rotate(90deg);
+    }
+  }
+}

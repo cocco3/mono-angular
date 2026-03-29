@@ -1,0 +1,27 @@
+:host {
+  overflow: hidden;
+
+  &[open] .summary::before {
+    transform: rotate(90deg);
+  }
+}
+
+/**
+ * https://caniuse.com/mdn-css_properties_display_is_transitionable
+ * https://caniuse.com/mdn-css_properties_interpolate-size_allow-keywords
+ */
+@supports (interpolate-size: allow-keywords) {
+  :host {
+    &::details-content {
+      height: 0;
+      transition-behavior: allow-discrete;
+      transition-duration: 200ms;
+      transition-property: content-visibility, height;
+      transition-timing-function: ease-out;
+    }
+
+    &[open]::details-content {
+      height: auto;
+    }
+  }
+}
