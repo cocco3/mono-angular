@@ -5,6 +5,8 @@ export * from './lib/base/alert/alert.component';
 export * from './lib/base/avatar/avatar.component';
 export * from './lib/base/badge/badge.component';
 export * from './lib/base/button/button.component';
+export * from './lib/base/disclosure/disclosure.component';
+export * from './lib/base/disclosure/disclosure-trigger.component';
 export * from './lib/base/empty/empty.component';
 export * from './lib/base/icon/icon.component';
 export * from './lib/base/link/link.component';

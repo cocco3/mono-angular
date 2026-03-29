@@ -1,5 +1,9 @@
 import { Component, computed, inject } from '@angular/core';
-import { UiButtonComponent } from '@cocco3/angular-ui';
+import {
+  UiButtonComponent,
+  UiDisclosureComponent,
+  UiDisclosureTriggerComponent,
+} from '@cocco3/angular-ui';
 import { ItemFilterService } from './filters.service';
 import { DataService } from '../../data/DataService';
 import type { GameId } from '../../data/types';
@@ -9,7 +13,12 @@ import { injectAnalytics } from '../analytics';
 type ValueChangeArgs = { checked: boolean; value: string };
 
 @Component({
-  imports: [FilterItemComponent, UiButtonComponent],
+  imports: [
+    FilterItemComponent,
+    UiButtonComponent,
+    UiDisclosureComponent,
+    UiDisclosureTriggerComponent,
+  ],
   selector: 'app-filters',
   styleUrl: './filters.css',
   templateUrl: './filters.html',
