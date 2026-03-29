@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Components Manifest</title>
+  <style>
+      :root {
+          --bg: #0b0c10;
+          --panel: #121318;
+          --muted: #9aa0a6;
+          --fg: #e8eaed;
+          --ok: #22c55e;
+          --info: #1e88e5;
+          --err: #c62828;
+          --ok-bg: #0c1a13;
+          --info-bg: #0c1624;
+          --err-bg: #1a0e0e;
+          --chip: #1f2330;
+          --border: #2b2f3a;
+          --link: #8ab4f8;
+          --active-ring: 1px; /* 1px active ring for pills and toggles */
+      }
+
+      * {
+          box-sizing: border-box;
+      }
+
+      html,
+      body {
+          margin: 0;
+          background: var(--bg);
+          color: var(--fg);
+          font: 14px/1.5 system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Ubuntu,
+          Cantarell,
+          'Helvetica Neue',
+          Arial,
+          'Noto Sans';
+      }
+
+      .wrap {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 16px 20px;
+      }
+
+      header {
+          position: sticky;
+          top: 0;
+          backdrop-filter: blur(6px);
+          background: color-mix(in srgb, var(--bg) 84%, transparent);
+          border-bottom: 1px solid var(--border);
+          z-index: 10;
+      }
+
+      h1 {
+          font-size: 20px;
+          margin: 0 0 6px;
+      }
+
+      .summary {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          align-items: center;
+      }
+
+      /* Top filter pills */
+      .filter-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 12px;
+          border: 1px solid var(--border);
+          border-radius: 999px;
+          background: var(--panel);
+          text-decoration: none;
+          cursor: pointer;
+          user-select: none;
+          color: var(--fg);
+      }
+
+      .filter-pill.ok {
+          color: #b9f6ca;
+          border-color: color-mix(in srgb, var(--ok) 55%, var(--border));
+          background: color-mix(in srgb, var(--ok) 18%, #000);
+      }
+
+      .filter-pill.info {
+          color: #b3d9ff;
+          border-color: color-mix(in srgb, var(--info) 55%, var(--border));
+          background: var(--info-bg);
+      }
+
+      .filter-pill.err {
+          color: #ff9aa0;
+          border-color: color-mix(in srgb, var(--err) 55%, var(--border));
+          background: var(--err-bg);
+      }
+
+      .filter-pill.all {
+          color: #d7dbe0;
+          border-color: var(--border);
+          background: var(--panel);
+      }
+
+      .filter-pill[aria-disabled='true'] {
+          cursor: default;
+          text-decoration: none;
+      }
+
+      .filter-pill:focus,
+      .filter-pill:active {
+          outline: none;
+          box-shadow: none;
+      }
+
+      /* Selected top pill ring via :target */
+      #filter-all:target ~ header .filter-pill[data-k='all'],
+      #filter-errors:target ~ header .filter-pill[data-k='errors'],
+      #filter-infos:target ~ header .filter-pill[data-k='infos'],
+      #filter-story-errors:target ~ header .filter-pill[data-k='story-errors'],
+      #filter-doc-errors:target ~ header .filter-pill[data-k='docs'],
+      #filter-docs:target ~ header .filter-pill[data-k='docs'] {
+          box-shadow: 0 0 0 var(--active-ring) currentColor;
+          border-color: currentColor;
+      }
+
+      /* Hidden targets for filtering */
+      #filter-all,
+      #filter-errors,
+      #filter-infos,
+      #filter-story-errors,
+      #filter-doc-errors,
+      #filter-docs {
+          display: none;
+      }
+
+      main {
+          padding: 36px 0 40px;
+      }
+
+      .grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 18px;
+      }
+
+      /* one card per row */
+
+      .card {
+          border: 1px solid var(--border);
+          background: var(--panel);
+          border-radius: 14px;
+          padding: 14px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+      }
+
+      .head {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+      }
+
+      .title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+      }
+
+      .title h2 {
+          font-size: 16px;
+          margin: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+
+      .meta {
+          font-size: 12px;
+          color: var(--muted);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+
+      .kv {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+      }
+
+      .chip {
+          font-size: 12px;
+          padding: 4px 8px;
+          border-radius: 999px;
+          background: var(--chip);
+          border: 1px solid var(--border);
+      }
+
+      .hint {
+          color: var(--muted);
+          font-size: 12px;
+      }
+
+      .badges {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+      }
+
+      /* Per-card badges: labels become toggles when clickable */
+      .badge {
+          font-size: 12px;
+          padding: 3px 8px;
+          border-radius: 999px;
+          border: 1px solid var(--border);
+          background: var(--chip);
+          color: #d7dbe0;
+      }
+
+      .badge.ok {
+          color: #b9f6ca;
+          border-color: color-mix(in srgb, var(--ok) 55%, var(--border));
+      }
+
+      .badge.info {
+          color: #b3d9ff;
+          border-color: color-mix(in srgb, var(--info) 55%, var(--border));
+      }
+
+      .badge.err {
+          color: #ff9aa0;
+          border-color: color-mix(in srgb, var(--err) 55%, var(--border));
+      }
+
+      .as-toggle {
+          cursor: pointer;
+      }
+
+      /* 1px ring on active toggle */
+      .tg-err:checked + label.as-toggle,
+      .tg-info:checked + label.as-toggle,
+      .tg-stories:checked + label.as-toggle,
+      .tg-docs:checked + label.as-toggle,
+      .tg-content:checked + label.as-toggle,
+      .tg-props:checked + label.as-toggle {
+          box-shadow: 0 0 0 var(--active-ring) currentColor;
+          border-color: currentColor;
+      }
+
+      /* Panels: hidden by default, shown when respective toggle checked */
+      .panels {
+          display: grid;
+          gap: 10px;
+      }
+
+      .panel {
+          display: none;
+      }
+
+      .tg-err:checked ~ .panels .panel-err {
+          display: grid;
+      }
+
+      .tg-info:checked ~ .panels .panel-info {
+          display: grid;
+          gap: 8px;
+      }
+
+      .tg-stories:checked ~ .panels .panel-stories {
+          display: grid;
+          gap: 8px;
+      }
+
+      .tg-docs:checked ~ .panels .panel-docs {
+          display: grid;
+          gap: 8px;
+      }
+
+      .tg-content:checked ~ .panels .panel-content {
+          display: grid;
+          gap: 8px;
+      }
+
+      .tg-props:checked ~ .panels .panel-props {
+          display: grid;
+      }
+
+      /* Colored notes for prop type error + info */
+      .note {
+          padding: 12px;
+          border: 1px solid var(--border);
+          border-radius: 10px;
+      }
+
+      .note.err {
+          border-color: color-mix(in srgb, var(--err) 55%, var(--border));
+          background: var(--err-bg);
+          color: #ffd1d4;
+      }
+
+      .note.info {
+          border-color: color-mix(in srgb, var(--info) 55%, var(--border));
+          background: var(--info-bg);
+          color: #d6e8ff;
+      }
+
+      .note.ok {
+          border-color: color-mix(in srgb, var(--ok) 55%, var(--border));
+          background: var(--ok-bg);
+          color: var(--fg);
+      }
+
+      .note-title {
+          font-weight: 600;
+          margin-bottom: 6px;
+      }
+
+      .note-body {
+          white-space: normal;
+      }
+
+      /* Story error cards */
+      .ex {
+          padding: 10px;
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          background: #0f131b;
+      }
+
+      .ex.err {
+          border-color: color-mix(in srgb, var(--err) 55%, var(--border));
+      }
+
+      .row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+      }
+
+      .status-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          display: inline-block;
+      }
+
+      .dot-ok {
+          background: var(--ok);
+      }
+
+      .dot-err {
+          background: var(--err);
+      }
+
+      .ex-name {
+          font-weight: 600;
+      }
+
+      /* Error groups (visible in errors filter) */
+      .error-groups {
+          display: none;
+          margin-bottom: 16px;
+      }
+
+      .group {
+          border: 1px solid var(--border);
+          background: var(--panel);
+          border-radius: 14px;
+          overflow: hidden;
+      }
+
+      .group + .group {
+          margin-top: 12px;
+      }
+
+      .group-header {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 14px;
+          cursor: pointer;
+          border-bottom: 1px solid var(--border);
+      }
+
+      .group-header:hover {
+          background: #141722;
+      }
+
+      .group-title {
+          font-weight: 600;
+          flex: 1;
+      }
+
+      .group-count {
+          font-size: 12px;
+          color: var(--muted);
+      }
+
+      .group-cards {
+          display: none;
+          padding: 12px;
+      }
+
+      .group .card {
+          margin: 12px 0;
+      }
+
+      .group .card:first-child {
+          margin-top: 0;
+      }
+
+      .group .card:last-child {
+          margin-bottom: 0;
+      }
+
+      /* caret rotation */
+      .group-tg:checked + label .caret {
+          transform: rotate(90deg);
+      }
+
+      .caret {
+          transition: transform 0.15s ease;
+      }
+
+      /* toggle body */
+      .group-tg:checked ~ .group-cards {
+          display: block;
+      }
+
+      /* CSS-only filtering of cards via top pills */
+      #filter-errors:target ~ main .card:not(.has-error):not(.has-story-error) {
+          display: none;
+      }
+
+      #filter-infos:target ~ main .card:not(.has-info) {
+          display: none;
+      }
+
+      #filter-story-errors:target ~ main .card:not(.has-story-error) {
+          display: none;
+      }
+
+      #filter-doc-errors:target ~ main .card:not(.has-doc-error) {
+          display: none;
+      }
+
+      #filter-docs:target ~ main .card:has(> .tg-docs),
+      #filter-docs:target ~ main .card.is-doc {
+          display: block;
+      }
+
+      #filter-docs:target ~ main .card:not(:has(> .tg-docs)):not(.is-doc) {
+          display: none;
+      }
+
+      #filter-all:target ~ main .card {
+          display: block;
+      }
+
+      /* In errors view, hide standalone component-error cards in the regular grid (they will appear in groups) */
+      #filter-errors:target ~ main .grid .card.has-error {
+          display: none;
+      }
+
+      /* Show grouped section only in errors view */
+      #filter-errors:target ~ main .error-groups {
+          display: block;
+      }
+
+      /* Section titles */
+      .section-title {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--muted);
+          margin: 24px 0 12px;
+          padding-bottom: 8px;
+          border-bottom: 1px solid var(--border);
+      }
+      .section-title:first-child {
+          margin-top: 0;
+      }
+
+      /* When a toggle is checked, show the corresponding panel */
+      .card > .tg-err:checked ~ .panels .panel-err {
+          display: grid;
+      }
+      
+      .card > .tg-info:checked ~ .panels .panel-info {
+          display: grid;
+      }
+      
+      .card > .tg-stories:checked ~ .panels .panel-stories {
+          display: grid;
+      }
+
+      .card > .tg-docs:checked ~ .panels .panel-docs {
+          display: grid;
+      }
+
+      .card > .tg-content:checked ~ .panels .panel-content {
+          display: grid;
+      }
+
+      /* Add vertical spacing around panels only when any panel is visible */
+      .card > .tg-err:checked ~ .panels,
+      .card > .tg-info:checked ~ .panels,
+      .card > .tg-stories:checked ~ .panels,
+      .card > .tg-docs:checked ~ .panels,
+      .card > .tg-content:checked ~ .panels,
+      .card > .tg-props:checked ~ .panels {
+          margin: 10px 0;
+      }
+
+      /* Optional: a subtle 1px ring on the active badge, using :has() if available */
+      @supports selector(.card:has(.tg-err:checked)) {
+          .card:has(.tg-err:checked) label[for$='-err'],
+          .card:has(.tg-info:checked) label[for$='-info'],
+          .card:has(.tg-stories:checked) label[for$='-stories'],
+          .card:has(.tg-docs:checked) label[for$='-docs'],
+          .card:has(.tg-content:checked) label[for$='-content'],
+          .card:has(.tg-props:checked) label[for$='-props'] {
+              box-shadow: 0 0 0 1px currentColor;
+              border-color: currentColor;
+          }
+      }
+
+      /* Wrap long lines in code blocks at ~120 characters */
+      pre, code {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+      pre {
+          white-space: pre-wrap;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+          overflow-x: auto; /* fallback for extremely long tokens */
+          margin: 8px 0 0;
+      }
+      pre > code {
+          display: block;
+          white-space: inherit;
+          overflow-wrap: inherit;
+          word-break: inherit;
+          inline-size: min(100%, 120ch);
+      }
+
+      /* MDX content container for docs */
+      .mdx-content {
+          background: #0f131b;
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          padding: 12px;
+          max-height: 400px;
+          overflow-y: auto;
+          margin-top: 8px;
+      }
+  </style>
+</head>
+<body>
+<!-- Hidden targets for the top-level filters -->
+<span id="filter-all"></span>
+<span id="filter-errors"></span>
+<span id="filter-infos"></span>
+<span id="filter-story-errors"></span>
+<span id="filter-doc-errors"></span>
+<span id="filter-docs"></span>
+<header>
+  <div class="wrap">
+    <h1>Manifest Debugger</h1>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">6 docs ok</a></div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="note info" style="margin-bottom: 16px;">
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.0s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <pre><code>typescript: {
+  reactDocgen: 'react-docgen-typescript',
+}</code></pre>
+            Note: <code>react-docgen-typescript</code> can be slower. If performance is acceptable for your project, it generally produces better results.
+            <a href="https://storybook.js.org/docs/api/main-config/main-config-typescript#reactdocgen" target="_blank">Learn more</a>
+          </div>
+    
+    
+    <h2 class="section-title">Unattached Docs</h2>
+    <div class="grid" role="list">
+      
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> intro/Welcome</h2>
+      <div class="badges">
+        
+        <label for="doc-0-intro-welcome-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./projects/ui/src/lib/intro/Welcome.mdx">intro-welcome--docs · ./projects/ui/src/lib/intro/Welcome.mdx</div>
+    
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-0-intro-welcome-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>import { Meta } from &#39;@storybook/addon-docs/blocks&#39;;
+
+&lt;Meta title=&quot;intro/Welcome&quot; /&gt;
+
+# Welcome
+
+Angular 20 component library built with [Untitled UI](https://www.untitledui.com/).
+
+## Contributing
+
+Read the [contributing guidelines](https://github.com/cocco3/mono-angular?tab=readme-ov-file#contributing).
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> foundations/Colors</h2>
+      <div class="badges">
+        
+        <label for="doc-1-foundations-colors-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./projects/ui/src/lib/foundations/Colors.mdx">foundations-colors--docs · ./projects/ui/src/lib/foundations/Colors.mdx</div>
+    
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-1-foundations-colors-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>import { Heading, Meta } from &#39;@storybook/addon-docs/blocks&#39;;
+import { colorPrimitives } from &#39;../styles&#39;;
+
+&lt;Meta title=&quot;foundations/Colors&quot; /&gt;
+
+# Colors
+
+Foundational colors to be used by different [themes](/docs/foundations-theme--docs).
+These colors are not context-specific, and should not be used directly in components.
+
+All variables are sourced from [Untitled UI](https://www.untitledui.com/components/color-styles).
+
+&lt;div&gt;
+  {Object.values(colorPrimitives).map((item) =&gt; (
+    &lt;div key={item.id} style={{ marginBlock: 40 }}&gt;
+      &lt;Heading&gt;{item.name}&lt;/Heading&gt;
+      &lt;div class=&quot;docs-colorSwatch sb-unstyled&quot;&gt;
+        {Object.entries(item.values).map(([weight, hex]) =&gt; {
+          const variable = `${item.id}-${weight}`;
+          return (
+            &lt;div class=&quot;docs-colorItem&quot; key={variable}&gt;
+              &lt;div class=&quot;color&quot; style={{ backgroundColor: hex }} /&gt;
+              &lt;div class=&quot;info&quot;&gt;
+                &lt;div class=&quot;variable&quot;&gt;{variable}&lt;/div&gt;
+                &lt;div class=&quot;hex&quot;&gt;{hex}&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          );
+        })}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  ))}
+&lt;/div&gt;
+
+&lt;style&gt;
+  {`
+    .docs-colorSwatch {
+      color-scheme: light;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      row-gap: 12px;
+    }
+
+    .docs-colorItem {
+      background-color: var(--bg-primary);
+      font: var(--type-text-xs);
+      overflow: hidden;
+    }
+
+    .docs-colorItem .color {
+      height: 40px;
+    }
+
+    .docs-colorItem .info {
+      padding-block: 4px;
+      padding-inline: 8px;
+    }
+
+    .docs-colorItem .variable {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .docs-colorItem .hex {
+      color: var(--text-tertiary);
+      font-size: 11px;
+      font-weight: 400;
+    }
+  `}
+&lt;/style&gt;
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> foundations/Theme</h2>
+      <div class="badges">
+        
+        <label for="doc-2-foundations-theme-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./projects/ui/src/lib/foundations/Theme.mdx">foundations-theme--docs · ./projects/ui/src/lib/foundations/Theme.mdx</div>
+    
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-2-foundations-theme-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>import { Heading, Meta, Title } from &#39;@storybook/addon-docs/blocks&#39;;
+import { defaultTheme, colorNameLookup, colorDictionary } from &#39;../styles&#39;;
+
+&lt;Meta title=&quot;foundations/Theme&quot; /&gt;
+
+# Theme
+
+Color variables that are defined based on their intended use or meaning. They
+provide context and convey information, such as status, state, or action.
+
+All variables are sourced from [Untitled UI](https://www.untitledui.com/components/color-styles).
+
+Themes support a light mode and dark mode. The color scheme will match your system settings by default, or can be manually applied by setting the `color-scheme` property.
+
+- For **light-mode**, apply the `color-scheme: light` property
+- For **dark-mode**, apply the `color-scheme: dark` property
+
+&lt;div&gt;
+  {Object.entries(defaultTheme.colors).map(([groupKey, group]) =&gt; (
+    &lt;div key={groupKey} style={{ marginBlock: 40 }}&gt;
+      &lt;Heading&gt;{colorDictionary[groupKey].name}&lt;/Heading&gt;
+
+      &lt;div class=&quot;list sb-unstyled&quot;&gt;
+        {Object.entries(group.values).map(([weight, hex]) =&gt; {
+          const variableName = `${group.id}-${weight}`
+          const cssVariable=`var(--${variableName})`
+          const lightSchemeValue = hex[0]
+          const darkSchemeValue = hex[1]
+
+          return (
+            &lt;div class=&quot;row&quot;&gt;
+              &lt;div class=&quot;variableName&quot;&gt;
+                {variableName}
+              &lt;/div&gt;
+
+              &lt;div class=&quot;colorChip&quot;&gt;
+                &lt;div class=&quot;color&quot;
+                  style={{ backgroundColor: cssVariable}} /&gt;
+                &lt;div&gt;
+                  &lt;div class=&quot;variable&quot;&gt;{colorNameLookup(lightSchemeValue)}&lt;/div&gt;
+                  &lt;div class=&quot;hex&quot;&gt;{lightSchemeValue}&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;colorChip colorChip-dark&quot;&gt;
+                &lt;div class=&quot;color&quot;
+                  style={{ backgroundColor: cssVariable}} /&gt;
+                &lt;div&gt;
+                  &lt;div class=&quot;variable&quot;&gt;{colorNameLookup(darkSchemeValue)}&lt;/div&gt;
+                  &lt;div class=&quot;hex&quot;&gt;{darkSchemeValue}&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          );
+        })}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+))}
+
+&lt;/div&gt;
+
+## Usage
+
+```css
+.someClass {
+  --_border-color: var(--border-primary);
+  border: 1px solid var(--_border-color);
+}
+.someClass.error {
+  --_border-color: var(--border-error);
+}
+.someClass.warning {
+  --_border-color: var(--border-warning);
+}
+.someClass.dark {
+  /* apply the dark color scheme */
+  color-scheme: dark;
+}
+
+/* you can also create global helper classes for dark/light modes */
+.light-mode {
+  color-scheme: light;
+}
+.dark-mode {
+  color-scheme: dark;
+}
+```
+
+&lt;style&gt;
+  {`
+    .list {
+      color-scheme: light;
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      align-items: center;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .variableName {
+      color: var(--text-primary);
+      font: 500 var(--type-text-md);
+    }
+
+    .colorChip {
+      align-items: center;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-secondary);
+      border-radius: 12px;
+      color: var(--text-primary);
+      display: flex;
+      font: var(--type-text-xs);
+      gap: 6px;
+      padding-block: 4px;
+      padding-inline: 4px 12px;
+    }
+
+    .colorChip-dark {
+      color-scheme: dark;
+    }
+
+    .colorChip .color {
+      aspect-ratio: 1 / 1;
+      background-clip: content-box;
+      border: 1px solid var(--border-secondary);
+      border-radius: 8px;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      padding-block: 4px;
+      padding-inline: 4px;
+      width: 40px;
+    }
+
+    .colorChip .variable {
+      color: var(--text-primary);
+      font: 500 var(--type-text-sm);
+    }
+
+    .colorChip .hex {
+      color: var(--text-tertiary);
+      font: 400 var(--type-text-xs);
+    }
+  `}
+&lt;/style&gt;
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> foundations/Typography</h2>
+      <div class="badges">
+        
+        <label for="doc-3-foundations-typography-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./projects/ui/src/lib/foundations/Typography.mdx">foundations-typography--docs · ./projects/ui/src/lib/foundations/Typography.mdx</div>
+    
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-3-foundations-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>import { Heading, Meta, Subheading } from &#39;@storybook/addon-docs/blocks&#39;;
+import { typographyDictionary, defaultTheme } from &#39;../styles&#39;;
+
+&lt;Meta title=&quot;foundations/Typography&quot; /&gt;
+
+# Typography
+
+Font is [Inter](https://fonts.google.com/specimen/Inter) and variables sourced from [Untitled UI](https://www.untitledui.com/components/typography-styles).
+
+&lt;div&gt;
+  {Object.entries(defaultTheme.typography).map(([groupKey, group]) =&gt; (
+    &lt;div key={groupKey} style={{ marginBlock: 40 }}&gt;
+      &lt;Heading&gt;{typographyDictionary[groupKey].name}&lt;/Heading&gt;
+
+      &lt;p&gt;
+        {typographyDictionary[groupKey].description}
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;code&gt;font-family: {group.family}&lt;/code&gt;
+      &lt;/p&gt;
+
+      &lt;div class=&quot;list sb-unstyled&quot;&gt;
+        {Object.entries(group.values).map(([variantKey, variant]) =&gt; {
+          const variable = `type-${group.id}-${variantKey}`
+
+          return (
+            &lt;div class=&quot;row&quot; key={variable}&gt;
+              &lt;div class=&quot;variableName&quot;&gt;
+                {variable}
+              &lt;/div&gt;
+
+              &lt;div&gt;
+                {`${variant.size} / ${variant.lineHeight}`}
+              &lt;/div&gt;
+
+              &lt;div style={{ font: `var(--${variable})` }}&gt;
+                {`Hello world`}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          )
+        })}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+))}
+
+&lt;/div&gt;
+
+&lt;style&gt;
+  {`
+    .list {
+      color-scheme: light;
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      align-items: center;
+      color: var(--text-primary);
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr 2fr;
+    }
+
+    .variableName {
+      font: 500 var(--type-text-md);
+    }
+  `}
+&lt;/style&gt;
+
+## Usage
+
+Use the CSS `font` property and combine the weight with the variable:
+
+```css
+/* bold and large */
+font: 700 var(--type-display-lg);
+
+/* regular and small */
+font: 400 var(--type-text-sm);
+```
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> foundations/Icons</h2>
+      <div class="badges">
+        
+        <label for="doc-4-foundations-icons-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./projects/ui/src/lib/foundations/Icons.mdx">foundations-icons--docs · ./projects/ui/src/lib/foundations/Icons.mdx</div>
+    
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-4-foundations-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>import { Meta } from &#39;@storybook/addon-docs/blocks&#39;;
+import { svgIconStore } from &#39;../icons&#39;;
+
+&lt;Meta title=&quot;foundations/Icons&quot; /&gt;
+
+# Icons
+
+Icons sourced from [Untitled UI](https://www.untitledui.com/free-icons).
+
+Use the [Icon component](/docs/base-icon--docs) to render these icons in your application.
+
+&lt;div class=&quot;sb-iconGrid&quot;&gt;
+  {Object.entries(svgIconStore).map(([key, value]) =&gt; (
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;div class=&quot;icon&quot; dangerouslySetInnerHTML={{ __html: value }} /&gt;
+      {key}
+    &lt;/div&gt;
+  ))}
+&lt;/div&gt;
+
+&lt;style&gt;
+  {`
+    .sb-iconGrid {
+      color-scheme: light;
+      columns: 3;
+    }
+
+    .sb-iconGrid .item {
+      align-items: center;
+      color: var(--text-primary);
+      display: flex;
+      gap: 8px;
+      padding-block: 12px;
+      padding-inline: 12px;
+    }
+
+    .sb-iconGrid .icon {
+      display: flex;
+      height: 24px;
+    }
+  `}
+&lt;/style&gt;
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> layout/slot</h2>
+      <div class="badges">
+        
+        <label for="doc-5-layout-slot-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./projects/ui/src/lib/layout/slot/slot.mdx">layout-slot--docs · ./projects/ui/src/lib/layout/slot/slot.mdx</div>
+    
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-5-layout-slot-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>import { Meta } from &#39;@storybook/addon-docs/blocks&#39;;
+
+&lt;Meta title=&quot;layout/slot&quot; docsOnly /&gt;
+
+# UiSlotDirective
+
+Use this directive with optional [content placeholders](https://angular.dev/guide/components/content-projection#multiple-content-placeholders).
+
+## Example
+
+### app-child-component.ts
+
+In this example, the child component template has 2 optional content placeholders called `start` and `end` that should be wrapped in a div only if the content has been provided.
+
+In the child component, get all the `UiSlotDirective` content children, and check if they are available with the `useSlots` function.
+
+```ts
+import { Component, contentChildren, input } from &#39;@angular/core&#39;;
+import { UiSlotDirective, useSlots } from &#39;@cocco3/angular-ui&#39;;
+
+@Component({
+  selector: &#39;app-child-component&#39;,
+  template: `
+    @if (hasSlots().start) {
+      &lt;div class=&quot;icon&quot;&gt;
+        &lt;ng-content select=&quot;[uiSlot=&#39;start&#39;]&quot; /&gt;
+      &lt;/div&gt;
+    }
+
+    @if (!!label()) {
+      &lt;div class=&quot;label&quot;&gt;
+        {{ label() }}
+      &lt;/div&gt;
+    }
+
+    @if (hasSlots().end) {
+      &lt;div class=&quot;icon&quot;&gt;
+        &lt;ng-content select=&quot;[uiSlot=&#39;end&#39;]&quot; /&gt;
+      &lt;/div&gt;
+    }
+  `,
+})
+export class AppChildComponent {
+  label = input&lt;string&gt;();
+
+  private slots = contentChildren(UiSlotDirective);
+  protected hasSlots = useSlots(this.slots, [&#39;start&#39;, &#39;end&#39;]);
+}
+```
+
+### app-parent-component.ts
+
+In the parent component, add the `uiSlot` attribute on the appropriate elements.
+
+```ts
+@Component({
+  imports: [UiSlotDirective, AppChildComponent],
+  selector: &#39;app-parent-component&#39;,
+  template: `
+    &lt;app-child-component label=&quot;My label&quot;&gt;
+      &lt;span uiSlot=&quot;start&quot;&gt;Leading slot&lt;/span&gt;
+      &lt;span uiSlot=&quot;end&quot;&gt;Trailing slot&lt;/span&gt;
+    &lt;/app-child-component&gt;
+  `,
+})
+export class ParentComponent {}
+```
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+    </div>
+    
+  </div>
+</main>
+</body>
+</html>  
