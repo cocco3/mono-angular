@@ -42,11 +42,6 @@ const getSvgoConfig = (options: OptimizeOptions) => {
     plugins: [
       {
         name: 'preset-default',
-        params: {
-          overrides: {
-            removeViewBox: false,
-          },
-        },
       },
       {
         name: 'convertShapeToPath',

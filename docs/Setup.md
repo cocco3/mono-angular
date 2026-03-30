@@ -1,6 +1,6 @@
 # Local environment setup
 
-1. Use the designated version of node devine in [.nvmrc](/.nvmrc)
+1. Use the designated version of node defined in [.nvmrc](/.nvmrc)
    - Use a tool like [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm)
 
    ```shell
