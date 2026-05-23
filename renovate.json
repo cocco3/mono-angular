@@ -7,11 +7,13 @@
     "packages:linters",
     "replacements:all",
     "workarounds:all",
-    "schedule:monthly"
+    "schedule:weekly"
   ],
   "minimumReleaseAge": "7 days",
   "prCreation": "not-pending",
   "internalChecksFilter": "strict",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 15,
   "separateMajorMinor": true,
   "commitBody": "[skip netlify]",
   "packageRules": [
