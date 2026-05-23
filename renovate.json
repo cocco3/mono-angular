@@ -9,6 +9,9 @@
     "workarounds:all",
     "schedule:monthly"
   ],
+  "minimumReleaseAge": "7 days",
+  "prCreation": "not-pending",
+  "internalChecksFilter": "strict",
   "separateMajorMinor": true,
   "commitBody": "[skip netlify]",
   "packageRules": [
