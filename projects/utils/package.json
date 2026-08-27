@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@date-fns/tz": "^1.4.1",
     "@floating-ui/dom": "^1.7.5",
-    "@storybook/angular": "10.2.8",
+    "@storybook/angular": "10.5.10",
     "date-fns": "^4.1.0",
     "prettier": "^3.8.1"
   },
